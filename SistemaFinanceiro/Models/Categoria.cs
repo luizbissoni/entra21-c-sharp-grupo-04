@@ -16,5 +16,10 @@ namespace SistemaFinanceiro.Models
         public double Saude { get; set; }
         public double Impostos_taxas { get; set; }
         public double  Roupas_Acessorios { get; set; }
+        public double Veiculo { get; set; }
+        public double Criancas { get; set; }
+        public double Moveis { get; set; }
+        public double Educacao { get; set; }
+
     }
 }
