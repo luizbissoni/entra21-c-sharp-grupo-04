@@ -14,8 +14,8 @@ namespace SistemaFinanceiro.Models
         public double Alimentacao { get; set; }
         public double Moradia { get; set; }
         public double Saude { get; set; }
-        public double Impostos_taxas { get; set; }
-        public double  Roupas_Acessorios { get; set; }
+        public double Impostostaxas { get; set; }
+        public double  RoupasAcessorios { get; set; }
         public double Veiculo { get; set; }
         public double Criancas { get; set; }
         public double Moveis { get; set; }
