@@ -80,12 +80,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataBase\Database.mdf" />
+    <Content Include="DataBase\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FinanceiroController.cs" />
+    <Compile Include="DataBase\DBconnection.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

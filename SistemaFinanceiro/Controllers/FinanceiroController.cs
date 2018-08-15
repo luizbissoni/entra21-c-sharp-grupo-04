@@ -13,5 +13,30 @@ namespace SistemaFinanceiro.Controllers
         {
             return View();
         }
+
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        public ActionResult Store()
+        {
+            return View();
+        }
+
+        public ActionResult Excluir()
+        {
+            return View();
+        }
+
+        public ActionResult Editar()
+        {
+            return View();
+        }
+
+        public ActionResult Update()
+        {
+            return View();
+        }
     }
 }
