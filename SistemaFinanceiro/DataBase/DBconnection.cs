@@ -11,10 +11,10 @@ namespace SistemaFinanceiro.DataBase
     {
         private static string connectionString;
         
-        static BDconnetion()
-        {
-            connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        }
+        //static BDconnetion()
+        //{
+        //    connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+        //}
 
         public SqlCommand GetConnction()
         {
