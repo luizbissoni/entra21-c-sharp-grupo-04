@@ -5502,6 +5502,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
+    <Folder Include="Repository\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
