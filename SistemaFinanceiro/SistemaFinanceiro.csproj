@@ -5478,6 +5478,7 @@
     <Compile Include="Models\Pessoas.cs" />
     <Compile Include="Models\Recebimento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositório\LoginRepository.cs" />
     <Compile Include="Repositório\RepositorioFinanceiro.cs" />
   </ItemGroup>
   <ItemGroup>
