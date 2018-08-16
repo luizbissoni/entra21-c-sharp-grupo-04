@@ -5477,17 +5477,19 @@
     <Compile Include="Models\Pessoas.cs" />
     <Compile Include="Models\Recebimento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositório\RepositorioFinanceiroAlterar.cs" />
-    <Compile Include="Repositório\RepositorioFinanceiroCadastrar.cs" />
-    <Compile Include="Repositório\RepositorioFinanceiroExcluir.cs" />
-    <Compile Include="Repositório\RepositorioFinanceiroObterPeloID.cs" />
-    <Compile Include="Repositório\RepositorioFinanceiroObterTodos.cs" />
+    <Compile Include="Repositório\RepositorioGastos.cs" />
+    <Compile Include="Repositório\RepositorioCartoes.cs" />
+    <Compile Include="Repositório\RepositorioCategoria.cs" />
+    <Compile Include="Repositório\RepositorioLogin.cs" />
+    <Compile Include="Repositório\RepositorioPessoas.cs" />
+    <Compile Include="Repositório\RepositorioRecebimento.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Financeiro\LoginAntigo.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -5496,8 +5498,6 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Financeiro\Login.cshtml" />
-    <Content Include="Views\Financeiro\Editar.cshtml" />
-    <Content Include="Views\Financeiro\Cadastro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
