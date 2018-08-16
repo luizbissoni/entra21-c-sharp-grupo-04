@@ -9,7 +9,7 @@ using System.Web;
 
 namespace SistemaFinanceiro.Repositório
 {
-    public class RepositorioFinanceiro
+    public class RepositorioFinanceiroObterTodos
     {
 
         public List<Cartoes> ObterTodosCartoes()
@@ -176,5 +176,6 @@ namespace SistemaFinanceiro.Repositório
             }
             return recebimentos;
         }
+
     }
 }
