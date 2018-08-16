@@ -273,7 +273,7 @@
                                 </li>*@
                         </ul>
                         <ul class="nav-right">
-                            <li class="header-notification lng-dropdown">
+                            @*<li class="header-notification lng-dropdown">
                                 <a href="#" id="dropdown-active-item">
                                     <img src="~/assets/images/flags/ENGLISH.jpg" alt=""> English
                                 </a>
@@ -299,7 +299,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li>*@
                             <li class="header-notification">
                                 <a href="#!">
                                     <i class="ti-bell"></i>
@@ -343,10 +343,10 @@
                                 </ul>
                             </li>
                             <li class="header-notification">
-                                <a href="#!" class="displayChatbox">
+                                @*<a href="#!" class="displayChatbox">
                                     <i class="ti-comments"></i>
                                     <span class="badge bg-c-green"></span>
-                                </a>
+                                </a>*@
                             </li>
                             <li class="user-profile header-notification">
                                 <a href="#!">
@@ -433,7 +433,7 @@
             </nav>
 
             <!-- Sidebar chat start -->
-            <div id="sidebar" class="users p-chat-user showChat">
+            @*<div id="sidebar" class="users p-chat-user showChat">
                 <div class="had-container">
                     <div class="card card_main p-fixed users-main">
                         <div class="user-box">
@@ -495,9 +495,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <!-- Sidebar inner chat start-->
-            <div class="showChat_inner">
+            @*<div class="showChat_inner">
                 <div class="media chat-inner-header">
                     <a class="back_chatBox">
                         <i class="icofont icofont-rounded-left"></i> Josephin Doe
@@ -535,7 +535,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
             <!-- Sidebar inner chat end-->
             @*<div class="pcoded-main-container">*@
             @* <div class="pcoded-wrapper">*@
@@ -595,8 +595,8 @@
                             </div>*@
         </div>
     </div>
-    </div>
-    <div>
+    @*</div>*@
+    <div class="container body-content">
 
         @RenderBody()
     </div>
