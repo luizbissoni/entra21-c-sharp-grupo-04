@@ -74,7 +74,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Gastos> gastos = new List<Gastos>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_gastos, valor_dos_gastos, data_de_entrada, data_de_vencimento, descricaoFROM gastos";
+            comando.CommandText = "SELECT id, id_gastos, valor_dos_gastos, data_de_entrada, data_de_vencimento, descricao FROM gastos";
 
 
             DataTable tabela = new DataTable();
@@ -90,12 +90,91 @@ namespace SistemaFinanceiro.Repositório
                     Data_De_Vencimento = Convert.ToDateTime(linha[4].ToString()),
                     Descricao = linha[5].ToString()
 
-                    
-
                 };
                 gastos.Add(gasto);
             }
             return gastos;
+        }
+
+
+        public List<Login> ObterTodosGastos()
+        {
+            List<Login> logins = new List<Login>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT id, usuario, senha, email FROM login";
+
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                Login login = new Login()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Usuario = linha[1].ToString(),
+                    Senha = linha[2].ToString(),
+                    Email = linha[3].ToString(),
+
+
+                };
+                logins.Add(login);
+            }
+            return logins;
+        }
+
+        public List<Pessoas> ObterTodosPessoas()
+        {
+            List<Pessoas> pessoas = new List<Pessoas>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT id, id_pessoas, nome, idade, sexo, cpf, data_nascimento, telefone FROM pessoas";
+
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                Pessoas pessoa = new Pessoas()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Id_pessoas = Convert.ToInt32(linha[1].ToString()),
+                    Nome = linha[2].ToString(),
+                    Idade = Convert.ToInt32(linha[3].ToString()),
+                    Sexo = Convert.ToBoolean(linha[4].ToString()),
+                    CPF = Convert.ToInt32(linha[5].ToString()),
+                    Data_nascimento = Convert.ToDateTime(linha[6].ToString()),
+                    Telefone = Convert.ToInt32(linha[7].ToString())
+
+
+                };
+                pessoas.Add(pessoa);
+            }
+            return pessoas;
+        }
+
+        public List<Recebimento> ObterTodosRecebimento()
+        {
+            List<Recebimento> recebimentos = new List<Recebimento>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT id, id_recebimento, valor_recebido, data_recebimento, descricao FROM recebimento";
+
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                Recebimento recebimento = new Recebimento()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Id_recebimento = Convert.ToInt32(linha[1].ToString()),
+                    Valor_recebido = Convert.ToInt16(linha[2].ToString()),
+                    data_recebimento = Convert.ToDateTime(linha[3].ToString()),
+                    Descricao = linha[4].ToString()
+
+
+                };
+                recebimentos.Add(recebimento);
+            }
+            return recebimentos;
         }
     }
 }
