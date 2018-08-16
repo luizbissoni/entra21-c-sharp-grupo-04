@@ -9,12 +9,12 @@ namespace SistemaFinanceiro.Controllers
 {
     public class FinanceiroController : Controller
     {
-      //  UserBussinessLogic userLog = new UserBussinessLogic();
+     
 
         // GET: Financeiro
         public ActionResult Index()
         {
-           
+            return View();
         }
 
         public ActionResult Cadastro()
@@ -48,18 +48,8 @@ namespace SistemaFinanceiro.Controllers
 
         public ActionResult ValidarLogin(Login user)
         {
-            if (ModelState.IsValid)
-            {
-                if (userLog.CheckUserLogin(user)>0)
-                {
-                    return View("Index");
-                }
-                else
-                {
-                    return View("Login");
-                }
-            }
-            return View("Login");
+          
+            return View();
         }
         public ActionResult CreatLogin()
         {
