@@ -10,7 +10,7 @@ namespace SistemaFinanceiro.Repositório
 {
     public class RepositorioFinanceiroAlterar
     {
-        public bool Alterar(Cartoes cartao)
+        public bool AlterarCartoes(Cartoes cartao)
         {
         SqlCommand comando = new DBconnection().GetConnction();
         comando.CommandText = "INSERT INTO cartoes (id_cartoes, numero_cartao, numero_conta, numero_seguranca, data_vencimento, bandeira, banco)OUTPUT INSERTED.ID VALUES (@ID_CARTOES, @NUMERO_CARTAO, @NUMERO_CONTA, @NUMERO_SEGURANCA, @DATA_VENCIMENTO, @BANDEIRA, @BANCO)";
@@ -22,6 +22,22 @@ namespace SistemaFinanceiro.Repositório
         comando.Parameters.AddWithValue("@BANDEIRA", cartao.Bandeira);
         comando.Parameters.AddWithValue("@BANCO", cartao.Banco);
         return comando.ExecuteNonQuery() == 1;
+        }
+
+        public bool AlterarCategorias(Categoria categoria)
+        {
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "INSERT INTO categorias (id_categoria, salario, contas, alimentacao, emprestimo, moradia, saude, impostos_taxas, roupas_acessorios, veiculo)OUTPUT INSERTED.ID VALUES (@ID_CATEGORIA, @SALARIO, @CONTAS, @ALIMENTACAO, @EMPRESTIMO, @MORADIA, @SAUDE, @IMPOSTOS_TAXAS, @ROUPAS_ACESSORIOS, VEICULO)";
+            comando.Parameters.AddWithValue("@ID_CATEGORIA", categoria.Id_Categoria);
+            comando.Parameters.AddWithValue("@SALARIO", categoria.Salario);
+            comando.Parameters.AddWithValue("@CONTAS", categoria.Contas);
+            comando.Parameters.AddWithValue("@ALIMENTACAO", categoria.Alimentacao);
+            comando.Parameters.AddWithValue("@EMPRESTIMO", categoria.Emprestimo);
+            comando.Parameters.AddWithValue("@MORADIA",);
+            comando.Parameters.AddWithValue("@SAUDE",);
+            comando.Parameters.AddWithValue("@IMPOSTOS_TAXAS",);
+            comando.Parameters.AddWithValue("@ROUPAS_ACESSORIOS",);
+            comando.Parameters.AddWithValue("@VEICULO",);
         }
     }
 }
