@@ -26,6 +26,7 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
             comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.Data_nascimento);
             comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
+
             return id;
         }
 
