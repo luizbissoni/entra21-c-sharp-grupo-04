@@ -12,6 +12,7 @@ namespace SistemaFinanceiro.Models
         public double Salario { get; set; }
         public double Contas { get; set; }
         public double Alimentacao { get; set; }
+        public double Decimal { get; set; }
         public double Moradia { get; set; }
         public double Saude { get; set; }
         public double Impostostaxas { get; set; }
