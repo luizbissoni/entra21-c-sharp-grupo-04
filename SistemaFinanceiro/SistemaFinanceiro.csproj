@@ -5506,6 +5506,12 @@
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Principal\Principal.csproj">
+      <Project>{043434ba-d4e9-49e3-9aaa-02cf1164a4e8}</Project>
+      <Name>Principal</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
