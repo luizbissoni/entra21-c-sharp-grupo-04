@@ -5473,10 +5473,12 @@
     </Compile>
     <Compile Include="Models\Cartoes.cs" />
     <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Gastos.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Pessoas.cs" />
     <Compile Include="Models\Recebimento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\LoginRepository.cs" />
+    <Compile Include="Repositório\RepositorioFinanceiro.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
