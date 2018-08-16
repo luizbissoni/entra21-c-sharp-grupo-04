@@ -9,12 +9,12 @@ namespace SistemaFinanceiro.Controllers
 {
     public class FinanceiroController : Controller
     {
-        UserBussinessLogic userLog = new UserBussinessLogic();
+      //  UserBussinessLogic userLog = new UserBussinessLogic();
 
         // GET: Financeiro
         public ActionResult Index()
         {
-            return View();
+           
         }
 
         public ActionResult Cadastro()

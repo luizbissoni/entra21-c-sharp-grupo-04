@@ -7,6 +7,6 @@ namespace SistemaFinanceiro.Repositório
 {
     public class RepositorioFinanceiroObterPeloID
     {
-
+        
     }
 }
