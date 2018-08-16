@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SistemaFinanceiro.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace SistemaFinanceiro.Controllers
 {
     public class FinanceiroController : Controller
     {
+        UserBussinessLogic userLog = new UserBussinessLogic();
+
         // GET: Financeiro
         public ActionResult Index()
         {
@@ -38,8 +41,27 @@ namespace SistemaFinanceiro.Controllers
         {
             return View();
         }
-
         public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult ValidarLogin(Login user)
+        {
+            if (ModelState.IsValid)
+            {
+                if (userLog.CheckUserLogin(user)>0)
+                {
+                    return View("Index");
+                }
+                else
+                {
+                    return View("Login");
+                }
+            }
+            return View("Login");
+        }
+        public ActionResult CreatLogin()
         {
             return View();
         }

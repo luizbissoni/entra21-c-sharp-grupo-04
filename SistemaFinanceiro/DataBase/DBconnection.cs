@@ -24,5 +24,6 @@ namespace SistemaFinanceiro.DataBase
             command.Connection = connection;
             return command;
         }
+       
     }
 }
