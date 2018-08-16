@@ -80,6 +80,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database.mdf" />
+    <Content Include="App_Data\Database_log.ldf">
+      <DependentUpon>Database.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\ionicons.css" />
@@ -5141,10 +5145,6 @@
     <Content Include="Content\bower_components\underscore\js\underscore-min.js" />
     <Content Include="Content\bower_components\underscore\js\underscore.js" />
     <Content Include="Content\Site.css" />
-    <Content Include="DataBase\Database.mdf" />
-    <Content Include="DataBase\Database_log.ldf">
-      <DependentUpon>Database.mdf</DependentUpon>
-    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -5467,7 +5467,6 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\FinanceiroController.cs" />
-    <Compile Include="DataBase\DBconnection.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5507,14 +5506,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Principal\Principal.csproj">
+    <ProjectReference Include="..\Principal\Model.csproj">
       <Project>{043434ba-d4e9-49e3-9aaa-02cf1164a4e8}</Project>
-      <Name>Principal</Name>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
