@@ -84,6 +84,18 @@ descricao) OUTPUT INSERTED.ID VALUES
 
             return gastos;
         }
+        public bool AlterarGastos(Gastos gastos)
+        {
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "INSERT INTO gastos (id_gastos, valor_dos_gastos, data_de_entrada, data_de_vencimento, descricao)OUTPUT INSERTED.ID VALUES (@ID_GASTOS, @VALOR_DOS_GASTOS, @DATA_DE_ENTRADA, @DATA_DE_VENCIMENTO, @DESCRICAO)";
+            comando.Parameters.AddWithValue("@ID_CATEGORIA", gastos.Id_Gastos);
+            comando.Parameters.AddWithValue("@VALOR_DOS_GASTOS", gastos.Valor_Dos_Gastos);
+            comando.Parameters.AddWithValue("@DATA_DE_ENTRADA", gastos.Data_De_Entrada);
+            comando.Parameters.AddWithValue("@DATA_DE_VENCIMENTO", gastos.Data_De_Vencimento);
+            comando.Parameters.AddWithValue("@DESCRICAO", gastos.Descricao);
+
+            return comando.ExecuteNonQuery() == 1;
+        }
 
 
 

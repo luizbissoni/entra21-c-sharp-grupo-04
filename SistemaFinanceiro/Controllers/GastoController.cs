@@ -1,4 +1,5 @@
 ﻿using SistemaFinanceiro.Models;
+using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,24 +24,31 @@ namespace SistemaFinanceiro.Controllers
             ViewBag.Gastos = new Gastos();
             return View();
         }
-          public ActionResult Store()
+          public ActionResult Store(Gastos gastos)
         {
+            int identificador = new RepositorioGastos().CadastrarGastos(gastos);
+            return RedirectToAction("Editar", new { id = identificador });
             return View();
         }
 
-        public ActionResult Excluir()
+        public ActionResult Excluir(int id)
         {
+            bool apagado = new RepositorioGastos().ExcluirGastos(id);
+            return null;
+           
+        }
+
+        public ActionResult Editar(int id)
+        {
+            Gastos gastos = new RepositorioGastos().ObterPeloIdGastos(id);
+            ViewBag.Gastos = gastos;
             return View();
         }
 
-        public ActionResult Editar()
+        public ActionResult Update(Gastos gastos)
         {
-            return View();
-        }
-
-        public ActionResult Update()
-        {
-            return View();
+            bool alterado = new RepositorioGastos().AlterarGastos(gastos);
+            return null;
         }
         public ActionResult Login()
         {
