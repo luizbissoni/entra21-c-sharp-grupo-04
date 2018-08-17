@@ -24,24 +24,30 @@ namespace SistemaFinanceiro.Controllers
             ViewBag.Categoria = new Categoria();
             return View();
         }
-          public ActionResult Store()
+          public ActionResult Store(Categoria categoria)
         {
+            int identificador = new RepositorioCategoria().CadastrarCategoria(categoria);
+            return RedirectToAction("Editar", new { id = identificador });
             return View();
         }
 
-        public ActionResult Excluir()
+        public ActionResult Excluir(int id)
         {
+            bool apagado = new RepositorioCategoria().ExcluirCategoria(id);
+            return null;
+        }
+
+        public ActionResult Editar(int id)
+        {
+            Categoria categoria = new RepositorioCategoria().ObterPeloIdCategoria(id);
+            ViewBag.Categoria = categoria;
             return View();
         }
 
-        public ActionResult Editar()
+        public ActionResult Update(Categoria categoria)
         {
-            return View();
-        }
-
-        public ActionResult Update()
-        {
-            return View();
+            bool alterado = new RepositorioCategoria().AlterarCategorias(categoria);
+            return null;
         }
         public ActionResult Login()
         {

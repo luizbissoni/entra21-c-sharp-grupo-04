@@ -10,8 +10,8 @@ namespace SistemaFinanceiro.Controllers
 {
     public class CartaoController : Controller
     {
-     
-       
+
+
         // GET: Financeiro
         [HttpGet]
         public ActionResult Index()
@@ -22,32 +22,45 @@ namespace SistemaFinanceiro.Controllers
             return View();
 
         }
-
+        [HttpGet]
         public ActionResult Cadastro()
         {
             ViewBag.TituloPagina = "Cartões - Cadastro";
             ViewBag.Cartao = new Cartoes();
             return View();
         }
-
-        public ActionResult Store()
+        [HttpPost]
+        public ActionResult Store(Cartoes cartao)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                int identificador = new RepositorioCartoes().CadastrarCartao(cartao);
+                return RedirectToAction("Editar", new { id = identificador });
+            }
+            ViewBag.cartao = cartao;
+            return View("Cadastro");
         }
-
-        public ActionResult Excluir()
+        [HttpGet]
+        public ActionResult Excluir(int id)
         {
-            return View();
+            bool apagado = new RepositorioCartoes().ExcluirCartoes(id);
+            ViewBag.TituloPagina = "Cartões - Apagar";
+            return null;
         }
-
-        public ActionResult Editar()
+        [HttpGet]
+        public ActionResult Editar(int id)
         {
-            return View();
+            Cartoes cartao = new RepositorioCartoes().ObterPeloIdCartoes(id);
+           ViewBag.Cartao = cartao;
+           ViewBag.TituloPagina = "Cartões - Editar";
+           return View();
+
         }
-
-        public ActionResult Update()
+        [HttpPost]
+        public ActionResult Update(Cartoes cartao)
         {
-            return View();
+            bool alterado = new RepositorioCartoes().AlterarCartoes(cartao);
+            return null;
         }
         public ActionResult Login()
         {
@@ -56,7 +69,7 @@ namespace SistemaFinanceiro.Controllers
 
         public ActionResult ValidarLogin(Login user)
         {
-          
+
             return View();
         }
         public ActionResult CreatLogin()
