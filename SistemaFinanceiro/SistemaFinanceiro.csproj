@@ -5467,27 +5467,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CartaoController.cs" />
-    <Compile Include="Controllers\CategoriaController.cs" />
-    <Compile Include="Controllers\GastoController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Controllers\PessoasController.cs" />
-    <Compile Include="Controllers\RecebimentoController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Cartoes.cs" />
-    <Compile Include="Models\Categoria.cs" />
-    <Compile Include="Models\Gastos.cs" />
-    <Compile Include="Models\Login.cs" />
-    <Compile Include="Models\Pessoas.cs" />
-    <Compile Include="Models\Recebimento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositório\RepositorioGastos.cs" />
-    <Compile Include="Repositório\RepositorioCartoes.cs" />
-    <Compile Include="Repositório\RepositorioCategoria.cs" />
-    <Compile Include="Repositório\RepositorioLogin.cs" />
-    <Compile Include="Repositório\RepositorioPessoas.cs" />
-    <Compile Include="Repositório\RepositorioRecebimento.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -5515,15 +5499,15 @@
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\Gasto\" />
-    <Folder Include="Views\Login\" />
-    <Folder Include="Views\Pessoas\" />
-    <Folder Include="Views\Recebimento\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Principal\Model.csproj">
       <Project>{043434ba-d4e9-49e3-9aaa-02cf1164a4e8}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository\Repository.csproj">
+      <Project>{b02d9eb5-7193-468e-9a84-fbf6686a68fe}</Project>
+      <Name>Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
