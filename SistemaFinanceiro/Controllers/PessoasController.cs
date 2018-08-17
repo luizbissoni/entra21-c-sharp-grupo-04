@@ -7,29 +7,24 @@ using System.Web.Mvc;
 
 namespace SistemaFinanceiro.Controllers
 {
-    public class CartaoController : Controller
+    public class PessoasController : Controller
     {
-     
-       
-        // GET: Financeiro
-        [HttpGet]
+        // GET: Pessoas
         public ActionResult Index()
         {
-            List<Cartoes> cartoes = new Cartoes().ObterTodosCartoes();
-            ViewBag.Cartoes = cartoes;
-            ViewBag.TituloPagina = "Cartões";
+            List<Pessoas> pessoas = new Pessoas().ObterTodosPessoas();
+            ViewBag.Pessoas = pessoas;
+            ViewBag.TituloPagina = "Pessoas";
             return View();
-
         }
-
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Cartões - Cadastro";
-            ViewBag.Cartao = new Cartoes();
+            ViewBag.TituloPagina = "Pessoas - Cadastro";
+            ViewBag.Pessoas = new Pessoas();
             return View();
         }
 
-        public ActionResult Store()
+          public ActionResult Store()
         {
             return View();
         }
@@ -49,16 +44,6 @@ namespace SistemaFinanceiro.Controllers
             return View();
         }
         public ActionResult Login()
-        {
-            return View();
-        }
-
-        public ActionResult ValidarLogin(Login user)
-        {
-          
-            return View();
-        }
-        public ActionResult CreatLogin()
         {
             return View();
         }

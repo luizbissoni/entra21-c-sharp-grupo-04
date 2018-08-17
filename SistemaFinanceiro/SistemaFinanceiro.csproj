@@ -5467,7 +5467,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CartaoController.cs" />
-    <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\GastoController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PessoasController.cs" />
+    <Compile Include="Controllers\RecebimentoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5511,6 +5515,10 @@
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Views\Default\" />
+    <Folder Include="Views\Gasto\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="Views\Pessoas\" />
+    <Folder Include="Views\Recebimento\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Principal\Model.csproj">
