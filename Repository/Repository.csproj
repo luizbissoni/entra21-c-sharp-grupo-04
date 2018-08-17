@@ -57,6 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataBase\DBconnection.cs" />
+    <Compile Include="Models\Cartoes.cs" />
+    <Compile Include="Models\Categoria.cs" />
+    <Compile Include="Models\Gastos.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Pessoas.cs" />
+    <Compile Include="Models\Recebimento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
