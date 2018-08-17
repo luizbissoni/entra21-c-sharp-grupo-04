@@ -87,7 +87,7 @@ descricao) OUTPUT INSERTED.ID VALUES
         public bool AlterarGastos(Gastos gastos)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "INSERT INTO gastos (id_gastos, valor_dos_gastos, data_de_entrada, data_de_vencimento, descricao)OUTPUT INSERTED.ID VALUES (@ID_GASTOS, @VALOR_DOS_GASTOS, @DATA_DE_ENTRADA, @DATA_DE_VENCIMENTO, @DESCRICAO)";
+            comando.CommandText = "UPDATE categoria SET valor_dos_gastos = @VALOR_DOS_GASTOS, data_de_entrada = @DATA_DE_ENTRADA, data_de_vencimento = @DATA_DE_VENCIMENTO, descricao = @DESCRICAO WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID_CATEGORIA", gastos.Id_Gastos);
             comando.Parameters.AddWithValue("@VALOR_DOS_GASTOS", gastos.Valor_Dos_Gastos);
             comando.Parameters.AddWithValue("@DATA_DE_ENTRADA", gastos.Data_De_Entrada);
