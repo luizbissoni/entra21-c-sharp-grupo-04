@@ -1,4 +1,5 @@
 ﻿using SistemaFinanceiro.Models;
+using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace SistemaFinanceiro.Controllers
     public class PessoasController : Controller
     {
         // GET: Pessoas
+        [HttpGet]
         public ActionResult Index()
         {
             List<Pessoas> pessoas = new Pessoas().ObterTodosPessoas();
@@ -17,6 +19,8 @@ namespace SistemaFinanceiro.Controllers
             ViewBag.TituloPagina = "Pessoas";
             return View();
         }
+
+        [HttpGet]
         public ActionResult Cadastro()
         {
             ViewBag.TituloPagina = "Pessoas - Cadastro";
@@ -24,24 +28,37 @@ namespace SistemaFinanceiro.Controllers
             return View();
         }
 
-          public ActionResult Store()
+        [HttpPost]
+        public ActionResult Store()
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                int identificador = new RepositorioPessoas().Cadastrar(pessoas);
+                return RedirectToAction("Editar", new { id = identificador } )
+            }
+            ViewBag.Pessoas = pessoas;
+            return View("Index");
         }
 
+        [HttpGet]
         public ActionResult Excluir()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult Editar()
         {
+            Pessoas pessoas = new RepositorioPessoas().ObterPeloIdPessoas(id);
+            ViewBag.Pessoas = pessoas;
             return View();
         }
 
+        [HttpPost]
         public ActionResult Update()
         {
-            return View();
+            bool alterado = new RepositorioPessoas().AlterarPessoas(recebimento);
+            return null;
         }
         public ActionResult Login()
         {
