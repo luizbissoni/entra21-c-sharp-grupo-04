@@ -14,7 +14,7 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            List<Recebimento> recebimentos = new RepositorioRecebimento().ObterTodosRecebimentos();
+            List<Recebimento> recebimentos = new RepositorioRecebimento().ObterTodosRecebimento();
             ViewBag.Recebimentos = recebimentos;
             ViewBag.TituloPagina = "Recebimentos";
             return View();
