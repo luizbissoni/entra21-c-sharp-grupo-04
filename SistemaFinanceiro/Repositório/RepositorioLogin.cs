@@ -57,5 +57,27 @@ VALUES (@USUARIO, @SENHA, @EMAIL)";
             }
             return logins;
         }
+
+        public Login ObterPeloIdLogin(int id)
+        {
+            Login login = null;
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT usuario, senha, email FROM login WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                login = new Login();
+                login.Id = id;
+                login.Usuario = tabela.Rows[0][0].ToString();
+                login.Senha = tabela.Rows[0][1].ToString();
+                login.Email = tabela.Rows[0][2].ToString();
+                
+            }
+
+
+            return login;
+        }
     }
 }
