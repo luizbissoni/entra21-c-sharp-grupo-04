@@ -62,6 +62,29 @@ descricao) OUTPUT INSERTED.ID VALUES
             return gastos;
         }
 
+        public Gastos ObterPeloIdGastos(int id)
+        {
+            Gastos gastos = null;
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT valor_dos_gastos, data_de_entrada, data_de_nascimento, descricao FROM gastos WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                gastos = new Gastos();
+                gastos.Id = id;
+                gastos.Valor_Dos_Gastos = Convert.ToDouble(tabela.Rows[0][0].ToString());
+                gastos.Data_De_Entrada = Convert.ToDateTime(tabela.Rows[0][1].ToString());
+                gastos.Data_De_Vencimento = Convert.ToDateTime(tabela.Rows[0][2].ToString());
+                gastos.Descricao = tabela.Rows[0][3].ToString();
+
+            }
+
+
+            return gastos;
+        }
+
 
 
     }

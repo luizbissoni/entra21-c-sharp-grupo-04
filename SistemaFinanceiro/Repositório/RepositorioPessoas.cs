@@ -68,5 +68,30 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
             return pessoas;
         }
 
+        public Pessoas ObterPeloIdPessoas(int id)
+        {
+            Pessoas pessoas = null;
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT nome, idade, sexo, cpf, data_nascimento, telefone FROM pessoas WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                pessoas = new Pessoas();
+                pessoas.Id = id;
+                pessoas.Nome = tabela.Rows[0][0].ToString();
+                pessoas.Idade = Convert.ToInt32(tabela.Rows[0][1].ToString());
+                pessoas.Sexo = Convert.ToBoolean(tabela.Rows[0][2].ToString());
+                pessoas.CPF = Convert.ToInt32(tabela.Rows[0][3].ToString());
+                pessoas.Data_nascimento = Convert.ToDateTime(tabela.Rows[0][4].ToString());
+                pessoas.Telefone = Convert.ToInt32(tabela.Rows[0][5].ToString());
+
+            }
+
+
+            return pessoas;
+        }
+
     }
 }

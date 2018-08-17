@@ -64,5 +64,26 @@ namespace SistemaFinanceiro.Repositório
             return categorias;
         }
 
+        public Categoria ObterPeloIdCategoria(int id)
+        {
+            Categoria categoria = null;
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT nome FROM categoria WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                categoria = new Categoria();
+                categoria.Id = id;
+                categoria.Nome = tabela.Rows[0][0].ToString();
+               
+
+            }
+
+
+            return categoria;
+        }
+
     }
 }

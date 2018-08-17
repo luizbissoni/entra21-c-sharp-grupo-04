@@ -58,5 +58,28 @@ namespace SistemaFinanceiro.Repositório
             }
             return recebimentos;
         }
+
+        public Recebimento ObterPeloIdRecebimento(int id)
+        {
+            Recebimento recebimento = null;
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT valor_recebido, data_recebimento, descricao FROM recebimento WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                recebimento = new Recebimento();
+                recebimento.Id = id;
+                
+                recebimento.Valor_recebido = Convert.ToDecimal(tabela.Rows[0][0].ToString());
+                recebimento.data_recebimento = Convert.ToDateTime(tabela.Rows[0][1].ToString());
+                recebimento.Descricao = tabela.Rows[0][2].ToString();
+                
+            }
+
+
+            return recebimento;
+        }
     }
 }
