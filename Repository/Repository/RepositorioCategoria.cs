@@ -26,7 +26,7 @@ namespace SistemaFinanceiro.Repositório
         public bool AlterarCategorias(Categoria categoria)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "INSERT INTO categorias (id_categoria, nome)OUTPUT INSERTED.ID VALUES (@ID_CATEGORIA, @NOME)";
+            comando.CommandText = "UPDATE categoria SET nome = @NOME WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID_CATEGORIA", categoria.Id_Categoria);
             comando.Parameters.AddWithValue("@NOME", categoria.Nome);
 

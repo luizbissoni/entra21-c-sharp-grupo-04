@@ -81,5 +81,18 @@ namespace SistemaFinanceiro.Repositório
 
             return recebimento;
         }
+
+        public bool AlterarRecebimento(Recebimento recebimento)
+        {
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "UPDATE categoria SET valor_recebido = @VALOR_RECEBIDO, data_recebimento = @DATA_RECEBIMENTO, descricao = @DESCRICAO WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID_CATEGORIA", recebimento.Id_recebimento);
+            comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
+            comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);
+            
+            comando.Parameters.AddWithValue("@DESCRICAO", recebimento.Descricao);
+
+            return comando.ExecuteNonQuery() == 1;
+        }
     }
 }
