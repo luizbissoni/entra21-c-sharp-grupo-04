@@ -1,4 +1,5 @@
 ﻿using SistemaFinanceiro.Models;
+using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            List<Cartoes> cartoes = new Cartoes().ObterTodosCartoes();
+            List<Cartoes> cartoes = new RepositorioCartoes().ObterTodosCartoes();
             ViewBag.Cartoes = cartoes;
             ViewBag.TituloPagina = "Cartões";
             return View();

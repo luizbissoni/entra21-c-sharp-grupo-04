@@ -53,13 +53,12 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
                 Pessoas pessoa = new Pessoas()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    Id_pessoas = Convert.ToInt32(linha[1].ToString()),
-                    Nome = linha[2].ToString(),
-                    Idade = Convert.ToInt32(linha[3].ToString()),
-                    Sexo = Convert.ToBoolean(linha[4].ToString()),
-                    CPF = Convert.ToInt32(linha[5].ToString()),
-                    Data_nascimento = Convert.ToDateTime(linha[6].ToString()),
-                    Telefone = Convert.ToInt32(linha[7].ToString())
+                    Nome = linha[1].ToString(),
+                    Idade = Convert.ToInt32(linha[2].ToString()),
+                    Sexo = Convert.ToBoolean(linha[3].ToString()),
+                    CPF = Convert.ToInt32(linha[4].ToString()),
+                    Data_nascimento = Convert.ToDateTime(linha[5].ToString()),
+                    Telefone = Convert.ToInt32(linha[6].ToString())
 
 
                 };
