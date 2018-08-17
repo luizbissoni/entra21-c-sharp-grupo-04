@@ -5466,7 +5466,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\FinanceiroController.cs" />
+    <Compile Include="Controllers\CartaoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5498,6 +5498,7 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
     <Content Include="Views\Financeiro\Login.cshtml" />
+    <Content Include="Views\Cartao\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5517,6 +5518,10 @@
     <ProjectReference Include="..\Repository\Repository.csproj">
       <Project>{b02d9eb5-7193-468e-9a84-fbf6686a68fe}</Project>
       <Name>Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebApplication1\WebApplication1\WebApplication1.csproj">
+      <Project>{e298dad3-0c3c-4c67-9862-5f66f02a9589}</Project>
+      <Name>WebApplication1</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
