@@ -81,5 +81,18 @@ namespace SistemaFinanceiro.Repositório
 
             return recebimento;
         }
+
+        public bool AlterarRecebimento(Recebimento recebimento)
+        {
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "INSERT INTO gastos (id_recebimento, valor_recebido, data_recebimento, descricao)OUTPUT INSERTED.ID VALUES (@ID_GASTOS, @VALOR_RECEBIDO, @DATA_RECEBIMENTO, @DESCRICAO)";
+            comando.Parameters.AddWithValue("@ID_CATEGORIA", recebimento.Id_recebimento);
+            comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
+            comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);
+            
+            comando.Parameters.AddWithValue("@DESCRICAO", recebimento.Descricao);
+
+            return comando.ExecuteNonQuery() == 1;
+        }
     }
 }

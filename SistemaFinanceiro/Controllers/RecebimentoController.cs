@@ -14,7 +14,7 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            List<Recebimento> recebimentos = new Recebimento().ObterTodosRecebimentos();
+            List<Recebimento> recebimentos = new RepositorioRecebimento().ObterTodosRecebimentos();
             ViewBag.Recebimentos = recebimentos;
             ViewBag.TituloPagina = "Recebimentos";
             return View();
@@ -29,19 +29,18 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-          public ActionResult Store()
+        public ActionResult Store(Recebimento recebimento)
         {
-            if (ModelState.IsValid)
-            {
-                int identificador = new RepositorioRecebimento().CadastrarRecebimento();
-                return RedirectToAction("Index", new { id = identificador });
-            }
+
+            int identificador = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
+            return RedirectToAction("Index", new { id = identificador });
+
             ViewBag.Recebimento = recebimento;
             return View("Index");
         }
 
         [HttpGet]
-        public ActionResult Excluir()
+        public ActionResult Excluir(int id)
         {
             bool apagado = new RepositorioRecebimento().ExcluirRecebimento(id);
             return View();
@@ -56,9 +55,11 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update()
+        public ActionResult Update(Recebimento recebimento)
         {
-            return View();
+            bool alterado = new RepositorioRecebimento().AlterarRecebimento(recebimento);
+            return null;
+            
         }
 
 
