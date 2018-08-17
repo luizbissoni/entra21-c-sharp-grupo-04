@@ -5467,6 +5467,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CartaoController.cs" />
+    <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -5509,19 +5510,12 @@
   <ItemGroup>
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
+    <Folder Include="Views\Default\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Principal\Model.csproj">
       <Project>{043434ba-d4e9-49e3-9aaa-02cf1164a4e8}</Project>
       <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Repository\Repository.csproj">
-      <Project>{b02d9eb5-7193-468e-9a84-fbf6686a68fe}</Project>
-      <Name>Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\WebApplication1\WebApplication1\WebApplication1.csproj">
-      <Project>{e298dad3-0c3c-4c67-9862-5f66f02a9589}</Project>
-      <Name>WebApplication1</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
