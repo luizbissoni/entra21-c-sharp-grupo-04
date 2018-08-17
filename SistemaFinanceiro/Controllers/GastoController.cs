@@ -11,40 +11,43 @@ namespace SistemaFinanceiro.Controllers
     public class GastoController : Controller
     {
         // GET: Gasto
+        [HttpGet]
         public ActionResult Index()
         {
-            List<Gastos> gastos = new Gastos().ObterTodosGastos();
+            List<Gastos> gastos = new RepositorioGastos().ObterTodosGastos();
             ViewBag.Gastos = gastos;
             ViewBag.TituloPagina = "Gastos";
             return View();
         }
+        [HttpGet]
         public ActionResult Cadastro()
         {
             ViewBag.TituloPagina = "Gastos - Cadastro";
             ViewBag.Gastos = new Gastos();
             return View();
         }
+        [HttpPost]
           public ActionResult Store(Gastos gastos)
         {
             int identificador = new RepositorioGastos().CadastrarGastos(gastos);
             return RedirectToAction("Editar", new { id = identificador });
             return View();
         }
-
+        [HttpGet]
         public ActionResult Excluir(int id)
         {
             bool apagado = new RepositorioGastos().ExcluirGastos(id);
             return null;
            
         }
-
+        [HttpGet]
         public ActionResult Editar(int id)
         {
             Gastos gastos = new RepositorioGastos().ObterPeloIdGastos(id);
             ViewBag.Gastos = gastos;
             return View();
         }
-
+        [HttpPost]
         public ActionResult Update(Gastos gastos)
         {
             bool alterado = new RepositorioGastos().AlterarGastos(gastos);
