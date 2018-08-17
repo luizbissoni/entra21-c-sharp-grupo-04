@@ -5467,6 +5467,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CartaoController.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\GastoController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PessoasController.cs" />
+    <Compile Include="Controllers\RecebimentoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

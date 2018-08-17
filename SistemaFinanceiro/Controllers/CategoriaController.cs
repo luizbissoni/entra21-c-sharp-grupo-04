@@ -1,4 +1,5 @@
 ﻿using SistemaFinanceiro.Models;
+using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace SistemaFinanceiro.Controllers
         // GET: Default
         public ActionResult Index()
         {
-            List<Categoria> categorias = new Categoria().ObterTodosCategoria();
+            List<Categoria> categorias = new RepositorioCategoria().ObterTodosCategoria();
             ViewBag.Categorias = categorias;
             ViewBag.TituloPagina = "Categorias";
             return View();
