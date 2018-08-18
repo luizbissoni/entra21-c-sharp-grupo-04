@@ -1,4 +1,5 @@
 ﻿using SistemaFinanceiro.Models;
+using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace SistemaFinanceiro.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            List<Login> logins = new Login().ObterTodosLogins();
+            List<Login> logins = new RepositorioLogin().ObterTodosLogin();
             ViewBag.Logins = logins;
             ViewBag.TituloPagina = "Login";
             return View();

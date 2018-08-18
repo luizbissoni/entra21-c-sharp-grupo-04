@@ -5482,16 +5482,14 @@
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Financeiro\LoginAntigo.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Views\Shared\Master.cshtml" />
-    <Content Include="Views\Financeiro\Index.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="Views\Financeiro\Login.cshtml" />
-    <Content Include="Views\Cartao\Editar.cshtml" />
+    <Content Include="Views\Pessoas\Cadastro.cshtml" />
+    <Content Include="Views\Pessoas\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
