@@ -37,7 +37,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Login> logins = new List<Login>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, usuario, senha, email FROM login";
+            comando.CommandText = "SELECT id,id_login, usuario, senha, email FROM login";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -62,7 +62,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Login login = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT , login.usuario, login.senha, login.email FROM login  WHERE id = @ID";
+            comando.CommandText = "SELECT , usuario, senha, email FROM login  WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
