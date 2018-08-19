@@ -1,49 +1,73 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Cadastro";
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-    <div>
+<div>
 
-        <form action="/Pessoas/Store" method="post">
+    <form action="/Pessoas/Store" method="post">
+        <div class="page-body">
 
-            <div class="form-group" id="div-campo-nome">
-                <label for="campo-nome">Nome<span class="text-danger font-wight-bold">*</span></label>
-                <input type="text" class="form-control" name="Pessoas.Nome" id="campo-nome" required value="@ViewBag.Pessoas.Nome" />
+            <div class="form-group">
+                <label for="campo-nome">Nome</label>
+                <input type="text" class="form-control" name="Pessoas.Nome" id="campo-nome"  value="@ViewBag.Pessoas.Nome" />
             </div>
-            <div class="form-group" id="dropper-default">
+            <div class="form-group">
                 <label>Data Nascimento</label>
-                <input type="text" class="form-control" name="Pessoas.Data_nascimento" id="dropper-default" required value="@ViewBag.Pessoas.Data_nascimento" />
+                <input type="date" class="form-control" name="Pessoas.Data_nascimento" id="dropper-default"  value="@ViewBag.Pessoas.Data_nascimento" />
             </div>
+
             <div class="row">
                 <div class="col-md-4">
-                    <div class="form-group" id="div-campo-nota1">
-                        <label for="campo-nota1">Nota 1<span class="text-danger font-wight-bold">*</span></label>
-                        <input type="text" class="form-control" name="" id="" />
+                    <div class="form-group">
+                        <label>CPF</label>
+                        <input type="text" class="form-control" name="Pessoas.CPF" value="@ViewBag.Pessoas.CPF" />
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="form-group" id="div-campo-nota2">
-                        <label for="campo-nota2">Nota 2<span class="text-danger font-wight-bold">*</span></label>
-                        <input type="text" class="form-control" name="" id="campo-nota2" required value="" />
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="form-group" id="div-campo-nota3">
-                        <label for="campo-nota3">Nota 3<span class="text-danger font-wight-bold">*</span></label>
-                        <input type="text" class="form-control" name="" id="campo-nota3" required value="" />
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="text" class="form-control" name="Pessoas.Telefone" value="@ViewBag.Pessoas.Telefone" />
                     </div>
                 </div>
             </div>
 
+            <div class="col-sm-12 col-md-6 col-xl-4 m-b-30">
+                <h4>Sexo</h4>
+                <div class="form-radio">
+                    <div class="form-group">
+
+                        <div>
+                            <div class="radio radio-inline">
+                                <label>
+                                    Masculino
+                                    <input type="radio" class="form-control" name="Pessoas.Sexo" value="@ViewBag.Pessoas.Sexo" checked="checked" />
+                                    <i class="helper"></i>
+                                </label>
+                            </div>
+                            <div class="radio radio-inline">
+                                <label>
+                                    Feminino
+                                    <input type="radio" class="form-control" name="Pessoas.Sexo" value="@ViewBag.Pessoas.Sexo " checked="checked" />
+                                    <i class="helper"></i>
+                                </label>
+                            </div>
 
 
-            <div class="form-group" id="div-campo-frequencia">
-                <label for="campo-frequencia">Frequencia</label>
-                <input type="text" class="form-control" name="Aluno.Frequencia" id="campo-frequencia" required value="" />
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <button type="submit" class="btn btn-success" onclick=""><i class="fa fa-save"></i>Salvar</button>
-        </form>
-    </div>
+
+            <div class="form-group">
+                <label>Frequencia</label>
+                <input type="number" class="form-control" name="Pessoas.Idade" value="@ViewBag.Pessoas.Idade" />
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success" onclick=""><i class="fa fa-save"></i>Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -34,16 +34,17 @@ namespace SistemaFinanceiro.Controllers
             if (ModelState.IsValid)
             {
                 int identificador = new RepositorioPessoas().CadastrarPessoas(pessoas);
-                return RedirectToAction("Editar", new { id = identificador });
+                return RedirectToAction("Index", new { id = identificador });
             }
             ViewBag.Pessoas = pessoas;
-            return View("Index");
+            return View("Cadastro");
         }
 
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            return View();
+            bool apagado = new SistemaFinanceiro.Repositório.RepositorioPessoas().ExcluirPessoas(id);
+            return null;
         }
 
         [HttpGet]

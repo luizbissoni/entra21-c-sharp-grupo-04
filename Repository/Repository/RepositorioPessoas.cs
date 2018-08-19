@@ -16,7 +16,7 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO categoria (nome,idade,sexo,
+            comando.CommandText = @"INSERT INTO pessoas (nome,idade,sexo,
 cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES 
 (@NOME,@IDADE,@SEXO,@CPF,@DATA_NASCIMENTO,@TELEFONE)";
             comando.Parameters.AddWithValue("@NOME", pessoas.Nome);
@@ -33,7 +33,7 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
         public bool ExcluirPessoas(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM cartoes WHERE pessoas id = @ID";
+            comando.CommandText = "DELETE FROM pessoas WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }
@@ -43,7 +43,7 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
         {
             List<Pessoas> pessoas = new List<Pessoas>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_pessoas, nome, idade, sexo, cpf, data_nascimento, telefone, FROM pessoas";
+            comando.CommandText = "SELECT id, nome, idade, sexo, cpf, data_nascimento, telefone FROM pessoas";
 
 
             DataTable tabela = new DataTable();
