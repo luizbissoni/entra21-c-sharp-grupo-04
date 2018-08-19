@@ -37,7 +37,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Login> logins = new List<Login>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id,id_login, usuario, senha, email FROM login";
+            comando.CommandText = "SELECT id, id_login, usuario, senha, email FROM login";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -62,7 +62,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Login login = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT , usuario, senha, email FROM login  WHERE id = @ID";
+            comando.CommandText = "SELECT usuario, senha, email FROM login  WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -89,6 +89,26 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@EMAIL", login.Email);
            
             return comando.ExecuteNonQuery() == 1;
+        }
+
+        public Login ValidarLogin(string usuario, string senha)
+        {
+            Login login = null;
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT usuario, senha FROM login  WHERE usuario = @USUARIO AND senha = @SENHA";
+            comando.Parameters.AddWithValue("@USUARIO",usuario);
+            comando.Parameters.AddWithValue("@SENHA", senha);
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                login = new Login();
+                login.Usuario = tabela.Rows[0][0].ToString();
+                login.Senha = tabela.Rows[0][1].ToString();
+
+            }
+            return login;
         }
     }
 }

@@ -64,6 +64,23 @@ namespace SistemaFinanceiro.Controllers
             bool alterado = new RepositorioLogin().AlterarLogin(login);
             return null;
         }
+
+        public ActionResult ValidarLogin(string usuario, string senha)
+        {
+            Login userLogin = new RepositorioLogin().ValidarLogin(usuario,senha);
+
+            if (userLogin.Usuario == usuario && userLogin.Senha == senha)
+            {
+                return RedirectToAction("Index", "PessoasController", "Index");
+            }
+
+            return RedirectToAction("Login");
+        }
+        public ActionResult Login()
+        {
+            ViewBag.Logins = new Login();
+            return View();
+        }
       
     }
 }
