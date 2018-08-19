@@ -15,8 +15,8 @@ namespace SistemaFinanceiro.Repositório
         public int CadastrarLogin(Login login)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO login (usuario, senha, email) OUTPUT INSERTED.ID
-VALUES (@USUARIO, @SENHA, @EMAIL)";
+            comando.CommandText = "INSERT INTO login (id_login,usuario, senha, email) OUTPUT INSERTED.ID VALUES (@ID_LOGIN, @USUARIO, @SENHA, @EMAIL)";
+            comando.Parameters.AddWithValue("@ID_LOGIN", login.Id_Login);
             comando.Parameters.AddWithValue("@USUARIO", login.Usuario);
             comando.Parameters.AddWithValue("@SENHA", login.Senha);
             comando.Parameters.AddWithValue("@EMAIL", login.Email);
@@ -28,7 +28,7 @@ VALUES (@USUARIO, @SENHA, @EMAIL)";
         public bool ExcluirLogin(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM cartoes WHERE login id = @ID";
+            comando.CommandText = "DELETE FROM login WHERE login id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }
@@ -62,7 +62,7 @@ VALUES (@USUARIO, @SENHA, @EMAIL)";
         {
             Login login = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT usuario, senha, email FROM login WHERE id = @ID";
+            comando.CommandText = "SELECT pessoas.nome, login.usuario, login.senha, login.email FROM login JOIN pessoas ON(pessoas.id = login.id_login) WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -78,6 +78,16 @@ VALUES (@USUARIO, @SENHA, @EMAIL)";
 
 
             return login;
+        }
+        public bool AlterarLogin(Login login)
+        {
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "UPDATE login SET usuario = @USUARIO, senha = @SENHA, email = @EMAIL";
+            comando.Parameters.AddWithValue("@USUARIO", login.Usuario);
+            comando.Parameters.AddWithValue("@SENHA", login.Senha);
+            comando.Parameters.AddWithValue("@EMAIL", login.Email);
+           
+            return comando.ExecuteNonQuery() == 1;
         }
     }
 }

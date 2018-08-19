@@ -61,9 +61,6 @@ namespace SistemaFinanceiro.Controllers
             bool alterado = new RepositorioPessoas().AlterarPessoas(pessoa);
             return null;
         }
-        public ActionResult Login()
-        {
-            return View();
-        }
+       
     }
 }
