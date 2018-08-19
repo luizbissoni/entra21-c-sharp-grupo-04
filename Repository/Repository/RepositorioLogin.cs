@@ -39,7 +39,6 @@ namespace SistemaFinanceiro.Repositório
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "SELECT id, usuario, senha, email FROM login";
 
-
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -47,9 +46,10 @@ namespace SistemaFinanceiro.Repositório
                 Login login = new Login()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    Usuario = linha[1].ToString(),
-                    Senha = linha[2].ToString(),
-                    Email = linha[3].ToString(),
+                    Id_Login = Convert.ToInt32(linha[1].ToString()),
+                    Usuario = linha[2].ToString(),
+                    Senha = linha[3].ToString(),
+                    Email = linha[4].ToString(),
 
 
                 };
@@ -62,7 +62,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Login login = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT pessoas.nome, login.usuario, login.senha, login.email FROM login JOIN pessoas ON(pessoas.id = login.id_login) WHERE id = @ID";
+            comando.CommandText = "SELECT , login.usuario, login.senha, login.email FROM login  WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -79,6 +79,7 @@ namespace SistemaFinanceiro.Repositório
 
             return login;
         }
+
         public bool AlterarLogin(Login login)
         {
             SqlCommand comando = new DBconnection().GetConnction();
