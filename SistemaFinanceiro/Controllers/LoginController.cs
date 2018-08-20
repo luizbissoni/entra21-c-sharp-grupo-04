@@ -78,7 +78,9 @@ namespace SistemaFinanceiro.Controllers
         }
         public ActionResult Login()
         {
-            ViewBag.Logins = new Login();
+            List<Login> logins = new RepositorioLogin().ObterTodosLogin();
+            ViewBag.Logins = logins;
+           
             return View();
         }
       
