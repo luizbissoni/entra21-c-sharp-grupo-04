@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SistemaFinanceiro.Models.Cartoes>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_cartoes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero_cartao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero_conta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Numero_seguranca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_vencimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bandeira)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Banco)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id_cartoes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero_cartao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero_conta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Numero_seguranca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data_vencimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bandeira)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Banco)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
