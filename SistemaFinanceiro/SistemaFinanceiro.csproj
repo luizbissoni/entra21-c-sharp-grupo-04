@@ -5508,8 +5508,11 @@
     <Content Include="Views\Recebimento\Cadastro.cshtml" />
     <Content Include="Views\Recebimento\Editar.cshtml" />
     <Content Include="Views\Gasto\Index.cshtml" />
-    <Content Include="Views\Gasto\Cadastro.cshtml" />
     <Content Include="Views\Gasto\Editar.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\Cadastro.cshtml" />
+    <Content Include="Views\Gasto\Cadastro.cshtml" />
+    <Content Include="Views\Categoria\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
