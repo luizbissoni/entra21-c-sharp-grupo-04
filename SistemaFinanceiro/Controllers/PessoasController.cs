@@ -33,7 +33,7 @@ namespace SistemaFinanceiro.Controllers
         {
             if (ModelState.IsValid)
             {
-                int identificador = new RepositorioPessoas().Cadastrar(pessoas);
+                int identificador = new RepositorioPessoas().CadastrarPessoas(pessoas);
                 return RedirectToAction("Editar", new { id = identificador });
             }
             ViewBag.Pessoas = pessoas;
