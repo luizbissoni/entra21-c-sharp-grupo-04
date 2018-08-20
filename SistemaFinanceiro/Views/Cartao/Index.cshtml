@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.TituloPagina</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar um novo cartão", "Cadastro")
 </p>
 <table class="table">
     <tr>
@@ -36,7 +36,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (SistemaFinanceiro.Models.Cartoes item in @ViewBag.Cartoes)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Id_cartoes)
@@ -60,9 +61,9 @@
             @Html.DisplayFor(modelItem => item.Banco)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
         </td>
     </tr>
 }

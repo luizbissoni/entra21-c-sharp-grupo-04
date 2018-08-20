@@ -14,7 +14,7 @@ namespace SistemaFinanceiro.Models
         [MaxLength(16, ErrorMessage = "O número do cartão não pode ser superior a dezesseis caracteres")]
 
         public string Numero_cartao { get; set; }
-
+        [Display(Name= "Numero da conta")]
         [Required(ErrorMessage = "O número da conta não pode ser vazia")]
         [MaxLength(4, ErrorMessage = "Número da conta não pode ser superior a quatro dígitos")]
         public string Numero_conta { get; set; }
