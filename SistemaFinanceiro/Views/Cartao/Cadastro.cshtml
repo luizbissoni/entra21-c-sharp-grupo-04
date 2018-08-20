@@ -7,7 +7,7 @@
 
 <h2>Cadastro</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("store","CartaoController", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
