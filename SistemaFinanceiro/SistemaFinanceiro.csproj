@@ -5461,6 +5461,11 @@
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\ValidarLogin.js" />
     <Content Include="Web.config" />
@@ -5497,6 +5502,17 @@
     <Content Include="Views\Login\Editar.cshtml" />
     <Content Include="Views\Cartao\Cadastro.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Cartao\Index.cshtml" />
+    <Content Include="Views\Cartao\Editar.cshtml" />
+    <Content Include="Views\Recebimento\Index.cshtml" />
+    <Content Include="Views\Recebimento\Cadastro.cshtml" />
+    <Content Include="Views\Recebimento\Editar.cshtml" />
+    <Content Include="Views\Gasto\Index.cshtml" />
+    <Content Include="Views\Gasto\Editar.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\Cadastro.cshtml" />
+    <Content Include="Views\Gasto\Cadastro.cshtml" />
+    <Content Include="Views\Categoria\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
