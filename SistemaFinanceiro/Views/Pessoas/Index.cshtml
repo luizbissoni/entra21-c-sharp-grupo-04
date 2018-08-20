@@ -1,79 +1,25 @@
 ﻿
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/Master.cshtml";
-}
-
-<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="#" class="btn btn-primary" id="modal-index-pessoas">Cadastrar Pessoa</a>
 </p>
+
 <table class="table">
     <thead>
-
-
         <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                Nome
-            </th>
-            <th>
-                Idade
-            </th>
-            <th>
-                Sexo
-            </th>
-            <th>
-                CPF
-            </th>
-            <th>
-                Data_nascimento
-            </th>
-            <th>
-                Telefone
-            </th>
-            <th>
-
-            </th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Salário</th>
+            <th>Ação</th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (SistemaFinanceiro.Models.Pessoas pessoas in @ViewBag.Pessoas)
-        {
-            <tr>
-                <td>
-                    @pessoas.Id
-                </td>
-                <td>
-                    @pessoas.Nome
-                </td>
-                <td>
-                    @pessoas.Idade
-                </td>
-                <td>
-                    @pessoas.Sexo
-                </td>
-                <td>
-                    @pessoas.CPF
-                </td>
-                <td>
-                    @pessoas.Data_nascimento
-                </td>
-                <td>
-                    @pessoas.Telefone
-                </td>
-                <td>
-                    @Html.ActionLink("Editar", "Editar", new { id = pessoas.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = pessoas.Id }) |
-                    @Html.ActionLink("Excluir", "Excluir", new { id = pessoas.Id })
-                </td>
-            </tr>
-        }
-    </tbody>
+    <tbody></tbody>
     <tfoot>
-
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Salário</th>
+            <th>Ação</th>
+        </tr>
     </tfoot>
 </table>
