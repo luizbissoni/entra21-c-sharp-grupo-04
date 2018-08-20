@@ -34,11 +34,8 @@ namespace SistemaFinanceiro.Controllers
             if (ModelState.IsValid)
             {
                 int identificador = new RepositorioPessoas().CadastrarPessoas(pessoas);
-<<<<<<< HEAD
                 return RedirectToAction("Editar", new { id = identificador });
-=======
                 return RedirectToAction("Index", new { id = identificador });
->>>>>>> 8871db5966be978e120c89d83d89768b7cb5ff33
             }
             ViewBag.Pessoas = pessoas;
             return View("Cadastro");
