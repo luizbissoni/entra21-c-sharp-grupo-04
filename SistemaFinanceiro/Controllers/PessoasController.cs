@@ -24,7 +24,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Cadastro()
         {
             ViewBag.TituloPagina = "Pessoas - Cadastro";
-            ViewBag.Pessoas = new RepositorioPessoas();
+            ViewBag.Pessoas = new Pessoas();
             return View();
         }
 
@@ -34,16 +34,21 @@ namespace SistemaFinanceiro.Controllers
             if (ModelState.IsValid)
             {
                 int identificador = new RepositorioPessoas().CadastrarPessoas(pessoas);
+<<<<<<< HEAD
                 return RedirectToAction("Editar", new { id = identificador });
+=======
+                return RedirectToAction("Index", new { id = identificador });
+>>>>>>> 8871db5966be978e120c89d83d89768b7cb5ff33
             }
             ViewBag.Pessoas = pessoas;
-            return View("Index");
+            return View("Cadastro");
         }
 
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            return View();
+            bool apagado = new SistemaFinanceiro.Repositório.RepositorioPessoas().ExcluirPessoas(id);
+            return null;
         }
 
         [HttpGet]
@@ -60,9 +65,6 @@ namespace SistemaFinanceiro.Controllers
             bool alterado = new RepositorioPessoas().AlterarPessoas(pessoa);
             return null;
         }
-        public ActionResult Login()
-        {
-            return View();
-        }
+       
     }
 }

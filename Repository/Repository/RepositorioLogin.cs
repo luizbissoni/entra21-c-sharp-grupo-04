@@ -15,8 +15,8 @@ namespace SistemaFinanceiro.Repositório
         public int CadastrarLogin(Login login)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO login (usuario, senha, email) OUTPUT INSERTED.ID
-VALUES (@USUARIO, @SENHA, @EMAIL)";
+            comando.CommandText = "INSERT INTO login (id_login,usuario, senha, email) OUTPUT INSERTED.ID VALUES (@ID_LOGIN, @USUARIO, @SENHA, @EMAIL)";
+            comando.Parameters.AddWithValue("@ID_LOGIN", login.Id_Login);
             comando.Parameters.AddWithValue("@USUARIO", login.Usuario);
             comando.Parameters.AddWithValue("@SENHA", login.Senha);
             comando.Parameters.AddWithValue("@EMAIL", login.Email);
@@ -28,7 +28,7 @@ VALUES (@USUARIO, @SENHA, @EMAIL)";
         public bool ExcluirLogin(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM cartoes WHERE login id = @ID";
+            comando.CommandText = "DELETE FROM login WHERE login id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }
@@ -37,8 +37,7 @@ VALUES (@USUARIO, @SENHA, @EMAIL)";
         {
             List<Login> logins = new List<Login>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, usuario, senha, email FROM login";
-
+            comando.CommandText = "SELECT id, id_login, usuario, senha, email FROM login";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -47,9 +46,10 @@ VALUES (@USUARIO, @SENHA, @EMAIL)";
                 Login login = new Login()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    Usuario = linha[1].ToString(),
-                    Senha = linha[2].ToString(),
-                    Email = linha[3].ToString(),
+                    Id_Login = Convert.ToInt32(linha[1].ToString()),
+                    Usuario = linha[2].ToString(),
+                    Senha = linha[3].ToString(),
+                    Email = linha[4].ToString(),
 
 
                 };
@@ -62,7 +62,7 @@ VALUES (@USUARIO, @SENHA, @EMAIL)";
         {
             Login login = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT usuario, senha, email FROM login WHERE id = @ID";
+            comando.CommandText = "SELECT usuario, senha, email FROM login  WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -77,6 +77,37 @@ VALUES (@USUARIO, @SENHA, @EMAIL)";
             }
 
 
+            return login;
+        }
+
+        public bool AlterarLogin(Login login)
+        {
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "UPDATE login SET usuario = @USUARIO, senha = @SENHA, email = @EMAIL";
+            comando.Parameters.AddWithValue("@USUARIO", login.Usuario);
+            comando.Parameters.AddWithValue("@SENHA", login.Senha);
+            comando.Parameters.AddWithValue("@EMAIL", login.Email);
+           
+            return comando.ExecuteNonQuery() == 1;
+        }
+
+        public Login ValidarLogin(string usuario, string senha)
+        {
+            Login login = null;
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT usuario, senha FROM login  WHERE usuario = @USUARIO AND senha = @SENHA";
+            comando.Parameters.AddWithValue("@USUARIO",usuario);
+            comando.Parameters.AddWithValue("@SENHA", senha);
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                login = new Login();
+                login.Usuario = tabela.Rows[0][0].ToString();
+                login.Senha = tabela.Rows[0][1].ToString();
+
+            }
             return login;
         }
     }

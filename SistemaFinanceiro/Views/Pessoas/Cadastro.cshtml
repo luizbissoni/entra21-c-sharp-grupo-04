@@ -1,0 +1,73 @@
+﻿@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<div>
+
+    <form action="/Pessoas/Store" method="post">
+        <div class="page-body">
+
+            <div class="form-group">
+                <label for="campo-nome">Nome</label>
+                <input type="text" class="form-control" name="Pessoas.Nome" id="campo-nome"  value="@ViewBag.Pessoas.Nome" />
+            </div>
+            <div class="form-group">
+                <label>Data Nascimento</label>
+                <input type="date" class="form-control" name="Pessoas.Data_nascimento" id="dropper-default"  value="@ViewBag.Pessoas.Data_nascimento" />
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>CPF</label>
+                        <input type="text" class="form-control" name="Pessoas.CPF" value="@ViewBag.Pessoas.CPF" />
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="text" class="form-control" name="Pessoas.Telefone" value="@ViewBag.Pessoas.Telefone" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-xl-4 m-b-30">
+                <h4>Sexo</h4>
+                <div class="form-radio">
+                    <div class="form-group">
+
+                        <div>
+                            <div class="radio radio-inline">
+                                <label>
+                                    Masculino
+                                    <input type="radio" class="form-control" name="Pessoas.Sexo" value="@ViewBag.Pessoas.Sexo" checked="checked" />
+                                    <i class="helper"></i>
+                                </label>
+                            </div>
+                            <div class="radio radio-inline">
+                                <label>
+                                    Feminino
+                                    <input type="radio" class="form-control" name="Pessoas.Sexo" value="@ViewBag.Pessoas.Sexo " checked="checked" />
+                                    <i class="helper"></i>
+                                </label>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+                <label>Frequencia</label>
+                <input type="number" class="form-control" name="Pessoas.Idade" value="@ViewBag.Pessoas.Idade" />
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success" onclick=""><i class="fa fa-save"></i>Salvar</button>
+            </div>
+        </div>
+    </form>
+</div>
