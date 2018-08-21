@@ -21,13 +21,16 @@ namespace SistemaFinanceiro.Controllers
             return View();
 
         }
+
         [HttpGet]
         public ActionResult Cadastro()
         {
             ViewBag.TituloPagina = "Cartões - Cadastro";
             ViewBag.Cartao = new Cartoes();
+            ViewBag.Pessoas = new RepositorioPessoas().ObterTodosPessoas();
             return View();
         }
+
         [HttpPost]
         public ActionResult Store(Cartoes cartao)
         {
@@ -50,9 +53,9 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Editar(int id)
         {
             Cartoes cartao = new RepositorioCartoes().ObterPeloIdCartoes(id);
-           ViewBag.Cartao = cartao;
-           ViewBag.TituloPagina = "Cartões - Editar";
-           return View();
+            ViewBag.Cartao = cartao;
+            ViewBag.TituloPagina = "Cartões - Editar";
+            return View();
 
         }
         [HttpPost]

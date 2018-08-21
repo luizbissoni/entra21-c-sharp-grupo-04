@@ -64,6 +64,16 @@
                 @Html.ValidationMessageFor(model => model.Banco, "", new { @class = "text-danger" })
             </div>
             </div>
+            <div>
+                
+                <select name="Id_cartoes">
+                    <option selected="selected" disabled="disabled"></option>
+                    @foreach (SistemaFinanceiro.Models.Pessoas pessoa in @ViewBag.Pessoas)
+                    {
+                        <option value="@pessoa.Id">@pessoa.Nome</option>
+                    }
+                </select>
+            </div>
         </div>
 
         <div class="form-group">
@@ -74,5 +84,5 @@
     </div>
     </form>
     <div>
-        @Html.ActionLink("Voltar para lista", "Index")
+        @Html.ActionLink("Voltar para já cadastrados", "Index")
     </div>

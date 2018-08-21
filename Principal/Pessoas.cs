@@ -11,7 +11,7 @@ namespace SistemaFinanceiro.Models
         public string Nome { get; set; }
         public int Idade { get; set; }
         public bool Sexo { get; set; }
-        public int CPF { get; set; }
+        public string CPF { get; set; }
         public DateTime Data_nascimento { get; set; }
         public int Telefone { get; set; }
     }

@@ -43,10 +43,11 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO cartoes (numero_cartao,numero_conta,numero_seguranca,
-data_vencimento,bandeira,banco) OUTPUT INSERTED.ID VALUES 
-(@NUMERO_CARTAO,@NUMERO_CONTA,@NUMERO_SEGURANCA,@DATA_VENCIMENTO,@BANDEIRA,@BANCO)";
+            comando.CommandText = @"INSERT INTO cartoes (id_cartoes, numero_cartao, numero_conta, numero_seguranca,
+ data_vencimento, bandeira,banco) OUTPUT INSERTED.ID VALUES 
+(@ID_CARTOES, @NUMERO_CARTAO, @NUMERO_CONTA, @NUMERO_SEGURANCA, @DATA_VENCIMENTO, @BANDEIRA, @BANCO)";
             comando.Parameters.AddWithValue("@NUMERO_CARTAO", cartoes.Numero_cartao);
+            comando.Parameters.AddWithValue("@ID_CARTOES", cartoes.Id_cartoes);
             comando.Parameters.AddWithValue("@NUMERO_CONTA", cartoes.Numero_conta);
             comando.Parameters.AddWithValue("@NUMERO_SEGURANCA", cartoes.Numero_seguranca);
             comando.Parameters.AddWithValue("@DATA_VENCIMENTO", cartoes.Data_vencimento);

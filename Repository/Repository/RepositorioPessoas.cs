@@ -56,9 +56,8 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
                     Nome = linha[1].ToString(),
                     Idade = Convert.ToInt32(linha[2].ToString()),
                     Sexo = Convert.ToBoolean(linha[3].ToString()),
-                    CPF = Convert.ToInt32(linha[4].ToString()),
-                    Data_nascimento = Convert.ToDateTime(linha[5].ToString()),
-                    Telefone = Convert.ToInt32(linha[6].ToString()),
+                    CPF = linha[4].ToString(),
+                    Data_nascimento = Convert.ToDateTime(linha[5].ToString())
 
 
                 };
@@ -82,7 +81,7 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
                 pessoas.Nome = tabela.Rows[0][0].ToString();
                 pessoas.Idade = Convert.ToInt32(tabela.Rows[0][1].ToString());
                 pessoas.Sexo = Convert.ToBoolean(tabela.Rows[0][2].ToString());
-                pessoas.CPF = Convert.ToInt32(tabela.Rows[0][3].ToString());
+                pessoas.CPF = tabela.Rows[0][3].ToString();
                 pessoas.Data_nascimento = Convert.ToDateTime(tabela.Rows[0][4].ToString());
                 pessoas.Telefone = Convert.ToInt32(tabela.Rows[0][5].ToString());
 
