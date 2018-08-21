@@ -7,11 +7,7 @@
 
 <h2>Cadastro</h2>
 
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
+    <form action="/Gasto/Store" method="post">
     <div class="form-horizontal">
        <!-- <h4>Gastos</h4> -->
         <hr />
@@ -55,7 +51,8 @@
             </div>
         </div>
     </div>
-}
+</form>
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
