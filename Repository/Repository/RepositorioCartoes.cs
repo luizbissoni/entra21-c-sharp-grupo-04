@@ -96,7 +96,6 @@ data_vencimento,bandeira,banco) OUTPUT INSERTED.ID VALUES
         {
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "UPDATE cartoes SET numero_cartao = @NUMERO_CARTAO, numero_conta = @NUMERO_CONTA, numero_seguranca = @NUMERO_SEGURANCA, data_vencimento = @DATA_VENCIMENTO, bandeira = @BANDEIRA, banco = @BANCO  WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID_CARTOES", cartao.Id_cartoes);
             comando.Parameters.AddWithValue("@NUMERO_CARTAO", cartao.Numero_cartao);
             comando.Parameters.AddWithValue("@NUMERO_CONTA", cartao.Numero_conta);
             comando.Parameters.AddWithValue("@NUMERO_SEGURANCA", cartao.Numero_seguranca);
