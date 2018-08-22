@@ -1,4 +1,5 @@
-﻿using SistemaFinanceiro.Models;
+﻿using Newtonsoft.Json;
+using SistemaFinanceiro.Models;
 using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
@@ -34,9 +35,9 @@ namespace SistemaFinanceiro.Controllers
             if (ModelState.IsValid)
             {
                 int identificador = new RepositorioPessoas().CadastrarPessoas(pessoas);
-                return RedirectToAction("Editar", new { id = identificador });
                 return RedirectToAction("Index", new { id = identificador });
             }
+
             ViewBag.Pessoas = pessoas;
             return View("Cadastro");
         }
@@ -60,8 +61,15 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Update(Pessoas pessoa)
         {
             bool alterado = new RepositorioPessoas().AlterarPessoas(pessoa);
+
+            if (alterado)
+            {
+                return  RedirectToAction("Index");
+            }
+
             return null;
         }
+       
        
     }
 }

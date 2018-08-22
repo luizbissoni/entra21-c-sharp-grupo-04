@@ -1,25 +1,64 @@
-﻿
+﻿@model IEnumerable<SistemaFinanceiro.Models.Pessoas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<h2>Index</h2>
 
 <p>
-    <a href="#" class="btn btn-primary" id="modal-index-pessoas">Cadastrar Pessoa</a>
+    @Html.ActionLink("Create New", "Cadastro")
 </p>
-
 <table class="table">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Salário</th>
-            <th>Ação</th>
-        </tr>
-    </thead>
-    <tbody></tbody>
-    <tfoot>
-        <tr>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Salário</th>
-            <th>Ação</th>
-        </tr>
-    </tfoot>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Idade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sexo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data_nascimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (SistemaFinanceiro.Models.Pessoas pessoas in @ViewBag.Pessoas) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => pessoas.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => pessoas.Idade)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => pessoas.Sexo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => pessoas.CPF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => pessoas.Data_nascimento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => pessoas.Telefone)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id = pessoas.Id }) |
+            @Html.ActionLink("Details", "Details", new { id = pessoas.Id }) |
+            @Html.ActionLink("Excluir", "Excluir", new { id = pessoas.Id })
+        </td>
+    </tr>
+}
+
 </table>

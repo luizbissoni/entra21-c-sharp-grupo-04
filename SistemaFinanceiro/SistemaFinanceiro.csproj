@@ -39,6 +39,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -5469,6 +5473,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\ScriptPessoaCadastro\AJAXINDEX.js" />
+    <Content Include="Scripts\ScriptPessoaCadastro\CadastroAJAX.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\pessoas-cadastro.js" />
     <Content Include="Scripts\ValidarLogin.js" />
     <Content Include="Web.config">
@@ -5499,9 +5505,6 @@
     <Content Include="Views\Shared\Master.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="Views\Pessoas\Cadastro.cshtml" />
-    <Content Include="Views\Pessoas\Index.cshtml" />
-    <Content Include="Views\Pessoas\Editar.cshtml" />
     <Content Include="Views\Cartao\Cadastro.cshtml" />
     <Content Include="Views\Cartao\Index.cshtml" />
     <Content Include="Views\Cartao\Editar.cshtml" />
@@ -5514,6 +5517,9 @@
     <Content Include="Views\Categoria\Cadastro.cshtml" />
     <Content Include="Views\Gasto\Cadastro.cshtml" />
     <Content Include="Views\Categoria\Editar.cshtml" />
+    <Content Include="Views\Pessoas\Index.cshtml" />
+    <Content Include="Views\Pessoas\Cadastro.cshtml" />
+    <Content Include="Views\Pessoas\Editar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

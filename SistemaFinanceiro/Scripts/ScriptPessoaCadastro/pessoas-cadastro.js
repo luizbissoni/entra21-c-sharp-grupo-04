@@ -1,55 +1,45 @@
-﻿$(function () {
-    $("#modal-index-pessoas").on("click", function () {
-        if ($("#modal-cadastro-pessoas").length == 0) {
-            $.ajax({
-                url: "/Pessoas/Cadastro",
-                method: "get",
-                success: function (data) {
-                    $("body").append(data);
-                    $("modal-cadastro-pessoas").modal('show');
-                }
-            });
-        } else {
-            $('modal-cadastro-pessoas').modal('show');
+﻿function idade() {
+    var data = document.getElementById("campo-nascimento").value;
+    var dia = data.substr(0, 2);
+    var mes = data.substr(3, 2);
+    var ano = data.substr(6, 4);
+    var d = new Date();
+    var ano_atual = d.getFullYear(),
+        mes_atual = d.getMonth() + 1,
+        dia_atual = d.getDate();
 
-        }
-    });
+    ano = +ano,
+    mes = +mes,
+    dia = +dia;
 
-    $('body').on('click', '#modal-savar-pessoa', function () {
-        $.ajax({
-            url: '/Pessoas/Cadastro',
-            method: 'post',
-            data: {
-                nome: $('#nome').val(),
-                idade: $('#idade').val(),
-                salario: $('#salario').val()
-            },
-            success: function (data) {
-                var resultado = JSON.parse(data);
-                limparCampos();
-                $('#modal-cadastro-pessoas').modal('hide');
-                adicionarLinhaTabela($('nome'.val(), $('#idade').val(), $('#salario').val(), resultado.id));
-                }
-            });
-    });
+    var idade = ano_atual - ano;
 
-    function adicionarLinhaTabela(nome, idade, salario, id) {
-        $registro = "<tr>";
-        $registro += "<td>" + nome + "</td>";
-        $registro += "<td>" + idade + "</td>";
-        $registro += "<td>" + salario + "</td>";
-        $registro += "<td><a href=\"/funcionario/Editar?id=" + id + "\" >Editar</a></td>";
-        $registro += "</tr>";
-        $("table").append($registro);
+    if (mes_atual < mes || mes_atual == mes_aniversario && dia_atual < dia) {
+        idade--;
     }
 
-    function limparCampos() {
-        $("#nome").val("");
-        $("#idade").val("");
-        $("#salario").val("");
+    return document.getElementById('campo-idade').innerHTML = idade;
+}
+
+function exibe(i) {
+    document.getElementById(i).readOnly = true;
+}
+
+function desabilita(i) {
+    document.getElementById(i).disabled = true;
+}
+
+function habilita(i) {
+    document.getElementById(i).disabled = false;
+}
+
+function formatar(mascara, documento) {
+    var i = documento.value.length;
+    var saida = mascara.substring(0, 1);
+    var texto = mascara.substring(i);
+
+    if (texto.substring(0, 1) != saida) {
+        documento.value += texto.substring(0, 1);
     }
 
-
-
-
-})
+}

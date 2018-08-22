@@ -7,7 +7,7 @@
 
 <h2>Editar</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Update","Pessoas"))
 {
     @Html.AntiForgeryToken()
     
@@ -36,10 +36,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Sexo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <div class="checkbox">
-                    @Html.EditorFor(model => model.Sexo)
-                    @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
-                </div>
+                @Html.EditorFor(model => model.Sexo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Sexo, "", new { @class = "text-danger" })
             </div>
         </div>
 
