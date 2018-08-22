@@ -39,6 +39,7 @@ namespace SistemaFinanceiro.Controllers
                 int identificador = new RepositorioCartoes().CadastrarCartao(cartao);
                 return RedirectToAction("Editar", new { id = identificador });
             }
+
             ViewBag.cartao = cartao;
             return View("Cadastro");
         }

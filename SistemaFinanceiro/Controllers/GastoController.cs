@@ -24,15 +24,22 @@ namespace SistemaFinanceiro.Controllers
         {
             ViewBag.TituloPagina = "Gastos - Cadastro";
             ViewBag.Gastos = new Gastos();
+            ViewBag.Cartoes = new RepositorioCartoes().ObterTodosCartoes();
+            ViewBag.Pessoas = new RepositorioPessoas().ObterTodosPessoas();
             return View();
         }
+
         [HttpPost]
           public ActionResult Store(Gastos gastos)
         {
+            if (ModelState.IsValid)
+            {
             int identificador = new RepositorioGastos().CadastrarGastos(gastos);
             return RedirectToAction("Editar", new { id = identificador });
-            return View();
+            }
+            return View("Cadastro");
         }
+
         [HttpGet]
         public ActionResult Excluir(int id)
         {

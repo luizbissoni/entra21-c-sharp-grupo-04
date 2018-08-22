@@ -16,12 +16,12 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO gastos (valor_dos_gastos,data_de_entrada,data_de_vencimento,
-descricao) OUTPUT INSERTED.ID VALUES 
-(@VALOR_DOS_GASTOS,@DATA_DE_ENTRADA,@DATA_DE_VENCIMENTO,@DESCRICAO)";
-            comando.Parameters.AddWithValue("@VALOR_DOS_GASTOS", gastos.Valor_Dos_Gastos);
-            comando.Parameters.AddWithValue("@DATA_DE_ENTRADA", gastos.Data_De_Entrada);
-            comando.Parameters.AddWithValue("@DATA_DE_VENCIMENTO", gastos.Data_De_Vencimento);
+            comando.CommandText = @"INSERT INTO gastos (id_gastos, valor_gastos, data_entrada, data_vencimento, descricao) OUTPUT INSERTED.ID VALUES 
+(@ID_GASTOS, @VALOR_GASTOS, @DATA_ENTRADA, @DATA_VENCIMENTO, @DESCRICAO)";
+            comando.Parameters.AddWithValue("@ID_GASTOS", gastos.Id_Gastos);
+            comando.Parameters.AddWithValue("@VALOR_GASTOS", gastos.Valor_Dos_Gastos);
+            comando.Parameters.AddWithValue("@DATA_ENTRADA", gastos.Data_De_Entrada);
+            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", gastos.Data_De_Vencimento);
             comando.Parameters.AddWithValue("@DESCRICAO", gastos.Descricao);
 
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
@@ -40,7 +40,7 @@ descricao) OUTPUT INSERTED.ID VALUES
         {
             List<Gastos> gastos = new List<Gastos>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_gastos, valor_dos_gastos, data_de_entrada, data_de_vencimento, descricao FROM gastos";
+            comando.CommandText = "SELECT id, id_gastos, valor_gastos, data_entrada, data_vencimento, descricao FROM gastos";
 
 
             DataTable tabela = new DataTable();
@@ -66,7 +66,7 @@ descricao) OUTPUT INSERTED.ID VALUES
         {
             Gastos gastos = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT valor_dos_gastos, data_de_entrada, data_de_nascimento, descricao FROM gastos WHERE id = @ID";
+            comando.CommandText = "SELECT valor_gastos, data_entrada, data_nascimento, descricao FROM gastos WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -87,11 +87,11 @@ descricao) OUTPUT INSERTED.ID VALUES
         public bool AlterarGastos(Gastos gastos)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "UPDATE categoria SET valor_dos_gastos = @VALOR_DOS_GASTOS, data_de_entrada = @DATA_DE_ENTRADA, data_de_vencimento = @DATA_DE_VENCIMENTO, descricao = @DESCRICAO WHERE id = @ID";
+            comando.CommandText = "UPDATE categoria SET valor_gastos = @VALOR_GASTOS, data_entrada = @DATA_ENTRADA, data_vencimento = @DATA_VENCIMENTO, descricao = @DESCRICAO WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID_CATEGORIA", gastos.Id_Gastos);
-            comando.Parameters.AddWithValue("@VALOR_DOS_GASTOS", gastos.Valor_Dos_Gastos);
-            comando.Parameters.AddWithValue("@DATA_DE_ENTRADA", gastos.Data_De_Entrada);
-            comando.Parameters.AddWithValue("@DATA_DE_VENCIMENTO", gastos.Data_De_Vencimento);
+            comando.Parameters.AddWithValue("@VALOR_GASTOS", gastos.Valor_Dos_Gastos);
+            comando.Parameters.AddWithValue("@DATA_ENTRADA", gastos.Data_De_Entrada);
+            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", gastos.Data_De_Vencimento);
             comando.Parameters.AddWithValue("@DESCRICAO", gastos.Descricao);
 
             return comando.ExecuteNonQuery() == 1;
