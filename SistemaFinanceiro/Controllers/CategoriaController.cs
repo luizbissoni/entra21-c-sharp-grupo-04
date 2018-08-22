@@ -27,11 +27,14 @@ namespace SistemaFinanceiro.Controllers
             return View();
         }
         [HttpPost]
-          public ActionResult Store(Categoria categoria)
+        public ActionResult Store(Categoria categoria)
         {
-            int identificador = new RepositorioCategoria().CadastrarCategoria(categoria);
-            return RedirectToAction("Editar", new { id = identificador });
-            return View();
+            if (ModelState.IsValid)
+            {
+                int identificador = new RepositorioCategoria().CadastrarCategoria(categoria);
+                return RedirectToAction("Editar", new { id = identificador });
+            }
+            return View("Cadastro");
         }
         [HttpGet]
         public ActionResult Excluir(int id)

@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="DataBase\DBconnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Controller.cs" />
     <Compile Include="Repository\RepositorioCartoes.cs" />
     <Compile Include="Repository\RepositorioCategoria.cs" />
     <Compile Include="Repository\RepositorioGastos.cs" />

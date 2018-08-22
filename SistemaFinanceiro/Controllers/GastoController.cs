@@ -26,6 +26,8 @@ namespace SistemaFinanceiro.Controllers
             ViewBag.Gastos = new Gastos();
             ViewBag.Cartoes = new RepositorioCartoes().ObterTodosCartoes();
             ViewBag.Pessoas = new RepositorioPessoas().ObterTodosPessoas();
+            ViewBag.Categorias = new Categoria();
+            
             return View();
         }
 
@@ -35,6 +37,7 @@ namespace SistemaFinanceiro.Controllers
             if (ModelState.IsValid)
             {
             int identificador = new RepositorioGastos().CadastrarGastos(gastos);
+
             return RedirectToAction("Editar", new { id = identificador });
             }
             return View("Cadastro");

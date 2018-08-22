@@ -19,17 +19,16 @@ namespace SistemaFinanceiro.Models
 
         [Display(Name = "Data da Entrada")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Data_De_Entrada { get; set; }
 
 
         [Display(Name = "Data de Vencimento")]
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime Data_De_Vencimento { get; set; }
 
         [Display(Name = "Descrição")]
-        [Required(ErrorMessage = "A descrição não pode ser vazia")]
         [MaxLength(50, ErrorMessage = "A descrição não pode ultrapassar de cinquenta caracteres")]
         [MinLength(4, ErrorMessage = "A descrição não pode ser inferior a quatro dígitos")]
         public string Descricao { get; set; }
