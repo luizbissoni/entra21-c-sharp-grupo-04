@@ -89,6 +89,7 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="App_Data\Database2.mdf" />
     <Content Include="App_Data\Database2_log.ldf">
       <DependentUpon>Database2.mdf</DependentUpon>
@@ -99,6 +100,8 @@
     </Content>
 =======
 >>>>>>> parent of 732f25b... Merge branch 'master' of https://github.com/franciscosens/entra21-c-sharp-grupo-04
+=======
+>>>>>>> parent of a80345d... Selecionado o Banco
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\ionicons.css" />
