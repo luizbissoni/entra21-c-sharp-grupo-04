@@ -1,19 +1,19 @@
 ﻿@model SistemaFinanceiro.Models.Categoria
 
 @{
-    ViewBag.Title = "Cadastro";
+    ViewBag.Title = "Cadastro de categoria";
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Cadastro</h2>
+<h2>Cadastro de categoria</h2>
 
 
 <form action="/Categoria/Store" method="post">
 
-    @Html.AntiForgeryToken()
+   
 
     <div class="form-horizontal">
-        <h4>Categoria</h4>
+      <!--  <h4>Categoria</h4> -->
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
        
@@ -25,6 +25,16 @@
             </div>
         </div>
 
+        <select name="Id_Categoria">
+            <option selected="selected" disabled="disabled"></option>
+            @foreach (SistemaFinanceiro.Models.Pessoas pessoa in @ViewBag.Pessoas)
+            {
+                <option value="@pessoa.Id">@pessoa.Nome</option>
+            }
+
+        </select>
+
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -34,9 +44,7 @@
 </form>
 
     <div>
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Voltas para os já cadastrados", "Index")
     </div>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    
