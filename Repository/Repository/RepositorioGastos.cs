@@ -23,7 +23,6 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@DATA_ENTRADA", gastos.Data_De_Entrada);
             comando.Parameters.AddWithValue("@DATA_VENCIMENTO", gastos.Data_De_Vencimento);
             comando.Parameters.AddWithValue("@DESCRICAO", gastos.Descricao);
-
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
         }

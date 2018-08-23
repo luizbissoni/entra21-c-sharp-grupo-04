@@ -16,7 +16,7 @@ namespace SistemaFinanceiro.Controllers
         {
             List<Categoria> categorias = new RepositorioCategoria().ObterTodosCategoria();
             ViewBag.Categorias = categorias;
-            ViewBag.TituloPagina = "Categorias";
+            ViewBag.TituloPagina = "Categorias"; 
             return View();
         }
         [HttpGet]

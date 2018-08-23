@@ -88,6 +88,14 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\Database2.mdf" />
+    <Content Include="App_Data\Database2_log.ldf">
+      <DependentUpon>Database2.mdf</DependentUpon>
+    </Content>
+    <Content Include="App_Data\Database3.mdf" />
+    <Content Include="App_Data\Database3_log.ldf">
+      <DependentUpon>Database3.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\ionicons.css" />

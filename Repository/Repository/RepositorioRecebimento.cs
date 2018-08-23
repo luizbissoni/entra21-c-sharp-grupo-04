@@ -20,7 +20,6 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
             comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);
             comando.Parameters.AddWithValue("@DESCRICAO", recebimento.Descricao);
-
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
         }
