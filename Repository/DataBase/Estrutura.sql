@@ -3,11 +3,11 @@ CREATE TABLE [dbo].[pessoas] (
     [Id]              INT          IDENTITY (1, 1) NOT NULL,
     [nome]            NCHAR (100)   NOT NULL,
     [idade]           TINYINT      NOT NULL,
-    [sexo]            BIT          NOT NULL,
+    [sexo]            CHAR         NOT NULL,
     [cpf]             VARCHAR (20) NOT NULL,
     [data_nascimento] DATE         NOT NULL,
-    [telefone]        INT          NULL,
-    [cep]             INT          NULL,
+    [telefone]        VARCHAR(50)          NULL,
+    [cep]             VARCHAR(50)         NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
@@ -26,19 +26,8 @@ CREATE TABLE [dbo].[cartoes] (
 CREATE TABLE [dbo].[categorias] (
     [Id]                INT            IDENTITY (1, 1) NOT NULL,
     [id_categoria]      INT            NULL,
-    [salario]           DECIMAL (4, 2) NULL,
-    [contas]            DECIMAL (4, 2) NULL,
-    [alimentacao]       DECIMAL (4, 2) NULL,
-    [emprestimo]        DECIMAL (4, 2) NULL,
-    [moradia]           DECIMAL (4, 2) NULL,
-    [saude]             DECIMAL (4, 2) NULL,
-    [impostos_taxas]    DECIMAL (4, 2) NULL,
-    [roupas_acessorios] DECIMAL (4, 2) NULL,
-    [veiculo]           DECIMAL (4, 2) NULL,
-    [trasnporte]        DECIMAL (4, 2) NULL,
-    [criancas]          DECIMAL (4, 2) NULL,
-    [moveis]            DECIMAL (4, 2) NULL,
-    [educacao]          DECIMAL (4, 2) NULL,
+    [nome]           VARCHAR(150) NULL,
+    
     FOREIGN KEY ([id_categoria]) REFERENCES [dbo].[pessoas] ([Id])
 );
 

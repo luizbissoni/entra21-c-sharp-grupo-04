@@ -5,15 +5,12 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Cadastro</h2>
+<h2>Cadastro de recebimentos</h2>
 
-
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
+<form action="/Recebimento/Store" method="post">
     <div class="form-horizontal">
-        <h4>Recebimento</h4>
+
+        <!--<h4>Recebimento</h4> -->
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -47,17 +44,26 @@
                 @Html.ValidationMessageFor(model => model.Descricao, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div>
+            <select name="Id_recebimento">
+                <option selected="selected" disabled="disabled"></option>
+                @foreach (SistemaFinanceiro.Models.Pessoas pessoa in @ViewBag.Pessoas)
+                {
+                    <option value="@pessoa.Id">@pessoa.Nome</option>
+                }
+            </select>
+        </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Criar" class="btn btn-default" />
         </div>
     </div>
-}
+    </div>
+</form>
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar para lista", "Index")
 </div>
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
