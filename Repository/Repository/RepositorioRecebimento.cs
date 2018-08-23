@@ -15,7 +15,7 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO recebimento (valor_recebido,data_recebimento,descricao) OUTPUT INSERTED.ID VALUES 
+            comando.CommandText = @"INSERT INTO recebimentos (valor_recebido,data_recebimento,descricao) OUTPUT INSERTED.ID VALUES 
 (@VALOR_RECEBIDO,@DATA_RECEBIMENTO,@DESCRICAO)";
             comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
             comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);
@@ -28,7 +28,7 @@ namespace SistemaFinanceiro.Repositório
         public bool ExcluirRecebimento(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM cartoes WHERE recebimento id = @ID";
+            comando.CommandText = "DELETE FROM recebimentos WHERE recebimentos id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }
@@ -37,7 +37,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Recebimento> recebimentos = new List<Recebimento>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_recebimento, valor_recebido, data_recebimento, descricao FROM recebimento";
+            comando.CommandText = "SELECT id, id_recebimento, valor_recebido, data_recebimento, descricao FROM recebimentos";
 
 
             DataTable tabela = new DataTable();
@@ -63,7 +63,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Recebimento recebimento = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT valor_recebido, data_recebimento, descricao FROM recebimento WHERE id = @ID";
+            comando.CommandText = "SELECT valor_recebido, data_recebimento, descricao FROM recebimentos WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -85,7 +85,7 @@ namespace SistemaFinanceiro.Repositório
         public bool AlterarRecebimento(Recebimento recebimento)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "UPDATE categoria SET valor_recebido = @VALOR_RECEBIDO, data_recebimento = @DATA_RECEBIMENTO, descricao = @DESCRICAO WHERE id = @ID";
+            comando.CommandText = "UPDATE recebimentos SET valor_recebido = @VALOR_RECEBIDO, data_recebimento = @DATA_RECEBIMENTO, descricao = @DESCRICAO WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID_CATEGORIA", recebimento.Id_recebimento);
             comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
             comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);

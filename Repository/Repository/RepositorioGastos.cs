@@ -31,7 +31,7 @@ namespace SistemaFinanceiro.Repositório
         public bool ExcluirGastos(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM cartoes WHERE gastos id = @ID";
+            comando.CommandText = "DELETE FROM gastos WHERE gastos id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }
@@ -87,7 +87,7 @@ namespace SistemaFinanceiro.Repositório
         public bool AlterarGastos(Gastos gastos)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "UPDATE categoria SET valor_gastos = @VALOR_GASTOS, data_entrada = @DATA_ENTRADA, data_vencimento = @DATA_VENCIMENTO, descricao = @DESCRICAO WHERE id = @ID";
+            comando.CommandText = "UPDATE gastos SET valor_gastos = @VALOR_GASTOS, data_entrada = @DATA_ENTRADA, data_vencimento = @DATA_VENCIMENTO, descricao = @DESCRICAO WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID_CATEGORIA", gastos.Id_Gastos);
             comando.Parameters.AddWithValue("@VALOR_GASTOS", gastos.Valor_Dos_Gastos);
             comando.Parameters.AddWithValue("@DATA_ENTRADA", gastos.Data_De_Entrada);

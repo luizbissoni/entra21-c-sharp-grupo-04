@@ -24,5 +24,7 @@ namespace SistemaFinanceiro.Models
         public DateTime Data_nascimento { get; set; }
 
         public string Telefone { get; set; }
+
+        public string Cep { get; set; }
     }
 }

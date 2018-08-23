@@ -9,7 +9,7 @@
 
 <form action="/Pessoas/Store" method="post">
 
-    <div class="form-horizontal" id="formulario-pessoa">
+    <div class="form-horizontal">
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
@@ -52,7 +52,7 @@
         <div class="form-group">
             <label class="col-md-1 control-label" for="campo-nascimento">Nascimento<h11>*</h11></label>
             <div class="col-md-2">
-                <input id="campo-nascimento" name="Pessoas.Data_Nascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text" maxlength="10" onkeypress="formatar('##/##/####', this)">
+                <input id="campo-nascimento" name="Pessoas.Data_Nascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="date" maxlength="10" onkeypress="formatar('##/##/####', this)">
             </div>
         </div>
          
@@ -63,10 +63,64 @@
                        onkeypress="formatar('## #####-####', this)">
             </div>
         </div>
+        <!-- Search input-->
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="CEP">CEP <h11>*</h11></label>
+            <div class="col-md-2">
+                <input id="cep" name="Pessoas.Cep" placeholder="Apenas números" class="form-control input-md" required="" type="search" maxlength="8" pattern="[0-9]+$">
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
+            </div>
+        </div>
+        <!-- Prepended text-->
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="prependedtext">Endereço</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">Rua</span>
+                    <input id="rua" name="rua" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                </div>
+
+            </div>
+            <div class="col-md-2">
+                <div class="input-group">
+                    <span class="input-group-addon">Nº <h11>*</h11></span>
+                    <input id="numero" name="numero" class="form-control" placeholder="" required="" type="text">
+                </div>
+
+            </div>
+
+            <div class="col-md-3">
+                <div class="input-group">
+                    <span class="input-group-addon">Bairro</span>
+                    <input id="bairro" name="bairro" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label" for="prependedtext"></label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">Cidade</span>
+                    <input id="cidade" name="cidade" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                </div>
+
+            </div>
+
+            <div class="col-md-2">
+                <div class="input-group">
+                    <span class="input-group-addon">Estado</span>
+                    <input id="estado" name="estado" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                </div>
+
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Criar" class="btn btn-success" />
+                <input type="submit" value="salvar" class="btn btn-success" />
             </div>
         </div>
     </div>

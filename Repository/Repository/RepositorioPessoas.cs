@@ -16,15 +16,14 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO pessoas (nome,idade,sexo,
-cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES 
-(@NOME,@IDADE,@SEXO,@CPF,@DATA_NASCIMENTO,@TELEFONE)";
+            comando.CommandText = @"INSERT INTO pessoas (nome, idade, sexo, cpf, data_nascimento, telefone, cep) OUTPUT INSERTED.ID VALUES (@NOME, @IDADE, @SEXO, @CPF, @DATA_NASCIMENTO, @TELEFONE, @CEP)";
             comando.Parameters.AddWithValue("@NOME", pessoas.Nome);
             comando.Parameters.AddWithValue("@IDADE", pessoas.Idade);
             comando.Parameters.AddWithValue("@SEXO", pessoas.Sexo);
             comando.Parameters.AddWithValue("@CPF", pessoas.CPF);
             comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.Data_nascimento);
             comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);
+            comando.Parameters.AddWithValue("@CEP", pessoas.Cep);
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
 
             return id;
@@ -43,7 +42,7 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
         {
             List<Pessoas> pessoas = new List<Pessoas>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, nome, idade, sexo, cpf, data_nascimento, telefone FROM pessoas";
+            comando.CommandText = "SELECT id, nome, idade, sexo, cpf, data_nascimento, telefone, cep FROM pessoas";
 
 
             DataTable tabela = new DataTable();
@@ -58,7 +57,8 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
                     Sexo = Convert.ToChar(linha[3].ToString()),
                     CPF = linha[4].ToString(),
                     Data_nascimento = Convert.ToDateTime(linha[5].ToString()),
-                    Telefone = linha[6].ToString()
+                    Telefone = linha[6].ToString(),
+                    Cep = linha[7].ToString()
 
 
                 };
@@ -71,7 +71,7 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
         {
             Pessoas pessoas = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT nome, idade, sexo, cpf, data_nascimento, telefone FROM pessoas WHERE id = @ID";
+            comando.CommandText = "SELECT nome, idade, sexo, cpf, data_nascimento, telefone, cep FROM pessoas WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -85,6 +85,7 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
                 pessoas.CPF = tabela.Rows[0][3].ToString();
                 pessoas.Data_nascimento = Convert.ToDateTime(tabela.Rows[0][4].ToString());
                 pessoas.Telefone = tabela.Rows[0][5].ToString();
+                pessoas.Cep = tabela.Rows[0][6].ToString();
 
             }
 
@@ -94,14 +95,15 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
         public bool AlterarPessoas(Pessoas pessoas)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "UPDATE pessoas SET nome = @NOME, idade = @IDADE, sexo = @SEXO, cpf = @CPF, data_nascimento = @DATA_NASCIMENTO, telefone = @TELEFONE WHERE id = @ID";
+            comando.CommandText = "UPDATE pessoas SET nome = @NOME, idade = @IDADE, sexo = @SEXO, cpf = @CPF, data_nascimento = @DATA_NASCIMENTO, telefone = @TELEFONE, cep = @CEP WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", pessoas.Id);
             comando.Parameters.AddWithValue("@NOME",pessoas.Nome);
             comando.Parameters.AddWithValue("@IDADE", pessoas.Idade);
             comando.Parameters.AddWithValue("@SEXO", pessoas.Sexo);
             comando.Parameters.AddWithValue("@CPF", pessoas.CPF);
             comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.Data_nascimento);
-            comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);                  
+            comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);
+            comando.Parameters.AddWithValue("@CEP", pessoas.Cep);    
             return comando.ExecuteNonQuery() == 1;
         }
 
@@ -109,15 +111,14 @@ cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO pessoas (nome,idade,sexo,
-cpf,data_nascimento,telefone) OUTPUT INSERTED.ID VALUES 
-(@NOME,@IDADE,@SEXO,@CPF,@DATA_NASCIMENTO,@TELEFONE)";
+            comando.CommandText = @"INSERT INTO pessoas (nome, idade, sexo, cpf, data_nascimento, telefone, cep) OUTPUT INSERTED.ID VALUES ( @NOME, @IDADE, @SEXO, @CPF, @DATA_NASCIMENTO, @TELEFONE, @CEP)";
             comando.Parameters.AddWithValue("@NOME", pessoas.Nome);
             comando.Parameters.AddWithValue("@IDADE", pessoas.Idade);
             comando.Parameters.AddWithValue("@SEXO", pessoas.Sexo);
             comando.Parameters.AddWithValue("@CPF", pessoas.CPF);
             comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.Data_nascimento);
             comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);
+            comando.Parameters.AddWithValue("@CEP", pessoas.Cep); 
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             
             return id;
