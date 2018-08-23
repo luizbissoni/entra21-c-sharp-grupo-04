@@ -18,10 +18,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Nome)
         </th>
-        <th></th>
     </tr>
 
-@foreach (SistemaFinanceiro.Models.Categoria item in @ViewBag.Categoria) {
+@foreach (SistemaFinanceiro.Models.Categoria item in @ViewBag.Categorias) 
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Id_Categoria)
