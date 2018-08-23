@@ -7,11 +7,11 @@
 
 <h2>Editar</h2>
 
-<form action="/CategoriaController/Update" method="post">
 
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
     
-    
-
     <div class="form-horizontal">
         <h4>Categoria</h4>
         <hr />
@@ -30,8 +30,8 @@
             @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-
-                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+              
+                  @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -41,9 +41,12 @@
             </div>
         </div>
     </div>
-</form>
+}
 
-    <div>
-        @Html.ActionLink("Voltar para lista", "Index")
-    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
 
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
