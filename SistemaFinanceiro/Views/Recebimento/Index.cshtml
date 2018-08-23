@@ -8,7 +8,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar um novo recebimento", "Cadastro")
 </p>
 <table class="table">
     <tr>
@@ -27,7 +27,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (SistemaFinanceiro.Models.Recebimento item in @ViewBag.Recebimentos)
+ {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Id_recebimento)

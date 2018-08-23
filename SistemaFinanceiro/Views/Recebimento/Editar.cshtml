@@ -7,11 +7,8 @@
 
 <h2>Editar</h2>
 
+<form action="/RecebimentoController/Update" method="post">
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    
     <div class="form-horizontal">
         <h4>Recebimento</h4>
         <hr />
@@ -56,12 +53,12 @@
             </div>
         </div>
     </div>
-}
+    </form>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
 
-<script src="~/Scripts/jquery-1.10.2.min.js"></script>
-<script src="~/Scripts/jquery.validate.min.js"></script>
-<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
