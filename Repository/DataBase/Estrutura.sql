@@ -3,11 +3,11 @@ CREATE TABLE [dbo].[pessoas] (
     [Id]              INT          IDENTITY (1, 1) NOT NULL,
     [nome]            NCHAR (100)   NOT NULL,
     [idade]           TINYINT      NOT NULL,
-    [sexo]            BIT          NOT NULL,
+    [sexo]            CHAR         NOT NULL,
     [cpf]             VARCHAR (20) NOT NULL,
     [data_nascimento] DATE         NOT NULL,
-    [telefone]        INT          NULL,
-    [cep]             INT          NULL,
+    [telefone]        VARCHAR(50)          NULL,
+    [cep]             VARCHAR(50)         NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
