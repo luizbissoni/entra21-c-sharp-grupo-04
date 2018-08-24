@@ -47,10 +47,10 @@ namespace SistemaFinanceiro.Repositório
                 Recebimento recebimento = new Recebimento()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    Id_recebimento = Convert.ToInt32(linha[1].ToString()),
-                    Valor_recebido = Convert.ToInt16(linha[2].ToString()),
-                    data_recebimento = Convert.ToDateTime(linha[3].ToString()),
-                    Descricao = linha[4].ToString()
+                //  Id_recebimento = Convert.ToInt32(linha[1].ToString()),
+                    Valor_recebido = Convert.ToInt16(linha[1].ToString()),
+                    data_recebimento = Convert.ToDateTime(linha[2].ToString()),
+                    Descricao = linha[3].ToString()
 
 
                 };
@@ -86,7 +86,7 @@ namespace SistemaFinanceiro.Repositório
         {
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "UPDATE recebimentos SET valor_recebido = @VALOR_RECEBIDO, data_recebimento = @DATA_RECEBIMENTO, descricao = @DESCRICAO WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID_CATEGORIA", recebimento.Id_recebimento);
+    //      comando.Parameters.AddWithValue("@ID_CATEGORIA", recebimento.Id_recebimento);
             comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
             comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);
             
