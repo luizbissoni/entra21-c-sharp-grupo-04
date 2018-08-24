@@ -16,8 +16,9 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO categorias (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
+            comando.CommandText = @"INSERT INTO categorias (id_categoria, nome) OUTPUT INSERTED.ID VALUES (@NOME)";
             comando.Parameters.AddWithValue("@NOME", categorias.Nome);
+            comando.Parameters.AddWithValue("@ID_CATEGORIA", categorias.Id_Categoria);
 
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
@@ -35,7 +36,7 @@ namespace SistemaFinanceiro.Repositório
         public bool ExcluirCategoria(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM categorias WHERE categoria id = @ID";
+            comando.CommandText = "DELETE FROM categorias WHERE categorias id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }
