@@ -1,62 +1,530 @@
-﻿
+﻿<!DOCTYPE html>
+<html lang="en">
 
-<!DOCTYPE html>
-
-<html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-
-    <title>@ViewBag.TituloPagina</title>
-
-    <meta name="viewport" content="width=device-width" />
-
-    <link rel="stylesheet" href="~/Content/bootstrap.css" />
-    <link rel="stylesheet" href="~/Content/fontawesome-free-5.2.0-web/css/all.css" />
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-    <script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
-
-
+    <title>GURU Able - Premium Admin Template </title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="#">
+    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="#">
+    <!-- Favicon icon -->
+    <link rel="icon" href="~/Content/assets/images/favicon.ico" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="~/Content/bower_components/bootstrap/css/bootstrap.css">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/icon/themify-icons/themify-icons.css">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/icon/icofont/css/icofont.css">
+    <!-- Menu-Search css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/pages/menu-search/css/component.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/jquery.mCustomScrollbar.css">
 </head>
-<body>
 
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">#TUDOPUTA</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li>@Html.ActionLink("Pessoas", "Index","Pessoas/Index")</li>
-                    <li>@Html.ActionLink("Gastos", "Index", "Gasto/Index")</li>
-                    <li>@Html.ActionLink("Cartão", "Index", "Cartao/Index")</li>
-                    <li>@Html.ActionLink("Categoria", "Index", "Categoria/Index")</li>
-                    <li>@Html.ActionLink("Recebimento", "Index", "Recebimento/Index")</li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
+
+<body>
+    <!-- Pre-loader start -->
+    <div class="theme-loader">
+        <div class="ball-scale">
+            <div class='contain'>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
+                <div class="ring">
+                    <div class="frame"></div>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container body-content">
-        @RenderBody()
     </div>
-    @RenderSection("script", false)
-    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <!-- Pre-loader end -->
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
 
-    @* SCRIPT MODAL INICIO *@
-    <script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
-    <script src="~/Scripts/ScriptPessoaCadastro/delete-person-modal.js"></script>
-    @* FIM SCRIPT MODAL *@
+            <nav class="navbar header-navbar pcoded-header">
+                <div class="navbar-wrapper">
+
+                    <div class="navbar-logo">
+                        <a class="mobile-menu" id="mobile-collapse" href="#!">
+                            <i class="ti-menu"></i>
+                        </a>
+                        <a class="mobile-search morphsearch-search" href="#">
+                            <i class="ti-search"></i>
+                        </a>
+                        <a href="index.html">
+                            <img class="img-fluid" src="~/Content/assets/images/logo.png" alt="Theme-Logo" />
+                        </a>
+                        <a class="mobile-options">
+                            <i class="ti-more"></i>
+                        </a>
+                    </div>
+
+                    <div class="navbar-container container-fluid">
+                        <ul class="nav-left">
+                            <li>
+                                <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+                            </li>
+                            <li>
+                                <a class="main-search morphsearch-search" href="#">
+                                    <!-- themify icon -->
+                                    <i class="ti-search"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!" onclick="javascript:toggleFullScreen()">
+                                    <i class="ti-fullscreen"></i>
+                                </a>
+                            </li>
+                            <li class="mega-menu-top">
+                         
+                            </li>
+                        </ul>
+                        <ul class="nav-right">
+                            <li class="header-notification lng-dropdown">
+                                <a href="#" id="dropdown-active-item">
+                                    <img src="~/Content/assets/images/flags/ENGLISH.jpg" alt=""> English
+                                </a>
+                                <ul class="show-notification">
+                                    <li>
+                                        <a href="#" data-lng="en">
+                                            <img src="~/Content/assets/images/flags/ENGLISH.jpg" alt=""> English
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-lng="es">
+                                            <img src="~/Content/assets/images/flags/SPAIN.jpg" alt=""> Spanish
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-lng="pt">
+                                            <img src="~/Content/assets/images/flags/PORTO.jpg" alt=""> Portuguese
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" data-lng="fr">
+                                            <img src="~/Content/assets/images/flags/FRANCE.jpg" alt=""> French
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="header-notification">
+                                <a href="#!">
+                                    <i class="ti-bell"></i>
+                                    <span class="badge bg-c-pink"></span>
+                                </a>
+                                <ul class="show-notification">
+                                    <li>
+                                        <h6>Notifications</h6>
+                                        <label class="label label-danger">New</label>
+                                    </li>
+                                    <li>
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="~/Content/assets/images/avatar-4.jpg" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">John Doe</h5>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <span class="notification-time">30 minutes ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="~/Content/assets/images/avatar-3.jpg" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">Joseph William</h5>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <span class="notification-time">30 minutes ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="media">
+                                            <img class="d-flex align-self-center img-radius" src="~/Content/assets/images/avatar-4.jpg" alt="Generic placeholder image">
+                                            <div class="media-body">
+                                                <h5 class="notification-user">Sara Soudein</h5>
+                                                <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                <span class="notification-time">30 minutes ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                            <li class="user-profile header-notification">
+                                <a href="#!">
+                                    <img src="~/Content/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                                    <span>John Doe</span>
+                                    <i class="ti-angle-down"></i>
+                                </a>
+                                <ul class="show-notification profile-notification">
+                                    <li>
+                                        <a href="#!">
+                                            <i class="ti-settings"></i> Settings
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="user-profile.html">
+                                            <i class="ti-user"></i> Profile
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="email-inbox.html">
+                                            <i class="ti-email"></i> My Messages
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="auth-lock-screen.html">
+                                            <i class="ti-lock"></i> Lock Screen
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="auth-normal-sign-in.html">
+                                            <i class="ti-layout-sidebar-left"></i> Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- search -->
+                        <div id="morphsearch" class="morphsearch">
+                            <form class="morphsearch-form">
+                                <input class="morphsearch-input" type="search" placeholder="Search..." />
+                                <button class="morphsearch-submit" type="submit">Search</button>
+                            </form>
+                            <div class="morphsearch-content">
+                                <div class="dummy-column">
+                                    <h2>People</h2>
+                                    <a class="dummy-media-object img-radius" href="#!">
+                                        <img src="~/Content/assets/images/avatar-4.jpg" class="img-radius" alt="Sara Soueidan" />
+                                        <h3>Sara Soueidan</h3>
+                                    </a>
+                                    <a class="dummy-media-object img-radius" href="#!">
+                                        <img src="~/Content/assets/images/avatar-2.jpg" class="img-radius" alt="Shaun Dona" />
+                                        <h3>Shaun Dona</h3>
+                                    </a>
+                                </div>
+                                <div class="dummy-column">
+                                    <h2>Popular</h2>
+                                    <a class="dummy-media-object img-radius" href="#!">
+                                        <img src="~/Content/assets/images/avatar-3.jpg" class="img-radius" alt="PagePreloadingEffect" />
+                                        <h3>Page Preloading Effect</h3>
+                                    </a>
+                                    <a class="dummy-media-object img-radius" href="#!">
+                                        <img src="~/Content/assets/images/avatar-4.jpg" class="img-radius" alt="DraggableDualViewSlideshow" />
+                                        <h3>Draggable Dual-View Slideshow</h3>
+                                    </a>
+                                </div>
+                                <div class="dummy-column">
+                                    <h2>Recent</h2>
+                                    <a class="dummy-media-object img-radius" href="#!">
+                                        <img src="~/Content/assets/images/avatar-2.jpg" class="img-radius" alt="TooltipStylesInspiration" />
+                                        <h3>Tooltip Styles Inspiration</h3>
+                                    </a>
+                                    <a class="dummy-media-object img-radius" href="#!">
+                                        <img src="~/Content/assets/images/avatar-3.jpg" class="img-radius" alt="NotificationStyles" />
+                                        <h3>Notification Styles Inspiration</h3>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- /morphsearch-content -->
+                            <span class="morphsearch-close"><i class="icofont icofont-search-alt-1"></i></span>
+                        </div>
+                        <!-- search end -->
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Sidebar chat start -->
+            <div id="sidebar" class="users p-chat-user showChat">
+                <div class="had-container">
+                    <div class="card card_main p-fixed users-main">
+                        <div class="user-box">
+                            <div class="card-block">
+                                <div class="right-icon-control">
+                                    <input type="text" class="form-control  search-text" placeholder="Search Friend" id="search-friends">
+                                    <div class="form-icon">
+                                        <i class="icofont icofont-search"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-friend-list">
+                                <div class="media userlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius img-radius" src="~/Content/assets/images/avatar-3.jpg" alt="Generic placeholder image ">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Josephin Doe</div>
+                                    </div>
+                                </div>
+                                <div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe" data-toggle="tooltip" data-placement="left" title="Lary Doe">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius" src="~/Content/assets/images/avatar-2.jpg" alt="Generic placeholder image">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Lary Doe</div>
+                                    </div>
+                                </div>
+                                <div class="media userlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius" src="~/Content/assets/images/avatar-4.jpg" alt="Generic placeholder image">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Alice</div>
+                                    </div>
+                                </div>
+                                <div class="media userlist-box" data-id="4" data-status="online" data-username="Alia" data-toggle="tooltip" data-placement="left" title="Alia">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius" src="~/Content/assets/images/avatar-3.jpg" alt="Generic placeholder image">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Alia</div>
+                                    </div>
+                                </div>
+                                <div class="media userlist-box" data-id="5" data-status="online" data-username="Suzen" data-toggle="tooltip" data-placement="left" title="Suzen">
+                                    <a class="media-left" href="#!">
+                                        <img class="media-object img-radius" src="~/Content/assets/images/avatar-2.jpg" alt="Generic placeholder image">
+                                        <div class="live-status bg-success"></div>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="f-13 chat-header">Suzen</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sidebar inner chat start-->
+          
+            <!-- Sidebar inner chat end-->
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+                    <nav class="pcoded-navbar">
+                        <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                        <div class="pcoded-inner-navbar main-menu">
+                            <div class="">
+                                <div class="main-menu-header">
+                                    <img class="img-40 img-radius" src="~/Content/assets/images/avatar-4.jpg" alt="User-Profile-Image">
+                                    <div class="user-details">
+                                        <span>John Doe</span>
+                                        <span id="more-details">UX Designer<i class="ti-angle-down"></i></span>
+                                    </div>
+                                </div>
+
+                                <div class="main-menu-content">
+                                    <ul>
+                                        <li class="more-details">
+                                            <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
+                                            <a href="#!"><i class="ti-settings"></i>Settings</a>
+                                            <a href="auth-normal-sign-in.html"><i class="ti-layout-sidebar-left"></i>Logout</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="pcoded-search">
+                                <span class="searchbar-toggle">  </span>
+                                <div class="pcoded-search-box ">
+                                    <input type="text" placeholder="Search">
+                                    <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
+                                </div>
+                            </div>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Navigation</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu active pcoded-trigger">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+
+                                        <li class="active">
+                                            <a href="index.html">
+                                                <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                <span class="pcoded-mtext" data-i18n="nav.dash.default">Default</span>
+                                                <span class="pcoded-mcaret"></span>
+                                            </a>
+                                        </li>
+                            </ul>
+                                </li>
+                                
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.ui-element">UI Element</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.tables">Tables</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.chart-and-maps">Chart And Maps</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                               
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.pages">Pages</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.app">App</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.extension">Extension</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                
+                            </ul>
+                            <ul class="pcoded-item pcoded-left-item">
+                                
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Other</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                               
+                            </ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.support">Support</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                               
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+
+                                    <div class="page-body">
+                                       
+                                    </div>
+                                </div>
+
+                                <div id="styleSelector">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Warning Section Starts -->
+    <!-- Older IE warning message -->
+    <!--[if lt IE 10]>
+    <div class="ie-warning">
+        <h1>Warning!!</h1>
+        <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+        <div class="iew-container">
+            <ul class="iew-download">
+                <li>
+                    <a href="http://www.google.com/chrome/">
+                        <img src="~/Content/assets/images/browser/chrome.png" alt="Chrome">
+                        <div>Chrome</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/">
+                        <img src="~/Content/assets/images/browser/firefox.png" alt="Firefox">
+                        <div>Firefox</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.opera.com">
+                        <img src="~/Content/assets/images/browser/opera.png" alt="Opera">
+                        <div>Opera</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.apple.com/safari/">
+                        <img src="~/Content/assets/images/browser/safari.png" alt="Safari">
+                        <div>Safari</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                        <img src="~/Content/assets/images/browser/ie.png" alt="">
+                        <div>IE (9 & above)</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>Sorry for the inconvenience!</p>
+    </div>
+    <![endif]-->
+    <!-- Warning Section Ends -->
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="~/Content/bower_components/jquery/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/popper.js/js/popper.min.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/bootstrap/js/bootstrap.min.js"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="~/Content/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="~/Content/bower_components/modernizr/js/modernizr.js"></script>
+    <!-- am chart -->
+    <script src="~/Content/assets/pages/widget/amchart/amcharts.min.js"></script>
+    <script src="~/Content/assets/pages/widget/amchart/serial.min.js"></script>
+    <!-- Chart js -->
+    <script type="text/javascript" src="~/Content/bower_components/chart.js/js/Chart.js"></script>
+    <!-- Todo js -->
+    <script type="text/javascript" src="~/Content/assets/pages/todo/todo.js "></script>
+    <!-- i18next.min.js -->
+    <script type="text/javascript" src="~/Content/bower_components/i18next/js/i18next.min.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="~/Content/assets/pages/dashboard/custom-dashboard.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/SmoothScroll.js"></script>
+    <script src="~/Content/assets/js/pcoded.min.js"></script>
+    <script src="~/Content/assets/js/demo-12.js"></script>
+    <script src="~/Content/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/script.min.js"></script>
+
+    @RenderSection("script")
 </body>
+
 </html>
