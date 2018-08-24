@@ -24,6 +24,7 @@ namespace SistemaFinanceiro.Controllers
         {
             ViewBag.TituloPagina = "Categorias - Cadastro";
             ViewBag.Categoria = new Categoria();
+            ViewBag.Pessoas = new RepositorioPessoas().ObterTodosPessoas();
             return View();
         }
         [HttpPost]
@@ -32,7 +33,7 @@ namespace SistemaFinanceiro.Controllers
             if (ModelState.IsValid)
             {
                 int identificador = new RepositorioCategoria().CadastrarCategoria(categoria);
-                return RedirectToAction("Editar", new { id = identificador });
+                return RedirectToAction("Index", new { id = identificador });
             }
             return View("Cadastro");
         }

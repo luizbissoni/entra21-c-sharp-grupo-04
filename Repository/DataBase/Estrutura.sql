@@ -33,10 +33,10 @@ CREATE TABLE [dbo].[categorias] (
 
 CREATE TABLE [dbo].[gastos] (
     [Id]              INT            IDENTITY (1, 1) NOT NULL,
-    [id_gastos]       INT            NOT NULL,
+    [id_gastos]       INT             NULL,
     [valor_gastos]    DECIMAL (4, 2) NOT NULL,
-    [data_entrada]    DATE           NOT NULL,
-    [data_vencimento] DATE           NOT NULL,
+    [data_entrada]    DATETIME       NOT NULL,
+    [data_vencimento] DATETIME       NOT NULL,
     [descricao]       VARCHAR (50)   NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     FOREIGN KEY ([id_gastos]) REFERENCES [dbo].[pessoas] ([Id])
