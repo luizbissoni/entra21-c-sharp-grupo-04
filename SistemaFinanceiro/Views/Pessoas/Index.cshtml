@@ -55,8 +55,8 @@
                 @Html.DisplayFor(modelItem => pessoas.Telefone)
             </td>
             <td>
-                <a href="#" class="btn btn-danger excluir-pessoa" data-id="@pessoas.Id" data-target="#exampleModal" data-toggle="modal">Exlcuir</a> |
-                <a href="#" class="btn btn-warning editar-pessoa" data-id="@pessoas.Id" data-target="#editar-pessoa-modal" data-toggle="modal">Editar</a> |
+                <a href="#" class="btn btn-danger excluir-pessoa" data-id="@pessoas.Id" data-target="#exampleModal" data-toggle="modal">Excluir</a> |
+                <a href="#" class="btn btn-warning editar-pessoa" data-id="@pessoas.Id"  data-target="#editar-pessoa-modal" data-toggle="modal">Editar</a> |
                 @Html.ActionLink("Editar", "Editar", new { id = pessoas.Id }) |
                 @Html.ActionLink("Details", "Details", new { id = pessoas.Id }) |
                 @Html.ActionLink("Excluir", "Excluir", new { id = pessoas.Id })
@@ -65,10 +65,14 @@
     }
 
 </table>
+@Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
+
 @section script{
 
 
 }
+
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  " role="document">
@@ -90,128 +94,3 @@
     </div>
 </div>
 @* inicio modal editar *@
-
-<form>
-    <div class="modal fade" id="editar-pessoa-modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header modal-header-danger">
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span>X</span>
-                    </button>
-                    <h4>Editar Pessoas</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="campo-nome">Nome <h11>*</h11></label>
-                        <input id="campo-nome" name="Pessoas.Nome" placeholder="" class="form-control input-md" required="" type="text">
-                    </div>
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="campo-idade">Idade</label>
-                                <input type="text" class="form-control input-md" name="Pessoas.Idade" id="campo-idade" maxlength="2" />
-                            </div>
-                        </div>
-                        <label class="col-md-1 control-label" for="radios">Sexo</label>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label required="" class="radio-inline" for="campo-sexo-feminino">
-                                    <input name="Pessoas.Sexo" id="campo-sexo" value="F" type="radio">
-                                    Feminino
-                                </label>
-
-                                <label class="radio-inline" for="campo-sexo-masculino">
-                                    <input name="Pessoas.Sexo" id="campo-sexo" value="M" type="radio">
-                                    Masculino
-                                </label>
-
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="col-md-1 control-label" for="campo-nascimento">Nascimento<h11>*</h11></label>
-                            <input id="campo-nascimento" name="Pessoas.Data_Nascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="date" maxlength="10" onkeypress="formatar('##/##/####', this)">
-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="campo-cpf">CPF</label>
-                                <input id="campo-cpf" name="Pessoas.CPF" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="11" pattern="[0-9]+$">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="campo-telefone">Telefone</label>
-                                <input id="campo-telefone" name="Pessoas.Telefone" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
-                                       onkeypress="formatar('## #####-####', this)">
-                            </div>
-                        </div>
-                    </div>
-                    <h4>Endereço</h4>
-                    <hr>
-                    <div class="row">
-                        <div class="form-group">
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <span class="input-group-addon">CEP</span>
-                                    <input id="cep" name="Pessoas.Cep" placeholder="Apenas números" class="form-control" required="" type="search" maxlength="8" pattern="[0-9]+$">
-                                </div>
-                            </div>
-
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <div class="input-group">
-                                    <span class="input-group-addon">Rua</span>
-                                    <input id="rua" name="rua" class="form-control" placeholder="" required="" readonly="readonly" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="input-group">
-                                <span class="input-group-addon">Nº <h11>*</h11></span>
-                                <input id="numero" name="numero" class="form-control" placeholder="" required="" type="text">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="input-group">
-                                <span class="input-group-addon">Bairro</span>
-                                <input id="bairro" name="bairro" class="form-control" placeholder="" required="" readonly="readonly" type="text">
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="input-group">
-                                <span class="input-group-addon">Cidade</span>
-                                <input id="cidade" name="cidade" class="form-control" placeholder="" required="" readonly="readonly" type="text">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="input-group">
-                                <span class="input-group-addon">Estado</span>
-                                <input id="estado" name="estado" class="form-control" placeholder="" required="" readonly="readonly" type="text">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <input type="submit" class="btn btn-primary" value="Salvar">
-                </div>
-            </div>
-        </div>
-    </div>
-
-</form>
-

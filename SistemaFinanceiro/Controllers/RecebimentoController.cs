@@ -32,11 +32,12 @@ namespace SistemaFinanceiro.Controllers
         [HttpPost]
         public ActionResult Store(Recebimento recebimento)
         {
-
+            if (ModelState.IsValid)
+            {
             int identificador = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
             return RedirectToAction("Index", new { id = identificador });
 
-            ViewBag.Recebimento = recebimento;
+            }
             return View("Index");
         }
 

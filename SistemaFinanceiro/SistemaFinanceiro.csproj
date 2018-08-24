@@ -84,9 +84,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database987.mdf" />
-    <Content Include="App_Data\Database987_log.ldf">
-      <DependentUpon>Database987.mdf</DependentUpon>
+    <Content Include="App_Data\Database800.mdf" />
+    <Content Include="App_Data\Database800_log.ldf">
+      <DependentUpon>Database800.mdf</DependentUpon>
     </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
