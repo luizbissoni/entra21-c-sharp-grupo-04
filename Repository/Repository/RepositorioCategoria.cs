@@ -44,7 +44,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Categoria> categorias = new List<Categoria>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_categoria, nome FROM categorias";
+            comando.CommandText = "SELECT id, id_categoria, nome FROM categoria";
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)

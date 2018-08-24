@@ -24,6 +24,7 @@ namespace SistemaFinanceiro.Controllers
         {
             ViewBag.TituloPagina = "Categorias - Cadastro";
             ViewBag.Categoria = new Categoria();
+            ViewBag.Pessoas = new RepositorioPessoas().ObterTodosPessoas();
             return View();
         }
         [HttpPost]
