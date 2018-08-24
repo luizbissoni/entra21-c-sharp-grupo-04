@@ -415,7 +415,7 @@
                                 <div class="page-wrapper">
 
                                     <div class="page-body">
-
+                                        @RenderBody()
                                     </div>
                                 </div>
 
@@ -503,7 +503,7 @@
     <script src="~/Content/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/script.min.js"></script>
 
-    @RenderSection("script")
+    @RenderSection("script", false)
 </body>
 
 </html>
