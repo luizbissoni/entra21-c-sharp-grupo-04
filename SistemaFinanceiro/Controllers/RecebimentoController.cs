@@ -25,6 +25,7 @@ namespace SistemaFinanceiro.Controllers
         {
             ViewBag.TituloPagina = "Recebimento - Cadastro";
             ViewBag.Recebimento = new Recebimento();
+            ViewBag.Pessoas = new RepositorioPessoas().ObterTodosPessoas();
             return View();
         }
 
@@ -51,6 +52,7 @@ namespace SistemaFinanceiro.Controllers
         {
             Recebimento recebimento = new RepositorioRecebimento().ObterPeloIdRecebimento(id);
             ViewBag.Recebimento = recebimento;
+            ViewBag.TituloPagina = "Editar - Recebimentos";
             return View();
         }
 
