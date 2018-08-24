@@ -24,8 +24,8 @@ namespace SistemaFinanceiro.Controllers
         {
             ViewBag.TituloPagina = "Gastos - Cadastro";
             ViewBag.Gastos = new Gastos();
-            ViewBag.Cartoes = new RepositorioCartoes().ObterTodosCartoes();
             ViewBag.Pessoas = new RepositorioPessoas().ObterTodosPessoas();
+            ViewBag.Categorias = new RepositorioCategoria().ObterTodosCategoria();
             ViewBag.Categorias = new Categoria();
             
             return View();

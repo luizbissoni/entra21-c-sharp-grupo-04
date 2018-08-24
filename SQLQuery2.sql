@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[categorias] (
 
 CREATE TABLE [dbo].[gastos] (
     [Id]              INT            IDENTITY (1, 1) NOT NULL,
-    [id_gastos]       INT             NULL,
+    [id_gastos]       INT            NULL,
     [valor_gastos]    DECIMAL (4, 2) NOT NULL,
     [data_entrada]    DATETIME       NOT NULL,
     [data_vencimento] DATETIME       NOT NULL,
