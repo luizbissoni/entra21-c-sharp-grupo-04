@@ -84,6 +84,7 @@ namespace SistemaFinanceiro.Repositório
 
             return gastos;
         }
+
         public bool AlterarGastos(Gastos gastos)
         {
             SqlCommand comando = new DBconnection().GetConnction();
@@ -93,7 +94,7 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@DATA_ENTRADA", gastos.Data_De_Entrada);
             comando.Parameters.AddWithValue("@DATA_VENCIMENTO", gastos.Data_De_Vencimento);
             comando.Parameters.AddWithValue("@DESCRICAO", gastos.Descricao);
-
+            comando.Parameters.AddWithValue("@ID", gastos.Id); 
             return comando.ExecuteNonQuery() == 1;
         }
 
