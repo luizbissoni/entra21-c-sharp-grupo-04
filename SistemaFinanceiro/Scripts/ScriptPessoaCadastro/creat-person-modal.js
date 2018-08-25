@@ -1,7 +1,7 @@
 ﻿$(function () {
     $('.cadastrar-pessoa').on('click', function () {
         $.ajax({
-            url: '/Pessoas/CadastroModal',
+            url: '/CadastroModal',
             success: function (data) {
                 $('body').append(data);
                 $('#cadastrar-pessoa-modal').modal('show');
@@ -11,7 +11,7 @@
 
     $('body').on('click', '#salvar-cadastro-modal', function () {
         $.ajax({
-            url: '/Pessoas/Store',
+            url: 'Pessoas/Store',
             method: 'POST',
             data: {
                 nome: $('#campo-nome').val(),
