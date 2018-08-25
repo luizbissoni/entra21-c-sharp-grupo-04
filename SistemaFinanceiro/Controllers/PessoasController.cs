@@ -35,8 +35,8 @@ namespace SistemaFinanceiro.Controllers
             if (ModelState.IsValid)
             {
                 int identificador = new RepositorioPessoas().CadastrarPessoas(pessoas);
-                return Content(JsonConvert.SerializeObject(new { id = identificador }));
-                //return RedirectToAction("Index", new { id = identificador });
+               // return Content(JsonConvert.SerializeObject(new { id = identificador }));
+                return RedirectToAction("Index", new { id = identificador });
             }
 
             ViewBag.Pessoas = pessoas;
@@ -78,10 +78,11 @@ namespace SistemaFinanceiro.Controllers
             return Content(JsonConvert.SerializeObject(pessoas));
         }
 
-        [HttpGet]
-        public ActionResult CadastroModal()
+        [HttpPost]
+        public ActionResult CadastroModalPessoas(Pessoas pessoa)
         {
-            return View();
+            int id = new RepositorioPessoas().CadastrarPessoas(pessoa);
+            return Content(JsonConvert.SerializeObject(new { id = id }));
         }
        
     }

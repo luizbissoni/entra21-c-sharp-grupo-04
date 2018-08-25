@@ -4,24 +4,24 @@
 }
 
 <div class="modal fade" id="cadastrar-pessoa-modal">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header modal-header-danger">
+            <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">
                     <span>X</span>
                 </button>
-                <h4>Editar Pessoas</h4>
+                <h4>Cadatrar Pessoas</h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="campo-nome">Nome <h11>*</h11></label>
-                    <input id="campo-nome" name="Pessoas.Nome" placeholder="" class="form-control input-md" required="" type="text">
+                    <input id="campo-nome" name="Pessoas.Nome" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
                 </div>
                 <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="campo-idade">Idade</label>
-                            <input type="text" class="form-control input-md" name="Pessoas.Idade" id="campo-idade" maxlength="2" />
+                            <input type="text" class="form-control input-md" name="Pessoas.Idade" id="campo-idade" maxlength="2"/>
                         </div>
                     </div>
                     <label class="col-md-1 control-label" for="radios">Sexo</label>
@@ -36,13 +36,13 @@
                                 <input name="Pessoas.Sexo" id="campo-sexo" value="M" type="radio">
                                 Masculino
                             </label>
-
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <label class="col-md-1 control-label" for="campo-nascimento">Nascimento<h11>*</h11></label>
-                        <input id="campo-nascimento" name="Pessoas.Data_Nascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="date" maxlength="10" onkeypress="formatar('##/##/####', this)">
-
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="campo-nascimento">Nascimento<h11>*</h11></label>
+                            <input id="campo-nascimento" name="Pessoas.Data_Nascimento" @*placeholder="DD/MM/AAAA"*@ class="form-control input-md" required="" type="date" @*maxlength="10" onkeypress="formatar('##/##/####', this)"*@>
+                        </div>
                     </div>
                 </div>
 
@@ -67,7 +67,7 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-addon">CEP</span>
-                            <input id="cep" name="Pessoas.Cep" placeholder="Apenas números" class="form-control" required="" type="search" maxlength="8" pattern="[0-9]+$">
+                            <input id="cep" name="Pessoas.Cep" placeholder="Apenas números" class="form-control col-sm-5" required="" type="search" maxlength="8" pattern="[0-9]+$">
                         </div>
                     </div>
 
@@ -82,15 +82,40 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-addon">Rua</span>
-                            <input id="rua" name="rua" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                            <input id="rua" name="rua" class="form-control " placeholder="" required="" readonly="readonly" type="text">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="input-group">
                             <span class="input-group-addon">Nº <h11>*</h11></span>
-                            <input id="numero" name="numero" class="form-control" placeholder="" required="" type="text">
+                            <input id="numero" name="numero" class="form-control col-sm-3" placeholder="" maxlength="4" required="" type="text">
                         </div>
                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Bairro</span>
+                            <input id="bairro" name="bairro" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                        </div>
+
+                    </div>
+               
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">Cidade</span>
+                            <input id="cidade" name="cidade" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">Estado</span>
+                            <input id="estado" name="estado" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                        </div>
+
+                    </div>
+                
                 </div>
 
             </div>
@@ -100,4 +125,7 @@
         </div>
     </div>
 </div>
+@section script{
+<script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
+    }
 
