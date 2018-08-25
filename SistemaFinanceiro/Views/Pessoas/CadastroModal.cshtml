@@ -21,14 +21,14 @@
                     <div class="col-md-2">
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="campo-idade">Idade</label>
-                            <input type="text" class="form-control input-md" name="Pessoas.Idade" id="campo-idade" maxlength="2"/>
+                            <input type="text" class="form-control input-md" name="Pessoas.Idade" id="campo-idade" maxlength="2" />
                         </div>
                     </div>
                     <label class="col-md-1 control-label" for="radios">Sexo</label>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label required="" class="radio-inline" for="campo-sexo-feminino">
-                                <input name="Pessoas.Sexo" id="campo-sexo-feminino" value="F" type="radio">
+                                <input name="Pessoas.Sexo" id="campo-sexo" value="F" type="radio">
                                 Feminino
                             </label>
 
@@ -41,7 +41,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="campo-nascimento">Nascimento<h11>*</h11></label>
-                            <input id="campo-nascimento" name="Pessoas.Data_Nascimento" @*placeholder="DD/MM/AAAA"*@ class="form-control input-md" required="" type="date" @*maxlength="10" onkeypress="formatar('##/##/####', this)"*@>
+                            <input id="campo-nascimento" name="Pessoas.Data_Nascimento" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="date" maxlength="10" @*onkeypress="formatar('##/##/####', this)*@">
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                         <div class="form-group">
                             <label class="col-md-2 control-label" for="campo-telefone">Telefone</label>
                             <input id="campo-telefone" name="Pessoas.Telefone" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"
-                                   onkeypress="formatar('## #####-####', this)">
+                                   @*onkeypress="formatar('## #####-####', this)"*@>
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@
                         </div>
 
                     </div>
-               
+
                     <div class="col-md-4">
                         <div class="input-group">
                             <span class="input-group-addon">Cidade</span>
@@ -115,7 +115,7 @@
                         </div>
 
                     </div>
-                
+
                 </div>
 
             </div>
@@ -125,7 +125,8 @@
         </div>
     </div>
 </div>
-@section script{
-<script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
-    }
 
+@section script{
+
+<script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
+}

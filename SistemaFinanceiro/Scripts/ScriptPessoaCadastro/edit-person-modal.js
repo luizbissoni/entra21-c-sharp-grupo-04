@@ -1,5 +1,4 @@
-﻿/// <reference path="C:\Users\T-Gamer\Documents\GitHub\entra21-c-sharp-grupo-04\SistemaFinanceiro\Views/Pessoas/EditarModal.cshtml" />
-$(function () {
+﻿$(function () {
     var id = -1;
     $('.editar-pessoa').on('click', function () {
         id = $(this).data('id');

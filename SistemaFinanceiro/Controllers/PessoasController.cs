@@ -75,7 +75,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult ObterTodosJson()
         {
             List<Pessoas> pessoas = new RepositorioPessoas().ObterTodosPessoas();
-            return Content(JsonConvert.SerializeObject(pessoas));
+            return Content(JsonConvert.SerializeObject(new {data = pessoas }));
         }
 
         [HttpPost]

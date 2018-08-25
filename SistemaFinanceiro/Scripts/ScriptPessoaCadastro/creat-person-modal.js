@@ -2,7 +2,6 @@
     $('.cadastrar-pessoa').on('click', function () {
         $.ajax({
             url: '/Pessoas/CadastroModal',
-            method: 'get',
             success: function (data) {
                 $('body').append(data);
                 $('#cadastrar-pessoa-modal').modal('show');
@@ -12,26 +11,46 @@
 
     $('body').on('click', '#salvar-cadastro-modal', function () {
         $.ajax({
-            url: '/Pessoas/CadastroModalPessoas',
+            url: '/Pessoas/Store',
             method: 'POST',
             data: {
                 nome: $('#campo-nome').val(),
                 idade: $('#campo-idade').val(),
                 nascimento: $('#campo-nascimento').val(),
+                sexo: $('#campo-sexo').val(),
                 cpf: $('#campo-cpf').val(),
                 telefone: $('#campo-telefone').val(),
                 cep: $('#cep').val()
             },
             success: function (data) {
-                var resultado = JSON.parse(data);
+                //var resultado = JSON.parse(data);
                 $('#cadastrar-pessoa-modal').modal('hide');
-
                 //adicionarLinhaTabela($('#campo-nome').val(), $('#campo-idade').val(), $('#campo-nascimento').val(), $('#campo-cpf').val(), $('#campo-telefone').val(), $('#cep').val(), resultado.id);
             }
         });
     });
 
-    //$(function () {
+    $(document).ready(function () {
+
+        $('#tabela-pessoas').DataTable({
+            serverSide: true,
+            "bProcessing": true,
+            "ajax": "/Pessoas/ObterTodosJson",
+            columns: [
+                { data: "Id" },
+                { data: "Nome" },
+                { data: "Idade" },
+                { data: "Sexo" },
+                { data: "Data_nascimento" },
+                { data: "CPF" },
+                { data: "Telefone" },
+                { data: "Cep" }
+            ],
+
+        });
+    });
+
+     //$(function () {
     //    $.ajax({
     //        url: '/Pessoas/ObterTodosJson',
     //        method: 'GET',
@@ -57,51 +76,7 @@
     //        }
     //    });
     //});
-  
-    
 
-    $(document).ready(function () {
-        $.ajax({
-            url: "/Pessoas/ObterTodosJson",
-            method: 'GET',
-            success: function (resultado) {
-                var registros = JSON.parse(resultado);
-                $('#tabela-pessoas').DataTable({
-                    data: registros,
-                    columns: [
-                        { "data": "registros.nome" },
-                         { "data": "registros.idade" },
-                          { "data": "registros.nascimento" },
-                           { "data": "registros.cpf" },
-                            { "data": "registros.telefone" },
-                             { "data": "registros.cep" },
-                    ],
-                });
-            }
-        });
-    });
-
-    //$(document).ready(function () {
-    //    $('#search-form').submit(function (e) {
-    //        e.preventDefault();
-    //        var table = $('#tabela-pessoas').DataTable({
-    //            destroy: true,
-    //            ajax: "/Pessoas/ObterTodosJson",
-    //            columns: [
-    //              { "data": "registros.nome" },
-    //                     { "data": "registros.idade" },
-    //                      { "data": "registros.nascimento" },
-    //                       { "data": "registros.cpf" },
-    //                        { "data": "registros.telefone" },
-    //                         { "data": "registros.cep" },
-    //            ]
-    //        })
-    //        table.on('xhr', function () {
-    //            var json = table.ajax.json();
-    //            $('#totals').text(json.totals)
-    //        });
-    //    })
-    //});
 
 
     //function adicionarLinhaTabela(nome, idade, nascimento, cpf, telefone, cep) {
