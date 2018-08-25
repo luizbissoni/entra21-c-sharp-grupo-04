@@ -84,10 +84,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database800.mdf" />
-    <Content Include="App_Data\Database800_log.ldf">
-      <DependentUpon>Database800.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\ionicons.css" />
@@ -5461,6 +5457,7 @@
     <Content Include="Content\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\bower_components\lightgallery\fonts\lg.woff" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <None Include="Scripts\jquery-2.1.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -5473,6 +5470,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\ScriptPessoaCadastro\creat-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\delete-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\edit-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\pessoas-cadastro.js" />
@@ -5522,6 +5520,7 @@
     <Content Include="Views\Pessoas\Editar.cshtml" />
     <Content Include="Views\Shared\Home.cshtml" />
     <Content Include="Views\Pessoas\EditarModal.cshtml" />
+    <Content Include="Views\Pessoas\CadastroModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5530,6 +5529,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Views\Default\" />

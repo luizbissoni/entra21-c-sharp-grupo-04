@@ -5,71 +5,49 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Index Pessoas</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Cadastro")
-</p>
+<a href="#" class="btn btn-primary cadastrar-pessoa" data-target="#cadastrar-pessoa-modal" data-toggle="modal">Cadastrar</a>
+
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Idade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Sexo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CPF)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data_nascimento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefone)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (SistemaFinanceiro.Models.Pessoas pessoas in @ViewBag.Pessoas)
-    {
-        <tr id="linha-@pessoas.Id">
-            <td>
-                @Html.DisplayFor(modelItem => pessoas.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => pessoas.Idade)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => pessoas.Sexo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => pessoas.CPF)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => pessoas.Data_nascimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => pessoas.Telefone)
-            </td>
-            <td>
-                <a href="#" class="btn btn-danger excluir-pessoa" data-id="@pessoas.Id" data-target="#exampleModal" data-toggle="modal">Excluir</a> |
-                <a href="#" class="btn btn-warning editar-pessoa" data-id="@pessoas.Id"  data-target="#editar-pessoa-modal" data-toggle="modal">Editar</a> |
-                @Html.ActionLink("Editar", "Editar", new { id = pessoas.Id }) |
-                @Html.ActionLink("Details", "Details", new { id = pessoas.Id }) |
-                @Html.ActionLink("Excluir", "Excluir", new { id = pessoas.Id })
-            </td>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Data Nascimento</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>CEP</th>
+            
         </tr>
-    }
+    </thead>
+    <tbody></tbody>
+    <tfoot>
+        <tr>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Data Nascimento</th>
+            <th>CPF</th>
+            <th>Telefone</th>
+            <th>CEP</th>
+            <th></th>
+        </tr>
+    </tfoot>
 
+  
+                @*<a href="#" class="btn btn-danger excluir-pessoa" data-id="@pessoas.Id" data-target="#exampleModal" data-toggle="modal">Excluir</a> |
+                <a href="#" class="btn btn-warning editar-pessoa" data-id="@pessoas.Id"  data-target="#editar-pessoa-modal" data-toggle="modal">Editar</a> |
+                 |*@
+                
 </table>
+
+@Html.Partial("~/Views/Pessoas/CadastroModal.cshtml")
 @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
 
 @section script{
-
-
+<script src="~/Scripts/ScriptPessoaCadastro/creat-person-modal.js"></script>
+<script src="~/Scripts/ScriptPessoaCadastro/delete-person-modal.js"></script>
+<script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
 }
 
 

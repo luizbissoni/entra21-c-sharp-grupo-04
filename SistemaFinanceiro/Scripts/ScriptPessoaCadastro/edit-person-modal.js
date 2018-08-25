@@ -14,7 +14,7 @@ $(function () {
             },
 
             success: function (data) {
-                $('#linha-'+id).remove();
+                $('#linha-'+id).add();
                 $('#editar-pessoa-modal').modal('show');
             }
         });
