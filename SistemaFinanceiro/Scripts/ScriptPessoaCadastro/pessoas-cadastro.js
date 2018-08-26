@@ -1,5 +1,5 @@
 ﻿function idade() {
-    var data = document.getElementById("campo-nascimento").value;
+    var data = document.getElementById("").value;
     var dia = data.substr(0, 2);
     var mes = data.substr(3, 2);
     var ano = data.substr(6, 4);
@@ -18,7 +18,7 @@
         idade--;
     }
 
-    return document.getElementById('campo-idade').innerHTML = idade;
+    return document.getElementById('').innerHTML = idade;
 }
 
 function exibe(i) {
