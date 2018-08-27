@@ -1,7 +1,5 @@
 ﻿$(document).ready(function () {
 
-
-
     $('#tabela-pessoas').DataTable({
         serverSide: true,
         "bProcessing": true,
@@ -9,10 +7,12 @@
         order: [[1, 'asc']],
         columns: [
             {
-                data: null,
-                defaultContent: '',
-                className: 'select-checkbox',
-                orderable: false
+
+                "class": "details-control",
+                "orderable": false,
+                "data": null,
+                "defaultContent": ""
+
             },
 
             { data: "Id" },
@@ -24,10 +24,11 @@
             { data: "Telefone" },
             { data: "Cep" }
         ],
-       
-
     });
+
 });
+
+
 
 
 //$(function () {
