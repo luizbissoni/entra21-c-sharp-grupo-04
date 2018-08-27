@@ -19,9 +19,9 @@ namespace SistemaFinanceiro.Repositório
             comando.CommandText = @"INSERT INTO categorias (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
             //comando.Parameters.AddWithValue("@ID_CATEGORIA", categorias.Id_Categoria);
             comando.Parameters.AddWithValue("@NOME", categorias.Nome);
-
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
+
         }
         public bool AlterarCategorias(Categoria categoria)
         {
