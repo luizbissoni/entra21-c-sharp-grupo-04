@@ -24,7 +24,7 @@ namespace SistemaFinanceiro.Repositório
                 Cartoes cartao = new Cartoes()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-          //          Id_cartoes = Convert.ToInt32(linha[1].ToString()),
+          //        Id_cartoes = Convert.ToInt32(linha[1].ToString()),
                     Numero_cartao = linha[1].ToString(),
                     Numero_conta = linha[2].ToString(),
                     Numero_seguranca = Convert.ToInt32(linha[3].ToString()),
@@ -60,7 +60,7 @@ namespace SistemaFinanceiro.Repositório
         public bool ExcluirCartoes(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM cartoes WHERE cartoes id = @ID";
+            comando.CommandText = "DELETE FROM cartoes WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == -1;
         }

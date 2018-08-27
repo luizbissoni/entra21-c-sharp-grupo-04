@@ -41,13 +41,17 @@ namespace SistemaFinanceiro.Controllers
             }
 
             ViewBag.cartao = cartao;
-            return View("Cadastro");
+            return View("Index");
         }
         [HttpGet]
         public ActionResult Excluir(int id)
         {
             bool apagado = new RepositorioCartoes().ExcluirCartoes(id);
-            ViewBag.TituloPagina = "Cartões - Apagar";
+      //      ViewBag.TituloPagina = "Cartões - Apagar";
+            if (apagado)
+            {
+                return RedirectToAction("Index");
+            }
             return null;
         }
         [HttpGet]
@@ -64,6 +68,10 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Update(Cartoes cartao)
         {
             bool alterado = new RepositorioCartoes().AlterarCartoes(cartao);
+            if (alterado)
+            {
+                return RedirectToAction("Index");
+            }
             return null;
         }
         public ActionResult Login()
