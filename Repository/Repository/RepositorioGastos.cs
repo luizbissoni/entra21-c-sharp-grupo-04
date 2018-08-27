@@ -32,7 +32,7 @@ namespace SistemaFinanceiro.Repositório
         {
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "DELETE FROM gastos WHERE gastos id = @ID";
-            comando.Parameters.AddWithValue("@ID", id);
+            comando.Parameters.AddWithValue("@ID",  id);
             return comando.ExecuteNonQuery() == 1;
         }
 
