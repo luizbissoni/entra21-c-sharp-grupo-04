@@ -12,9 +12,9 @@
 </p>
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Id_cartoes)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.Numero_cartao)
         </th>
@@ -39,9 +39,9 @@
 @foreach (SistemaFinanceiro.Models.Cartoes item in @ViewBag.Cartoes)
 {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Id_cartoes)
-        </td>
+        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.Numero_cartao)
         </td>
@@ -61,8 +61,8 @@
             @Html.DisplayFor(modelItem => item.Banco)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Editar", "Editar", new { id=item.Id })
+       <!--     @Html.ActionLink("Details", "Details", new { id=item.Id }) -->
             @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
         </td>
     </tr>
