@@ -34,7 +34,7 @@ CREATE TABLE [dbo].[categorias] (
 CREATE TABLE [dbo].[gastos] (
     [Id]              INT            IDENTITY (1, 1) NOT NULL,
     [id_gastos]       INT             NULL,
-    [valor_gastos]    DECIMAL (4, 2) NOT NULL,
+    [valor_gastos]    DECIMAL (7, 2) NOT NULL,
     [data_entrada]    DATETIME       NOT NULL,
     [data_vencimento] DATETIME       NOT NULL,
     [descricao]       VARCHAR (50)   NOT NULL,
@@ -54,7 +54,7 @@ CREATE TABLE [dbo].[login] (
 CREATE TABLE [dbo].[recebimentos] (
     [Id]               INT            IDENTITY (1, 1) NOT NULL,
     [id_recebimento]   INT            NOT NULL,
-    [valor_recebido]   DECIMAL (4, 2) NOT NULL,
+    [valor_recebido]   DECIMAL (7, 2) NOT NULL,
     [data_recebimento] DATE           NOT NULL,
     [descricao]        VARCHAR (50)   NOT NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),

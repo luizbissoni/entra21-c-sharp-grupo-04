@@ -84,17 +84,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database1.mdf" />
-    <Content Include="App_Data\Database1_log.ldf">
-      <DependentUpon>Database1.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\Database26.mdf" />
     <Content Include="App_Data\Database26_log.ldf">
       <DependentUpon>Database26.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\Database654.mdf" />
-    <Content Include="App_Data\Database654_log.ldf">
-      <DependentUpon>Database654.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\Database70.mdf" />
     <Content Include="App_Data\Database70_log.ldf">
