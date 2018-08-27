@@ -11,36 +11,46 @@
             $(this).addClass('selected');
         }
         var datarow = table.row(this).data();
-        //$('#editar-pessoa-modal').modal('show');
 
+        //$('#editar-pessoa-modal').modal('show');
     });
+
+
+    //$(function preencherCampos(preencher) {
+    //    $('#campo-nome').val(preencher.Nome);
+    //    $('#campo-idade').val(preencher.Idade);
+    //    $('#campo-nascimento').val(preencher.Data_nascimento);
+    //    $('#campo-sexo').val(preencher.Sexo);
+    //    $('#campo-cpf').val(preencher.CPF);
+    //    $('#campo-telefone').val(preencher.Telefone);
+    //    $('#cep').val(preencher.Cep);
+    //});
 
     $('#editar-pessoa-modal').on('click', function () {
         $.ajax({
             url: '/Pessoas/EditarModal',
             method: 'GET',
-            success: function (datarow) {
-                $('body').append(datarow);
+            success: function (data) {
+                $('body').append(data);
                 $('#editar-pessoa-modal').modal('show');
             }
         });
     });
 
-
     $('body').on('click', '#salvar-editar-pessoas-modal', function () {
         $.ajax({
-            url: '/Pessoas/EditarModal',
-            method: 'GET',
-            data: function (datarow) {
-                nome: $('#campo-nome').val(datarow.Nome);
-                idade: $('#campo-idade').val(datarow.Idade);
-                data_nascimento: $('#campo-nascimento').val(datarow.Data_nasciment);
-                sexo: $('#campo-sexo').val(datarow.Sexo);
-                cpf: $('#campo-cpf').val(datarow.CPF);
-                telefone: $('#campo-telefone').val(datarow.Telefone);
-                cep: $('#cep').val(datarow.Cep)
+            url: '/Pessoas/Update',
+            method: 'post',
+            data: {
+                nome: $('#campo-nome').val(),
+                idade: $('#campo-idade').val(),
+                data_nascimento: $('#campo-nascimento').val(),
+                sexo: $('#campo-sexo').val(),
+                cpf: $('#campo-cpf').val(),
+                telefone: $('#campo-telefone').val(),
+                cep: $('#cep').val()
             },
-            success: function (datarow) {
+            success: function (data) {
                 $('#editar-pessoa-modal').modal('hide');
             }
         });

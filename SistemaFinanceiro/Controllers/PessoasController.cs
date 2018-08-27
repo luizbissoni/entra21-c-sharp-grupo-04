@@ -55,7 +55,7 @@ namespace SistemaFinanceiro.Controllers
         {
             Pessoas pessoas = new RepositorioPessoas().ObterPeloIdPessoas(id);
             ViewBag.Pessoas = pessoas;
-            return View();
+            return Content(JsonConvert.SerializeObject(new {data = pessoas}));
         }
 
         [HttpPost]
