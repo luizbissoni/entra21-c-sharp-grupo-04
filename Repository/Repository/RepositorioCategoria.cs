@@ -37,7 +37,7 @@ namespace SistemaFinanceiro.Repositório
         public bool ExcluirCategoria(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM categorias WHERE categorias id = @ID";
+            comando.CommandText = "DELETE FROM categorias WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }
