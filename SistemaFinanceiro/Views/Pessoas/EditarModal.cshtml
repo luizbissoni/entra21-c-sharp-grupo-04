@@ -14,34 +14,34 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="campo-nome">Nome <h11>*</h11></label>
-                    <input id="campo-nome" name="Pessoas.Nome" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                    <label class="col-md-2 control-label" for="editar-pessoa-modal-campo-nome">Nome <h11>*</h11></label>
+                    <input id="editar-pessoa-modal-campo-nome" name="Pessoas.Nome" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
                 </div>
                 <div class="row">
                     <div class="col-md-2">
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="campo-idade">Idade</label>
-                            <input type="text" class="form-control input-md" name="Pessoas.Idade" id="campo-idade" maxlength="2" />
+                            <label class="col-md-2 control-label" for="editar-pessoa-modal-campo-idade">Idade</label>
+                            <input type="text" class="form-control input-md" name="Pessoas.Idade" id="editar-pessoa-modal-campo-idade" maxlength="2" />
                         </div>
                     </div>
                     <label class="col-md-1 control-label" for="radios">Sexo</label>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label required="" class="radio-inline" for="campo-sexo-feminino">
-                                <input name="Pessoas.Sexo" id="campo-sexo" value="F" type="radio">
+                            <label required="" class="radio-inline" for="editar-pessoa-modal-campo-sexo-feminino">
+                                <input name="Pessoas.Sexo" id="editar-pessoa-modal-campo-sexo-feminino" value="F" type="radio">
                                 Feminino
                             </label>
 
-                            <label class="radio-inline" for="campo-sexo-masculino">
-                                <input name="Pessoas.Sexo" id="campo-sexo-masculino" value="M" type="radio">
+                            <label class="radio-inline" for="editar-pessoa-modal-campo-sexo-masculino">
+                                <input name="Pessoas.Sexo" id="editar-pessoa-modal-campo-sexo-masculino" value="M" type="radio">
                                 Masculino
                             </label>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label class="col-md-1 control-label" for="campo-nascimento">Nascimento<h11>*</h11></label>
-                            <input id="campo-nascimento" name="Pessoas.Data_Nascimento" placeholder="DD/MM/AAAA" class="form-control" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
+                            <label class="col-md-1 control-label" for="editar-pessoa-modal-campo-nascimento">Nascimento<h11>*</h11></label>
+                            <input id="editar-pessoa-modal-campo-nascimento" name="Pessoas.Data_Nascimento" placeholder="DD/MM/AAAA" class="form-control" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
                         </div>
                     </div>
                 </div>
@@ -49,14 +49,14 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="campo-cpf">CPF</label>
-                            <input id="campo-cpf" name="Pessoas.CPF" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="11" pattern="[0-9]+$">
+                            <label class="col-md-2 control-label" for="editar-pessoa-modal-campo-cpf">CPF</label>
+                            <input id="editar-pessoa-modal-campo-cpf" name="Pessoas.CPF" placeholder="Apenas números" class="form-control input-md" required="" type="text" maxlength="11" pattern="[0-9]+$">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="campo-telefone">Telefone</label>
-                            <input id="campo-telefone" name="Pessoas.Telefone" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" @*pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"*@
+                            <label class="col-md-2 control-label" for="editar-pessoa-modal-campo-telefone">Telefone</label>
+                            <input id="editar-pessoa-modal-campo-telefone" name="Pessoas.Telefone" class="form-control" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" @*pattern="\[0-9]{2}\ [0-9]{4,6}-[0-9]{3,4}$"*@
                                    onkeypress="formatar('## #####-####', this)">
                         </div>
                     </div>

@@ -1,18 +1,8 @@
 ﻿$(function () {
-    $('.cadastrar-pessoa').on('click', function () {
-        $.ajax({
-            url: '/Pessoas/CadastroModal',
-            method: 'GET',
-            success: function (data) {
-                $('body').append(data);
-                $('#cadastrar-pessoa-modal').modal('show');
-            }
-        });
-    });
-
+    
     $('body').on('click', '#salvar-cadastro-modal', function () {
         $.ajax({
-            url: '/Pessoas/Store',
+            url: '/Pessoas/CadastroModalPessoas',
             method: 'POST',
             data: {
                 nome: $('#campo-nome').val(),
@@ -25,6 +15,7 @@
             },
             success: function (data) {
                 $('#cadastrar-pessoa-modal').modal('hide');
+                $('#tabela-pessoas').DataTable().ajax.reload();
             }
         });
     });

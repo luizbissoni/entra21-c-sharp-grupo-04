@@ -53,9 +53,9 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult Editar(int id)
         {
-            Pessoas pessoas = new RepositorioPessoas().ObterPeloIdPessoas(id);
-            ViewBag.Pessoas = pessoas;
-            return Content(JsonConvert.SerializeObject(new {data = pessoas}));
+            Pessoas pessoa = new RepositorioPessoas().ObterPeloIdPessoas(id);
+            
+            return Content(JsonConvert.SerializeObject(pessoa));
         }
 
         [HttpPost]

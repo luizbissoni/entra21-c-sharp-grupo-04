@@ -3,39 +3,41 @@
     var table = $('#tabela-pessoas').DataTable();
 
     $('#tabela-pessoas tbody').on('click', 'tr', function () {
-
+        var id = $(this).id;
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         } else {
             table.$('tr.selected').removeClass('selected');
             $(this).addClass('selected');
         }
-        var datarow = table.row(this).data();
-
-        //$('#editar-pessoa-modal').modal('show');
-    });
-
-
-    //$(function preencherCampos(preencher) {
-    //    $('#campo-nome').val(preencher.Nome);
-    //    $('#campo-idade').val(preencher.Idade);
-    //    $('#campo-nascimento').val(preencher.Data_nascimento);
-    //    $('#campo-sexo').val(preencher.Sexo);
-    //    $('#campo-cpf').val(preencher.CPF);
-    //    $('#campo-telefone').val(preencher.Telefone);
-    //    $('#cep').val(preencher.Cep);
-    //});
-
-    $('#editar-pessoa-modal').on('click', function () {
+        var dataRow = table.row(this).data();
         $.ajax({
-            url: '/Pessoas/EditarModal',
+            url: '/Pessoas/Editar',
             method: 'GET',
-            success: function (data) {
-                $('body').append(data);
+            data: {
+                id: dataRow.Id
+            },
+            success: function (preencher) {
+                console.log(preencher);
+                var data = JSON.parse(preencher);
                 $('#editar-pessoa-modal').modal('show');
+                $('#editar-pessoa-modal-campo-nome').val(data.Nome);
+                $('#editar-pessoa-modal-campo-idade').val(data.Idade);
+                $('#editar-pessoa-modal-campo-nascimento').val(data.Data_nascimento);
+                if (data.Sexo == 'M') {
+                    $('#editar-pessoa-modal-campo-sexo-feminino').attr('checked', 'checked');
+                } else {
+                    $('#editar-pessoa-modal-campo-sexo-masculino').attr('checked', 'checked');
+                }
+                $('#editar-pessoa-modal-campo-sexo').val(data.Sexo);
+                $('#editar-pessoa-modal-campo-cpf').val(data.CPF);
+                $('#editar-pessoa-modal-campo-telefone').val(data.Telefone);
+                $('#editar-pessoa-modal-campo-cep').val(data.Cep);
             }
         });
+        
     });
+
 
     $('body').on('click', '#salvar-editar-pessoas-modal', function () {
         $.ajax({
