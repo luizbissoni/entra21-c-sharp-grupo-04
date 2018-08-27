@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<SistemaFinanceiro.Models.Categoria>
 
 @{
-    ViewBag.Title = "Categorias";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.TituloPagina</h2>
 
 <p>
-    @Html.ActionLink("Criar uma nova categoria", "Cadastro")
+    @Html.ActionLink("Cadastrar categoria", "Cadastro")
 </p>
 <table class="table">
     <tr>

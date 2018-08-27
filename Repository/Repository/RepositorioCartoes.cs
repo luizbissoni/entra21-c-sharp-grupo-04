@@ -24,12 +24,12 @@ namespace SistemaFinanceiro.Repositório
                 Cartoes cartao = new Cartoes()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    Id_cartoes = Convert.ToInt32(linha[1].ToString()),
-                    Numero_cartao = linha[2].ToString(),
-                    Numero_conta = linha[3].ToString(),
-                    Numero_seguranca = Convert.ToInt32(linha[4].ToString()),
-                    Bandeira = linha[5].ToString(),
-                    Banco = linha[6].ToString()
+          //          Id_cartoes = Convert.ToInt32(linha[1].ToString()),
+                    Numero_cartao = linha[1].ToString(),
+                    Numero_conta = linha[2].ToString(),
+                    Numero_seguranca = Convert.ToInt32(linha[3].ToString()),
+                    Bandeira = linha[4].ToString(),
+                    Banco = linha[5].ToString()
 
                 };
                 cartoes.Add(cartao);
@@ -43,11 +43,11 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO cartoes (id_cartoes, numero_cartao, numero_conta, numero_seguranca,
+            comando.CommandText = @"INSERT INTO cartoes (id_cartoes,numero_cartao, numero_conta, numero_seguranca,
  data_vencimento, bandeira,banco) OUTPUT INSERTED.ID VALUES 
 (@ID_CARTOES, @NUMERO_CARTAO, @NUMERO_CONTA, @NUMERO_SEGURANCA, @DATA_VENCIMENTO, @BANDEIRA, @BANCO)";
-            comando.Parameters.AddWithValue("@NUMERO_CARTAO", cartoes.Numero_cartao);
             comando.Parameters.AddWithValue("@ID_CARTOES", cartoes.Id_cartoes);
+            comando.Parameters.AddWithValue("@NUMERO_CARTAO", cartoes.Numero_cartao);
             comando.Parameters.AddWithValue("@NUMERO_CONTA", cartoes.Numero_conta);
             comando.Parameters.AddWithValue("@NUMERO_SEGURANCA", cartoes.Numero_seguranca);
             comando.Parameters.AddWithValue("@DATA_VENCIMENTO", cartoes.Data_vencimento);
@@ -62,7 +62,7 @@ namespace SistemaFinanceiro.Repositório
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "DELETE FROM cartoes WHERE cartoes id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
-            return comando.ExecuteNonQuery() == 1;
+            return comando.ExecuteNonQuery() == -1;
         }
 
         public Cartoes ObterPeloIdCartoes(int id)
@@ -103,7 +103,8 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@DATA_VENCIMENTO", cartao.Data_vencimento);
             comando.Parameters.AddWithValue("@BANDEIRA", cartao.Bandeira);
             comando.Parameters.AddWithValue("@BANCO", cartao.Banco);
-            return comando.ExecuteNonQuery() == 1;
+            comando.Parameters.AddWithValue("@ID", cartao.Id);
+             return comando.ExecuteNonQuery() == 1;
         }
     }
 }
