@@ -16,18 +16,19 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO categorias (id_categoria, nome) OUTPUT INSERTED.ID VALUES (@NOME)";
+            comando.CommandText = @"INSERT INTO categorias (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
+            //comando.Parameters.AddWithValue("@ID_CATEGORIA", categorias.Id_Categoria);
             comando.Parameters.AddWithValue("@NOME", categorias.Nome);
-            comando.Parameters.AddWithValue("@ID_CATEGORIA", categorias.Id_Categoria);
 
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
         }
         public bool AlterarCategorias(Categoria categoria)
         {
+
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "UPDATE categorias SET nome = @NOME WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID_CATEGORIA", categoria.Id_Categoria);
+            comando.Parameters.AddWithValue("@ID", categoria.Id);
             comando.Parameters.AddWithValue("@NOME", categoria.Nome);
 
             return comando.ExecuteNonQuery() == 1;
@@ -53,8 +54,8 @@ namespace SistemaFinanceiro.Repositório
                 Categoria categoria = new Categoria()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    Id_Categoria = Convert.ToInt32(linha[1].ToString()),
-                    Nome = linha[2].ToString()
+                    //Id_Categoria = Convert.ToInt32(linha[1].ToString()),
+                    Nome = linha[1].ToString()
                 };
                 categorias.Add(categoria);
             }
