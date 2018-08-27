@@ -23,13 +23,13 @@ namespace SistemaFinanceiro.Repositório
             return id;
 
         }
-        public bool AlterarCategorias(Categoria categoria)
+        public bool AlterarCategorias(Categoria categorias)
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "UPDATE categorias SET nome = @NOME WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID", categoria.Id);
-            comando.Parameters.AddWithValue("@NOME", categoria.Nome);
+            comando.Parameters.AddWithValue("@ID", categorias.Id);
+            comando.Parameters.AddWithValue("@NOME", categorias.Nome);
 
             return comando.ExecuteNonQuery() == 1;
         }
@@ -37,7 +37,7 @@ namespace SistemaFinanceiro.Repositório
         public bool ExcluirCategoria(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM categorias WHERE categorias id = @ID";
+            comando.CommandText = "DELETE FROM categorias WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }
@@ -46,7 +46,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Categoria> categorias = new List<Categoria>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_categoria, nome FROM categorias";
+            comando.CommandText = "SELECT id, nome FROM categorias";
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)

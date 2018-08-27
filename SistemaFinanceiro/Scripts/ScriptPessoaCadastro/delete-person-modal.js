@@ -11,10 +11,6 @@
         dataRow = table.row(this).data();
     });
 
-    //$('.aviso-pessoa').on('click', function () {
-    //    id = $(this).data('id');
-    //});
-
     $('#yes-option').on("click", function () {
         $.ajax({
             url: '/pessoas/excluir',
@@ -31,14 +27,3 @@
     });
 });
 
-//$('.aviso-pessoa').on('click')) {
-//    $.ajax({
-//        url: '/Pessoas/Excluir',
-//        method: 'GET',
-//        data: { id: dataRow.Id },
-//        success: function (data) {
-//            //$('#linha-' + id).remove();
-//            $('#avisoModal').modal('show');
-//        }
-//    });
-//}
