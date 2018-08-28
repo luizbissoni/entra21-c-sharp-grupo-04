@@ -47,9 +47,13 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new RepositorioGastos().ExcluirGastos(id);
-            return null;
-           
+            if (apagado)
+            {
+               return RedirectToAction("Index");
+            }
+            return View("Index");
         }
+
         [HttpGet]
         public ActionResult Editar(int id)
         {
