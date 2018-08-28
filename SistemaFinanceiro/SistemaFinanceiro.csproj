@@ -111,6 +111,7 @@
     <Content Include="App_Data\Database1800.mdf" />
     <Content Include="App_Data\Database1800_log.ldf">
       <DependentUpon>Database1800.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\Database26.mdf" />
     <Content Include="App_Data\Database26_log.ldf">
       <DependentUpon>Database26.mdf</DependentUpon>
