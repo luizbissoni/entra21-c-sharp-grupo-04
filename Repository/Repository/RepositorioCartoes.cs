@@ -23,13 +23,14 @@ namespace SistemaFinanceiro.Repositório
             {
                 Cartoes cartao = new Cartoes()
                 {
-                    Id = Convert.ToInt32(linha[0].ToString()),
-          //        Id_cartoes = Convert.ToInt32(linha[1].ToString()),
-                    Numero_cartao = linha[1].ToString(),
-                    Numero_conta = linha[2].ToString(),
-                    Numero_seguranca = Convert.ToInt32(linha[3].ToString()),
-                    Bandeira = linha[4].ToString(),
-                    Banco = linha[5].ToString()
+                    Id = Convert.ToInt32(linha["id"].ToString()),
+                    //        Id_cartoes = Convert.ToInt32(linha[1].ToString()),
+                    Numero_cartao = linha["numero_cartao"].ToString(),
+                    Numero_conta = linha["numero_conta"].ToString(),
+                    Numero_seguranca = Convert.ToInt32(linha["numero_seguranca"].ToString()),
+                    Data_vencimento = Convert.ToDateTime(linha["data_vencimento"].ToString()),
+                    Bandeira = linha["bandeira"].ToString(),
+                    Banco = linha["banco"].ToString()
 
                 };
                 cartoes.Add(cartao);
@@ -62,7 +63,7 @@ namespace SistemaFinanceiro.Repositório
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "DELETE FROM cartoes WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
-            return comando.ExecuteNonQuery() == -1;
+            return comando.ExecuteNonQuery() == 1;
         }
 
         public Cartoes ObterPeloIdCartoes(int id)
@@ -77,12 +78,12 @@ namespace SistemaFinanceiro.Repositório
             {
                 cartoes = new Cartoes();
                 cartoes.Id = id;
-                cartoes.Numero_cartao = tabela.Rows[0][0].ToString();
-                cartoes.Numero_conta = tabela.Rows[0][1].ToString();
-                cartoes.Numero_seguranca = Convert.ToInt32(tabela.Rows[0][2].ToString());
-                cartoes.Data_vencimento = Convert.ToDateTime(tabela.Rows[0][3].ToString());
-                cartoes.Bandeira = tabela.Rows[0][4].ToString();
-                cartoes.Banco = tabela.Rows[0][5].ToString();
+                cartoes.Numero_cartao = tabela.Rows[0]["numero_cartao"].ToString();
+                cartoes.Numero_conta = tabela.Rows[0]["numero_conta"].ToString();
+                cartoes.Numero_seguranca = Convert.ToInt32(tabela.Rows[0]["numero_seguranca"].ToString());
+                cartoes.Data_vencimento = Convert.ToDateTime(tabela.Rows[0]["data_vencimento"].ToString());
+                cartoes.Bandeira = tabela.Rows[0]["bandeira"].ToString();
+                cartoes.Banco = tabela.Rows[0]["banco"].ToString();
 
             }
 
@@ -104,7 +105,7 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@BANDEIRA", cartao.Bandeira);
             comando.Parameters.AddWithValue("@BANCO", cartao.Banco);
             comando.Parameters.AddWithValue("@ID", cartao.Id);
-             return comando.ExecuteNonQuery() == 1;
+            return comando.ExecuteNonQuery() == 1;
         }
     }
 }
