@@ -83,5 +83,16 @@ namespace SistemaFinanceiro.Repositório
             return categoria;
         }
 
+        public int CadastrarCategoriaAJAX(Categoria categoria)
+        {
+
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"INSERT INTO categorias (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
+            comando.Parameters.AddWithValue("@NOME", categoria.Nome);
+            int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
+
+            return id;
+        }
+
     }
 }

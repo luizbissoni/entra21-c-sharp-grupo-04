@@ -1,4 +1,5 @@
-﻿using SistemaFinanceiro.Models;
+﻿using Newtonsoft.Json;
+using SistemaFinanceiro.Models;
 using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new RepositorioCategoria().ExcluirCategoria(id);
+            bool apagado = new SistemaFinanceiro.Repositório.RepositorioCategoria().ExcluirCategoria(id);
             if (apagado)
             {
                 return RedirectToAction("Index");
@@ -51,8 +52,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Editar(int id)
         {
             Categoria categoria = new RepositorioCategoria().ObterPeloIdCategoria(id);
-            ViewBag.Categoria = categoria;
-            return View();
+            return Content(JsonConvert.SerializeObject(categoria));
         }
         [HttpPost]
         public ActionResult Update(Categoria categoria)
@@ -67,6 +67,20 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Login()
         {
             return View();
+        }
+
+        [HttpGet]
+        public ActionResult ObterTodosCategoriaJson()
+        {
+            List<Categoria> categoria = new RepositorioCategoria().ObterTodosCategoria();
+            return Content(JsonConvert.SerializeObject(new { data = categoria }));
+        }
+
+        [HttpPost]
+        public ActionResult CadastroModalCategoria(Categoria categoria)
+        {
+            int id = new RepositorioCategoria().CadastrarCategoria(categoria);
+            return Content(JsonConvert.SerializeObject(new { id = id }));
         }
     }
 }
