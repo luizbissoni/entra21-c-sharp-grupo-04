@@ -1,5 +1,5 @@
 ﻿$(function () {
-
+    
     $('body').on('click', '#salvar-cadastro-modal', function () {
         $.ajax({
             url: '/Pessoas/CadastroModalPessoas',
@@ -8,7 +8,7 @@
                 nome: $('#campo-nome').val(),
                 idade: $('#campo-idade').val(),
                 data_nascimento: $('#campo-nascimento').val(),
-                sexo: $('#campo-sexo').val(),
+                sexo: $('input[name="Pessoas.Sexo"]:checked').val(),
                 cpf: $('#campo-cpf').val(),
                 telefone: $('#campo-telefone').val(),
                 cep: $('#cep').val()
