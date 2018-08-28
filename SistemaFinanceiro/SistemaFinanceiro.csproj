@@ -112,9 +112,9 @@
     <Content Include="App_Data\Database26_log.ldf">
       <DependentUpon>Database26.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Data\Database70.mdf" />
-    <Content Include="App_Data\Database70_log.ldf">
-      <DependentUpon>Database70.mdf</DependentUpon>
+    <Content Include="App_Data\Database777.mdf" />
+    <Content Include="App_Data\Database777_log.ldf">
+      <DependentUpon>Database777.mdf</DependentUpon>
     </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />

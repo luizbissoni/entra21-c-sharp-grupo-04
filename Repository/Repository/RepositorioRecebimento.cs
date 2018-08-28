@@ -16,11 +16,10 @@ namespace SistemaFinanceiro.Repositório
 
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = @"INSERT INTO recebimentos (valor_recebido,data_recebimento,descricao) OUTPUT INSERTED.ID VALUES 
-(@VALOR_RECEBIDO,@DATA_RECEBIMENTO,@DESCRICAO)";
+(@VALOR_RECEBIDO, @DATA_RECEBIMENTO, @DESCRICAO)";
             comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
             comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);
             comando.Parameters.AddWithValue("@DESCRICAO", recebimento.Descricao);
-
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
         }
@@ -37,7 +36,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Recebimento> recebimentos = new List<Recebimento>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_recebimento, valor_recebido, data_recebimento, descricao FROM recebimentos";
+            comando.CommandText = "SELECT id, valor_recebido, data_recebimento, descricao FROM recebimentos";
 
 
             DataTable tabela = new DataTable();
@@ -48,7 +47,7 @@ namespace SistemaFinanceiro.Repositório
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                 //  Id_recebimento = Convert.ToInt32(linha[1].ToString()),
-                    Valor_recebido = Convert.ToInt16(linha[1].ToString()),
+                    Valor_recebido = Convert.ToDouble(linha[1].ToString()),
                     data_recebimento = Convert.ToDateTime(linha[2].ToString()),
                     Descricao = linha[3].ToString()
 
@@ -72,7 +71,7 @@ namespace SistemaFinanceiro.Repositório
                 recebimento = new Recebimento();
                 recebimento.Id = id;
                 
-                recebimento.Valor_recebido = Convert.ToDecimal(tabela.Rows[0][0].ToString());
+                recebimento.Valor_recebido = Convert.ToDouble(tabela.Rows[0][0].ToString());
                 recebimento.data_recebimento = Convert.ToDateTime(tabela.Rows[0][1].ToString());
                 recebimento.Descricao = tabela.Rows[0][2].ToString();
                 

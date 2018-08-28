@@ -49,7 +49,8 @@
             @Html.DisplayFor(modelItem => item.Descricao)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Editar", new { id = item.Id , @class = "btn btn-sucess"}) |
+            <a href="/Gasto/Editar/@item.Id" class="btn btn-instagram" 
+               >Editar</a> |
             @Html.ActionLink("Excluir", "Excluir", new { id = item.Id})
         </td>
     </tr>
