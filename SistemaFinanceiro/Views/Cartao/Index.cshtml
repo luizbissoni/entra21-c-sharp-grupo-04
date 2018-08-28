@@ -10,61 +10,54 @@
 <p>
     @Html.ActionLink("Criar um novo cartão", "Cadastro")
 </p>
-<table class="table">
-    <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => model.Id_cartoes)
-        </th>*@
-        <th>
-            @Html.DisplayNameFor(model => model.Numero_cartao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Numero_conta)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Numero_seguranca)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data_vencimento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bandeira)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Banco)
-        </th>
-        <th></th>
-    </tr>
+ 
+<div class="card-block">
+    <div class="table-responsive dt-responsive">
+        <table id="tabela-cartao" class="table table-striped tabela-cartao-index" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Número Cartão</th>
+                    <th>Número Conta</th>
+                    <th>Número segurança</th>
+                    <th>Bandeira</th>
+                    <th>Banco</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    
+                    <th>Id</th>
+                    <th>Número Cartão</th>
+                    <th>Número Conta</th>
+                    <th>Número segurança</th>
+                    <th>Bandeira</th>
+                    <th>Banco</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
 
-@foreach (SistemaFinanceiro.Models.Cartoes item in @ViewBag.Cartoes)
-{
-    <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.Id_cartoes)
-        </td>*@
-        <td>
-            @Html.DisplayFor(modelItem => item.Numero_cartao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Numero_conta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Numero_seguranca)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data_vencimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bandeira)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Banco)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.Id })
-            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
-        </td>
-    </tr>
+@section script{
+
+
+    <script type="text/javascript" src="~/Content/bower_components/modernizr/js/css-scrollbars.js"></script>
+
+    <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/jszip.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/pdfmake.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/vfs_fonts.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/data-table-custom.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
+
+   
+<script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
 }
-
-</table>

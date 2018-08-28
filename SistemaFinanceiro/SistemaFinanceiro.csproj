@@ -108,13 +108,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database26.mdf" />
-    <Content Include="App_Data\Database26_log.ldf">
-      <DependentUpon>Database26.mdf</DependentUpon>
-    </Content>
-    <Content Include="App_Data\Database70.mdf" />
-    <Content Include="App_Data\Database70_log.ldf">
-      <DependentUpon>Database70.mdf</DependentUpon>
+    <Content Include="App_Data\Database1800.mdf" />
+    <Content Include="App_Data\Database1800_log.ldf">
+      <DependentUpon>Database1800.mdf</DependentUpon>
     </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
@@ -5544,6 +5540,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\scriptCartao\cartaotabela.js" />
     <Content Include="Scripts\scriptPerfilUsuario\usuario-perfil.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\creat-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\datatable-index.js" />
