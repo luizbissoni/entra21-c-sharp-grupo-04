@@ -78,9 +78,5 @@ namespace SistemaFinanceiro.Controllers
         }
 
 
-        public ActionResult Login()
-        {
-            return View();
-        }
     }
 }

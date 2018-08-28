@@ -10,50 +10,78 @@
 <p>
     @Html.ActionLink("Cadastrar Gastos", "Cadastro")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Id_Gastos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor_Dos_Gastos)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data_De_Entrada)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Data_De_Vencimento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th></th>
-    </tr>
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Gastos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valor_Dos_Gastos)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data_De_Entrada)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Data_De_Vencimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descricao)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (SistemaFinanceiro.Models.Gastos item in ViewBag.Gastos)
-{
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Id_Gastos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor_Dos_Gastos)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data_De_Entrada)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Data_De_Vencimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            <a href="/Gasto/Editar/@item.Id" class="btn btn-instagram" 
-               >Editar</a> |
-            @Html.ActionLink("Excluir", "Excluir", new { id = item.Id})
-        </td>
-    </tr>
-}
+    @foreach (SistemaFinanceiro.Models.Gastos item in ViewBag.Gastos)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Gastos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor_Dos_Gastos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_De_Entrada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Data_De_Vencimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                <a href="/Gasto/Editar/@item.Id" class="btn btn-instagram"
+                   >Editar</a> |
+                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id})
+            </td>
+        </tr>
+    }
 
-</table>
+    </table>
+*@
+
+<div class="card-block">
+    <div class="table-responsive dt-responsive">
+        <table id="tabela-gastos" class="table table-striped-gastos-index" style="width:100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Id</th>
+                    <th>Valor</th>
+                    <th>Data de Entrada</th>
+                    <th>Data de Vencimento</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Valor</th>
+                    <th>Data de Entrada</th>
+                    <th>Data de Vencimento</th>
+                    <th>Descrição</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
