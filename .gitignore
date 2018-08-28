@@ -225,5 +225,13 @@ SistemaFinanceiro/SistemaFinanceiro.csproj
 SistemaFinanceiro/Web.config
 SistemaFinanceiro/SistemaFinanceiro.csproj
 SistemaFinanceiro/App_Data/Database26.mdf
+<<<<<<< HEAD
+=======
+SistemaFinanceiro/SistemaFinanceiro.csproj
+SistemaFinanceiro/Web.config
+SQLQuery1.sql
+*.config
+>>>>>>> 7be2e3027d0797e7f9b98b945d8cb8c2c7e12fe8
 *.mdf
 *.csproj
+*.mdf
