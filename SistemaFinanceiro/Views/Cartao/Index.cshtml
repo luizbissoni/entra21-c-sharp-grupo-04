@@ -61,8 +61,13 @@
             @Html.DisplayFor(modelItem => item.Banco)
         </td>
         <td>
+            <div>
             @Html.ActionLink("Editar", "Editar", new { id=item.Id })
+            </div>
+
+            <div>
             @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
+            </div>
         </td>
     </tr>
 }
