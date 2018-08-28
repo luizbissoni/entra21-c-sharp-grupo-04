@@ -1,4 +1,5 @@
-﻿using SistemaFinanceiro.Models;
+﻿using Newtonsoft.Json;
+using SistemaFinanceiro.Models;
 using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
@@ -34,8 +35,8 @@ namespace SistemaFinanceiro.Controllers
         {
             if (ModelState.IsValid)
             {
-            int identificador = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
-            return RedirectToAction("Index", new { id = identificador });
+                int identificador = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
+                return RedirectToAction("Index", new { id = identificador });
 
             }
             return View("Index");
@@ -47,7 +48,7 @@ namespace SistemaFinanceiro.Controllers
             bool apagado = new RepositorioRecebimento().ExcluirRecebimento(id);
             if (apagado)
             {
-               return RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
             return View("Index");
         }
@@ -69,14 +70,25 @@ namespace SistemaFinanceiro.Controllers
             {
                 //return View("Index");
                 return null;
-
             }
-//            return View("Index");
-
+            //            return View("Index");
             return null;
-            
         }
 
+        [HttpGet]
+        public ActionResult ObterTodosJson()
+        {
+            List<Recebimento> recebimento = new RepositorioRecebimento().ObterTodosRecebimento();
+            return Content(JsonConvert.SerializeObject(new { data = recebimento }));
+
+        }
+
+        [HttpPost]
+        public ActionResult CadastroModalRecebimento(Recebimento recebimento)
+        {
+            int id = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
+            return Content(JsonConvert.SerializeObject(new { id = id }));
+        }
 
     }
 }

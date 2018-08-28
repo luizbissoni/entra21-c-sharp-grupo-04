@@ -1,4 +1,5 @@
-﻿using SistemaFinanceiro.Models;
+﻿using Newtonsoft.Json;
+using SistemaFinanceiro.Models;
 using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
@@ -61,6 +62,7 @@ namespace SistemaFinanceiro.Controllers
             ViewBag.Gastos = gastos;
             return View();
         }
+
         [HttpPost]
         public ActionResult Update(Gastos gastos)
         {
@@ -68,9 +70,19 @@ namespace SistemaFinanceiro.Controllers
             return null;
         }
 
-        public ActionResult Login()
+        [HttpGet]
+        public ActionResult ObterTodosJson()
         {
-            return View();
+            List<Gastos> gastos = new RepositorioGastos().ObterTodosGastos();
+            return Content(JsonConvert.SerializeObject(new { data = gastos }));
         }
+
+        [HttpPost]
+        public ActionResult CadastroModalGastos(Gastos gastos)
+        {
+            int id = new RepositorioGastos().CadastrarGastos(gastos);
+            return Content(JsonConvert.SerializeObject(new { id = id }));
+        }
+    
     }
 }

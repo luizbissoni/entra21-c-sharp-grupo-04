@@ -1,5 +1,4 @@
-﻿@model IEnumerable<SistemaFinanceiro.Models.Gastos>
-
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Master.cshtml";
@@ -7,64 +6,13 @@
 
 <h2>@ViewBag.TituloPagina</h2>
 
-<p>
-    @Html.ActionLink("Cadastrar Gastos", "Cadastro")
-</p>
-@*<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id_Gastos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Valor_Dos_Gastos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Data_De_Entrada)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Data_De_Vencimento)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Descricao)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (SistemaFinanceiro.Models.Gastos item in ViewBag.Gastos)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Gastos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Valor_Dos_Gastos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data_De_Entrada)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Data_De_Vencimento)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descricao)
-            </td>
-            <td>
-                <a href="/Gasto/Editar/@item.Id" class="btn btn-instagram"
-                   >Editar</a> |
-                @Html.ActionLink("Excluir", "Excluir", new { id = item.Id})
-            </td>
-        </tr>
-    }
-
-    </table>
-*@
+<a href="/Gasto/Cadastro" >Registrar Gasto</a>
 
 <div class="card-block">
     <div class="table-responsive dt-responsive">
         <table id="tabela-gastos" class="table table-striped-gastos-index" style="width:100%">
             <thead>
                 <tr>
-                    <th></th>
                     <th>Id</th>
                     <th>Valor</th>
                     <th>Data de Entrada</th>
@@ -85,3 +33,26 @@
         </table>
     </div>
 </div>
+
+@section script{
+    
+    <script type="text/javascript" src="~/Content/bower_components/modernizr/js/css-scrollbars.js"></script>
+
+    <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/jszip.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/pdfmake.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/vfs_fonts.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+  
+    <script src="~/Content/assets/pages/data-table/js/data-table-custom.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
+
+    <script src="~/Scripts/scriptGastos/tabelaindex.js"></script>
+
+    }

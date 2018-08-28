@@ -11,7 +11,7 @@ namespace SistemaFinanceiro.Models
         public int Id { get; set; }
 
         
-        public int Id_Gastos { get; set; }
+       // public int Id_Gastos { get; set; }
 
         [Required(ErrorMessage = "O valor dos gastos não pode ser vazio")]
         [Display(Name = "Valor")]
