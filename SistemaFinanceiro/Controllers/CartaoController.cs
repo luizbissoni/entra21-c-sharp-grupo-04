@@ -1,4 +1,5 @@
-﻿using SistemaFinanceiro.Models;
+﻿using Newtonsoft.Json;
+using SistemaFinanceiro.Models;
 using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
@@ -47,22 +48,18 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new RepositorioCartoes().ExcluirCartoes(id);
-            //      ViewBag.TituloPagina = "Cartões - Apagar";
             if (apagado)
             {
                 return RedirectToAction("Index");
             }
-            return null;
+            return View("Index");
         }
         [HttpGet]
         public ActionResult Editar(int id)
         {
-
             Cartoes cartao = new RepositorioCartoes().ObterPeloIdCartoes(id);
             ViewBag.Cartao = cartao;
-            ViewBag.TituloPagina = "Cartões - Editar";
             return View();
-
         }
         [HttpPost]
         public ActionResult Update(Cartoes cartao)
@@ -74,19 +71,17 @@ namespace SistemaFinanceiro.Controllers
             }
             return null;
         }
-        public ActionResult Login()
+        [HttpGet]
+        public ActionResult ObterTodosJson()
         {
-            return View();
+            List<Cartoes> cartoes = new RepositorioCartoes().ObterTodosCartoes();
+            return Content(JsonConvert.SerializeObject(new { data = cartoes }));
         }
-
-        public ActionResult ValidarLogin(Login user)
+        [HttpPost]
+        public ActionResult CadastroModalCartoes(Cartoes cartao)
         {
-
-            return View();
-        }
-        public ActionResult CreatLogin()
-        {
-            return View();
+            int id = new RepositorioCartoes().CadastrarCartao(cartao);
+            return Content(JsonConvert.SerializeObject(new { id = id }));
         }
     }
 }

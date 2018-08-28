@@ -32,7 +32,6 @@
                 } else {
                     $('#editar-pessoa-modal-campo-sexo-masculino').attr('checked', 'checked');
                 }
-                //$('#editar-pessoa-modal-campo-sexo').val(data.Sexo);
                 $('#editar-pessoa-modal-campo-cpf').val(data.CPF);
                 $('#editar-pessoa-modal-campo-telefone').val(data.Telefone);
                 $('#editar-pessoa-modal-campo-cep').val(data.Cep);

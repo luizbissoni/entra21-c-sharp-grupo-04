@@ -1,5 +1,6 @@
 ﻿$(function () {
 
+
     var table = $('#tabela-pessoas').DataTable();
     var dataRow;
 
@@ -26,9 +27,9 @@
                 } else {
                     $('#sexo-perfil').text('Feminino');
                 }
-                // $('#editar-pessoa-modal-campo-cpf').val(data.CPF);
+                $('#cpf-perfil').val(data.CPF);
                 $('#telefone-perfil').text(data.Telefone);
-                //$('#editar-pessoa-modal-campo-cep').val(data.Cep);
+               $('#cep-perfil').text(data.Cep);
             }
         });
   
