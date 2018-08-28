@@ -27,7 +27,7 @@ namespace SistemaFinanceiro.Repositório
         public bool ExcluirRecebimento(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM recebimentos WHERE recebimentos id = @ID";
+            comando.CommandText = "DELETE FROM recebimentos WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }

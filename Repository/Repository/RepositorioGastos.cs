@@ -31,7 +31,7 @@ namespace SistemaFinanceiro.Repositório
         public bool ExcluirGastos(int id)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "DELETE FROM gastos WHERE gastos id = @ID";
+            comando.CommandText = "DELETE FROM gastos WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID",  id);
             return comando.ExecuteNonQuery() == 1;
         }

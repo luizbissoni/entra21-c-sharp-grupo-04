@@ -45,7 +45,11 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new RepositorioRecebimento().ExcluirRecebimento(id);
-            return View();
+            if (apagado)
+            {
+               return RedirectToAction("Index");
+            }
+            return View("Index");
         }
 
         [HttpGet]
@@ -61,6 +65,14 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Update(Recebimento recebimento)
         {
             bool alterado = new RepositorioRecebimento().AlterarRecebimento(recebimento);
+            if (alterado == true)
+            {
+                //return View("Index");
+                return null;
+
+            }
+//            return View("Index");
+
             return null;
             
         }
