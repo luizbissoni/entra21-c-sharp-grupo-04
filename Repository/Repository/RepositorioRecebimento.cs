@@ -88,9 +88,8 @@ namespace SistemaFinanceiro.Repositório
     //      comando.Parameters.AddWithValue("@ID_CATEGORIA", recebimento.Id_recebimento);
             comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
             comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);
-            
             comando.Parameters.AddWithValue("@DESCRICAO", recebimento.Descricao);
-
+            comando.Parameters.AddWithValue("@ID", recebimento.Id);
             return comando.ExecuteNonQuery() == 1;
         }
     }
