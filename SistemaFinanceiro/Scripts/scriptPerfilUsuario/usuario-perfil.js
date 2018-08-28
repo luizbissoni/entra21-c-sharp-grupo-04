@@ -5,17 +5,11 @@
 
     $('#tabela-pessoas tbody').on('click', 'tr', function () {
 
-        if ($(this).hasClass('selected')) {
-            $(this).removeClass('selected');
-        } else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
         dataRow = table.row(this).data();
 
     });
 
-    $('.modal-usuario').on('click', function () {
+     $('#tabela-pessoas tbody').on('click', 'td.details-control', function () {
         $.ajax({
             url: '/Pessoas/Editar',
             method: 'GET',
@@ -25,19 +19,19 @@
 
                 $('#modal-perfil-usuario').modal('show');
                 $('#nome-perfil').text(data.Nome);
-              //  $('#').val(data.Idade);
-                $('#nascimento-perfil').text(data.Data_nascimento);
+                //  $('#').val(data.Idade);
+                $('#nascimento-perfil').text(data.DataNascimento);
                 if (data.Sexo == 'M') {
-                $('#sexo-perfil').text('Masculino');
+                    $('#sexo-perfil').text('Masculino');
                 } else {
                     $('#sexo-perfil').text('Feminino');
                 }
-               // $('#editar-pessoa-modal-campo-cpf').val(data.CPF);
+                // $('#editar-pessoa-modal-campo-cpf').val(data.CPF);
                 $('#telefone-perfil').text(data.Telefone);
                 //$('#editar-pessoa-modal-campo-cep').val(data.Cep);
             }
         });
-
+  
     });
 
 });

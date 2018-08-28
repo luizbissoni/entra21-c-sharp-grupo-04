@@ -1,5 +1,5 @@
 ﻿$(function () {
-    
+
     $('body').on('click', '#salvar-cadastro-modal', function () {
         $.ajax({
             url: '/Pessoas/CadastroModalPessoas',
@@ -14,12 +14,29 @@
                 cep: $('#cep').val()
             },
             success: function (data) {
+                limpaCampos();
                 $('#cadastrar-pessoa-modal').modal('hide');
                 $('#tabela-pessoas').DataTable().ajax.reload();
             }
         });
     });
+    $('#cancelar-cadastro-pessoa').on('click', function () {
+        limpaCampos();
+    });
 
+    function limpaCampos() {
+       
+        $('#campo-sexo-feminino').prop('checked', false);
+        $('#campo-sexo-masculino').prop('checked', false);
+        $('#campo-nome').val('');
+        $('#campo-idade').val('');
+        $('#campo-nascimento').val('');
+        $('#campo-cpf').val('');
+        $('#campo-telefone').val('');
+        $('#cep').val('');
+    };
+
+    //Preenche o campo da idade
     document.getElementById("campo-nascimento").addEventListener('change', function () {
         var data = new Date(this.value);
         if (isDate_(this.value) && data.getFullYear() > 1900)
@@ -60,7 +77,9 @@
         }
         return status;
     }
+    //fim campo idade
 
+    //busca cep ao sair do campo cep
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.
         $("#rua").val("");
@@ -121,6 +140,7 @@
             limpa_formulário_cep();
         }
     });
+    //fim buscador cep
 
 
 });

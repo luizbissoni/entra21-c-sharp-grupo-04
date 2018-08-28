@@ -41,7 +41,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="campo-nascimento">Nascimento<h11>*</h11></label>
-                            <input id="campo-nascimento" name="Pessoas.Data_Nascimento" placeholder="DD/MM/AAAA" class="form-control" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
+                            <input id="campo-nascimento" name="Pessoas.DataNascimento" placeholder="DD/MM/AAAA" class="form-control" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
                         </div>
                     </div>
                 </div>
@@ -71,10 +71,10 @@
                         </div>
                     </div>
 
-                    <div class="col-md-2">
+                    @*<div class="col-md-2">
                         <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
 
-                    </div>
+                    </div>*@
                 </div>
 
 
@@ -120,7 +120,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelar-cadastro-pessoa">Cancelar</button>
                 <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cadastro-modal">
             </div>
         </div>

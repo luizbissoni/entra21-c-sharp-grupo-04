@@ -21,7 +21,7 @@ namespace SistemaFinanceiro.Models
         [Display(Name = "Data de nascimento")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime Data_nascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
 
         public string Telefone { get; set; }
 

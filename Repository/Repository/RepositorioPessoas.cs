@@ -21,7 +21,7 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@IDADE", pessoas.Idade);
             comando.Parameters.AddWithValue("@SEXO", pessoas.Sexo);
             comando.Parameters.AddWithValue("@CPF", pessoas.CPF);
-            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.Data_nascimento);
+            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.DataNascimento);
             comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);
             comando.Parameters.AddWithValue("@CEP", pessoas.Cep);
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
@@ -56,7 +56,7 @@ namespace SistemaFinanceiro.Repositório
                     Idade = Convert.ToInt32(linha[2].ToString()),
                     Sexo = Convert.ToChar(linha[3].ToString()),
                     CPF = linha[4].ToString(),
-                    Data_nascimento = Convert.ToDateTime(linha[5].ToString()),
+                    DataNascimento = Convert.ToDateTime(linha[5].ToString()),
                     Telefone = linha[6].ToString(),
                     Cep = linha[7].ToString()
 
@@ -83,7 +83,7 @@ namespace SistemaFinanceiro.Repositório
                 pessoas.Idade = Convert.ToInt32(tabela.Rows[0][1].ToString());
                 pessoas.Sexo = Convert.ToChar(tabela.Rows[0][2].ToString());
                 pessoas.CPF = tabela.Rows[0][3].ToString();
-                pessoas.Data_nascimento = Convert.ToDateTime(tabela.Rows[0][4].ToString());
+                pessoas.DataNascimento = Convert.ToDateTime(tabela.Rows[0][4].ToString());
                 pessoas.Telefone = tabela.Rows[0][5].ToString();
                 pessoas.Cep = tabela.Rows[0][6].ToString();
 
@@ -101,7 +101,7 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@IDADE", pessoas.Idade);
             comando.Parameters.AddWithValue("@SEXO", pessoas.Sexo);
             comando.Parameters.AddWithValue("@CPF", pessoas.CPF);
-            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.Data_nascimento);
+            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.DataNascimento);
             comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);
             comando.Parameters.AddWithValue("@CEP", pessoas.Cep);    
             return comando.ExecuteNonQuery() == 1;
@@ -116,7 +116,7 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@IDADE", pessoas.Idade);
             comando.Parameters.AddWithValue("@SEXO", pessoas.Sexo);
             comando.Parameters.AddWithValue("@CPF", pessoas.CPF);
-            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.Data_nascimento);
+            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.DataNascimento);
             comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);
             comando.Parameters.AddWithValue("@CEP", pessoas.Cep); 
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());

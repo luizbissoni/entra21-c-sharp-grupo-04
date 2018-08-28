@@ -1,4 +1,5 @@
 ﻿$(function () {
+
     var table = $('#tabela-pessoas').DataTable();
     var dataRow;
     $('#tabela-pessoas tbody').on('click', 'tr', function () {
@@ -9,7 +10,10 @@
             $(this).removeClass('selected');
         }
         dataRow = table.row(this).data();
+        $('#nome-pessoa-aviso').text(dataRow.Nome);
+
     });
+
 
     $('#yes-option').on("click", function () {
         $.ajax({

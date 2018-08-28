@@ -41,7 +41,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="editar-pessoa-modal-campo-nascimento">Nascimento<h11>*</h11></label>
-                            <input id="editar-pessoa-modal-campo-nascimento" name="Pessoas.Data_Nascimento" placeholder="DD/MM/AAAA" class="form-control" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
+                            <input id="editar-pessoa-modal-campo-nascimento" name="Pessoas.DataNascimento" placeholder="DD/MM/AAAA" class="form-control" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
                         </div>
                     </div>
                 </div>
@@ -67,14 +67,14 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-addon">CEP</span>
-                            <input id="cep" name="Pessoas.Cep" placeholder="Apenas números" class="form-control col-sm-5" required="" type="search" maxlength="8" pattern="[0-9]+$">
+                            <input id="editar-pessoa-modal-campo-cep" name="Pessoas.Cep" placeholder="Apenas números" class="form-control col-sm-5" required="" type="search" maxlength="8" pattern="[0-9]+$">
                         </div>
                     </div>
 
-                    <div class="col-md-2">
+                    @*<div class="col-md-2">
                         <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
 
-                    </div>
+                    </div>*@
                 </div>
 
 
@@ -82,13 +82,13 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <span class="input-group-addon">Rua</span>
-                            <input id="rua" name="rua" class="form-control " placeholder="" required="" readonly="readonly" type="text">
+                            <input id="rua-editar" name="rua-editar" class="form-control " placeholder="" required="" readonly="readonly" type="text">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="input-group">
                             <span class="input-group-addon">Nº <h11>*</h11></span>
-                            <input id="numero" name="numero" class="form-control col-sm-3" placeholder="" maxlength="4" required="" type="text">
+                            <input id="numero-editar" name="numero-editar" class="form-control col-sm-3" placeholder="" maxlength="4" required="" type="text">
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                     <div class="col-md-3">
                         <div class="input-group">
                             <span class="input-group-addon">Bairro</span>
-                            <input id="bairro" name="bairro" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                            <input id="bairro-editar" name="bairro-editar" class="form-control" placeholder="" required="" readonly="readonly" type="text">
                         </div>
 
                     </div>
@@ -104,14 +104,14 @@
                     <div class="col-md-4">
                         <div class="input-group">
                             <span class="input-group-addon">Cidade</span>
-                            <input id="cidade" name="cidade" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                            <input id="cidade-editar" name="cidade-editar" class="form-control" placeholder="" required="" readonly="readonly" type="text">
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="input-group">
                             <span class="input-group-addon">Estado</span>
-                            <input id="estado" name="estado" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                            <input id="estado-editar" name="estado-editar" class="form-control" placeholder="" required="" readonly="readonly" type="text">
                         </div>
 
                     </div>

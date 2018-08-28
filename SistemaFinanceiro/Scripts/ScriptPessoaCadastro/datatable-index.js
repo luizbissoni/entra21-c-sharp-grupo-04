@@ -19,7 +19,7 @@
             { data: "Nome" },
             { data: "Idade" },
             { data: "Sexo" },
-            { data: "Data_nascimento" },
+            { data: "DataNascimento" },
             { data: "CPF" },
             { data: "Telefone" },
             { data: "Cep" }
