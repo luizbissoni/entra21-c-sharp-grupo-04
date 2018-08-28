@@ -5478,6 +5478,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\scriptPerfilUsuario\usuario-perfil.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\creat-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\datatable-index.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\delete-person-modal.js" />
@@ -5527,9 +5528,9 @@
     <Content Include="Views\Pessoas\Index.cshtml" />
     <Content Include="Views\Pessoas\Cadastro.cshtml" />
     <Content Include="Views\Pessoas\Editar.cshtml" />
-    <Content Include="Views\Shared\Home.cshtml" />
     <Content Include="Views\Pessoas\EditarModal.cshtml" />
     <Content Include="Views\Pessoas\CadastroModal.cshtml" />
+    <Content Include="Views\PerfilUsuario\IndexPerfil.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,97 @@
+﻿@{
+    Layout = null;
+}
+
+<div class="modal fade" id="modal-perfil-usuario" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TituloModalCentralizado">Título do modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-block user-detail-card">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <img src="~/Content/assets/images/widget/Group-user.jpg " alt="" class="img-fluid p-b-10">
+                                    <div class="contact-icon">
+                                        <button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="View"><i class="icofont icofont-eye m-0"></i></button>
+                                        <button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Print"><i class="icofont icofont-printer m-0"></i></button>
+                                        <button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Download"><i class="icofont icofont-download-alt m-0"></i></button>
+                                        <button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Share"><i class="icofont icofont-share m-0"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8 user-detail">
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="f-w-400 m-b-30"><i class="icofont icofont-ui-user"></i>Name :</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <span class="m-b-30" id="nome-perfil"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="f-w-400 m-b-30"><i class="icofont icofont-ui-calendar"></i>Date of brith :</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <span class="m-b-30" id="nascimento-perfil" pattern="dd/MM/yyyy"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="f-w-400 m-b-30"><i class="icofont icofont-ui-email"></i>Email Id :</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <span class="m-b-30" id="email-perfil"></span>                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="f-w-400 m-b-30"><i class="icofont icofont-ui-home"></i>Address :</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <h6 class="m-b-30">23/Encrypt square, Melbourn, Australia</h6>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="f-w-400 m-b-30"><i class="icofont icofont-ui-touch-phone"></i>Phone :</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <span class="m-b-30" id="telefone-perfil"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="f-w-400 m-b-30"><i class="icofont icofont-ui-user"></i>Sexo :</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <span class="m-b-30" id="sexo-perfil"></span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-5">
+                                            <h6 class="f-w-400 m-b-30"><i class="icofont icofont-fax"></i>Fax :</h6>
+                                        </div>
+                                        <div class="col-sm-7">
+                                            <h6 class="m-b-30">+(723)542-2823</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Salvar mudanças</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

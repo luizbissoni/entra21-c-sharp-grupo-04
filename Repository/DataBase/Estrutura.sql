@@ -63,7 +63,7 @@ CREATE TABLE [dbo].[recebimentos] (
 
 
 INSERT INTO pessoas (nome, idade, sexo, cpf,data_nascimento) VALUES 
-('João da Silva', 18, 1, '123.456.789-98', '1998-06-05'),
-('Rute da Silva', 52, 0, '987.654.321-98', '1945-12-01');
+('João da Silva', 18, 'M', '123.456.789-98', '1998-06-05'),
+('Rute da Silva', 52, 'F', '987.654.321-98', '1945-12-01');
 
 SELECT * FROM pessoas;

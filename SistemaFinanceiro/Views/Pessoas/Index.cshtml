@@ -27,9 +27,7 @@
                     <th>CEP</th>
                 </tr>
             </thead>
-            <tbody>
-
-            </tbody>
+            <tbody></tbody>
             <tfoot>
                 <tr>
                     <th>
@@ -47,10 +45,14 @@
     </div>
 </div>
 
+<a href="#" class="btn btn-danger modal-usuario" data-target="#modal-perfil-usuario" data-toggle="modal">perfil usuario</a>
 
+@Html.Partial("~/Views/PerfilUsuario/IndexPerfil.cshtml")
 @Html.Partial("~/Views/Pessoas/CadastroModal.cshtml")
 @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
 @Html.Partial("~/Views/Pessoas/AvisoModal.cshtml")
+
+
 
 @section script{
 
@@ -98,7 +100,7 @@
     <script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
     <script src="~/Scripts/ScriptPessoaCadastro/creat-person-modal.js"></script>
     <script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
-
+    <script src="~/Scripts/scriptPerfilUsuario/usuario-perfil.js"></script>
 
 
 }
