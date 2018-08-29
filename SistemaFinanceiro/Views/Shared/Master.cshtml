@@ -273,7 +273,7 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu active pcoded-trigger">
                                     <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="ti-home"></i><b>G</b></span>
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>C</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Cadastros</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
@@ -290,6 +290,9 @@
                                         <li class="active">
                                             @Html.ActionLink("Categoria","Cadastro","Categoria")
                                         </li>
+                                        <li class="active">
+                                            @Html.ActionLink("Pessoas", "Cadastro", "Pessoas")
+                                        </li>
                                     </ul>
                                 </li>
 
@@ -298,11 +301,27 @@
                             <ul class="pcoded-item pcoded-left-item">
                                 <li class="pcoded-hasmenu active pcoded-trigger">
                                     <a href="javascript:void(0)">
-                                        <span class="pcoded-micon"><i class="ti-home"></i><b>G</b></span>
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>I</b></span>
                                         <span class="pcoded-mtext" data-i18n="nav.dash.main">Index</span>
                                         <span class="pcoded-mcaret"></span>
                                     </a>
-
+                                    <ul class="pcoded-submenu">
+                                        <li class="active">
+                                            @Html.ActionLink("Gastos", "Index", "Gasto")
+                                        </li>
+                                        <li class="active">
+                                            @Html.ActionLink("Cartão", "Index", "Cartao")
+                                        </li>
+                                        <li class="active">
+                                            @Html.ActionLink("Recebimento", "Index", "Recebimento")
+                                        </li>
+                                        <li class="active">
+                                            @Html.ActionLink("Categoria", "Index", "Categoria")
+                                        </li>
+                                        <li class="active">
+                                            @Html.ActionLink("Pessoas", "Index", "Pessoas")
+                                        </li>
+                                    </ul>
                                 </li>
 
                             </ul>

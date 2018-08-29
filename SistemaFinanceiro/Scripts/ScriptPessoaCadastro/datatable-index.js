@@ -3,8 +3,9 @@
     $('#tabela-pessoas').DataTable({
         serverSide: true,
         "bProcessing": true,
+        "scrollX": false,
         "ajax": "/Pessoas/ObterTodosJson",
-        order: [[1, 'asc']],
+        
         columns: [
             {
 
