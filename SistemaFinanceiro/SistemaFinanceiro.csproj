@@ -19,6 +19,8 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -108,6 +110,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Database1989.mdf" />
+    <Content Include="App_Data\Database1989_log.ldf">
+      <DependentUpon>Database1989.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\Database1992.mdf" />
     <Content Include="App_Data\Database1992_log.ldf">
       <DependentUpon>Database1992.mdf</DependentUpon>

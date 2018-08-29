@@ -13,6 +13,30 @@
         dataRow = table.row(this).data();
     });
 
+    //editar no perfil do usuario
+    $('#editar-pessoa-perfil').on('click', function () {
+        $.ajax({
+            url: '/Pessoas/Editar',
+            method: 'GET',
+            data: { id: dataRow.Id },
+            success: function (Complete) {
+                var data = JSON.parse(Complete);
+                $('#editar-pessoa-modal-campo-nome').val(data.Nome);
+                $('#editar-pessoa-modal-campo-idade').val(data.Idade);
+                $('#editar-pessoa-modal-campo-nascimento').val(data.DataNascimento);
+                if (data.Sexo == 'M') {
+                    $('#editar-pessoa-modal-campo-sexo-feminino').attr('checked', 'checked');
+                } else {
+                    $('#editar-pessoa-modal-campo-sexo-masculino').attr('checked', 'checked');
+                }
+                $('#editar-pessoa-modal-campo-cpf').val(data.CPF);
+                $('#editar-pessoa-modal-campo-telefone').val(data.Telefone);
+                $('#editar-pessoa-modal-campo-cep').val(data.Cep);
+            }
+        });
+    });
+
+    //editar do index pessoa
     $('.editar-pessoa').on('click', function () {
         $.ajax({
             url: '/Pessoas/Editar',
