@@ -5,17 +5,13 @@
         "bProcessing": true,
         "scrollX": false,
         "ajax": "/Pessoas/ObterTodosJson",
-        
         columns: [
             {
-
                 "class": "details-control",
                 "orderable": false,
                 "data": null,
                 "defaultContent": ""
-
             },
-
             { data: "Id" },
             { data: "Nome" },
             { data: "Idade" },
