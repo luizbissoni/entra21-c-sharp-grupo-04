@@ -10,7 +10,7 @@
 <a href="#" class="btn btn-primary cadastrar-pessoa" data-target="#cadastrar-pessoa-modal" data-toggle="modal">Cadastrar</a>
 <a href="#" class="btn btn-warning editar-pessoa" data-target="#editar-pessoa-modal" data-toggle="modal">Editar</a>
 <a href="#" class="btn btn-danger aviso-pessoa" data-target="#avisoModal" data-toggle="modal">Excluir</a>
-<a href="#" class="btn btn-default cartao-pessoa" data-target="#modal-cadastro-cartao" data-toggle="modal">cartao</a>
+<a href="#" class="btn btn-default login-sistema" data-target="#modal-login-principal" data-toggle="modal">Login</a>
 
 <div class="card-block">
     <div class="table-responsive dt-responsive">
@@ -31,16 +31,16 @@
             <tbody></tbody>
             <tfoot>
                 @*<tr>
-                    <th>
-                    <th>Id</th>
-                    <th>Nome</th>
-                    <th>Idade</th>
-                    <th>Sexo</th>
-                    <th>Data Nascimento</th>
-                    <th>CPF</th>
-                    <th>Telefone</th>
-                    <th>CEP</th>
-                </tr>*@
+                        <th>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Sexo</th>
+                        <th>Data Nascimento</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                        <th>CEP</th>
+                    </tr>*@
             </tfoot>
         </table>
     </div>
@@ -52,7 +52,7 @@
 @Html.Partial("~/Views/Pessoas/CadastroModal.cshtml")
 @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
 @Html.Partial("~/Views/Pessoas/AvisoModal.cshtml")
-@Html.Partial("~/Views/Pessoas/CadastroCartaoModal.cshtml")
+@Html.Partial("~/Views/Login/Cadastro.cshtml")
 
 
 
@@ -106,6 +106,7 @@
     <script src="~/Scripts/scriptPerfilUsuario/usuario-perfil.js"></script>
     <script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
 
+    <script src="~/Scripts/Login/login-usuario.js"></script>
 }
 
 

@@ -1,4 +1,5 @@
-﻿using SistemaFinanceiro.Models;
+﻿using Newtonsoft.Json;
+using SistemaFinanceiro.Models;
 using SistemaFinanceiro.Repositório;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,7 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-          public ActionResult Store(Login login)
+        public ActionResult Store(Login login)
         {
             if (ModelState.IsValid)
             {
@@ -40,7 +41,6 @@ namespace SistemaFinanceiro.Controllers
             ViewBag.Login = login;
 
             return View("Cadastro");
-            
         }
 
         [HttpGet]
@@ -67,7 +67,7 @@ namespace SistemaFinanceiro.Controllers
 
         public ActionResult ValidarLogin(string usuario, string senha)
         {
-            Login userLogin = new RepositorioLogin().ValidarLogin(usuario,senha);
+            Login userLogin = new RepositorioLogin().ValidarLogin(usuario, senha);
 
             if (userLogin.Usuario == usuario && userLogin.Senha == senha)
             {
@@ -80,9 +80,16 @@ namespace SistemaFinanceiro.Controllers
         {
             List<Login> logins = new RepositorioLogin().ObterTodosLogin();
             ViewBag.Logins = logins;
-           
+
             return View();
         }
-      
+
+        [HttpGet]
+        public ActionResult GetLoginJson()
+        {
+            List<Login> logins = new RepositorioLogin().ObterTodosLogin();
+            return Content(JsonConvert.SerializeObject(new { data = logins }));
+        }
+
     }
 }

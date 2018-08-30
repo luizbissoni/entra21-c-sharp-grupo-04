@@ -18,7 +18,7 @@
             url: '/Categoria/Editar',
             method: 'GET',
             data: {
-                id: dataRow.Id
+                Id: dataRow.Id
             },
             success: function (preencher) {
                 console.log(preencher);

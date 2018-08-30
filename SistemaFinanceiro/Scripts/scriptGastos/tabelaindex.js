@@ -7,9 +7,9 @@
         columns: [
 
             { data: "Id" },
-            { data: "Valor_Dos_Gastos" },
-            { data: "Data_De_Entrada" },
-            { data: "Data_De_Vencimento" },
+            { data: "ValorGastos" },
+            { data: "DataEntrada" },
+            { data: "DataVencimento" },
             { data: "Descricao" },
 
         ]

@@ -18,10 +18,10 @@ namespace SistemaFinanceiro.Repositório
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = @"INSERT INTO gastos (valor_gastos, data_entrada, data_vencimento, descricao) OUTPUT INSERTED.ID VALUES 
 (@VALOR_GASTOS, @DATA_ENTRADA, @DATA_VENCIMENTO, @DESCRICAO)";
-            //comando.Parameters.AddWithValue("@ID_GASTOS", gastos.Id_Gastos);
-            comando.Parameters.AddWithValue("@VALOR_GASTOS", gastos.Valor_Dos_Gastos);
-            comando.Parameters.AddWithValue("@DATA_ENTRADA", gastos.Data_De_Entrada);
-            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", gastos.Data_De_Vencimento);
+            //comando.Parameters.AddWithValue("@ID_GASTOS", gastos.IdGastos);
+            comando.Parameters.AddWithValue("@VALOR_GASTOS", gastos.ValorGastos);
+            comando.Parameters.AddWithValue("@DATA_ENTRADA", gastos.DataEntrada);
+            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", gastos.DataVencimento);
             comando.Parameters.AddWithValue("@DESCRICAO", gastos.Descricao);
 
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
@@ -51,9 +51,9 @@ namespace SistemaFinanceiro.Repositório
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                     //Id_Gastos = Convert.ToInt32(linha[1].ToString()),
-                    Valor_Dos_Gastos = Convert.ToDouble(linha[1].ToString()),
-                    Data_De_Entrada = Convert.ToDateTime(linha[2].ToString()),
-                    Data_De_Vencimento = Convert.ToDateTime(linha[3].ToString()),
+                    ValorGastos = Convert.ToDouble(linha[1].ToString()),
+                    DataEntrada = Convert.ToDateTime(linha[2].ToString()),
+                    DataVencimento = Convert.ToDateTime(linha[3].ToString()),
                     Descricao = linha[4].ToString()
 
                 };
@@ -74,9 +74,9 @@ namespace SistemaFinanceiro.Repositório
             {
                 gastos = new Gastos();
                 gastos.Id = id;
-                gastos.Valor_Dos_Gastos = Convert.ToDouble(tabela.Rows[0][0].ToString());
-                gastos.Data_De_Entrada = Convert.ToDateTime(tabela.Rows[0][1].ToString());
-                gastos.Data_De_Vencimento = Convert.ToDateTime(tabela.Rows[0][2].ToString());
+                gastos.ValorGastos = Convert.ToDouble(tabela.Rows[0][0].ToString());
+                gastos.DataEntrada = Convert.ToDateTime(tabela.Rows[0][1].ToString());
+                gastos.DataVencimento = Convert.ToDateTime(tabela.Rows[0][2].ToString());
                 gastos.Descricao = tabela.Rows[0][3].ToString();
 
             }
@@ -89,10 +89,10 @@ namespace SistemaFinanceiro.Repositório
         {
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "UPDATE gastos SET valor_gastos = @VALOR_GASTOS, data_entrada = @DATA_ENTRADA, data_vencimento = @DATA_VENCIMENTO, descricao = @DESCRICAO WHERE id = @ID";
-            //comando.Parameters.AddWithValue("@ID_CATEGORIA", gastos.Id_Gastos);
-            comando.Parameters.AddWithValue("@VALOR_GASTOS", gastos.Valor_Dos_Gastos);
-            comando.Parameters.AddWithValue("@DATA_ENTRADA", gastos.Data_De_Entrada);
-            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", gastos.Data_De_Vencimento);
+            //comando.Parameters.AddWithValue("@ID_CATEGORIA", gastos.IdGastos);
+            comando.Parameters.AddWithValue("@VALOR_GASTOS", gastos.ValorGastos);
+            comando.Parameters.AddWithValue("@DATA_ENTRADA", gastos.DataEntrada);
+            comando.Parameters.AddWithValue("@DATA_VENCIMENTO", gastos.DataVencimento);
             comando.Parameters.AddWithValue("@DESCRICAO", gastos.Descricao);
             comando.Parameters.AddWithValue("@ID", gastos.Id); 
             return comando.ExecuteNonQuery() == 1;
