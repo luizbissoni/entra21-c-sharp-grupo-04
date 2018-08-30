@@ -1,0 +1,54 @@
+﻿<div class="modal fade" id="cadastrar-cartoes-modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span>X</span>
+                </button>
+                <h4>Cadastrar Cartão</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="campo-NCartao">Número cartão<h11>*</h11></label>
+                    <input id="campo-NCartao" name="Cartoes.NumeroCartao" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label" for="campo-NConta">Número Conta<h11>*</h11></label>
+                        <input id="campo-NConta" name="Cartoes.NumeroConta" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="campo-NSeguranca">Número Segurança<h11>*</h11></label>
+                            <input id="campo-NSeguranca" name="Cartoes.NumeroSeguranca" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="col-md-1 control-label" for="campo-nascimento">Vencimento<h11>*</h11></label>
+                                <input id="campo-nascimento" name="Pessoas.DataNascimento" placeholder="DD/MM/AAAA" class="form-control" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="campo-Bandeira">Bandeira<h11>*</h11></label>
+                                    <input id="campo-Bandeira" name="Cartoes.Bandeira" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="campo-Banco">Banco<h11>*</h11></label>
+                                        <input id="campo-Banco" name="Cartoes.Banco" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelar-cadastro-categoria">Cancelar</button>
+                                        <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cadastro-modal">
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

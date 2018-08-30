@@ -11,6 +11,8 @@
     @Html.ActionLink("Criar um novo cartão", "Cadastro")
 </p>
 
+<a href="#" class="btn btn-primary cadastrar-cartao" data-target="#cadastrar-cartoes-modal" data-toggle="modal">Cadastrar</a>
+
 <div class="card-block">
     <div class="table-responsive dt-responsive">
         <table id="tabela-cartao" class="table table-striped tabela-cartao-index" style="width:100%">
@@ -42,6 +44,8 @@
     </div>
 </div>
 
+@Html.Partial("~/Views/Cartao/CadastroModal.cshtml")
+
 @section script{
 
     <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -59,4 +63,9 @@
     <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
 
     <script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
+
+     <script src="~/Scripts/scriptCartao/create-cartao-modal.js"></script>
+
+
+
 }
