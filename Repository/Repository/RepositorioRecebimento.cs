@@ -15,7 +15,7 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO recebimentos (valor_recebido,data_recebimento,descricao) OUTPUT INSERTED.ID VALUES 
+            comando.CommandText = @"INSERT INTO recebimentos (valor_recebido, data_recebimento, descricao) OUTPUT INSERTED.ID VALUES 
 (@VALOR_RECEBIDO, @DATA_RECEBIMENTO, @DESCRICAO)";
             comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
             comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);

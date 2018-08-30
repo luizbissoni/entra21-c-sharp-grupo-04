@@ -118,6 +118,10 @@
     <Content Include="App_Data\Database1992_log.ldf">
       <DependentUpon>Database1992.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\Database22.mdf" />
+    <Content Include="App_Data\Database22_log.ldf">
+      <DependentUpon>Database22.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\ionicons.css" />
@@ -5511,6 +5515,7 @@
     <Content Include="Scripts\ScriptPessoaCadastro\delete-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\edit-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\pessoas-cadastro.js" />
+    <Content Include="Scripts\scriptRecebimento\tabelarecebimento.js" />
     <Content Include="Scripts\ValidarLogin.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

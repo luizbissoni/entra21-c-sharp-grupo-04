@@ -7,46 +7,52 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Criar um novo recebimento", "Cadastro")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @*@Html.DisplayNameFor(model => model.Id_recebimento)*@
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Valor_recebido)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.data_recebimento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descricao)
-        </th>
-        <th></th>
-    </tr>
+<a href="/Recebimento/Cadastro"> Registrar recebimento</a>
 
-@foreach (SistemaFinanceiro.Models.Recebimento item in @ViewBag.Recebimentos)
- {
-    <tr>
-        <td>
-            @*@Html.DisplayFor(modelItem => item.Id_recebimento)*@
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Valor_recebido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.data_recebimento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descricao)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
-            @Html.ActionLink("Excluir", "Excluir", new { id=item.Id })
-        </td>
-    </tr>
+<div class="card-block">
+    <div class="table-responsive dt-responsive">
+        <table id="tabela-recebimento" class="table table-striped-recebimento-index" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Valor</th>
+                    <th>Data Recebimento</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Valor</th>
+                    <th>Data Recebimento</th>
+                    <th>Descrição</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+
+@section script{
+
+    <script type="text/javascript" src="~/Content/bower_components/modernizr/js/css-scrollbars.js"></script>
+
+    <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/jszip.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/pdfmake.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/vfs_fonts.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <script src="~/Content/assets/pages/data-table/js/data-table-custom.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
+
+    <script src="~/Scripts/scriptRecebimento/tabelarecebimento.js"></script>
+
 }
-
-</table>
