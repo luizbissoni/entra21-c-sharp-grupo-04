@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Criar um novo cartão", "Cadastro")
 </p>
- 
+
 <div class="card-block">
     <div class="table-responsive dt-responsive">
         <table id="tabela-cartao" class="table table-striped tabela-cartao-index" style="width:100%">
@@ -19,7 +19,8 @@
                     <th>Id</th>
                     <th>Número Cartão</th>
                     <th>Número Conta</th>
-                    <th>Número segurança</th>
+                    <th>Número Segurança</th>
+                    <th>Data Vencimento</th>
                     <th>Bandeira</th>
                     <th>Banco</th>
                 </tr>
@@ -27,11 +28,12 @@
             <tbody></tbody>
             <tfoot>
                 <tr>
-                    
+
                     <th>Id</th>
                     <th>Número Cartão</th>
                     <th>Número Conta</th>
                     <th>Número segurança</th>
+                    <th>Data Vencimento</th>
                     <th>Bandeira</th>
                     <th>Banco</th>
                 </tr>
@@ -41,9 +43,6 @@
 </div>
 
 @section script{
-
-
-    <script type="text/javascript" src="~/Content/bower_components/modernizr/js/css-scrollbars.js"></script>
 
     <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
@@ -56,8 +55,8 @@
     <script src="~/Content/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
     <script src="~/Content/assets/pages/data-table/js/data-table-custom.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/modernizr/js/css-scrollbars.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
 
-   
-<script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
+    <script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
 }

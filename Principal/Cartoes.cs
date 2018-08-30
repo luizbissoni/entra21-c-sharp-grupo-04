@@ -12,25 +12,25 @@ namespace SistemaFinanceiro.Models
 
         [Display(Name = "Id cartões")]
         [Required(ErrorMessage = "O número do cartão não pode ser vazio")]
-        public int Id_cartoes { get; set; }
+        public int IdCartoes { get; set; }
 
         [Display(Name = "Numero do Cartão")]
         [Required(ErrorMessage = "O número da conta não pode ser vazia")]
         [MaxLength(4, ErrorMessage = "Número da conta não pode ser superior a quatro dígitos")]
-        public string Numero_cartao { get; set; }
+        public string NumeroCartao { get; set; }
 
         [Display(Name = "Numero da conta")]
-        public string Numero_conta { get; set; }
+        public string NumeroConta { get; set; }
 
         [Display(Name = "Numero da segurança")]
         [Required(ErrorMessage = "O número de segurança não pode ser vazio")]
 
-        public int Numero_seguranca { get; set; }
+        public int NumeroSeguranca { get; set; }
 
         [Display(Name = "Data de vencimento")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime Data_vencimento { get; set; }
+        public DateTime DataVencimento { get; set; }
 
         [Display(Name = "Bandeira")]
         [Required(ErrorMessage = "O nome da bandeira de seu cartão não pode ser vazio")]
