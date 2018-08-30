@@ -15,7 +15,7 @@
 
     $('.editar-categoria').on('click', function () {
         $.ajax({
-            url: '/Categorias/Editar',
+            url: '/Categoria/Editar',
             method: 'GET',
             data: {
                 id: dataRow.Id
@@ -24,25 +24,25 @@
                 console.log(preencher);
                 var data = JSON.parse(preencher);
                 $('#editar-categoria-modal').modal('show');
-                $('#editar-categoria-modal-campo-nome').val(data.Nome);
+                $('#campo-nome-categoria').val(data.Nome);
 
             }
         });
     });
 
 
-    $('body').on('click', '#salvar-editar-categoria-modal', function () {
+    $('body').on('click', '#salvar-categoria-cadastro-modal', function () {
         $.ajax({
-            url: '/Categorias/Update',
-            method: 'post',
+            url: '/Categoria/Update',
+            method: 'POST',
             data: {
-                nome: $('#editar-categoria-modal-campo-nome').val(),
-
+                nome: $('#campo-nome-categoria').val()
             },
             success: function (data) {
                 $('#editar-categoria-modal').modal('hide');
             }
         });
+        console.log($('#campo-nome-categoria').val());
     });
 
 });

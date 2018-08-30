@@ -17,7 +17,7 @@
 
     $('#yes-option').on("click", function () {
         $.ajax({
-            url: '/categorias/excluir',
+            url: '/categoria/excluir',
             method: 'GET',
             data: {
                 id: dataRow.Id
@@ -25,7 +25,7 @@
             success: function (excluirId) {
                 var data = JSON.parse(excluirId)
                 $('#linha-' + data.Id).remove();
-                $('#examplemodal').modal('hide');
+                $('#avisoCategoria').modal('hide');
             }
         });
     });

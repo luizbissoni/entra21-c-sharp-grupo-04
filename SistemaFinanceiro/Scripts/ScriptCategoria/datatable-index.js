@@ -3,22 +3,13 @@
     $('#tabela-categoria').DataTable({
         serverSide: true,
         "bProcessing": true,
-        "ajax": "/Categorias/ObterTodosCategoriaJson",
-        order: [[1, 'asc']],
+        "ajax": "/Categoria/ObterTodosCategoriaJson",
         columns: [
-            {
-
-                "class": "details-control",
-                "orderable": false,
-                "data": null,
-                "defaultContent": ""
-
-            },
-
-            
+       
+            { data: "Id"},
             { data: "Nome" }
             
-        ],
+        ]
     });
 
 });
