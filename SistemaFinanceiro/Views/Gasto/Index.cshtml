@@ -6,6 +6,8 @@
 
 <h2>@ViewBag.TituloPagina</h2>
 
+<a href="#" class="btn btn-primary cadastrar-gasto" data-target="#cadastrar-gastos-modal" data-toggle="modal">Cadastrar</a>
+
 <a href="/Gasto/Cadastro" >Registrar Gasto</a>
 
 <div class="card-block">
@@ -34,6 +36,8 @@
     </div>
 </div>
 
+@Html.Partial("~/Views/Gasto/CadastoGastoModel.cshtml")
+
 @section script{
     
     <script type="text/javascript" src="~/Content/bower_components/modernizr/js/css-scrollbars.js"></script>
@@ -54,5 +58,9 @@
     <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
 
     <script src="~/Scripts/scriptGastos/tabelaindex.js"></script>
+
+    <script src="~/Scripts/scriptGastos/create-gasto.js"></script>
+
+
 
     }
