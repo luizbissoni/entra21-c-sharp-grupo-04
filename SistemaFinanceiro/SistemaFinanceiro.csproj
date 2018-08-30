@@ -5521,6 +5521,7 @@
     <Compile Include="Controllers\CartaoController.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\GastoController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PessoasController.cs" />
     <Compile Include="Controllers\RecebimentoController.cs" />
@@ -5558,6 +5559,7 @@
     <Content Include="Views\Pessoas\EditarModal.cshtml" />
     <Content Include="Views\Pessoas\CadastroModal.cshtml" />
     <Content Include="Views\PerfilUsuario\IndexPerfil.cshtml" />
+    <Content Include="Views\Pessoas\CadastroCartaoModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

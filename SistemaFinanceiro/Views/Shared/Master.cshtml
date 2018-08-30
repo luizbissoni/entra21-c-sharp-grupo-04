@@ -279,16 +279,16 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="active">
-                                            @Html.ActionLink("Gastos","Cadastro","Gasto")
+                                            @Html.ActionLink("Gastos", "Cadastro", "Gasto")
                                         </li>
                                         <li class="active">
-                                            @Html.ActionLink("Cartão","Cadastro","Cartao")
+                                            @Html.ActionLink("Cartão", "Cadastro", "Cartao")
                                         </li>
                                         <li class="active">
-                                            @Html.ActionLink("Recebimento","Cadastro","Recebimento")
+                                            @Html.ActionLink("Recebimento", "Cadastro", "Recebimento")
                                         </li>
                                         <li class="active">
-                                            @Html.ActionLink("Categoria","Cadastro","Categoria")
+                                            @Html.ActionLink("Categoria", "Cadastro", "Categoria")
                                         </li>
                                         <li class="active">
                                             @Html.ActionLink("Pessoas", "Cadastro", "Pessoas")
@@ -325,8 +325,22 @@
                                 </li>
 
                             </ul>
-                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Forms</div>
-                            <ul class="pcoded-item pcoded-left-item"></ul>
+                            <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Home do Sistema</div>
+                            <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu active pcoded-trigger">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="ti-home"></i><b>I</b></span>
+                                        <span class="pcoded-mtext" data-i18n="nav.dash.main">Index</span>
+                                        <span class="pcoded-mcaret"></span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="active">
+                                            @*@Html.ActionLink("Home","IndexHome","Home")*@
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.tables">Tables</div>
                             <ul class="pcoded-item pcoded-left-item"></ul>
                             <div class="pcoded-navigatio-lavel" data-i18n="nav.category.chart-and-maps">Chart And Maps</div>
