@@ -20,7 +20,7 @@
             url: '/categoria/excluir',
             method: 'GET',
             data: {
-                id: dataRow.Id
+                Id: dataRow.Id
             },
             success: function (excluirId) {
                 var data = JSON.parse(excluirId)
