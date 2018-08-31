@@ -1,5 +1,5 @@
 ﻿$(function () {
-    
+
     $('body').on('click', '#salvar-cadastro-modal', function () {
         $.ajax({
             url: '/Pessoas/CadastroModalPessoas',
@@ -17,6 +17,12 @@
                 limpaCampos();
                 $('#cadastrar-pessoa-modal').modal('hide');
                 $('#tabela-pessoas').DataTable().ajax.reload();
+                new PNotify({
+                    //title: 'Salvo com sucesso!',
+                    text: 'Salvo com sucesso!',
+                    icon: 'icofont icofont-info-circle',
+                    type: 'success'
+                });
             }
         });
     });
@@ -25,7 +31,7 @@
     });
 
     function limpaCampos() {
-       
+
         $('#campo-sexo-feminino').prop('checked', false);
         $('#campo-sexo-masculino').prop('checked', false);
         $('#campo-nome').val('');
@@ -142,5 +148,10 @@
     });
     //fim buscador cep
 
+    //new PNotify({
+    //    //title: 'Salvo com sucesso!',
+    //    text: 'Salvo com sucesso!'
+
+    //});
 
 });

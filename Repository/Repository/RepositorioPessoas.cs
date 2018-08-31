@@ -107,22 +107,7 @@ namespace SistemaFinanceiro.Repositório
             return comando.ExecuteNonQuery() == 1;
         }
 
-        public int CadastrarPessoasAJAX(Pessoas pessoas)
-        {
-
-            SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO pessoas (nome, idade, sexo, cpf, data_nascimento, telefone, cep) OUTPUT INSERTED.ID VALUES ( @NOME, @IDADE, @SEXO, @CPF, @DATA_NASCIMENTO, @TELEFONE, @CEP)";
-            comando.Parameters.AddWithValue("@NOME", pessoas.Nome);
-            comando.Parameters.AddWithValue("@IDADE", pessoas.Idade);
-            comando.Parameters.AddWithValue("@SEXO", pessoas.Sexo);
-            comando.Parameters.AddWithValue("@CPF", pessoas.CPF);
-            comando.Parameters.AddWithValue("@DATA_NASCIMENTO", pessoas.DataNascimento);
-            comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);
-            comando.Parameters.AddWithValue("@CEP", pessoas.Cep); 
-            int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
-            
-            return id;
-        }
+       
 
     }
 }

@@ -15,7 +15,7 @@
             success: function (data) {
                 limpaCampos();
                 $('#cadastrar-cartoes-modal').modal('hide');
-                $('#tabela-pessoas').DataTable().ajax.reload();
+                $('#tabela-cartoes').DataTable().ajax.reload();
             }
         });
     });

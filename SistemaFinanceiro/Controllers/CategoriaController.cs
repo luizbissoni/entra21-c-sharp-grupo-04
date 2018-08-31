@@ -42,10 +42,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Excluir(int id)
         {
             bool apagado = new SistemaFinanceiro.Repositório.RepositorioCategoria().ExcluirCategoria(id);
-            if (apagado)
-            {
-                return RedirectToAction("Index");
-            }
+            
             return null;
         }
         [HttpGet]
@@ -58,10 +55,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Update(Categoria categoria)
         {
             bool alterado = new RepositorioCategoria().AlterarCategorias(categoria);
-            if (alterado)
-            {
-                return RedirectToAction("Index");
-            }
+           
             return null;
         }
         public ActionResult Login()

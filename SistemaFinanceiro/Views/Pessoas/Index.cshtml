@@ -12,7 +12,7 @@
 <a href="#" class="btn btn-danger aviso-pessoa" data-target="#avisoModal" data-toggle="modal">Excluir</a>
 <a href="#" class="btn btn-default login-sistema" data-target="#modal-login-principal" data-toggle="modal">Login</a>
 
-<div class="card-block">
+@*<div class="card-block">*@
     <div class="table-responsive dt-responsive">
         <table id="tabela-pessoas" class="table table-striped tabela-pessoas-index" style="width:100%">
             <thead>
@@ -44,7 +44,7 @@
             </tfoot>
         </table>
     </div>
-</div>
+@*</div>*@
 
 <a href="#" class="btn btn-danger modal-usuario" data-target="#modal-perfil-usuario" data-toggle="modal">perfil usuario</a>
 
@@ -55,9 +55,28 @@
 @Html.Partial("~/Views/Login/Cadastro.cshtml")
 
 
+@section css{
+<link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.css">
+<link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.brighttheme.css">
+<link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.buttons.css">
+<link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.history.css">
+<link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.mobile.css">
+<link rel="stylesheet" type="text/css" href="~/Content/assets/pages/pnotify/notify.css">
+}
 
 
 @section script{
+        <!-- pnotify js -->
+<script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.js"></script>
+<script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.desktop.js"></script>
+<script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.buttons.js"></script>
+<script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.confirm.js"></script>
+<script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.callbacks.js"></script>
+<script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.animate.js"></script>
+<script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.history.js"></script>
+<script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.mobile.js"></script>
+<script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.nonblock.js"></script>
+<script type="text/javascript" src="~/Content/assets/pages/pnotify/notify.js"></script>
 
     @*<!-- Required Jquery -->
         <script type="text/javascript" src="~/Content/bower_components/jquery/js/jquery.min.js"></script>
