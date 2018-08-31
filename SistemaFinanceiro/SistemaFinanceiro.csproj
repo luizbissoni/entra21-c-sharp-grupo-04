@@ -5562,8 +5562,12 @@
     <Content Include="Views\Pessoas\CadastroCartaoModal.cshtml" />
     <Content Include="Views\Gasto\CadastoGastoModel.cshtml" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Content Include="Views\Home\IndexHome.cshtml" />
     <Content Include="Views\LoginUsuario\Index.cshtml" />
+=======
+    <Content Include="Views\Gasto\EditarGastoModel.cshtml" />
+>>>>>>> f8f9a438e81b0a31399d93e58a2c0ea948944917
 =======
     <Content Include="Views\Gasto\EditarGastoModel.cshtml" />
 >>>>>>> f8f9a438e81b0a31399d93e58a2c0ea948944917
