@@ -5509,6 +5509,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\scriptGastos\create-gasto.js" />
+    <Content Include="Scripts\scriptGastos\delete-gastos-modal.js" />
+    <Content Include="Scripts\scriptGastos\editar-gasto.js" />
     <Content Include="Scripts\scriptGastos\tabelaindex.js" />
     <Content Include="Scripts\scriptPerfilUsuario\usuario-perfil.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\creat-person-modal.js" />
@@ -5567,6 +5569,7 @@
     <Content Include="Views\PerfilUsuario\IndexPerfil.cshtml" />
     <Content Include="Views\Pessoas\CadastroCartaoModal.cshtml" />
     <Content Include="Views\Gasto\CadastoGastoModel.cshtml" />
+    <Content Include="Views\Gasto\EditarGastoModel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
