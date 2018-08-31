@@ -5,9 +5,11 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Recebimentos cadastrados</h2>
 
-<a href="/Recebimento/Cadastro"> Registrar recebimento</a>
+<a href="#" class="btn btn-primary cadastrar-recebimento" data-target="#cadastro-recebimento" data-toggle="modal">Cadastrar</a>
+<a href="#" class="btn btn-warning editar-recebimento" data-target="#editar-recebimento" data-toggle="modal">Editar</a>
+<a href="#" class="btn btn-danger aviso-recebimento" data-target="#avisoRecebimento" data-toggle="modal">Excluir</a>
 
 <div class="card-block">
     <div class="table-responsive dt-responsive">
@@ -15,8 +17,8 @@
             <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Valor</th>
-                    <th>Data Recebimento</th>
+                    <th>Valor recebido</th>
+                    <th>Data de recebimento</th>
                     <th>Descrição</th>
                 </tr>
             </thead>
@@ -24,14 +26,19 @@
             <tfoot>
                 <tr>
                     <th>Id</th>
-                    <th>Valor</th>
-                    <th>Data Recebimento</th>
+                    <th>Valor recebido</th>
+                    <th>Data de recebimento</th>
                     <th>Descrição</th>
                 </tr>
             </tfoot>
         </table>
     </div>
 </div>
+<a href="#" class="btn btn-danger modal-usuario" data-target="#modal-perfil-usuario" data-toggle="modal">perfil usuario</a>
+@Html.Partial("~/Views/PerfilUsuario/IndexPerfil.cshtml")
+@Html.Partial("~/Views/Recebimento/CadastroModal.cshtml")
+@Html.Partial("~/Views/Recebimento/EditarRecebimentoModal.cshtml")
+@Html.Partial("~/Views/Recebimento/AvisoRecebimento.cshtml")
 
 
 @section script{
