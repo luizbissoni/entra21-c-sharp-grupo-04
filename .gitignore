@@ -215,24 +215,8 @@ project.lock.json
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
-SistemaFinanceiro/Views/Gasto/Cadastro.cshtml
-SistemaFinanceiro/SistemaFinanceiro.csproj
 *.config
 *.mdf
-*.mdf
-*.csproj
 *.csproj
 SistemaFinanceiro/Web.config
-SistemaFinanceiro/SistemaFinanceiro.csproj
-SistemaFinanceiro/App_Data/Database26.mdf
-SistemaFinanceiro/SistemaFinanceiro.csproj
-SistemaFinanceiro/Web.config
-SQLQuery1.sql
-SistemaFinanceiro/SistemaFinanceiro.csproj
-SistemaFinanceiro/Web.config
-SistemaFinanceiro/SistemaFinanceiro.csproj
-SistemaFinanceiro/Web.config
-SQLQuery2.sql
-SistemaFinanceiro/SistemaFinanceiro.csproj
-SistemaFinanceiro/SistemaFinanceiro.csproj
 SistemaFinanceiro/SistemaFinanceiro.csproj
