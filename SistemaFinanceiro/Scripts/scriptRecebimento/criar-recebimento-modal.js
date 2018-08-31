@@ -2,7 +2,7 @@
 
     $('body').on('click', '#salvar-cadastro-modal', function () {
         $.ajax({
-            url: '/Recebimento/CadastroModal',
+            url: '/Recebimentos/CadastroModal',
             method: 'POST',
             data: {
                 valor_recebido: $('#campo-valor-recebido').val(),
@@ -12,8 +12,8 @@
             },
             success: function (data) {
                 limpaCampos();
-                $('#cadastrar-categoria-modal').modal('hide');
-                $('#tabela-recebimento').DataTable().ajax.reload();
+                $('#cadastrar-recebimento-modal').modal('hide');
+                $('#tabela-recebimentos').DataTable().ajax.reload();
             }
         });
     });

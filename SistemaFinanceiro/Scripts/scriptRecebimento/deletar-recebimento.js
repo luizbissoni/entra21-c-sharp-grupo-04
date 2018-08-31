@@ -25,7 +25,7 @@
             success: function (excluirId) {
                 var data = JSON.parse(excluirId)
                 $('#linha-' + data.Id).remove();
-                $('#avisoCategoria').modal('hide');
+                $('#avisoRecebimento').modal('hide');
             }
         });
     });
