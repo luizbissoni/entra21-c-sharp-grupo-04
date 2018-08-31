@@ -7,6 +7,8 @@
 
 <a href="#" class="btn btn-primary cadastrar-gasto" data-target="#cadastrar-gastos-modal" data-toggle="modal">Cadastrar</a>
 
+<a href="#" class="btn btn-secondary editar-gasto" data-target="#editar-gasto" data-toggle="modal">Editar</a>
+
 <a href="/Gasto/Cadastro" >Registrar Gasto</a>
 
 <div class="card-block">
@@ -36,7 +38,7 @@
 </div>
 
 @Html.Partial("~/Views/Gasto/CadastoGastoModel.cshtml")
-
+@Html.Partial("~/Views/Gasto/EditarGastoModel.cshtml")
 @section script{
     
     <script type="text/javascript" src="~/Content/bower_components/modernizr/js/css-scrollbars.js"></script>
@@ -60,6 +62,6 @@
 
     <script src="~/Scripts/scriptGastos/create-gasto.js"></script>
 
-
+    <script src="~/Scripts/scriptGastos/editar-gasto.js"></script>
 
     }
