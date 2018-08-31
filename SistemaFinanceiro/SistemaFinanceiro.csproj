@@ -5561,12 +5561,9 @@
     <Content Include="Views\PerfilUsuario\IndexPerfil.cshtml" />
     <Content Include="Views\Pessoas\CadastroCartaoModal.cshtml" />
     <Content Include="Views\Gasto\CadastoGastoModel.cshtml" />
-
-    <Content Include="Views\Home\IndexHome.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\LoginUsuario\Index.cshtml" />
-
     <Content Include="Views\Gasto\EditarGastoModel.cshtml" />
-
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
