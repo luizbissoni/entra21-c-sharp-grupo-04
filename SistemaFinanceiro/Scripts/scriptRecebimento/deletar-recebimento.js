@@ -10,7 +10,7 @@
             $(this).removeClass('selected');
         }
         dataRow = table.row(this).data();
-        $('#nome-recebimento-aviso').text(dataRow.Nome);
+        $('#nome-recebimento-aviso').text(dataRow.valor_recebido);
 
     });
 
