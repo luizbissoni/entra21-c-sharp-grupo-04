@@ -22,16 +22,6 @@ namespace SistemaFinanceiro.Models
         [Display(Name = "Numero da conta")]
         public string NumeroConta { get; set; }
 
-        [Display(Name = "Numero da segurança")]
-        [Required(ErrorMessage = "O número de segurança não pode ser vazio")]
-
-        public int NumeroSeguranca { get; set; }
-
-        [Display(Name = "Data de vencimento")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DataVencimento { get; set; }
-
         [Display(Name = "Bandeira")]
         [Required(ErrorMessage = "O nome da bandeira de seu cartão não pode ser vazio")]
         [MaxLength(20, ErrorMessage = "O nome da bandeira de seu cartão não pode ser superior a vinte dígitos")]

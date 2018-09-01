@@ -1,21 +1,19 @@
 ﻿$(function () {
 
-    $('body').on('click', '#salvar-cadastro-modal', function () {
+    $('body').on('click', '#salvar-cadastro-cartao-modal', function () {
         $.ajax({
             url: '/Cartao/CadastroModalCartoes',
             method: 'POST',
             data: {
-                NumeroCartao: $('#campo-NCartao').val(),
-                NumeroConta: $('#campo-NConta').val(),
-                NumeroSeguranca: $('#campo-NSeguranca').val(),
-                DataVencimento: $('#campo-nascimento').val(),
-                Bandeira: $('#campo-Bandeira').val(),
-                Banco: $('#campo-Banco').val()
+                numero_cartao: $('#campo-numero-Cartao').val(),
+                numero_conta: $('#campo-numero-Conta').val(),
+                bandeira: $('#campo-bandeira').val(),
+                banco: $('#campo-banco').val()
             },
             success: function (data) {
                 limpaCampos();
                 $('#cadastrar-cartoes-modal').modal('hide');
-                $('#tabela-cartoes').DataTable().ajax.reload();
+                //$('#tabela-cartoes').DataTable().ajax.reload();
             }
         });
     });
@@ -25,11 +23,10 @@
 
     function limpaCampos() {
 
-        $('#campo-NCartao').val('');
-        $('#campo-NConta').val('');
-        $('#campo-NSeguranca').val('');
-        $('#campo-Bandeira').val('');
-        $('#campo-Banco').val('');
+        $('#campo-numero-Cartao').val('');
+        $('#campo-numero-Conta').val('');
+        $('#campo-bandeira').val('');
+        $('#campo-banco').val('');
     };
 
     

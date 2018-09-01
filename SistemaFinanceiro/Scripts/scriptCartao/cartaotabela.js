@@ -9,8 +9,6 @@
             { data: "Id" },
             { data: "NumeroCartao" },
             { data: "NumeroConta" },
-            { data: "NumeroSeguranca" },
-            { data: "DataVencimento" },
             { data: "Bandeira"},
             { data: "Banco"}
         ]

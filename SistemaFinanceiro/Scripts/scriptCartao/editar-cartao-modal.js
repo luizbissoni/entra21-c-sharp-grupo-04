@@ -21,32 +21,30 @@ $('.editar-cartao').on('click', function () {
         success: function (preencher) {
             console.log(preencher);
             var data = JSON.parse(preencher);
-            $('#editar-cartao-modal').modal('show');
-            $('#editar-pessoa-modal-campo-NCartao').val(data.NumeroCartao);
-            $('#editar-pessoa-modal-campo-NConta').val(data.NumeroConta);
-            $('#editar-pessoa-modal-campo-NSeguranca').val(data.NumeroSeguranca);
-            $('#editar-pessoa-modal-campo-nascimento').val(data.DataVencimento);
-            $('#editar-pessoa-modal-campo-Bandeira').val(data.Bandeira);
-            $('#editar-pessoa-modal-campo-Banco').val(data.Banco);
+            $('#editar-cartoes-modal').modal('show');
+
+            $('#campo-cartao-editar').val(data.NumeroCartao);
+            $('#campo-conta-editar').val(data.NumeroConta);
+            $('#campo-bandeira-editar').val(data.Bandeira);
+            $('#campo-banco-editar').val(data.Banco);
+
             $('#campo-id-cartao').val(dataRow.id);
         } })
     } );
 });
 
-$('body').on('click', '#salvar-cadastro-cadastro-modal', function () {
+$('body').on('click', '#salvar-editar-modal', function () {
     $.ajax({
         url: '/Cartao/Update',
-        method: 'post',
+        method: 'POST',
         data: {
-            NumeroCartao: $('#campo-NCartao').val(),
-            NumeroConta: $('#campo-NConta').val(),
-            NumeroSeguranca: $('#campo-NSeguranca').val(),
-            DataVencimento: $('#campo-nascimento').val(),
-            Bandeira: $('#campo-Bandeira').val(),
-            Banco: $('#campo-Banco').val()
+            NumeroCartao: $('#campo-cartao-editar').val(),
+            NumeroConta: $('#campo-conta-editar').val(),
+            Bandeira: $('#campo-bandeira-editar').val(),
+            Banco: $('#campo-banco-editar').val()
         },
         success: function (data) {
-            $('#edit-cartao-modal').modal('hide');
+            $('#editar-cartoes-modal').modal('hide');
         }
     });
 });

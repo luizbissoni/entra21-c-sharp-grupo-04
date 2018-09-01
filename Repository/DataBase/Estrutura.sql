@@ -15,9 +15,7 @@ CREATE TABLE [dbo].[cartoes] (
     [id]               INT          IDENTITY (1, 1) NOT NULL,
     [id_cartoes]       INT          NULL,
     [numero_cartao]    VARCHAR (50) NULL,
-    [numero_conta]     VARCHAR (50) NULL,
-    [numero_seguranca] INT          NULL,
-    [data_vencimento]  DATE         NULL,
+    [numero_conta]     VARCHAR (50) NULL, 
     [bandeira]         VARCHAR (50) NULL,
     [banco]            VARCHAR (50) NULL,
     FOREIGN KEY ([id_cartoes]) REFERENCES [dbo].[pessoas] ([Id])

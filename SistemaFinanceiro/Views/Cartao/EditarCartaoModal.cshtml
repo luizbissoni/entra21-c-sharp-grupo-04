@@ -13,46 +13,32 @@
                 <h4>Editar Cartão</h4>
             </div>
             <div class="modal-body">
+
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="campo-NCartao">Número cartão<h11>*</h11></label>
-                    <input id="campo-NCartao" name="Cartoes.NumeroCartao" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                    <label class="col-md-2 control-label" for="cartao-editar">Número cartão<h11>*</h11></label>
+                    <input id="campo-cartao-editar" name="cartao-editar" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
                 </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" for="campo-NConta">Número Conta<h11>*</h11></label>
-                        <input id="campo-NConta" name="Cartoes.NumeroConta" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label class="col-md-2 control-label" for="campo-NSeguranca">Número Segurança<h11>*</h11></label>
-                            <input id="campo-NSeguranca" name="Cartoes.NumeroSeguranca" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
-                        </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label class="col-md-1 control-label" for="campo-nascimento">Vencimento<h11>*</h11></label>
-                                <input id="campo-nascimento" name="Pessoas.DataNascimento" placeholder="DD/MM/AAAA" class="form-control" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <label class="col-md-2 control-label" for="campo-Bandeira">Bandeira<h11>*</h11></label>
-                                    <input id="campo-Bandeira" name="Cartoes.Bandeira" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="campo-Banco">Banco<h11>*</h11></label>
-                                        <input id="campo-Banco" name="Cartoes.Banco" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelar-cadastro-categoria">Cancelar</button>
-                                        <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cadastro-modal">
-                                    </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="conta-editar">Número Conta<h11>*</h11></label>
+                    <input id="campo-conta-editar" name="conta-editar" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="bandeira-editar">Bandeira<h11>*</h11></label>
+                    <input id="campo-bandeira-editar" name="bandeira-editar" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                </div>
+
+                <div class="form-group">
+                    <label class="col-md-2 control-label" for="banco-editar">Banco<h11>*</h11></label>
+                    <input id="campo-banco-editar" name="banco-editar" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelar-cadastro-categoria">Cancelar</button>
+                    <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-editar-modal">
+                </div>
 
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
