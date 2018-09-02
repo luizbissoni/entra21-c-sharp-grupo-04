@@ -12,8 +12,8 @@
                 telefone: $('#campo-telefone').val(),
                 cep: $('#cep').val(),
 
-                 Conta: $('#Conta').val(),
-                Numero: $('#numero').val(),
+                Conta: $('.conta').val(),
+                Numero: $('.numero').val(),
                 Banco: $('#banco').val(),
                 Bandeira: $('#bandeira').val()
             },

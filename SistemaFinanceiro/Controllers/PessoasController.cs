@@ -2,6 +2,7 @@
 using SistemaFinanceiro.Models;
 using SistemaFinanceiro.Repositório;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -35,7 +36,7 @@ namespace SistemaFinanceiro.Controllers
             if (ModelState.IsValid)
             {
                 int identificador = new RepositorioPessoas().CadastrarPessoas(pessoas);
-               // return Content(JsonConvert.SerializeObject(new { id = identificador }));
+
                 return RedirectToAction("Index", new { id = identificador });
             }
 
@@ -46,7 +47,7 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new SistemaFinanceiro.Repositório.RepositorioPessoas().ExcluirPessoas(id);
+            bool apagado = new RepositorioPessoas().ExcluirPessoas(id);
             return null;
         }
 
@@ -54,7 +55,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Editar(int id)
         {
             Pessoas pessoa = new RepositorioPessoas().ObterPeloIdPessoas(id);
-            
+
             return Content(JsonConvert.SerializeObject(pessoa));
         }
 
@@ -75,7 +76,9 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult ObterTodosJson()
         {
             List<Pessoas> pessoas = new RepositorioPessoas().ObterTodosPessoas();
-            return Content(JsonConvert.SerializeObject(new {data = pessoas }));
+
+
+            return Content(JsonConvert.SerializeObject(new {data = pessoas}));
         }
 
         [HttpPost]
@@ -91,6 +94,10 @@ namespace SistemaFinanceiro.Controllers
                 Bandeira = cartao.Bandeira.ToString(),
                 IdPessoas = id
             };
+
+            int deuCerto = new RepositorioCartoes().CadastrarCartao(novoCartao);
+            
+
 
             return Content(JsonConvert.SerializeObject(new { id = id }));
         }

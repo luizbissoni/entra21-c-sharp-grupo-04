@@ -7,8 +7,9 @@
         columns: [
        
             { data: "Id" },
-            { data: "NumeroCartao" },
-            { data: "NumeroConta" },
+            { data: "IdPessoas"},
+            { data: "Numero" },
+            { data: "Conta" },
             { data: "Bandeira"},
             { data: "Banco"}
         ]

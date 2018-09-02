@@ -94,12 +94,12 @@ namespace SistemaFinanceiro.Repositório
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "UPDATE pessoas SET nome = @NOME, sexo = @SEXO, cpf = @CPF, nascimento = @NASCIMENTO, telefone = @TELEFONE, cep = @CEP WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", pessoas.Id);
-            comando.Parameters.AddWithValue("@NOME",pessoas.Nome);
+            comando.Parameters.AddWithValue("@NOME", pessoas.Nome);
             comando.Parameters.AddWithValue("@SEXO", pessoas.Sexo);
             comando.Parameters.AddWithValue("@CPF", pessoas.CPF);
             comando.Parameters.AddWithValue("@NASCIMENTO", pessoas.Nascimento);
             comando.Parameters.AddWithValue("@TELEFONE", pessoas.Telefone);
-            comando.Parameters.AddWithValue("@CEP", pessoas.Cep);    
+            comando.Parameters.AddWithValue("@CEP", pessoas.Cep);
             return comando.ExecuteNonQuery() == 1;
         }
 

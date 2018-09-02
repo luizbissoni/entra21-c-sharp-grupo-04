@@ -16,7 +16,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Cartoes> cartoes = new List<Cartoes>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT  id , numero, conta, bandeira, banco FROM cartoes";
+            comando.CommandText = "SELECT  id , id_pessoas, numero, conta, bandeira, banco FROM cartoes";
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -24,7 +24,7 @@ namespace SistemaFinanceiro.Repositório
                 Cartoes cartao = new Cartoes()
                 {
                     Id = Convert.ToInt32(linha["id"].ToString()),
-                    //    IdCartoes = Convert.ToInt32(linha[1].ToString()),
+                    IdPessoas = Convert.ToInt32(linha["id_pessoas"].ToString()),
                     Numero = linha["numero"].ToString(),
                     Conta = linha["conta"].ToString(),
                     Bandeira = linha["bandeira"].ToString(),
@@ -40,10 +40,9 @@ namespace SistemaFinanceiro.Repositório
 
         public int CadastrarCartao(Cartoes cartoes)
         {
-
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO cartoes (numero, conta, bandeira, banco) OUTPUT INSERTED.ID VALUES ( @NUMERO, @CONTA, @BANDEIRA, @BANCO)";
-           // comando.Parameters.AddWithValue("@ID_CARTOES", cartoes.IdCartoes);
+            comando.CommandText = @"INSERT INTO cartoes (numero, conta, bandeira, banco, id_pessoas) OUTPUT INSERTED.ID VALUES ( @NUMERO, @CONTA, @BANDEIRA, @BANCO, @ID_PESSOAS)";
+            comando.Parameters.AddWithValue("@ID_PESSOAS", cartoes.IdPessoas);
             comando.Parameters.AddWithValue("@NUMERO", cartoes.Numero);
             comando.Parameters.AddWithValue("@CONTA", cartoes.Conta);
             comando.Parameters.AddWithValue("@BANDEIRA", cartoes.Bandeira);
@@ -64,7 +63,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Cartoes cartoes = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT numero, conta, bandeira, banco FROM cartoes WHERE id = @ID";
+            comando.CommandText = "SELECT numero, conta, bandeira, banco, id_pessoas FROM cartoes WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -72,6 +71,7 @@ namespace SistemaFinanceiro.Repositório
             {
                 cartoes = new Cartoes();
                 cartoes.Id = id;
+                cartoes.IdPessoas = Convert.ToInt32(tabela.Rows[0]["id_pessoas"].ToString());
                 cartoes.Numero = tabela.Rows[0]["numero"].ToString();
                 cartoes.Conta = tabela.Rows[0]["conta"].ToString();
                 cartoes.Bandeira = tabela.Rows[0]["bandeira"].ToString();
@@ -97,5 +97,30 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@ID", cartao.Id);
             return comando.ExecuteNonQuery() == 1;
         }
+
+        public Cartoes ObterPeloIdpessoas(int id)
+        {
+            Cartoes cartoes = null;
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT numero, conta, bandeira, banco FROM cartoes WHERE id_pessoas = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                cartoes = new Cartoes();
+                //cartoes.Id = id;
+                cartoes.IdPessoas = id;
+                cartoes.Numero = tabela.Rows[0]["numero"].ToString();
+                cartoes.Conta = tabela.Rows[0]["conta"].ToString();
+                cartoes.Bandeira = tabela.Rows[0]["bandeira"].ToString();
+                cartoes.Banco = tabela.Rows[0]["banco"].ToString();
+
+            }
+
+
+            return cartoes;
+        }
     }
+
 }

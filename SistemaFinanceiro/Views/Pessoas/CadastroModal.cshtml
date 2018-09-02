@@ -126,6 +126,7 @@
     </div>
 </div>
 
+@* Cadastro cartao *@
 <div class="modal fade" id="cadastrar-carto-modal" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -138,13 +139,13 @@
             <div class="modal-body">
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="numero-Cartao">Número cartão<h11>*</h11></label>
-                    <input id="numero" name="numero-cartao" class="form-control input-md col-sm-6 numero-Cartao" required="" type="text" value="">
+                    <label class="col-md-2 control-label" for="numero-cartao">Número cartão<h11>*</h11></label>
+                    <input id="cadastro-numero" name="numero-cartao" class="form-control input-md col-sm-6 numero" required="" type="text">
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="numero-Conta">Número Conta<h11>*</h11></label>
-                    <input id="Conta" name="numero-conta" class="form-control input-md col-sm-6 numero-Conta" required="" type="text" value="">
+                    <label class="col-md-2 control-label" for="numero-conta">Número Conta<h11>*</h11></label>
+                    <input id="cadastro-conta" name="numero-conta" class="form-control input-md col-sm-6 conta" required="" type="text">
                 </div>
 
                 <div class="form-group">
@@ -154,11 +155,11 @@
 
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="banco">Banco<h11>*</h11></label>
-                    <input id="banco" name="banco" placeholder="" class="form-control input-md col-sm-6" required="" type="text" value="">
+                    <input id="banco" name="banco" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelar-cadastro-categoria">OK</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" id="cancelar-cadastro-categoria">OK</button>
                    @* <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cartao-modal">*@
                 </div>
 

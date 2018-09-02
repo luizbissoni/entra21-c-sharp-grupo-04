@@ -5511,7 +5511,6 @@
     <Content Include="Scripts\scriptHome\grafico-gastos-home.js" />
     <Content Include="Scripts\scriptHome\grafico-gastos-setor-home.js" />
     <Content Include="Scripts\scriptPerfilUsuario\usuario-perfil.js" />
-    <Content Include="Scripts\ScriptPessoaCadastro\add-cartao-person.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\creat-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\datatable-index.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\delete-person-modal.js" />

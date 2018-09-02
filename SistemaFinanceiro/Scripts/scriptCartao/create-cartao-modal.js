@@ -5,8 +5,9 @@
             url: '/Cartao/CadastroModalCartoes',
             method: 'POST',
             data: {
-                numero_cartao: $('#campo-numero-Cartao').val(),
-                numero_conta: $('#campo-numero-Conta').val(),
+
+                numero: $('#campo-numero-Cartao').val(),
+                conta: $('#campo-numero-Conta').val(),
                 bandeira: $('#campo-bandeira').val(),
                 banco: $('#campo-banco').val()
             },
