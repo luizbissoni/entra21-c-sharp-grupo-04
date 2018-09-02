@@ -103,7 +103,30 @@ namespace SistemaFinanceiro.Repositório
             return comando.ExecuteNonQuery() == 1;
         }
 
-       
+        public Cartoes GetIdpessoasCartao(int id)
+        {
+            Cartoes cartoes = null;
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT id, numero, conta, bandeira, banco FROM cartoes WHERE id_pessoas = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            if (tabela.Rows.Count == 1)
+            {
+                cartoes = new Cartoes();
+
+                cartoes.IdPessoas = id;
+                cartoes.Id = Convert.ToInt32(tabela.Rows[0]["id"].ToString());
+                cartoes.Numero = tabela.Rows[0]["numero"].ToString();
+                cartoes.Conta = tabela.Rows[0]["conta"].ToString();
+                cartoes.Bandeira = tabela.Rows[0]["bandeira"].ToString();
+                cartoes.Banco = tabela.Rows[0]["banco"].ToString();
+
+            }
+
+
+            return cartoes;
+        }
 
     }
 }

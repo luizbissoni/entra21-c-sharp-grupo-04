@@ -101,6 +101,31 @@ namespace SistemaFinanceiro.Controllers
 
             return Content(JsonConvert.SerializeObject(new { id = id }));
         }
+
+        [HttpGet]
+        public ActionResult GetPessoaCartao(int id)
+        {
+            Cartoes cartao = new RepositorioPessoas().GetIdpessoasCartao(id);
+
+            return Content(JsonConvert.SerializeObject(cartao));
+        }
+
+        [HttpPost]
+        public ActionResult CadastroRecebimento(Recebimento recebimento, Categoria categoria)
+        {
+           
+            Recebimento addRecebimento = new Recebimento()
+            {
+                //IdPessoas = id,
+                //Data = ,
+                //Valor = 
+            };
+
+
+
+
+            return null;
+        }
        
     }
 }

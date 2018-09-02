@@ -5511,6 +5511,7 @@
     <Content Include="Scripts\scriptHome\grafico-gastos-home.js" />
     <Content Include="Scripts\scriptHome\grafico-gastos-setor-home.js" />
     <Content Include="Scripts\scriptPerfilUsuario\usuario-perfil.js" />
+    <Content Include="Scripts\ScriptPessoaCadastro\add-recebimento.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\creat-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\datatable-index.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\delete-person-modal.js" />
@@ -5572,6 +5573,7 @@
     <Content Include="Views\Cartao\CadastroModal.cshtml" />
     <Content Include="Views\Cartao\EditarCartaoModal.cshtml" />
     <Content Include="Views\PerfilUsuario\cadastroCartaoModal.cshtml" />
+    <Content Include="Views\Pessoas\CadastroRecebimentoModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

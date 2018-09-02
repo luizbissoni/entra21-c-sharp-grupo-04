@@ -2,8 +2,8 @@
 
     var table = $('#tabela-pessoas').DataTable();
     var dataRow;
+
     $('#tabela-pessoas tbody').on('click', 'tr', function () {
-        var id = $(this).id;
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
         } else {
