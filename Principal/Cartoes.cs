@@ -12,15 +12,15 @@ namespace SistemaFinanceiro.Models
 
         [Display(Name = "Id cartões")]
         [Required(ErrorMessage = "O número do cartão não pode ser vazio")]
-        public int IdCartoes { get; set; }
+        public int IdPessoas { get; set; }
 
         [Display(Name = "Numero do Cartão")]
         [Required(ErrorMessage = "O número da conta não pode ser vazia")]
         [MaxLength(4, ErrorMessage = "Número da conta não pode ser superior a quatro dígitos")]
-        public string NumeroCartao { get; set; }
+        public string Numero { get; set; }
 
         [Display(Name = "Numero da conta")]
-        public string NumeroConta { get; set; }
+        public string Conta { get; set; }
 
         [Display(Name = "Bandeira")]
         [Required(ErrorMessage = "O nome da bandeira de seu cartão não pode ser vazio")]

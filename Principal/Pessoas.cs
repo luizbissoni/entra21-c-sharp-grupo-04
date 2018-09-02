@@ -12,8 +12,6 @@ namespace SistemaFinanceiro.Models
 
         public string Nome { get; set; }
 
-        public int Idade { get; set; }
-
         public char Sexo { get; set; }
 
         public string CPF { get; set; }
@@ -21,7 +19,7 @@ namespace SistemaFinanceiro.Models
         [Display(Name = "Data de nascimento")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime DataNascimento { get; set; }
+        public DateTime Nascimento { get; set; }
 
         public string Telefone { get; set; }
 

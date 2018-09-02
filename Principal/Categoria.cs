@@ -10,8 +10,9 @@ namespace SistemaFinanceiro.Models
     {
         public int Id { get; set; }
 
-        public int Id_Categoria { get; set; }
+        public int IdGastos { get; set; }
 
+        public int IdRecebimento { get; set; }
 
         [Display(Name = "Nome")]
         [MaxLength(150, ErrorMessage = "O nome da categoria não pode ultrapassar de cento e cinquenta caracteres")]

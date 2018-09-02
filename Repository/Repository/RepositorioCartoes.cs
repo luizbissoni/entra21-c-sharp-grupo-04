@@ -16,7 +16,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Cartoes> cartoes = new List<Cartoes>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT  id , numero_cartao, numero_conta, bandeira, banco FROM cartoes";
+            comando.CommandText = "SELECT  id , numero, conta, bandeira, banco FROM cartoes";
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -25,8 +25,8 @@ namespace SistemaFinanceiro.Repositório
                 {
                     Id = Convert.ToInt32(linha["id"].ToString()),
                     //    IdCartoes = Convert.ToInt32(linha[1].ToString()),
-                    NumeroCartao = linha["numero_cartao"].ToString(),
-                    NumeroConta = linha["numero_conta"].ToString(),
+                    Numero = linha["numero"].ToString(),
+                    Conta = linha["conta"].ToString(),
                     Bandeira = linha["bandeira"].ToString(),
                     Banco = linha["banco"].ToString()
 
@@ -42,10 +42,10 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO cartoes (numero_cartao, numero_conta, bandeira, banco) OUTPUT INSERTED.ID VALUES ( @NUMERO_CARTAO, @NUMERO_CONTA, @BANDEIRA, @BANCO)";
+            comando.CommandText = @"INSERT INTO cartoes (numero, conta, bandeira, banco) OUTPUT INSERTED.ID VALUES ( @NUMERO, @CONTA, @BANDEIRA, @BANCO)";
            // comando.Parameters.AddWithValue("@ID_CARTOES", cartoes.IdCartoes);
-            comando.Parameters.AddWithValue("@NUMERO_CARTAO", cartoes.NumeroCartao);
-            comando.Parameters.AddWithValue("@NUMERO_CONTA", cartoes.NumeroConta);
+            comando.Parameters.AddWithValue("@NUMERO", cartoes.Numero);
+            comando.Parameters.AddWithValue("@CONTA", cartoes.Conta);
             comando.Parameters.AddWithValue("@BANDEIRA", cartoes.Bandeira);
             comando.Parameters.AddWithValue("@BANCO", cartoes.Banco);
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
@@ -64,7 +64,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Cartoes cartoes = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT numero_cartao, numero_conta, bandeira, banco FROM cartoes WHERE id = @ID";
+            comando.CommandText = "SELECT numero, conta, bandeira, banco FROM cartoes WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -72,8 +72,8 @@ namespace SistemaFinanceiro.Repositório
             {
                 cartoes = new Cartoes();
                 cartoes.Id = id;
-                cartoes.NumeroCartao = tabela.Rows[0]["numero_cartao"].ToString();
-                cartoes.NumeroConta = tabela.Rows[0]["numero_conta"].ToString();
+                cartoes.Numero = tabela.Rows[0]["numero"].ToString();
+                cartoes.Conta = tabela.Rows[0]["conta"].ToString();
                 cartoes.Bandeira = tabela.Rows[0]["bandeira"].ToString();
                 cartoes.Banco = tabela.Rows[0]["banco"].ToString();
 
@@ -89,9 +89,9 @@ namespace SistemaFinanceiro.Repositório
         public bool AlterarCartoes(Cartoes cartao)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "UPDATE cartoes SET numero_cartao = @NUMERO_CARTAO, numero_conta = @NUMERO_CONTA, bandeira = @BANDEIRA, banco = @BANCO  WHERE id = @ID";
-            comando.Parameters.AddWithValue("@NUMERO_CARTAO", cartao.NumeroCartao);
-            comando.Parameters.AddWithValue("@NUMERO_CONTA", cartao.NumeroConta);
+            comando.CommandText = "UPDATE cartoes SET numero = @NUMERO, conta = @CONTA, bandeira = @BANDEIRA, banco = @BANCO  WHERE id = @ID";
+            comando.Parameters.AddWithValue("@NUMERO", cartao.Numero);
+            comando.Parameters.AddWithValue("@CONTA", cartao.Conta);
             comando.Parameters.AddWithValue("@BANDEIRA", cartao.Bandeira);
             comando.Parameters.AddWithValue("@BANCO", cartao.Banco);
             comando.Parameters.AddWithValue("@ID", cartao.Id);

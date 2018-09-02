@@ -15,11 +15,9 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO recebimentos (valor_recebido, data_recebimento, descricao) OUTPUT INSERTED.ID VALUES 
-(@VALOR_RECEBIDO, @DATA_RECEBIMENTO, @DESCRICAO)";
-            comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
-            comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);
-            comando.Parameters.AddWithValue("@DESCRICAO", recebimento.Descricao);
+            comando.CommandText = @"INSERT INTO recebimentos (valor, data) OUTPUT INSERTED.ID VALUES (@VALOR, @DATA)";
+            comando.Parameters.AddWithValue("@VALOR", recebimento.Valor);
+            comando.Parameters.AddWithValue("@DATA", recebimento.Data);
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
         }
@@ -36,7 +34,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Recebimento> recebimentos = new List<Recebimento>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, valor_recebido, data_recebimento, descricao FROM recebimentos";
+            comando.CommandText = "SELECT id, valor, data FROM recebimentos";
 
 
             DataTable tabela = new DataTable();
@@ -47,9 +45,8 @@ namespace SistemaFinanceiro.Repositório
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
                 //  Id_recebimento = Convert.ToInt32(linha[1].ToString()),
-                    Valor_recebido = Convert.ToDouble(linha[1].ToString()),
-                    data_recebimento = Convert.ToDateTime(linha[2].ToString()),
-                    Descricao = linha[3].ToString()
+                    Valor = Convert.ToDouble(linha[1].ToString()),
+                    Data = Convert.ToDateTime(linha[2].ToString()),
 
 
                 };
@@ -62,7 +59,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Recebimento recebimento = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT valor_recebido, data_recebimento, descricao FROM recebimentos WHERE id = @ID";
+            comando.CommandText = "SELECT valor, data FROM recebimentos WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -71,9 +68,8 @@ namespace SistemaFinanceiro.Repositório
                 recebimento = new Recebimento();
                 recebimento.Id = id;
                 
-                recebimento.Valor_recebido = Convert.ToDouble(tabela.Rows[0][0].ToString());
-                recebimento.data_recebimento = Convert.ToDateTime(tabela.Rows[0][1].ToString());
-                recebimento.Descricao = tabela.Rows[0][2].ToString();
+                recebimento.Valor = Convert.ToDouble(tabela.Rows[0][0].ToString());
+                recebimento.Data = Convert.ToDateTime(tabela.Rows[0][1].ToString());
                 
             }
 
@@ -84,11 +80,10 @@ namespace SistemaFinanceiro.Repositório
         public bool AlterarRecebimento(Recebimento recebimento)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "UPDATE recebimentos SET valor_recebido = @VALOR_RECEBIDO, data_recebimento = @DATA_RECEBIMENTO, descricao = @DESCRICAO WHERE id = @ID";
+            comando.CommandText = "UPDATE recebimentos SET valor = @VALOR, data = @DATA WHERE id = @ID";
     //      comando.Parameters.AddWithValue("@ID_CATEGORIA", recebimento.Id_recebimento);
-            comando.Parameters.AddWithValue("@VALOR_RECEBIDO", recebimento.Valor_recebido);
-            comando.Parameters.AddWithValue("@DATA_RECEBIMENTO", recebimento.data_recebimento);
-            comando.Parameters.AddWithValue("@DESCRICAO", recebimento.Descricao);
+            comando.Parameters.AddWithValue("@VALOR", recebimento.Valor);
+            comando.Parameters.AddWithValue("@DATAO", recebimento.Data);
             comando.Parameters.AddWithValue("@ID", recebimento.Id);
             return comando.ExecuteNonQuery() == 1;
         }
