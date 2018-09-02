@@ -21,7 +21,7 @@
                 $('#modal-perfil-usuario').modal('show');
                 $('#nome-perfil').text(data.Nome);
                 //  $('#').val(data.Idade);
-                $('#nascimento-perfil').text(data.DataNascimento);
+                $('#nascimento-perfil').text(data.Nascimento);
                 if (data.Sexo == 'M') {
                     $('#sexo-perfil').text('Masculino');
                 } else {
@@ -34,5 +34,7 @@
         });
   
     });
+
+   
 
 });

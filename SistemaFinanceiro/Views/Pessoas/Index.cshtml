@@ -10,7 +10,6 @@
 <a href="#" class="btn btn-primary cadastrar-pessoa" data-target="#cadastrar-pessoa-modal" data-toggle="modal">Cadastrar</a>
 <a href="#" class="btn btn-warning editar-pessoa" data-target="#editar-pessoa-modal" data-toggle="modal">Editar</a>
 <a href="#" class="btn btn-danger aviso-pessoa" data-target="#avisoModal" data-toggle="modal">Excluir</a>
-<a href="#" class="btn btn-default" data-target="#modal-cadastro-cartao" data-toggle="modal">Cadastro Cartao</a>
 
 @*<div class="card-block">*@
     <div class="table-responsive dt-responsive">
@@ -20,7 +19,6 @@
                     <th></th>
                     <th>Id</th>
                     <th>Nome</th>
-                    <th>Idade</th>
                     <th>Sexo</th>
                     <th>Data Nascimento</th>
                     <th>CPF</th>
@@ -48,11 +46,11 @@
 
 <a href="#" class="btn btn-danger modal-usuario" data-target="#modal-perfil-usuario" data-toggle="modal">perfil usuario</a>
 
+@Html.Partial("~/Views/PerfilUsuario/cadastroCartaoModal.cshtml")
 @Html.Partial("~/Views/PerfilUsuario/IndexPerfil.cshtml")
 @Html.Partial("~/Views/Pessoas/CadastroModal.cshtml")
 @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
 @Html.Partial("~/Views/Pessoas/AvisoModal.cshtml")
-@Html.Partial("~/Views/Pessoas/CadastroCartaoModal.cshtml")
 
 
 @section css{

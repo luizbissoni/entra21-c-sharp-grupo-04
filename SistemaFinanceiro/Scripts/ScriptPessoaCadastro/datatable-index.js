@@ -14,9 +14,8 @@
             },
             { data: "Id" },
             { data: "Nome" },
-            { data: "Idade" },
             { data: "Sexo" },
-            { data: "DataNascimento" },
+            { data: "Nascimento" },
             { data: "CPF" },
             { data: "Telefone" },
             { data: "Cep" }

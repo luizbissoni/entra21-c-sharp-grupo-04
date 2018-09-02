@@ -22,8 +22,7 @@
             success: function (Complete) {
                 var data = JSON.parse(Complete);
                 $('#editar-pessoa-modal-campo-nome').val(data.Nome);
-                $('#editar-pessoa-modal-campo-idade').val(data.Idade);
-                $('#editar-pessoa-modal-campo-nascimento').val(data.DataNascimento);
+                $('#editar-pessoa-modal-campo-nascimento').val(data.Nascimento);
                 if (data.Sexo == 'M') {
                     $('#editar-pessoa-modal-campo-sexo-feminino').attr('checked', 'checked');
                 } else {
@@ -49,8 +48,7 @@
                 var data = JSON.parse(preencher);
                 $('#editar-pessoa-modal').modal('show');
                 $('#editar-pessoa-modal-campo-nome').val(data.Nome);
-                $('#editar-pessoa-modal-campo-idade').val(data.Idade);
-                $('#editar-pessoa-modal-campo-nascimento').val(data.DataNascimento);
+                $('#editar-pessoa-modal-campo-nascimento').val(data.Nascimento);
                 if (data.Sexo == 'M') {
                     $('#editar-pessoa-modal-campo-sexo-feminino').attr('checked', 'checked');
                 } else {
@@ -70,8 +68,7 @@
             method: 'post',
             data: {
                 nome: $('#editar-pessoa-modal-campo-nome').val(),
-                idade: $('#editar-pessoa-modal-campo-idade').val(),
-                data_nascimento: $('#editar-pessoa-modal-campo-nascimento').val(),
+                nascimento: $('#editar-pessoa-modal-campo-nascimento').val(),
                 sexo: $('#campo-sexo').val(),
                 cpf: $('#editar-pessoa-modal-campo-cpf').val(),
                 telefone: $('#editar-pessoa-modal-campo-telefone').val(),

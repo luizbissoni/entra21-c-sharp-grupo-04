@@ -16,7 +16,7 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO pessoas (nome, sexo, cpf, nascimento, telefone, cep) OUTPUT INSERTED.ID VALUES (@NOME, @IDADE, @SEXO, @CPF, @NASCIMENTO, @TELEFONE, @CEP)";
+            comando.CommandText = @"INSERT INTO pessoas (nome, sexo, cpf, nascimento, telefone, cep) OUTPUT INSERTED.ID VALUES (@NOME, @SEXO, @CPF, @NASCIMENTO, @TELEFONE, @CEP)";
             comando.Parameters.AddWithValue("@NOME", pessoas.Nome);
             comando.Parameters.AddWithValue("@SEXO", pessoas.Sexo);
             comando.Parameters.AddWithValue("@CPF", pessoas.CPF);
@@ -50,13 +50,13 @@ namespace SistemaFinanceiro.Repositório
             {
                 Pessoas pessoa = new Pessoas()
                 {
-                    Id = Convert.ToInt32(linha[0].ToString()),
-                    Nome = linha[1].ToString(),
-                    Sexo = Convert.ToChar(linha[3].ToString()),
-                    CPF = linha[4].ToString(),
-                    Nascimento = Convert.ToDateTime(linha[5].ToString()),
-                    Telefone = linha[6].ToString(),
-                    Cep = linha[7].ToString()
+                    Id = Convert.ToInt32(linha["id"].ToString()),
+                    Nome = linha["nome"].ToString(),
+                    Sexo = Convert.ToChar(linha["sexo"].ToString()),
+                    CPF = linha["cpf"].ToString(),
+                    Nascimento = Convert.ToDateTime(linha["nascimento"].ToString()),
+                    Telefone = linha["telefone"].ToString(),
+                    Cep = linha["cep"].ToString()
 
 
                 };
@@ -77,12 +77,12 @@ namespace SistemaFinanceiro.Repositório
             {
                 pessoas = new Pessoas();
                 pessoas.Id = id;
-                pessoas.Nome = tabela.Rows[0][0].ToString();
-                pessoas.Sexo = Convert.ToChar(tabela.Rows[0][2].ToString());
-                pessoas.CPF = tabela.Rows[0][3].ToString();
-                pessoas.Nascimento = Convert.ToDateTime(tabela.Rows[0][4].ToString());
-                pessoas.Telefone = tabela.Rows[0][5].ToString();
-                pessoas.Cep = tabela.Rows[0][6].ToString();
+                pessoas.Nome = tabela.Rows[0]["nome"].ToString();
+                pessoas.Sexo = Convert.ToChar(tabela.Rows[0]["sexo"].ToString());
+                pessoas.CPF = tabela.Rows[0]["cpf"].ToString();
+                pessoas.Nascimento = Convert.ToDateTime(tabela.Rows[0]["nascimento"].ToString());
+                pessoas.Telefone = tabela.Rows[0]["telefone"].ToString();
+                pessoas.Cep = tabela.Rows[0]["cep"].ToString();
 
             }
 

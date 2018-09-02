@@ -65,7 +65,7 @@ INSERT INTO pessoas (nome, sexo, cpf, nascimento) VALUES
 ('João da Silva', 'M', '123.456.789-98', '1998-06-05'),
 ('Rute da Silva', 'F', '987.654.321-98', '1945-12-01');
 
---INSERT INTO cartoes (id_pessoas, numero, conta, bandeira, banco) values((SELECT id_pessoa FROM pessoas WHERE id_pessoa = id_cartao), '123456', '123456', 'VISA', 'BRADESCO');
+--INSERT INTO cartoes (id_pessoas, numero, conta, bandeira, banco) values((SELECT Id FROM pessoas WHERE pessoas.nome = 'João da Silva'), '123456', '123456', 'VISA', 'BRADESCO');
 
 
 INSERT INTO [login] (usuario, senha, email) VALUES ('admin', '123', 'admin@admin.com'),('nene','123','neneNanight@lele.com.br');

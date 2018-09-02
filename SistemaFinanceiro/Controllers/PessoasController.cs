@@ -79,9 +79,19 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastroModalPessoas(Pessoas pessoa)
+        public ActionResult CadastroModalPessoas(Pessoas pessoa, Cartoes cartao)
         {
             int id = new RepositorioPessoas().CadastrarPessoas(pessoa);
+
+            Cartoes novoCartao = new Cartoes()
+            {
+                Conta = cartao.Conta.ToString(),
+                Numero = cartao.Numero.ToString(),
+                Banco = cartao.Banco.ToString(),
+                Bandeira = cartao.Bandeira.ToString(),
+                IdPessoas = id
+            };
+
             return Content(JsonConvert.SerializeObject(new { id = id }));
         }
        

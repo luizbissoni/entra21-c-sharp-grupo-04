@@ -5566,13 +5566,13 @@
     <Content Include="Views\Pessoas\EditarModal.cshtml" />
     <Content Include="Views\Pessoas\CadastroModal.cshtml" />
     <Content Include="Views\PerfilUsuario\IndexPerfil.cshtml" />
-    <Content Include="Views\Pessoas\CadastroCartaoModal.cshtml" />
     <Content Include="Views\Gasto\CadastoGastoModel.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\LoginUsuario\Index.cshtml" />
     <Content Include="Views\Gasto\EditarGastoModel.cshtml" />
     <Content Include="Views\Cartao\CadastroModal.cshtml" />
     <Content Include="Views\Cartao\EditarCartaoModal.cshtml" />
+    <Content Include="Views\PerfilUsuario\cadastroCartaoModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
