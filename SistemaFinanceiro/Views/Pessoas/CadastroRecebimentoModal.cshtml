@@ -1,5 +1,5 @@
 ﻿@model SistemaFinanceiro.Models.Recebimento
-    @
+    
 
 <div class="modal" id="modal-gastos-pessoa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -29,10 +29,10 @@
                             <label class="col-md-1 control-label" for="campo-descricao-recebimento">Descrição<h11>*</h11></label>
                             <div class="col-md-5">
                                 <select id="campo-descricao">
-                                    @foreach (SistemaFinanceiro.Models.Categoria categoria in Recebimento)
+                                    @*@foreach (SistemaFinanceiro.Models.Categoria categoria in Recebimento)
                                     {
 
-                                    }
+                                    }*@
                                     <option value=""></option>
                                     <option value="Aluguel">Aluguel</option>
                                     <option value="Salário">Salário</option>

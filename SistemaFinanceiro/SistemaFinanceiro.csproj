@@ -5510,6 +5510,7 @@
     <Content Include="Scripts\scriptGastos\tabelaindex.js" />
     <Content Include="Scripts\scriptHome\grafico-gastos-home.js" />
     <Content Include="Scripts\scriptHome\grafico-gastos-setor-home.js" />
+    <Content Include="Scripts\scriptLogin\login.js" />
     <Content Include="Scripts\scriptPerfilUsuario\usuario-perfil.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\add-recebimento.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\creat-person-modal.js" />
@@ -5568,12 +5569,12 @@
     <Content Include="Views\PerfilUsuario\IndexPerfil.cshtml" />
     <Content Include="Views\Gasto\CadastoGastoModel.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\LoginUsuario\Index.cshtml" />
     <Content Include="Views\Gasto\EditarGastoModel.cshtml" />
     <Content Include="Views\Cartao\CadastroModal.cshtml" />
     <Content Include="Views\Cartao\EditarCartaoModal.cshtml" />
     <Content Include="Views\PerfilUsuario\cadastroCartaoModal.cshtml" />
     <Content Include="Views\Pessoas\CadastroRecebimentoModal.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

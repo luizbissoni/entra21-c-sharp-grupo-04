@@ -15,7 +15,7 @@ namespace SistemaFinanceiro.Repositório
         public int CadastrarLogin(Login login)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "INSERT INTO login (id_login,usuario, senha, email) OUTPUT INSERTED.ID VALUES (@ID_LOGIN, @USUARIO, @SENHA, @EMAIL)";
+            comando.CommandText = "INSERT INTO login (id_login, usuario, senha, email) OUTPUT INSERTED.ID VALUES (@ID_LOGIN, @USUARIO, @SENHA, @EMAIL)";
             comando.Parameters.AddWithValue("@ID_LOGIN", login.IdLogin);
             comando.Parameters.AddWithValue("@USUARIO", login.Usuario);
             comando.Parameters.AddWithValue("@SENHA", login.Senha);
@@ -37,7 +37,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Login> logins = new List<Login>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_login, usuario, senha, email FROM login";
+            comando.CommandText = "SELECT id, usuario, senha, email FROM login";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -46,10 +46,10 @@ namespace SistemaFinanceiro.Repositório
                 Login login = new Login()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                    IdLogin = Convert.ToInt32(linha[1].ToString()),
-                    Usuario = linha[2].ToString(),
-                    Senha = linha[3].ToString(),
-                    Email = linha[4].ToString(),
+                   // IdLogin = Convert.ToInt32(linha[1].ToString()),
+                    Usuario = linha[1].ToString(),
+                    Senha = linha[2].ToString(),
+                    Email = linha[3].ToString(),
 
 
                 };

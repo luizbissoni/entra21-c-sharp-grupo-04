@@ -12,12 +12,9 @@ namespace SistemaFinanceiro.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-        [HttpGet]
+        
         public ActionResult Index()
         {
-            List<Login> logins = new RepositorioLogin().ObterTodosLogin();
-            ViewBag.Logins = logins;
-            ViewBag.TituloPagina = "Login";
             return View();
         }
 
@@ -46,7 +43,7 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult Excluir(int id)
         {
-            bool apagado = new SistemaFinanceiro.Repositório.RepositorioLogin().ExcluirLogin(id);
+            bool apagado = new RepositorioLogin().ExcluirLogin(id);
             return null;
         }
 
@@ -84,12 +81,25 @@ namespace SistemaFinanceiro.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult GetLoginJson()
+        [HttpPost]
+        public ActionResult GetLoginJson(string usuario, string senha)
         {
-            List<Login> logins = new RepositorioLogin().ObterTodosLogin();
-            return Content(JsonConvert.SerializeObject(new { data = logins }));
+            bool resultado = false;
+            List<Login> login = new RepositorioLogin().ObterTodosLogin();
+            //Login login = new RepositorioLogin().ObterTodosLogin();
+
+            foreach (Login logins in login)
+            {
+                if (logins.Usuario == usuario && logins.Senha == senha)
+                {
+                    resultado = true;
+                }
+            }
+
+            return Content(JsonConvert.SerializeObject(new { data = resultado }));
         }
+
+
 
     }
 }
