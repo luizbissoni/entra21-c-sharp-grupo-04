@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/Master.cshtml";
 }
 
-<h2>@ViewBag.TituloPagina</h2>
+@*<h2>@ViewBag.TituloPagina</h2>
 
-<p>
-    @Html.ActionLink("Criar um novo cartão", "Cadastro")
-</p>
+    <p>
+        @Html.ActionLink("Criar um novo cartão", "Cadastro")
+    </p>*@
 
 <a href="#" class="btn btn-primary cadastrar-cartao" data-target="#cadastrar-cartoes-modal" data-toggle="modal">Cadastrar</a>
 <a href="#" class="btn btn-secondary editar-cartao" data-target="#editar-cartao-modal" data-toggle="modal">Editar</a>
@@ -51,9 +51,8 @@
 <!--Chamando Editar cartão por ajax-->
 @Html.Partial("~/Views/Cartao/EditarCartaoModal.cshtml")
 
- <!--Chamando excluir cartão por ajax-->
-@Html.Partial("~/Views/Cartao/AvisoCartao.cshtml")
 
+@Html.Partial("~/Views/Cartao/AvisoCartao.cshtml")
 
 @section script{
 
@@ -72,14 +71,22 @@
     <script type="text/javascript" src="~/Content/bower_components/modernizr/js/css-scrollbars.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
 
+    <script src="~/Content/assets/pages/data-table/js/data-table-custom.js"></script>
+
+    <script src="~/Content/assets/js/script.js"></script>
+
+
+    <!--tabla cartao-->
     <script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
 
-    <!--Chamando Cadastrar por ajax-->
-<script src="~/Scripts/scriptCartao/create-cartao-modal.js"></script>
+    <!--Deletar Cartao-->
+    <script src="~/Scripts/scriptCartao/deletar-cartao-modal.js"></script>
 
-    <!--Chamando Editar cartão por ajax-->
-<script src="~/Scripts/scriptCartao/editar-cartao-modal.js"></script>
+    <!--Editar Cartao-->
+    <script src="~/Scripts/scriptCartao/editar-cartao-modal.js"></script>
 
-    <!--Chamando excluir cartão por ajax-->
-<script src="~/Scripts/scriptCartao/deletar-cartao-modal.js"></script>
-}
+    <!--Criar cartao-->
+    <script src="~/Scripts/scriptCartao/create-cartao-modal.js"></script>
+
+    <!--Cartao cadastro-->
+    <script src="~/Scripts/scriptCartao/Cartao-Cadastro.js"></script>

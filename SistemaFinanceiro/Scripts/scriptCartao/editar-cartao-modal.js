@@ -22,7 +22,6 @@ $('.editar-cartao').on('click', function () {
             console.log(preencher);
             var data = JSON.parse(preencher);
             $('#editar-cartoes-modal').modal('show');
-
             $('#campo-cartao-editar').val(data.NumeroCartao);
             $('#campo-conta-editar').val(data.NumeroConta);
             $('#campo-bandeira-editar').val(data.Bandeira);
@@ -33,15 +32,16 @@ $('.editar-cartao').on('click', function () {
     } );
 });
 
-$('body').on('click', '#salvar-editar-modal', function () {
+$('body').on('click', '#salvar-cartao-cadastro-modal', function () {
     $.ajax({
         url: '/Cartao/Update',
-        method: 'POST',
+        method: 'post',
         data: {
             NumeroCartao: $('#campo-cartao-editar').val(),
             NumeroConta: $('#campo-conta-editar').val(),
             Bandeira: $('#campo-bandeira-editar').val(),
-            Banco: $('#campo-banco-editar').val()
+            Banco: $('#campo-banco-editar').val(),
+            id: $('#campo-id-cartao').val()
         },
         success: function (data) {
             $('#editar-cartoes-modal').modal('hide');
