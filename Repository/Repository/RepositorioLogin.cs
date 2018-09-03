@@ -16,7 +16,7 @@ namespace SistemaFinanceiro.Repositório
         {
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "INSERT INTO login (id_login, usuario, senha, email) OUTPUT INSERTED.ID VALUES (@ID_LOGIN, @USUARIO, @SENHA, @EMAIL)";
-            comando.Parameters.AddWithValue("@ID_LOGIN", login.IdLogin);
+            comando.Parameters.AddWithValue("@ID_LOGIN", login.IdPessoas);
             comando.Parameters.AddWithValue("@USUARIO", login.Usuario);
             comando.Parameters.AddWithValue("@SENHA", login.Senha);
             comando.Parameters.AddWithValue("@EMAIL", login.Email);

@@ -12,7 +12,7 @@ namespace SistemaFinanceiro.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-        
+
         public ActionResult Index()
         {
             return View();
@@ -62,29 +62,10 @@ namespace SistemaFinanceiro.Controllers
             return null;
         }
 
-        public ActionResult ValidarLogin(string usuario, string senha)
-        {
-            Login userLogin = new RepositorioLogin().ValidarLogin(usuario, senha);
-
-            if (userLogin.Usuario == usuario && userLogin.Senha == senha)
-            {
-                return RedirectToAction("Index", "PessoasController", "Index");
-            }
-
-            return RedirectToAction("Login");
-        }
-        public ActionResult Login()
-        {
-            List<Login> logins = new RepositorioLogin().ObterTodosLogin();
-            ViewBag.Logins = logins;
-
-            return View();
-        }
-
         [HttpPost]
         public ActionResult GetLoginJson(string usuario, string senha)
         {
-            bool resultado = false;
+
             List<Login> login = new RepositorioLogin().ObterTodosLogin();
             //Login login = new RepositorioLogin().ObterTodosLogin();
 
@@ -92,11 +73,12 @@ namespace SistemaFinanceiro.Controllers
             {
                 if (logins.Usuario == usuario && logins.Senha == senha)
                 {
-                    resultado = true;
+                    int id = logins.IdPessoas;
+                    return Content(JsonConvert.SerializeObject(new { user = usuario, pass = senha, idpessoa = id}));
                 }
             }
 
-            return Content(JsonConvert.SerializeObject(new { data = resultado }));
+            return View();
         }
 
 

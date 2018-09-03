@@ -96,9 +96,6 @@ namespace SistemaFinanceiro.Controllers
             };
 
             int deuCerto = new RepositorioCartoes().CadastrarCartao(novoCartao);
-            
-
-
             return Content(JsonConvert.SerializeObject(new { id = id }));
         }
 
@@ -120,9 +117,6 @@ namespace SistemaFinanceiro.Controllers
                 //Data = ,
                 //Valor = 
             };
-
-
-
 
             return null;
         }

@@ -71,3 +71,5 @@ INSERT INTO pessoas (nome, sexo, cpf, nascimento) VALUES
 INSERT INTO [login] (usuario, senha, email) VALUES ('admin', '123', 'admin@admin.com'),('nene','123','neneNanight@lele.com.br');
 
 SELECT * FROM pessoas;
+
+--SELECT pessoas.Id, pessoas.nome, login.id_pessoas, login.usuario, login.email FROM login INNER JOIN pessoas ON login.id_pessoas = pessoas.Id

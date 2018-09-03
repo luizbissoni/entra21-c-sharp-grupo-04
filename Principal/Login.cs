@@ -13,7 +13,7 @@ namespace SistemaFinanceiro.Models
     {
         public int Id { get; set; }
 
-        public int IdLogin { get; set; }
+        public int IdPessoas { get; set; }
 
         public string Usuario { get; set; }
 
