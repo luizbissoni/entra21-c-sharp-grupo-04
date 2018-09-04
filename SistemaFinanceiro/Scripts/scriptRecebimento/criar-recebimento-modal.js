@@ -6,7 +6,7 @@
             method: 'POST',
             data: {
                 valor_recebido: $('#campo-valor-recebido').val(),
-                data_recebimento: $('#campo-valor-recebido').val(),
+                data_recebimento: $('#campo-data-recebimento').val(),
                 descricao: $('#campo-descricao').val()
 
             },
@@ -25,7 +25,7 @@
 
 
         $('#campo-valor-recebido').val(''),
-        $('#campo-valor-recebido').val(''),
+        $('#campo-data-recebimento').val(''),
          $('#campo-descricao').val('')
 
     };
