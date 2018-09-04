@@ -5,9 +5,8 @@
             url: '/Recebimentos/CadastroModal',
             method: 'POST',
             data: {
-                valor_recebido: $('#campo-valor-recebido').val(),
-                data_recebimento: $('#campo-data-recebimento').val(),
-                descricao: $('#campo-descricao').val()
+                valor: $('#campo-valor-recebido').val(),
+                data: $('#campo-data-recebimento').val(),
 
             },
             success: function (data) {
@@ -25,8 +24,7 @@
 
 
         $('#campo-valor-recebido').val(''),
-        $('#campo-data-recebimento').val(''),
-         $('#campo-descricao').val('')
+        $('#campo-data-recebimento').val('')
 
     };
 

@@ -7,9 +7,8 @@
         columns: [
 
             { data: "Id" },
-            { data: "Valor_recebido" },
-            { data: "data_recebimento" },
-            { data: "Descricao" },
+            { data: "Valor" },
+            { data: "Data" },
 
         ]
     });

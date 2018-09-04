@@ -25,9 +25,8 @@
                 console.log(preencher);
                 var data = JSON.parse(preencher);
                 $('#editar-categoria-modal').modal('show');
-                $('#campo-campo-recebimento-valor').val(data.valor_recebido);
-                $('#campo-recebimento-data').val(data.data_recebimento);
-                $('#campo-descricao').val(data.descricao);
+                $('#campo-campo-recebimento-valor').val(data.Valor);
+                $('#campo-recebimento-data').val(data.Data);
                 $('#campo-id-recebimento').val(dataRow.Id);
 
             }
@@ -41,9 +40,8 @@
             method: 'post',
             data: {
 
-                valor_recebido: $('#campo-campo-recebimento-valor').val(),
-                data_recebimento: $('#campo-recebimento-data').val(),
-                descricao: $('#campo-descricao').val(),
+                valor: $('#campo-campo-recebimento-valor').val(),
+                data: $('#campo-recebimento-data').val(),
                 id: $('#campo-id-recebimento').val(Id)
             },
             success: function (data) {
