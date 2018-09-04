@@ -5,9 +5,9 @@
             url: '/Gasto/CadastroModalGastos',
             method: 'POST',
             data: {
-                ValorGastos: $('#campo-valor').val(),
-                DataEntrada: $('#campo-data-entrada').val(),
-                DataVencimento: $('#campo-vencimento').val(),
+                Valor: $('#campo-valor').val(),
+                Entrada: $('#campo-data-entrada').val(),
+                Vencimento: $('#campo-vencimento').val(),
                 Descricao: $('#campo-descricao').val(),
             },
             success: function (data) {

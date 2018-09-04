@@ -13,6 +13,8 @@ namespace SistemaFinanceiro.Models
         
        // public int IdCartao { get; set; }
 
+        public int Id_categoria { get; set; }
+
         [Required(ErrorMessage = "O valor dos gastos não pode ser vazio")]
         [Display(Name = "Valor")]
         public double Valor { get; set; }

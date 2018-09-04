@@ -30,7 +30,7 @@ $(function () {
         $.ajax({
             url: '/Gasto/Excluir',
             method: 'GET',
-            data: {Id: dataRow.Id},
+            data: { Id: dataRow.Id },
             success: function (excluirId) {
                 var data = JSON.parse(excluirId)
                 $('#linha-' + data.Id).remove();
