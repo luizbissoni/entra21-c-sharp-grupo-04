@@ -74,7 +74,7 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult ObterTodosJson()
         {
-            List<Cartoes> cartoes = new RepositorioCartoes().ObterTodosCartoes();
+            List<Cartoes> cartoes = new RepositorioCartoes().ObterTodosCartoes(); 
             return Content(JsonConvert.SerializeObject(new { data = cartoes }));
         }
         [HttpPost]

@@ -12,9 +12,9 @@
                 banco: $('#campo-banco').val()
             },
             success: function (data) {
-                limpaCampos();
+                limpaCampos(); 
                 $('#cadastrar-cartoes-modal').modal('hide');
-                //$('#tabela-cartoes').DataTable().ajax.reload();
+             //   $('#tabela-cartoes').DataTable().ajax.reload();
             }
         });
     });

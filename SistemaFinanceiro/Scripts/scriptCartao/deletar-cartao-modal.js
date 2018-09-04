@@ -10,7 +10,7 @@
             $(this).removeClass('selected');
         }
         dataRow = table.row(this).data();
-        $('#nome-cartao-aviso').text(dataRow.Nome);
+        //$('#nome-cartao-aviso').text(dataRow);
 
     });
     $(".selected").click(function () {
