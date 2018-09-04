@@ -46,6 +46,7 @@
             success: function (preencher) {
                 console.log(preencher);
                 var data = JSON.parse(preencher);
+                console.log(data);
                 $('#editar-pessoa-modal').modal('show');
                 $('#editar-pessoa-modal-campo-nome').val(data.Nome);
                 $('#editar-pessoa-modal-campo-nascimento').val(data.Nascimento);

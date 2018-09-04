@@ -84,11 +84,36 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastroModalRecebimento(Recebimento recebimento)
+        public ActionResult CadastroModalRecebimento(Recebimento recebimento, Categoria categoria, Pessoas pessoa)
         {
+
             int id = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
+            Categoria novaCategoria = new Categoria()
+            {
+                IdRecebimento = id,
+                Nome = categoria.Nome.ToString()
+            };
+
+
             return Content(JsonConvert.SerializeObject(new { id = id }));
         }
 
+        //[HttpPost]
+        //public ActionResult CadastroModalPessoas(Pessoas pessoa, Cartoes cartao)
+        //{
+        //    int id = new RepositorioPessoas().CadastrarPessoas(pessoa);
+
+        //    Cartoes novoCartao = new Cartoes()
+        //    {
+        //        Conta = cartao.Conta.ToString(),
+        //        Numero = cartao.Numero.ToString(),
+        //        Banco = cartao.Banco.ToString(),
+        //        Bandeira = cartao.Bandeira.ToString(),
+        //        IdPessoas = id
+        //    };
+
+        //    int deuCerto = new RepositorioCartoes().CadastrarCartao(novoCartao);
+        //    return Content(JsonConvert.SerializeObject(new { id = id }));
+        //}
     }
 }

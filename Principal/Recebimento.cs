@@ -11,6 +11,8 @@ namespace SistemaFinanceiro.Models
 
         public int IdPessoas { get; set; }
 
+        public int IdCategoria { get; set; }
+
         public double Valor { get; set; }
 
         public DateTime Data { get; set; }

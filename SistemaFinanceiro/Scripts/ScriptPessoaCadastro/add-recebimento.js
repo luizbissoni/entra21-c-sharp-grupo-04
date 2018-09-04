@@ -1,25 +1,47 @@
 ﻿$(function () {
 
-    var table = $('#tabela-pessoas').DataTable();
-    var dataRow;
+    //var recebimento = SistemaFinanceiro.Models.Categoria;
+    carregarSelected('#campo-descricao');
 
-    $('#tabela-pessoas tbody').on('click', 'tr', function () {
+    function carregarSelected(id) {
 
-        dataRow = table.row(this).data();
+        var categoriaOptions;
+
         $.ajax({
-            url: '/Pessoas/CadastroRecebimento',
-            method: 'POST',
-            data: {
-                
-
-            },
-            success: function (preencher) {
-
+            url: '/Categoria/ObterTodosCategoriaJson',
+            method: 'GET',
+            success: function (dara) {
+                var data = JSON.parse(dara);
+                for (var i = 0; i < data.data.length; i++) {
+                    console.log(data.data[i].Id);
+                    categoriaOptions += '<option id="valor-campo-descricao" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
+                }
+                $('#campo-descricao').html(categoriaOptions);
             }
         });
+    };
 
 
-    });
+
+    //var table = $('#tabela-pessoas').DataTable();
+    //var dataRow;
+
+    //$('#tabela-pessoas tbody').on('click', 'tr', function () {
+
+    //    dataRow = table.row(this).data();
+    //    $.ajax({
+    //        url: '/Pessoas/CadastroRecebimento',
+    //        method: 'POST',
+    //        data: {
+    //        },
+    //        success: function (preencher) {
+
+
+    //        }
+    //    });
+
+    //});
+
 
     //$('#cadastrar-recebimento').on('click', function () {
     //    $.ajax({
@@ -39,4 +61,4 @@
 
 
     //});
-};
+});

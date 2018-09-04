@@ -15,9 +15,11 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO recebimentos (valor, data) OUTPUT INSERTED.ID VALUES (@VALOR, @DATA)";
+            comando.CommandText = @"INSERT INTO recebimentos (valor, data, id_pessoas, id_categoria) OUTPUT INSERTED.ID VALUES (@VALOR, @DATA, @IDPESSOA, @IDCATEGORIA)";
             comando.Parameters.AddWithValue("@VALOR", recebimento.Valor);
             comando.Parameters.AddWithValue("@DATA", recebimento.Data);
+            comando.Parameters.AddWithValue("@IDPESSOA", recebimento.IdPessoas);
+            comando.Parameters.AddWithValue("@IDCATEGORIA", recebimento.IdCategoria);
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
         }
