@@ -13,13 +13,32 @@
             success: function (dara) {
                 var data = JSON.parse(dara);
                 for (var i = 0; i < data.data.length; i++) {
-                    console.log(data.data[i].Id);
+                   // console.log(data.data[i].Id);
                     categoriaOptions += '<option id="valor-campo-descricao" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
                 }
                 $('#campo-descricao').html(categoriaOptions);
             }
         });
+
     };
+
+    $('#cadastrar-recebimento').on('click', function () {
+        $.ajax({
+            url: '/Pessoas/CadastroRecebimento',
+            method: 'POST',
+            data: {
+                data: $('#campo-recebimento-data').val(),
+                valor: $('#campo-recebimento-valor').val(),
+                id_categoria: $('#campo-descricao').val(),
+                //id_pessoas: $('').val()
+            },
+            success: function (data) {
+
+                $('#modal-gastos-pessoa').modal('hide');
+            }
+        });
+
+    });
 
 
 

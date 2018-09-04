@@ -37,7 +37,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Login> logins = new List<Login>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_pessoas, usuario, senha, email FROM login";
+            comando.CommandText = "SELECT Id, id_pessoas, usuario, senha, email FROM login";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -45,7 +45,7 @@ namespace SistemaFinanceiro.Repositório
             {
                 Login login = new Login()
                 {
-                    Id = Convert.ToInt32(linha["id"].ToString()),
+                    Id = Convert.ToInt32(linha["Id"].ToString()),
                     IdPessoas = Convert.ToInt32(linha["id_pessoas"].ToString()),
                     Usuario = linha["usuario"].ToString(),
                     Senha = linha["senha"].ToString(),

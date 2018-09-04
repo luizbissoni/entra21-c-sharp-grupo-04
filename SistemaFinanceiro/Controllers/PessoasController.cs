@@ -108,7 +108,7 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastroRecebimento(Recebimento recebimento, Categoria categoria)
+        public ActionResult CadastroRecebimento(Recebimento recebimento)
         {
            
             Recebimento addRecebimento = new Recebimento()

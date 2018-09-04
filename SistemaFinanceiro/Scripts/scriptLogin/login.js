@@ -7,17 +7,24 @@ $(document).ready(function () {
             url: "/Login/GetLoginJson",
             type: "POST",
             data: {
+
                 "usuario": $("#campo-usuario").val(),
                 "senha": $("#campo-senha").val()
             },
             success: function (result) {
-                console.log(result);
                 alert("OK!");
+
+                console.log(result);
+
+                //if (result.IdPessoas != null) {
+                //    console.log(result);
+                //}
                 //$('#nome-user-login').text(result.user);
                 //$(window.document.location).attr('href', home);
                 ////ndow.location = 
             },
             error: function () {
+                console.log(result);
                 alert("Error!")
             }
         });

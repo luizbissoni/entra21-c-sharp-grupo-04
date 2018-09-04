@@ -17,7 +17,6 @@ namespace SistemaFinanceiro.Repositório
 
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = @"INSERT INTO categorias (nome) OUTPUT INSERTED.ID VALUES (@NOME)";
-            //comando.Parameters.AddWithValue("@ID_CATEGORIA", categorias.Id_Categoria);
             comando.Parameters.AddWithValue("@NOME", categorias.Nome);
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
@@ -53,9 +52,9 @@ namespace SistemaFinanceiro.Repositório
             {
                 Categoria categoria = new Categoria()
                 {
-                    Id = Convert.ToInt32(linha[0].ToString()),
+                    Id = Convert.ToInt32(linha["id"].ToString()),
                     //Id_Categoria = Convert.ToInt32(linha[1].ToString()),
-                    Nome = linha[1].ToString()
+                    Nome = linha["nome"].ToString()
                 };
                 categorias.Add(categoria);
             }
@@ -74,7 +73,7 @@ namespace SistemaFinanceiro.Repositório
             {
                 categoria = new Categoria();
                 categoria.Id = id;
-                categoria.Nome = tabela.Rows[0][0].ToString();
+                categoria.Nome = tabela.Rows[0]["nome"].ToString();
                
 
             }
