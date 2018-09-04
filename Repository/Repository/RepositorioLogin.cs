@@ -37,7 +37,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Login> logins = new List<Login>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, usuario, senha, email FROM login";
+            comando.CommandText = "SELECT id, id_pessoas, usuario, senha, email FROM login";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -45,11 +45,11 @@ namespace SistemaFinanceiro.Repositório
             {
                 Login login = new Login()
                 {
-                    Id = Convert.ToInt32(linha[0].ToString()),
-                   // IdLogin = Convert.ToInt32(linha[1].ToString()),
-                    Usuario = linha[1].ToString(),
-                    Senha = linha[2].ToString(),
-                    Email = linha[3].ToString(),
+                    Id = Convert.ToInt32(linha["id"].ToString()),
+                    IdPessoas = Convert.ToInt32(linha["id_pessoas"].ToString()),
+                    Usuario = linha["usuario"].ToString(),
+                    Senha = linha["senha"].ToString(),
+                    Email = linha["email"].ToString(),
 
 
                 };
@@ -73,7 +73,7 @@ namespace SistemaFinanceiro.Repositório
                 login.Usuario = tabela.Rows[0][0].ToString();
                 login.Senha = tabela.Rows[0][1].ToString();
                 login.Email = tabela.Rows[0][2].ToString();
-                
+
             }
 
 
@@ -87,7 +87,7 @@ namespace SistemaFinanceiro.Repositório
             comando.Parameters.AddWithValue("@USUARIO", login.Usuario);
             comando.Parameters.AddWithValue("@SENHA", login.Senha);
             comando.Parameters.AddWithValue("@EMAIL", login.Email);
-           
+
             return comando.ExecuteNonQuery() == 1;
         }
 
@@ -96,7 +96,7 @@ namespace SistemaFinanceiro.Repositório
             Login login = null;
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "SELECT usuario, senha FROM login  WHERE usuario = @USUARIO AND senha = @SENHA";
-            comando.Parameters.AddWithValue("@USUARIO",usuario);
+            comando.Parameters.AddWithValue("@USUARIO", usuario);
             comando.Parameters.AddWithValue("@SENHA", senha);
 
             DataTable tabela = new DataTable();

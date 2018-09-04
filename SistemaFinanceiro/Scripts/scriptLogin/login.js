@@ -11,24 +11,11 @@ $(document).ready(function () {
                 "senha": $("#campo-senha").val()
             },
             success: function (result) {
-               
-                $.ajax({
-                    url: '/Pessoas/ObterTodosJson',
-                    type: 'GET',
-                    data: { data: result.id }
-                    success: function (busca) {
-
-                        console.log(busca.Nome);
-                    }
-
-                });
-
+                console.log(result);
                 alert("OK!");
-
                 //$('#nome-user-login').text(result.user);
                 //$(window.document.location).attr('href', home);
                 ////ndow.location = 
-
             },
             error: function () {
                 alert("Error!")

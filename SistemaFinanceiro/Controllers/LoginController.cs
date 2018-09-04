@@ -73,8 +73,7 @@ namespace SistemaFinanceiro.Controllers
             {
                 if (logins.Usuario == usuario && logins.Senha == senha)
                 {
-                    int id = logins.IdPessoas;
-                    return Content(JsonConvert.SerializeObject(new { user = usuario, pass = senha, idpessoa = id}));
+                    return Content(JsonConvert.SerializeObject(new { user = usuario, pass = senha, data = logins}));
                 }
             }
 
