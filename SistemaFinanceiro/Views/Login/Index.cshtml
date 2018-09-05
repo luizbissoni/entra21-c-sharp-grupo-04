@@ -74,7 +74,7 @@
                                 </div>
                                 <hr />
                                 <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Your Email Address"  id="campo-usuario">
+                                    <input type="email" class="form-control" placeholder="Your Email Address" id="campo-usuario">
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="input-group">
@@ -103,11 +103,12 @@
                                 <hr />
                                 <div class="row">
                                     <div class="col-md-10">
-                                        <a href=""><p class="text-inverse text-left m-b-0">Cadastro</p></a>
+                                        <a href="#" class="editar-pessoa" data-target="#modal-cadastro-usuario" data-toggle="modal"><p class="text-inverse text-left m-b-0">Cadastro</p></a>
+                                        @*//<a href=""><p class="text-inverse text-left m-b-0">Cadastro</p></a>*@
                                     </div>
                                     @*<div class="col-md-2">
-                                        <img src="~/Content/assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
-                                    </div>*@
+                                            <img src="~/Content/assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
+                                        </div>*@
                                 </div>
 
                             </div>
@@ -140,7 +141,8 @@
     <script type="text/javascript" src="~/Content/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/common-pages.js"></script>
     <script src="~/Scripts/scriptLogin/login.js"></script>
-
+    <script src="~/Scripts/cadastro-usuario/cadastro-login.js"></script>
+    @Html.Partial("~/Views/Login/CadastroModalConta.cshtml")
 </body>
 
 @*</html>*@
