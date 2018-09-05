@@ -1,7 +1,8 @@
 ﻿$(function () {
 
     function getSessionValue() {
-        return document.getElementById("id-pessoa").value;
+
+        return document.getElementById("idpessoa-cartao").value;
     }
 
     $('.cartao-pessoa').on('click', function () {
@@ -16,13 +17,12 @@
 
                 id_pessoas: getSessionValue(),
                 numero: $('#campo-numero-Cartao').val(),
-                conta: $('#campo-numero-conta').val(),
+                conta: $('input[name=numero-conta]').val(),
                 bandeira: $('#campo-bandeira').val(),
                 banco: $('#campo-banco').val()
             },
             success: function () {
                 $('#cadastrar-cartao-pessoa').modal('hide');
-
                 new PNotify({
                     //title: 'Salvo com sucesso!',
                     text: 'Cartão cadastrado.',

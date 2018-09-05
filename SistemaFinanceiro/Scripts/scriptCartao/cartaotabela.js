@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
     
-    $('#tabela-cartao').DataTable({
+    $('#tabela-cartao-home').DataTable({
         serverSide: true,
         "bProcessing": true,
         "ajax": "/Cartao/ObterTodosJson",

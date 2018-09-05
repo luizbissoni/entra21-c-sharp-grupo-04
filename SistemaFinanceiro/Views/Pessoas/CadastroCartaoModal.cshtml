@@ -1,4 +1,6 @@
-﻿
+﻿@{
+    int pessoa = Convert.ToInt32(Session["user"]);
+}
 
 <div class="modal fade" id="cadastrar-cartoes-pessoa">
     <div class="modal-dialog modal-lg">
@@ -10,7 +12,7 @@
                 <h4>Cadastrar Cartão</h4>
             </div>
             <div class="modal-body">
-
+                <input type="hidden" value="@pessoa" id="idpessoa-cartao" />
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="numero-Cartao">Número cartão<h11>*</h11></label>
                     <input id="campo-numero-Cartao" name="numero-cartao" class="form-control input-md col-sm-6 numero-Cartao" required="" type="text" value="">

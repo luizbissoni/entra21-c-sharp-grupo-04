@@ -1,8 +1,6 @@
 ﻿$(function () {
     $('.recebimento-pessoa').on('click', function () {
         $('#modal-recebimento-pessoa').modal('show');
-
-        //console.log(getSessionValue());
     });
     //var recebimento = SistemaFinanceiro.Models.Categoria;
     carregarSelected('#campo-descricao');

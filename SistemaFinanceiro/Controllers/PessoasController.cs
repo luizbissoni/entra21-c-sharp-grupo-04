@@ -66,7 +66,7 @@ namespace SistemaFinanceiro.Controllers
 
             if (alterado)
             {
-                return  RedirectToAction("Index");
+                return RedirectToAction("Index");
             }
 
             return null;
@@ -76,26 +76,23 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult ObterTodosJson()
         {
             List<Pessoas> pessoas = new RepositorioPessoas().ObterTodosPessoas();
-
-
-            return Content(JsonConvert.SerializeObject(new {data = pessoas}));
+            return Content(JsonConvert.SerializeObject(new { data = pessoas }));
         }
 
         [HttpPost]
         public ActionResult CadastroCartaoModalPessoas(Cartoes cartao)
         {
-            //int id = new RepositorioPessoas().CadastrarPessoas(pessoa);
+            int id = Convert.ToInt32(Session["user"].ToString());
+            Cartoes cartoes = new Cartoes()
+            {
+                IdPessoas = id,
+                Banco = cartao.Banco,
+                Bandeira = cartao.Bandeira,
+                Conta = cartao.Conta,
+                Numero = cartao.Numero
+            };
 
-            //Cartoes novoCartao = new Cartoes()
-            //{
-            //    Conta = cartao.Conta.ToString(),
-            //    Numero = cartao.Numero.ToString(),
-            //    Banco = cartao.Banco.ToString(),
-            //    Bandeira = cartao.Bandeira.ToString(),
-            //    IdPessoas = id
-            //};
-
-            int deuCerto = new RepositorioCartoes().CadastrarCartao(cartao);
+            int deuCerto = new RepositorioCartoes().CadastrarCartao(cartoes);
 
             return Content(JsonConvert.SerializeObject(new { data = deuCerto }));
         }
@@ -123,12 +120,12 @@ namespace SistemaFinanceiro.Controllers
 
             int deuCerto = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
 
-            return Content(JsonConvert.SerializeObject(new { data = deuCerto })); 
+            return Content(JsonConvert.SerializeObject(new { data = deuCerto }));
         }
 
-       
 
-      
+
+
 
     }
 }
