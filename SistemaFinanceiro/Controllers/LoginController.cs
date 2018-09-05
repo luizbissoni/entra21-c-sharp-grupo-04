@@ -63,7 +63,7 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetLoginJson(string usuario, string senha, Pessoas pessoa)
+        public ActionResult GetLoginJson(string usuario, string senha)
         {
             List<Login> login = new RepositorioLogin().ObterTodosLogin();
 
@@ -84,6 +84,15 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult GetIdPessoas(int id)
         {
             Pessoas pessoa = new RepositorioPessoas().ObterPeloIdPessoas(id);
+
+            return Content(JsonConvert.SerializeObject(pessoa));
+        }
+
+        public ActionResult GetIdSession()
+        {
+            var idPessoa = Convert.ToInt32(Session["user"].ToString());
+
+            Pessoas pessoa = new RepositorioPessoas().ObterPeloIdPessoas(idPessoa);
 
             return Content(JsonConvert.SerializeObject(pessoa));
         }

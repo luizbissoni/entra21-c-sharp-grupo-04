@@ -17,6 +17,8 @@ namespace SistemaFinanceiro.Controllers
             {
                 List<Pessoas> pessoas = new RepositorioPessoas().ObterTodosPessoas();
                 ViewBag.Pessoa = pessoas;
+
+                return View();
             }
           
             return RedirectToAction("Login", "Index");

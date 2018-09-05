@@ -2,6 +2,8 @@
 @{
     int pessoa = Convert.ToInt32(Session["user"]);
 
+    @Html.Encode(Session["user"])
+
     //foreach (SistemaFinanceiro.Models.Pessoas item in ViewBag.Pessoa)
     //{
     //    if (item.Id == pessoa)
@@ -429,7 +431,13 @@
     <script type="text/javascript" src="~/Content/assets/js/script.min.js"></script>
     @*<script type="text/javascript" src="~/Content/assets/pages/dashboard/custom-dashboard.min.js"></script>*@
     @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
+    <script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
+    <script src="~/Scripts/ScriptPessoaCadastro/delete-person-modal.js"></script>
 
+    <script src="~/Scripts/ScriptPessoaCadastro/creat-person-modal.js"></script>
+    <script src="~/Scripts/scriptPerfilUsuario/usuario-perfil.js"></script>
+    <script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
+    <script src="~/Scripts/ScriptPessoaCadastro/add-recebimento.js"></script>
     @RenderSection("script", false)
 </body>
 
