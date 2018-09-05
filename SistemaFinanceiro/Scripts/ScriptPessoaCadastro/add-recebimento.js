@@ -1,7 +1,16 @@
 ﻿$(function () {
+    $('.recebimento-pessoa').on('click', function () {
+        $('#modal-recebimento-pessoa').modal('show');
 
+        //console.log(getSessionValue());
+    });
     //var recebimento = SistemaFinanceiro.Models.Categoria;
     carregarSelected('#campo-descricao');
+
+    function getSessionValue() {
+
+        return document.getElementById("id-pessoa").value;
+    }
 
     function carregarSelected(id) {
 
@@ -27,14 +36,21 @@
             url: '/Pessoas/CadastroRecebimento',
             method: 'POST',
             data: {
+
                 data: $('#campo-recebimento-data').val(),
                 valor: $('#campo-recebimento-valor').val(),
-                id_categoria: $('#campo-descricao').val(),
-                //id_pessoas: $('').val()
+                idCategoria: $('.descricao-recebimento').val(),
+                idPessoas: getSessionValue()
             },
             success: function (data) {
-
-                $('#modal-gastos-pessoa').modal('hide');
+                //console.log(data);
+                $('#modal-recebimento-pessoa').modal('hide');
+                new PNotify({
+                    title: 'Salvo com sucesso!',
+                    text: 'Cadastro de Recebimento.',
+                    icon: 'icofont icofont-info-circle',
+                    type: 'success'
+                });
             }
         });
 

@@ -13,7 +13,7 @@ $(document).ready(function () {
             success: function (result) {
                 alert("OK!");
                 var data = JSON.parse(result);
-                //console.log(data.data.Id);
+                console.log(data.data.Id);
                 if (result != null) {
                     $.ajax({
                         url: '/Login/GetIdPessoas',
@@ -23,7 +23,7 @@ $(document).ready(function () {
                         },
                         success: function (usuario) {
                             var data = JSON.parse(usuario);
-                           // console.log(data);
+                           console.log(data);
                             $(window.document.location).attr('href', home);
                           
                         }

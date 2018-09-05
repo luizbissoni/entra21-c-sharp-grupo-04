@@ -1,7 +1,10 @@
 ﻿@model SistemaFinanceiro.Models.Categoria
-    
 
-<div class="modal" id="modal-gastos-pessoa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+@{
+    int pessoa = Convert.ToInt32(Session["user"]);
+}
+
+<div class="modal" id="modal-recebimento-pessoa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -11,10 +14,12 @@
                 </button>
             </div>
             <div class="modal-body">
+                <input type="hidden" value="@pessoa" id="id-pessoa" />
+
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="campo-valor-recebimento">Valor</label>
+                            <label class="col-md-2 control-label valor" for="campo-valor-recebimento">Valor</label>
                             <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control " type="text">
                         </div>
                     </div>
@@ -28,8 +33,7 @@
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="campo-descricao-recebimento">Descrição<h11>*</h11></label>
                             <div class="col-md-5">
-                                <select id="campo-descricao" class="form-control" name="descricao">
-                                </select>
+                                <select id="campo-descricao" class="form-control  descricao-recebimento" name="descricao"></select>
                             </div>
                         </div>
                     </div>

@@ -46,7 +46,7 @@ namespace SistemaFinanceiro.Repositório
                 Recebimento recebimento = new Recebimento()
                 {
                     Id = Convert.ToInt32(linha[0].ToString()),
-                //  Id_recebimento = Convert.ToInt32(linha[1].ToString()),
+                    //  Id_recebimento = Convert.ToInt32(linha[1].ToString()),
                     Valor = Convert.ToDouble(linha[1].ToString()),
                     Data = Convert.ToDateTime(linha[2].ToString()),
 
@@ -69,10 +69,10 @@ namespace SistemaFinanceiro.Repositório
             {
                 recebimento = new Recebimento();
                 recebimento.Id = id;
-                
+
                 recebimento.Valor = Convert.ToDouble(tabela.Rows[0][0].ToString());
                 recebimento.Data = Convert.ToDateTime(tabela.Rows[0][1].ToString());
-                
+
             }
 
 
@@ -83,11 +83,39 @@ namespace SistemaFinanceiro.Repositório
         {
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "UPDATE recebimentos SET valor = @VALOR, data = @DATA WHERE id = @ID";
-    //      comando.Parameters.AddWithValue("@ID_CATEGORIA", recebimento.Id_recebimento);
+            //comando.Parameters.AddWithValue("@ID_CATEGORIA", recebimento.Id_recebimento);
             comando.Parameters.AddWithValue("@VALOR", recebimento.Valor);
             comando.Parameters.AddWithValue("@DATAO", recebimento.Data);
             comando.Parameters.AddWithValue("@ID", recebimento.Id);
             return comando.ExecuteNonQuery() == 1;
         }
+
+        public List<Recebimento> GraficoRecebimentoMensal(int id)
+        {
+            List<Recebimento> recebimentos = new List<Recebimento>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT valor, data FROM recebimentos WHERE id_pessoas = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            foreach (DataRow linha in tabela.Rows)
+            {
+                Recebimento recebimento = new Recebimento()
+                {
+                    Id = Convert.ToInt32(linha[0].ToString()),
+                    IdPessoas = Convert.ToInt32(linha[1].ToString()),
+                    Valor = Convert.ToDouble(linha[1].ToString()),
+                    Data = Convert.ToDateTime(linha[2].ToString()),
+                };
+                recebimentos.Add(recebimento);
+            }
+            return recebimentos;
+        }
+
+
+
+
     }
 }

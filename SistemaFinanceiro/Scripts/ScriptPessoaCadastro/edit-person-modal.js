@@ -42,49 +42,51 @@
     //    });
 
     //editar do index pessoa
-    //$('.editar-pessoa').on('click', function () {
-    $.ajax({
-        url: '/Login/GetIdSession',
-        method: 'GET',
-        success: function (data) {
-            console.log(data);
-            //$.ajax({
-            //    url: '/Pessoas/Editar',
-            //    method: 'GET',
-            //    data: {
-            //        id: idPessoa
-            //    },
+    $('.editar-pessoa').on('click', function () {
+        $.ajax({
+            url: '/Login/GetIdSession',
+            method: 'GET',
+            success: function (data) {
+                console.log(data);
+                //$.ajax({
+                //    url: '/Pessoas/Editar',
+                //    method: 'GET',
+                //    data: {
+                //        id: idPessoa
+                //    },
 
-            //    success: function (preencher) {
-            //        console.log(preencher);
-            var pessoa = JSON.parse(data);
-            console.log(pessoa);
-            $('#editar-pessoa-modal').modal('show');
-            $('#editar-pessoa-modal-campo-nome').val(pessoa.Nome);
-            $('#editar-pessoa-modal-campo-nascimento').val(pessoa.Nascimento);
-            if (pessoa.Sexo == 'M') {
-                $('#editar-pessoa-modal-campo-sexo-feminino').attr('checked', 'checked');
-            } else {
-                $('#editar-pessoa-modal-campo-sexo-masculino').attr('checked', 'checked');
+                //    success: function (preencher) {
+                //        console.log(preencher);
+                var pessoa = JSON.parse(data);
+                console.log(pessoa);
+
+                $('#editar-pessoa-modal').modal('show');
+                $('#editar-pessoa-modal-campo-nome').val(pessoa.Nome);
+                $('[name=nascimento]').val(pessoa.Nascimento);
+                if (pessoa.Sexo == 'M') {
+                    $('#editar-pessoa-modal-campo-sexo-masculino').attr('checked', 'checked');
+                } else {
+                    $('#editar-pessoa-modal-campo-sexo-feminino').attr('checked', 'checked');
+                }
+                $('#editar-pessoa-modal-campo-cpf').val(pessoa.CPF);
+                $('#editar-pessoa-modal-campo-telefone').val(pessoa.Telefone);
+                $('#editar-pessoa-modal-campo-cep').val(pessoa.Cep);
             }
-            $('#editar-pessoa-modal-campo-cpf').val(pessoa.CPF);
-            $('#editar-pessoa-modal-campo-telefone').val(pessoa.Telefone);
-            $('#editar-pessoa-modal-campo-cep').val(pessoa.Cep);
-        }
-        // });
-        // }
+            // });
+            // }
+        });
     });
-    //});
 
 
     $('body').on('click', '#salvar-editar-pessoas-modal', function () {
+
         $.ajax({
             url: '/Pessoas/Update',
-            method: 'post',
+            method: 'POST',
             data: {
                 nome: $('#editar-pessoa-modal-campo-nome').val(),
                 nascimento: $('#editar-pessoa-modal-campo-nascimento').val(),
-                sexo: $('#campo-sexo').val(),
+                sexo: $('input[name="sexo-masculino"]:checked').val(),
                 cpf: $('#editar-pessoa-modal-campo-cpf').val(),
                 telefone: $('#editar-pessoa-modal-campo-telefone').val(),
                 cep: $('#editar-pessoa-modal-campo-cep').val()

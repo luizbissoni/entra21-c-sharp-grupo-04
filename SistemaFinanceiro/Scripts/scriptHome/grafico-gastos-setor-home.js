@@ -1,14 +1,14 @@
-﻿$(function () {
+﻿//$(function () {
 
-    var graficoSetor = document.getElementById('chartSetor');
+//    var graficoSetor = document.getElementById('chartSetor');
 
-    var chartGraphSetor = new chart(graficoSetor, {
-        type: 'radar',
-        data: {
+//    var chartGraphSetor = new chart(graficoSetor, {
+//        type: 'radar',
+//        data: {
 
-        },
+//        },
 
-    });
+//    });
 
 
-});
+//});

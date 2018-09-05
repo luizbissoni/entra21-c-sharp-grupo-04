@@ -302,7 +302,8 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="active">
-                                            @Html.ActionLink("Gastos", "Cadastro", "Gasto")
+                                            <a href="#" class="recebimento-pessoa" data-target="#modal-recebimento-pessoa" data-toggle="modal">Recebimento TESTE</a>
+                                            @*@Html.ActionLink("Gastos", "Cadastro", "Gasto")*@
                                         </li>
                                         <li class="active">
                                             @Html.ActionLink("Cartão", "Cadastro", "Cartao")
@@ -404,6 +405,7 @@
 
 
     <!-- Required Jquery -->
+
     <script type="text/javascript" src="~/Content/bower_components/jquery/js/jquery.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/popper.js/js/popper.min.js"></script>
@@ -431,6 +433,7 @@
     <script type="text/javascript" src="~/Content/assets/js/script.min.js"></script>
     @*<script type="text/javascript" src="~/Content/assets/pages/dashboard/custom-dashboard.min.js"></script>*@
     @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
+    @Html.Partial("~/Views/Pessoas/CadastroRecebimentoModal.cshtml")
     <script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
     <script src="~/Scripts/ScriptPessoaCadastro/delete-person-modal.js"></script>
 
