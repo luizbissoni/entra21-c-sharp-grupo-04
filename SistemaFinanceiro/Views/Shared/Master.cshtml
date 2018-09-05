@@ -443,28 +443,33 @@
     <script type="text/javascript" src="~/Content/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/popper.js/js/popper.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/bootstrap/js/bootstrap.min.js"></script>
+
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="~/Content/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
+
     <!-- modernizr js -->
     <script type="text/javascript" src="~/Content/bower_components/modernizr/js/modernizr.js"></script>
+
+    <!-- data-table js -->
+    <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/jszip.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/pdfmake.min.js"></script>
+    <script src="~/Content/assets/pages/data-table/js/vfs_fonts.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
     <!-- am chart -->
     <script src="~/Content/assets/pages/widget/amchart/amcharts.min.js"></script>
     <script src="~/Content/assets/pages/widget/amchart/serial.min.js"></script>
+
     <!-- Chart js -->
     <script type="text/javascript" src="~/Content/bower_components/chart.js/js/Chart.js"></script>
-    <!-- Todo js -->
-    <script type="text/javascript" src="~/Content/assets/pages/todo/todo.js "></script>
-    <!-- i18next.min.js -->
-    <script type="text/javascript" src="~/Content/bower_components/i18next/js/i18next.min.js"></script>
-    <script type="text/javascript" src="~/Content/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
-    <script type="text/javascript" src="~/Content/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
-    <!-- Custom js -->
-    <script type="text/javascript" src="~/Content/assets/js/SmoothScroll.js"></script>
-    <script src="~/Content/assets/js/pcoded.min.js"></script>
-    <script src="~/Content/assets/js/demo-12.js"></script>
-    <script src="~/Content/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script type="text/javascript" src="~/Content/assets/js/script.min.js"></script>
-    @*<script type="text/javascript" src="~/Content/assets/pages/dashboard/custom-dashboard.min.js"></script>*@
+
+   
     <script src="~/Content/assets/js/pcoded.min.js"></script>
 
     @Html.Partial("~/Views/Pessoas/CadastroCartaoModal.cshtml")
@@ -480,6 +485,7 @@
     <script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
     <script src="~/Scripts/ScriptPessoaCadastro/add-recebimento.js"></script>
     <script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
+
     @RenderSection("script", false)
 </body>
 

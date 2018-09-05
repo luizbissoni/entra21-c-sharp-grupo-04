@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+﻿$(function () {
     
     $('#tabela-cartao-home').DataTable({
         serverSide: true,
@@ -8,8 +8,8 @@
        
             { data: "Id" },
             { data: "IdPessoas"},
-            { data: "Numero" },
             { data: "Conta" },
+            { data: "Numero" },
             { data: "Bandeira"},
             { data: "Banco"}
         ]

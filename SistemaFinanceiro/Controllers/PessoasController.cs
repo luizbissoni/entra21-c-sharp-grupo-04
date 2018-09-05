@@ -108,19 +108,19 @@ namespace SistemaFinanceiro.Controllers
         [HttpPost]
         public ActionResult CadastroRecebimento(Recebimento recebimento)
         {
-            //int id = Convert.ToInt32(Session["user"].ToString());
+            int id = Convert.ToInt32(Session["user"].ToString());
 
-            //Recebimento addRecebimento = new Recebimento()
-            //{
-            //    IdCategoria = recebimento.IdCategoria,
-            //    IdPessoas = Convert.ToInt32(Session["user"].ToString()),
-            //    Data = recebimento.Data,
-            //    Valor = recebimento.Valor
-            //};
+            Recebimento addRecebimento = new Recebimento()
+            {
+                IdCategoria = recebimento.IdCategoria,
+                IdPessoas = Convert.ToInt32(Session["user"].ToString()),
+                Data = recebimento.Data,
+                Valor = recebimento.Valor
+            };
 
-            int deuCerto = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
+            //int deuCerto = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
 
-            return Content(JsonConvert.SerializeObject(new { data = deuCerto }));
+            return Content(JsonConvert.SerializeObject(new {addRecebimento }));
         }
 
 

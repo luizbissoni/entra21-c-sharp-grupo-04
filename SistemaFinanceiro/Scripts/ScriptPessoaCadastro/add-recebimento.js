@@ -35,7 +35,7 @@
             method: 'POST',
             data: {
 
-                data: $('#campo-recebimento-data').val(),
+                data: $('[name=campo-data-recebimento]').val(),
                 valor: $('#campo-recebimento-valor').val(),
                 idCategoria: $('.descricao-recebimento').val(),
                 idPessoas: getSessionValue()
