@@ -37,7 +37,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Login> logins = new List<Login>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT Id, id_pessoas, usuario, senha, email FROM login";
+            comando.CommandText = "SELECT * FROM login";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -45,11 +45,11 @@ namespace SistemaFinanceiro.Repositório
             {
                 Login login = new Login()
                 {
-                    Id = Convert.ToInt32(linha["Id"].ToString()),
-                    IdPessoas = Convert.ToInt32(linha["id_pessoas"].ToString()),
+                    Id = Convert.ToInt32(linha["id"].ToString()),
+                   IdPessoas = Convert.ToInt32(linha["id_pessoas"].ToString()),
                     Usuario = linha["usuario"].ToString(),
                     Senha = linha["senha"].ToString(),
-                    Email = linha["email"].ToString(),
+                    Email = linha["email"].ToString()
 
 
                 };
@@ -62,7 +62,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Login login = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT usuario, senha, email FROM login  WHERE id = @ID";
+            comando.CommandText = "SELECT usuario, senha,id_pessoas, email FROM login  WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -70,9 +70,10 @@ namespace SistemaFinanceiro.Repositório
             {
                 login = new Login();
                 login.Id = id;
-                login.Usuario = tabela.Rows[0][0].ToString();
-                login.Senha = tabela.Rows[0][1].ToString();
-                login.Email = tabela.Rows[0][2].ToString();
+                login.IdPessoas = Convert.ToInt32(tabela.Rows[0]["id_pessoas"].ToString());
+                login.Usuario = tabela.Rows[0]["usuario"].ToString();
+                login.Senha = tabela.Rows[0]["senha"].ToString();
+                login.Email = tabela.Rows[0]["email"].ToString();
 
             }
 
@@ -91,24 +92,8 @@ namespace SistemaFinanceiro.Repositório
             return comando.ExecuteNonQuery() == 1;
         }
 
-        public Login ValidarLogin(string usuario, string senha)
-        {
-            Login login = null;
-            SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT usuario, senha FROM login  WHERE usuario = @USUARIO AND senha = @SENHA";
-            comando.Parameters.AddWithValue("@USUARIO", usuario);
-            comando.Parameters.AddWithValue("@SENHA", senha);
+      
 
-            DataTable tabela = new DataTable();
-            tabela.Load(comando.ExecuteReader());
-            if (tabela.Rows.Count == 1)
-            {
-                login = new Login();
-                login.Usuario = tabela.Rows[0][0].ToString();
-                login.Senha = tabela.Rows[0][1].ToString();
 
-            }
-            return login;
-        }
     }
 }

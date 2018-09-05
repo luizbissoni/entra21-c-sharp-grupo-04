@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SistemaFinanceiro.Models;
+using SistemaFinanceiro.Repositório;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,15 @@ namespace SistemaFinanceiro.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            if (Session["user"].ToString() != null)
+            {
+                List<Pessoas> pessoas = new RepositorioPessoas().ObterTodosPessoas();
+                ViewBag.Pessoa = pessoas;
+            }
+          
+            return RedirectToAction("Login", "Index");
+
         }
+
     }
 }

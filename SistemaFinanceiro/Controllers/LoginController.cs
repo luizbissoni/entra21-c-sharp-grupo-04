@@ -63,24 +63,50 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-        public ActionResult GetLoginJson(string usuario, string senha)
+        public ActionResult GetLoginJson(string usuario, string senha, Pessoas pessoa)
         {
-
             List<Login> login = new RepositorioLogin().ObterTodosLogin();
-            //Login login = new RepositorioLogin().ObterTodosLogin();
 
             foreach (Login logins in login)
             {
                 if (logins.Usuario == usuario && logins.Senha == senha)
                 {
-                    return Content(JsonConvert.SerializeObject(new { user = usuario, pass = senha, data = logins}));
+                    Session["user"] = logins.IdPessoas;
+
+                   return Content(JsonConvert.SerializeObject(new { user = usuario, pass = senha, data = logins }));
                 }
             }
 
             return View();
         }
 
+        [HttpGet]
+        public ActionResult GetIdPessoas(int id)
+        {
+            Pessoas pessoa = new RepositorioPessoas().ObterPeloIdPessoas(id);
+
+            return Content(JsonConvert.SerializeObject(pessoa));
+        }
+
+
+        //public ActionResult LoginAceito()
+        //{
+        //    if (Session["user"].ToString() == null)
+        //    {
+        //        return RedirectToAction("MainPage", "Home", new { loginPessoa = Session["user"].ToString() });
+        //    }
+        //    return View();
+        //}
+
 
 
     }
 }
+//var loginUser = login.SingleOrDefault(x => x.Usuario == usuario && x.Senha == senha);
+
+//if (loginUser != null)
+//{
+//    Session["user"] = pessoa.Nome;
+
+//    return RedirectToAction("LoginAceito", "Login", new { userLogin = Session["user"].ToString() });
+//}

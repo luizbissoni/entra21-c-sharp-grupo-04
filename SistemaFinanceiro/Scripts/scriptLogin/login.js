@@ -7,21 +7,28 @@ $(document).ready(function () {
             url: "/Login/GetLoginJson",
             type: "POST",
             data: {
-
                 "usuario": $("#campo-usuario").val(),
                 "senha": $("#campo-senha").val()
             },
             success: function (result) {
                 alert("OK!");
-
-                console.log(result);
-
-                //if (result.IdPessoas != null) {
-                //    console.log(result);
-                //}
-                //$('#nome-user-login').text(result.user);
-                //$(window.document.location).attr('href', home);
-                ////ndow.location = 
+                var data = JSON.parse(result);
+                //console.log(data.data.Id);
+                if (result != null) {
+                    $.ajax({
+                        url: '/Login/GetIdPessoas',
+                        method: 'GET',
+                        data: {
+                            id: data.data.Id
+                        },
+                        success: function (usuario) {
+                            var data = JSON.parse(usuario);
+                           // console.log(data);
+                            $(window.document.location).attr('href', home);
+                          
+                        }
+                    });
+                }
             },
             error: function () {
                 console.log(result);
