@@ -302,11 +302,10 @@
                                     </a>
                                     <ul class="pcoded-submenu">
                                         <li class="active">
-                                            <a href="#" class="recebimento-pessoa" data-target="#modal-recebimento-pessoa" data-toggle="modal">Recebimento TESTE</a>
-                                            @*@Html.ActionLink("Gastos", "Cadastro", "Gasto")*@
+                                            <a href="#" class="recebimento-pessoa" data-target="#modal-recebimento-pessoa" data-toggle="modal">Recebimento CADASTRAR POR AQUI</a>
                                         </li>
                                         <li class="active">
-                                            @Html.ActionLink("Cartão", "Cadastro", "Cartao")
+                                            <a href="#" class="cartao-pessoa" data-target="#cadastrar-cartoes-pessoa" data-toggle="modal">Cartão TESTE</a>
                                         </li>
                                         <li class="active">
                                             @Html.ActionLink("Recebimento", "Cadastro", "Recebimento")
@@ -432,10 +431,14 @@
     <script src="~/Content/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/script.min.js"></script>
     @*<script type="text/javascript" src="~/Content/assets/pages/dashboard/custom-dashboard.min.js"></script>*@
+
+    @Html.Partial("~/Views/Pessoas/CadastroCartaoModal.cshtml")
     @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
     @Html.Partial("~/Views/Pessoas/CadastroRecebimentoModal.cshtml")
+
     <script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
     <script src="~/Scripts/ScriptPessoaCadastro/delete-person-modal.js"></script>
+    <script src="~/Scripts/ScriptPessoaCadastro/cartao.js"></script>
 
     <script src="~/Scripts/ScriptPessoaCadastro/creat-person-modal.js"></script>
     <script src="~/Scripts/scriptPerfilUsuario/usuario-perfil.js"></script>

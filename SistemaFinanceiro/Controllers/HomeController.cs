@@ -17,15 +17,20 @@ namespace SistemaFinanceiro.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            if (Session["user"].ToString() != null)
+            try
             {
-                List<Pessoas> pessoas = new RepositorioPessoas().ObterTodosPessoas();
-                ViewBag.Pessoa = pessoas;
-
-                return View();
+                if (Session["user"].ToString() != null)
+                {
+                    List<Pessoas> pessoas = new RepositorioPessoas().ObterTodosPessoas();
+                    ViewBag.Pessoa = pessoas;
+                }
             }
-          
-            return RedirectToAction("Login", "Index");
+            catch (Exception)
+            {
+                return RedirectToAction("Login", "Index");
+            }
+
+            return View();
 
         }
 
@@ -42,17 +47,8 @@ namespace SistemaFinanceiro.Controllers
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
 
-            return Content(JsonConvert.SerializeObject(new {tabela}));
-            //if (tabela.Rows.Count == 1)
-            //{
-            //    recebimento = new Recebimento();
-            //    recebimento.Id = id;
-            //    recebimento.Valor = Convert.ToDouble(tabela.Rows[0][0].ToString());
-            //    recebimento.Data = Convert.ToDateTime(tabela.Rows[0][1].ToString());
+            return Content(JsonConvert.SerializeObject(new { tabela }));
 
-            //}
-
-          // return null;
         }
 
     }
