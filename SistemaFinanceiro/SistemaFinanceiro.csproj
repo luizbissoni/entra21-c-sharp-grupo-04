@@ -5513,6 +5513,7 @@
     <Content Include="Scripts\scriptHome\grafico-gastos-setor-home.js" />
     <Content Include="Scripts\scriptLogin\login.js" />
     <Content Include="Scripts\scriptPerfilUsuario\usuario-perfil.js" />
+    <Content Include="Scripts\ScriptPessoaCadastro\add-gastos.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\add-recebimento.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\cartao.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\creat-person-modal.js" />
@@ -5579,6 +5580,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\CadastroModalConta.cshtml" />
     <Content Include="Views\Pessoas\CadastroCartaoModal.cshtml" />
+    <Content Include="Views\Pessoas\CadastroGastosModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

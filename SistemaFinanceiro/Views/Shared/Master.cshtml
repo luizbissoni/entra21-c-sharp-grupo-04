@@ -311,7 +311,7 @@
                                                     <a href="#" class="cartao-pessoa" data-target="#cadastrar-cartoes-pessoa" data-toggle="modal">Cartão CADASTRAR POR AQUI</a>
                                                 </li>
                                                 <li class="active">
-                                                    @Html.ActionLink("Recebimento", "Cadastro", "Recebimento")
+                                                    <a href="#" class="gastos-pessoa" data-target="#cadastrar-gastos-pessoa" data-toggle="modal">Gastos TESTE</a>
                                                 </li>
                                                 <li class="active">
                                                     @Html.ActionLink("Categoria", "Cadastro", "Categoria")
@@ -445,6 +445,7 @@
     @Html.Partial("~/Views/Pessoas/CadastroCartaoModal.cshtml")
     @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
     @Html.Partial("~/Views/Pessoas/CadastroRecebimentoModal.cshtml")
+    @Html.Partial("~/Views/Pessoas/CadastroGastosModal.cshtml")
 
     <script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
     <script src="~/Scripts/ScriptPessoaCadastro/delete-person-modal.js"></script>
@@ -455,7 +456,8 @@
     <script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
     <script src="~/Scripts/ScriptPessoaCadastro/add-recebimento.js"></script>
     <script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
-
+    <script src="~/Scripts/scriptGastos/tabelaindex.js"></script>
+    <script src="~/Scripts/ScriptPessoaCadastro/add-gastos.js"></script>
     @RenderSection("script", false)
 </body>
 

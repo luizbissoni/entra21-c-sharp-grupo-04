@@ -123,6 +123,23 @@ namespace SistemaFinanceiro.Controllers
             return Content(JsonConvert.SerializeObject(new {addRecebimento }));
         }
 
+        [HttpPost]
+        public ActionResult CadastroGastosModalPessoas(Gastos gasto)
+        {
+            //int id = Convert.ToInt32(Session["user"].ToString());
+            //Cartoes cartoes = new Cartoes()
+            //{
+            //    IdPessoas = id,
+            //    Banco = cartao.Banco,
+            //    Bandeira = cartao.Bandeira,
+            //    Conta = cartao.Conta,
+            //    Numero = cartao.Numero
+            //};
+
+            //int deuCerto = new RepositorioCartoes().CadastrarCartao(cartoes);
+
+           // return Content(JsonConvert.SerializeObject(new { data = deuCerto }));
+        }
 
 
 

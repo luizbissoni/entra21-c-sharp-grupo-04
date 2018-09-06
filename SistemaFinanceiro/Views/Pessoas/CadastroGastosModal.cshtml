@@ -1,9 +1,8 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    int pessoa = Convert.ToInt32(Session["user"]);
 }
 
-<div class="modal fade" id="cadastrar-gastos-modal">
+<div class="modal fade" id="cadastrar-gastos-pessoa">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header">
@@ -13,7 +12,7 @@
                 <h5>Cadastrar Gastos</h5>
             </div>
             <div class="modal-body">
-
+                <input type="hidden" value="@pessoa" id="id-pessoa-gastos" />
 
                 <div class="form-group">
                     <label class="col-10" for="campo-valor">Valor do Gasto <h11></h11></label>
@@ -40,17 +39,19 @@
                 </div>
 
 
-                <div class="form-group">
-                    <label class="col-10" for="campo-descricao">Descrição <h11></h11></label>
-                    <div class="col-md-10">
-                        <input id="campo-descricao" name="campo-descricao" placeholder="" class="form-control input-md col-sm-12" required="" type="text">
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label class="col-md-1 control-label" for="campo-descricao-gastos">Descrição<h11>*</h11></label>
+                        <div class="col-md-5">
+                            <select id="campo-descricao-gastos" class="form-control  descricao-gastos" name="descricao"></select>
+                        </div>
                     </div>
                 </div>
 
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelar-cadastro-pessoa">Cancelar</button>
-                    <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cadastro-gasto">
+                    <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-gastos-pessoa">
                 </div>
             </div>
         </div>

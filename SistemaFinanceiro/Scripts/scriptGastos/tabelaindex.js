@@ -1,16 +1,18 @@
 ﻿$(document).ready(function () {
 
-    $('#tabela-gastos').DataTable({
+    $('#tabela-gastos-home').DataTable({
         serverSide: true,
         "bProcessing": true,
         "ajax": "/Gasto/ObterTodosJson",
         columns: [
 
             { data: "Id" },
-            { data: "ValorGastos" },
-            { data: "DataEntrada" },
-            { data: "DataVencimento" },
-            { data: "Descricao" },
+            { data: "IdCartao" },
+            {data: "IdCategoria"},
+            { data: "Valor" },
+            { data: "Entrada" },
+            { data: "Vencimento" },
+            { data: "Descricao" }
 
         ]
     });
