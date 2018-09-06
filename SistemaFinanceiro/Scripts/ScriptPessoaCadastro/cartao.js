@@ -22,7 +22,7 @@
                 banco: $('#campo-banco').val()
             },
             success: function () {
-                $('#cadastrar-cartao-pessoa').modal('hide');
+                $('#cadastrar-cartoes-pessoa').modal('hide');
                 new PNotify({
                     //title: 'Salvo com sucesso!',
                     text: 'Cartão cadastrado.',

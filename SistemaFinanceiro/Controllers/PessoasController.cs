@@ -83,6 +83,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult CadastroCartaoModalPessoas(Cartoes cartao)
         {
             int id = Convert.ToInt32(Session["user"].ToString());
+
             Cartoes cartoes = new Cartoes()
             {
                 IdPessoas = id,
@@ -92,7 +93,7 @@ namespace SistemaFinanceiro.Controllers
                 Numero = cartao.Numero
             };
 
-            int deuCerto = new RepositorioCartoes().CadastrarCartao(cartao);
+           int deuCerto = new RepositorioCartoes().CadastrarCartao(cartoes);
 
             return Content(JsonConvert.SerializeObject(new { data = deuCerto }));
         }
