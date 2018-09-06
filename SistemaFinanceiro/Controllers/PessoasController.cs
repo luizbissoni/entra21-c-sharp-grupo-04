@@ -92,7 +92,7 @@ namespace SistemaFinanceiro.Controllers
                 Numero = cartao.Numero
             };
 
-            int deuCerto = new RepositorioCartoes().CadastrarCartao(cartoes);
+            int deuCerto = new RepositorioCartoes().CadastrarCartao(cartao);
 
             return Content(JsonConvert.SerializeObject(new { data = deuCerto }));
         }
@@ -110,17 +110,17 @@ namespace SistemaFinanceiro.Controllers
         {
             int id = Convert.ToInt32(Session["user"].ToString());
 
-            Recebimento addRecebimento = new Recebimento()
-            {
-                IdCategoria = recebimento.IdCategoria,
-                IdPessoas = Convert.ToInt32(Session["user"].ToString()),
-                Data = recebimento.Data,
-                Valor = recebimento.Valor
-            };
+            //Recebimento addRecebimento = new Recebimento()
+            //{
+            //    IdCategoria = recebimento.IdCategoria,
+            //    IdPessoas = Convert.ToInt32(Session["user"].ToString()),
+            //    Data = recebimento.Data,
+            //    Valor = recebimento.Valor
+            //};
 
-            //int deuCerto = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
+            int deuCerto = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
 
-            return Content(JsonConvert.SerializeObject(new {addRecebimento }));
+            return Content(JsonConvert.SerializeObject(new {recebimento }));
         }
 
         [HttpPost]

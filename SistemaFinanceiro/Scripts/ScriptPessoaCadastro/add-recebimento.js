@@ -33,10 +33,10 @@
             method: 'POST',
             data: {
 
-                data: $('[name=campo-data-recebimento]').val(),
-                valor: $('#campo-recebimento-valor').val(),
-                idCategoria: $('.descricao-recebimento').val(),
-                idPessoas: getSessionValue()
+                "data": $('[name=campo-data-recebimento]').val(),
+                "valor": $('#campo-recebimento-valor').val(),
+                "idCategoria": $('.descricao-recebimento').val(),
+                "idPessoas": getSessionValue()
             },
             success: function (data) {
                 //console.log(data);
