@@ -93,7 +93,7 @@ namespace SistemaFinanceiro.Controllers
                 Numero = cartao.Numero
             };
 
-           int deuCerto = new RepositorioCartoes().CadastrarCartao(cartoes);
+            int deuCerto = new RepositorioCartoes().CadastrarCartao(cartoes);
 
             return Content(JsonConvert.SerializeObject(new { data = deuCerto }));
         }
@@ -121,7 +121,7 @@ namespace SistemaFinanceiro.Controllers
 
             int deuCerto = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
 
-            return Content(JsonConvert.SerializeObject(new {recebimento }));
+            return Content(JsonConvert.SerializeObject(new { recebimento }));
         }
 
         [HttpPost]
@@ -137,9 +137,9 @@ namespace SistemaFinanceiro.Controllers
                 Entrada = gasto.Entrada
             };
 
-            //int deuCerto = new RepositorioCartoes().CadastrarCartao(gasto);
+            int deuCerto = new RepositorioGastos().CadastrarGastos(addGastos);
 
-            return Content(JsonConvert.SerializeObject(new {addGastos}));
+            return Content(JsonConvert.SerializeObject(new { addGastos }));
         }
 
 

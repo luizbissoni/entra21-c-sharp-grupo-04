@@ -2904,8 +2904,6 @@
     <Content Include="Content\assets\pages\ckeditor\plugins\embedbase\lang\zh-cn.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\embedbase\lang\zh.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\embedbase\plugin.js" />
-    <Content Include="Content\assets\pages\ckeditor\plugins\embedsemantic\icons\embedsemantic.png" />
-    <Content Include="Content\assets\pages\ckeditor\plugins\embedsemantic\icons\hidpi\embedsemantic.png" />
     <Content Include="Content\assets\pages\ckeditor\plugins\embedsemantic\plugin.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\filetools\dev\uploaddebugger.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\filetools\lang\ca.js" />
@@ -3083,8 +3081,11 @@
     <Content Include="Content\assets\pages\ckeditor\plugins\pagebreak\images\pagebreak.gif" />
     <Content Include="Content\assets\pages\ckeditor\plugins\pastefromword\filter\default.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\preview\preview.html" />
+    <Content Include="Content\assets\pages\ckeditor\plugins\scayt\CHANGELOG.md" />
     <Content Include="Content\assets\pages\ckeditor\plugins\scayt\dialogs\options.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="Content\assets\pages\ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="Content\assets\pages\ckeditor\plugins\scayt\README.md" />
     <Content Include="Content\assets\pages\ckeditor\plugins\scayt\skins\moono-lisa\scayt.css" />
     <Content Include="Content\assets\pages\ckeditor\plugins\showblocks\images\block_address.png" />
     <Content Include="Content\assets\pages\ckeditor\plugins\showblocks\images\block_blockquote.png" />
@@ -3312,6 +3313,8 @@
     <Content Include="Content\assets\pages\ckeditor\plugins\wsc\dialogs\wsc.css" />
     <Content Include="Content\assets\pages\ckeditor\plugins\wsc\dialogs\wsc.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="Content\assets\pages\ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="Content\assets\pages\ckeditor\plugins\wsc\README.md" />
     <Content Include="Content\assets\pages\ckeditor\plugins\wsc\skins\moono-lisa\wsc.css" />
     <Content Include="Content\assets\pages\ckeditor\skins\moono-lisa\dialog.css" />
     <Content Include="Content\assets\pages\ckeditor\skins\moono-lisa\dialog_ie.css" />
@@ -3334,6 +3337,7 @@
     <Content Include="Content\assets\pages\ckeditor\skins\moono-lisa\images\lock.png" />
     <Content Include="Content\assets\pages\ckeditor\skins\moono-lisa\images\refresh.png" />
     <Content Include="Content\assets\pages\ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <Content Include="Content\assets\pages\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Content\assets\pages\ckeditor\styles.js" />
     <Content Include="Content\assets\pages\clndr-calendar\css\clndr.css" />
     <Content Include="Content\assets\pages\clndr-calendar\js\clndr-custom.js" />
@@ -5257,12 +5261,6 @@
     <Content Include="Content\assets\locales\pt\translation.json" />
     <Content Include="Content\assets\pages\ace-editor\build\aui-form-builder\assets\skins\sam\button.png.ol" />
     <Content Include="Content\assets\pages\advance-elements\cities.json" />
-    <Content Include="Content\assets\pages\ckeditor\plugins\scayt\CHANGELOG.md" />
-    <Content Include="Content\assets\pages\ckeditor\plugins\scayt\LICENSE.md" />
-    <Content Include="Content\assets\pages\ckeditor\plugins\scayt\README.md" />
-    <Content Include="Content\assets\pages\ckeditor\plugins\wsc\LICENSE.md" />
-    <Content Include="Content\assets\pages\ckeditor\plugins\wsc\README.md" />
-    <Content Include="Content\assets\pages\ckeditor\skins\moono-lisa\readme.md" />
     <Content Include="Content\assets\pages\dashboard\d3chart\js\bullets.json" />
     <Content Include="Content\assets\pages\filer\php\ajax_remove_file.php" />
     <Content Include="Content\assets\pages\filer\php\ajax_upload_file.php" />
@@ -5474,6 +5472,8 @@
     <Content Include="Content\bower_components\lightgallery\fonts\lg.eot" />
     <Content Include="Content\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\bower_components\lightgallery\fonts\lg.woff" />
+    <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-2.1.0-vsdoc.js" />
     <Content Include="Scripts\cadastro-usuario\cadastro-login.js" />
@@ -5577,6 +5577,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\assets\pages\ckeditor\plugins\embedsemantic\icons\hidpi\" />
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
   </ItemGroup>

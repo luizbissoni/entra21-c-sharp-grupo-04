@@ -68,10 +68,10 @@ INSERT INTO pessoas (nome, sexo, cpf, nascimento) VALUES
 INSERT INTO cartoes (id_pessoas, numero, conta, bandeira, banco) values((SELECT Id FROM pessoas WHERE pessoas.nome = 'João da Silva'), '123456', '123456', 'VISA', 'BRADESCO');
 
 
-INSERT INTO [login] (id_pessoas, usuario, senha, email) VALUES (1, 'admin', '123', 'admin@admin.com'),(null, 'nene','123','neneNanight@lele.com.br');
+INSERT INTO [login] (id_pessoas, usuario, senha, email) VALUES (1, 'admin', '123', 'admin@admin.com'),(2, 'nene','123','neneNanight@lele.com.br');
 
 SELECT * FROM pessoas;
 INSERT INTO categorias (nome) VALUES('aluguel'),('vestuario'),('alimento')
-update login set id_pessoas = 2 where login.id = 2
+--update login set id_pessoas = 2 where login.id = 2
 --SELECT pessoas.Id, pessoas.nome, login.id_pessoas, login.usuario, login.email FROM login INNER JOIN pessoas ON login.id_pessoas = pessoas.Id
 --update login set login.id_pessoas = 1 where login.usuario = 'admin';
