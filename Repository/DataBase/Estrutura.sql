@@ -72,5 +72,6 @@ INSERT INTO [login] (id_pessoas, usuario, senha, email) VALUES (1, 'admin', '123
 
 SELECT * FROM pessoas;
 INSERT INTO categorias (nome) VALUES('aluguel'),('vestuario'),('alimento')
+update login set id_pessoas = 2 where login.id = 2
 --SELECT pessoas.Id, pessoas.nome, login.id_pessoas, login.usuario, login.email FROM login INNER JOIN pessoas ON login.id_pessoas = pessoas.Id
 --update login set login.id_pessoas = 1 where login.usuario = 'admin';
