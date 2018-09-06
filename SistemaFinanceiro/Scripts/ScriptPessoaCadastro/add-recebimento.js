@@ -1,16 +1,11 @@
 ﻿$(function () {
-    $('.recebimento-pessoa').on('click', function () {
-        $('#modal-recebimento-pessoa').modal('show');
-    });
-    //var recebimento = SistemaFinanceiro.Models.Categoria;
-    carregarSelected('#campo-descricao');
 
     function getSessionValue() {
-
         return document.getElementById("id-pessoa").value;
     }
 
-    function carregarSelected(id) {
+    $('.recebimento-pessoa').on('click', function () {
+        $('#modal-recebimento-pessoa').modal('show');
 
         var categoriaOptions;
 
@@ -20,14 +15,17 @@
             success: function (dara) {
                 var data = JSON.parse(dara);
                 for (var i = 0; i < data.data.length; i++) {
-                   // console.log(data.data[i].Id);
+                    // console.log(data.data[i].Id);
                     categoriaOptions += '<option id="valor-campo-descricao" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
                 }
                 $('#campo-descricao').html(categoriaOptions);
             }
         });
 
-    };
+
+
+
+    });
 
     $('#cadastrar-recebimento').on('click', function () {
         $.ajax({
@@ -51,6 +49,18 @@
                 });
             }
         });
+    //var recebimento = SistemaFinanceiro.Models.Categoria;
+    //carregarSelected('.descricao-recebimento');
+
+    
+
+    //function carregarSelected(id) {
+
+       
+
+    //};
+
+   
 
     });
 

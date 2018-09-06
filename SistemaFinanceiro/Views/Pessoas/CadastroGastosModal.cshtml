@@ -1,5 +1,9 @@
-﻿@{
+﻿@model SistemaFinanceiro.Models.Cartoes
+
+@{
     int pessoa = Convert.ToInt32(Session["user"]);
+
+    List<SistemaFinanceiro.Models.Cartoes> allCard = new List<SistemaFinanceiro.Models.Cartoes>();
 }
 
 <div class="modal fade" id="cadastrar-gastos-pessoa">
@@ -13,6 +17,23 @@
             </div>
             <div class="modal-body">
                 <input type="hidden" value="@pessoa" id="id-pessoa-gastos" />
+
+                
+                    <div class="form-group">
+                        <label class="col-md-5 control-label" for="cartao-pessoa">Cartão<h11>*</h11></label>
+                        <div class="col-md-10">
+                            <select id="campo-numero-cartao" class="form-control" name="cartao-pessoa">
+                                <option selected="selected" value="" disabled=""></option>
+                            </select>
+                                @*@foreach (SistemaFinanceiro.Models.Cartoes cartao in allCard)
+                                {
+                                    <option value="@cartao.Id">@cartao.Conta : @cartao.Banco</option>
+                                }*@
+
+                           
+                        </div>
+                    </div>
+               
 
                 <div class="form-group">
                     <label class="col-10" for="campo-valor">Valor do Gasto <h11></h11></label>
@@ -39,14 +60,17 @@
                 </div>
 
 
-                <div class="col-md-5">
+                
                     <div class="form-group">
-                        <label class="col-md-1 control-label" for="campo-descricao-gastos">Descrição<h11>*</h11></label>
-                        <div class="col-md-5">
-                            <select id="campo-descricao-gastos" class="form-control  descricao-gastos" name="descricao"></select>
+                        <label class="col-md-1 control-label" for="descricao-gastos">Categoria<h11>*</h11></label>
+                        <div class="col-md-8">
+                            <select id="campo-descricao-gastos" class="form-control  descricao-gastos" name="descricao-gastos">
+                                <option selected="selected" disabled="disabled"></option>
+                            </select>
+                            
                         </div>
                     </div>
-                </div>
+             
 
 
                 <div class="modal-footer">

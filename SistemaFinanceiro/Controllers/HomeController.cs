@@ -27,7 +27,7 @@ namespace SistemaFinanceiro.Controllers
             }
             catch (Exception)
             {
-                return RedirectToAction("Login", "Index");
+                return RedirectToAction("Index", "Login");
             }
 
             return View();

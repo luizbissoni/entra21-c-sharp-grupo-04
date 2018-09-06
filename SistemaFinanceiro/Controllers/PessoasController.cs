@@ -126,19 +126,19 @@ namespace SistemaFinanceiro.Controllers
         [HttpPost]
         public ActionResult CadastroGastosModalPessoas(Gastos gasto)
         {
-            //int id = Convert.ToInt32(Session["user"].ToString());
-            //Cartoes cartoes = new Cartoes()
-            //{
-            //    IdPessoas = id,
-            //    Banco = cartao.Banco,
-            //    Bandeira = cartao.Bandeira,
-            //    Conta = cartao.Conta,
-            //    Numero = cartao.Numero
-            //};
+            int id = Convert.ToInt32(Session["user"].ToString());
+            Gastos addGastos = new Gastos()
+            {
+                IdCartao = gasto.IdCartao,
+                IdCategoria = gasto.IdCategoria,
+                Valor = gasto.Valor,
+                Vencimento = gasto.Vencimento,
+                Entrada = gasto.Entrada
+            };
 
-            //int deuCerto = new RepositorioCartoes().CadastrarCartao(cartoes);
+            //int deuCerto = new RepositorioCartoes().CadastrarCartao(gasto);
 
-           // return Content(JsonConvert.SerializeObject(new { data = deuCerto }));
+            return Content(JsonConvert.SerializeObject(new {addGastos}));
         }
 
 
