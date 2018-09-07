@@ -71,7 +71,8 @@ INSERT INTO cartoes (id_pessoas, numero, conta, bandeira, banco) values((SELECT 
 INSERT INTO [login] (id_pessoas, usuario, senha, email) VALUES (1, 'admin', '123', 'admin@admin.com'),(2, 'nene','123','neneNanight@lele.com.br');
 
 SELECT * FROM pessoas;
-INSERT INTO categorias (nome) VALUES('aluguel'),('vestuario'),('alimento')
+INSERT INTO categorias(nome) VALUES ('Condomínio'),('Salário'),('IPTU'),('Celular'),('TV Cabo'),('Cartão de Crédito'),('Luz'),('Gás'),('IPVA'),('Seguro carro'),('Energia'),('Aluguel'),('Vestuário'),('Alimento')
+--INSERT INTO categorias (nome) VALUES('aluguel'),('vestuario'),('alimento')
 --update login set id_pessoas = 2 where login.id = 2
 --SELECT pessoas.Id, pessoas.nome, login.id_pessoas, login.usuario, login.email FROM login INNER JOIN pessoas ON login.id_pessoas = pessoas.Id
 --update login set login.id_pessoas = 1 where login.usuario = 'admin';

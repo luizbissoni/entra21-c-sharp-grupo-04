@@ -67,7 +67,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult ObterTodosCategoriaJson()
         {
             List<Categoria> categoria = new RepositorioCategoria().ObterTodosCategoria();
-            return Content(JsonConvert.SerializeObject(new { data = categoria }));
+            return Content(JsonConvert.SerializeObject(new {data = categoria }));
         }
 
         [HttpPost]

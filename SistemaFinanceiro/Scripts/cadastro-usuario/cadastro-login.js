@@ -77,7 +77,42 @@
     });
 
     $(".submit").on('click', function () {
-        return false;
+        var home = '/Home';
+        $.ajax({
+            url: "/Login/Store",
+            type: "POST",
+            data: {
+                usuario: $('input[name=username]').val(),
+                senha: $('input[name=pass]').val(),
+                email: $('input[name=email]').val(),
+
+
+            },
+            success: function (result) {
+                //alert("OK!");
+                var data = JSON.parse(result);
+                // console.log(data.data.Id);
+                if (result != null) {
+                    $.ajax({
+                        url: '/Login/GetIdPessoas',
+                        method: 'GET',
+                        data: {
+                            id: data.data.Id
+                        },
+                        success: function (usuario) {
+                            var data = JSON.parse(usuario);
+                            // console.log(data);
+                            $(window.document.location).attr('href', home);
+
+                        }
+                    });
+                }
+            },
+            error: function () {
+                console.log(result);
+                alert("Error!")
+            }
+        });
     })
 
     $('.close').on('click', function () {

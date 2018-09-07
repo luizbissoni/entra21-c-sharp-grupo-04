@@ -1,7 +1,6 @@
 ﻿
 $(document).ready(function () {
     var home = '/Home';
-
     $("#botao-login").click(function () {
         $.ajax({
             url: "/Login/GetLoginJson",
@@ -36,6 +35,10 @@ $(document).ready(function () {
             }
         });
     });
+
+
+
+
 });
 
 

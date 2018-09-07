@@ -17,7 +17,7 @@
             success: function (dara) {
                 var data = JSON.parse(dara);
                 for (var i = 0; i < data.data.length; i++) {
-                    // console.log(data.data[i].Id);
+                     console.log(data.data[i].Id);
                     categoriaOptions += '<option id="valor-campo-descricao-gastos" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
                 }
                 $('#campo-descricao-gastos').html(categoriaOptions);

@@ -1,4 +1,4 @@
-﻿$(function () {
+﻿$(document).ready(function () {
 
     var labels = [], data = [];
 
@@ -9,7 +9,7 @@
             var resultado = JSON.parse(pesquisa);
 
             $.each(resultado.tabela, function (i) {
-                console.log(resultado.tabela[i]);
+                //console.log(resultado.tabela[i]);
                 labels.push(resultado.tabela[i].MES);
                 data.push(parseFloat(resultado.tabela[i].VALOR));
             });
@@ -35,7 +35,5 @@
 
         }
     });
-
-
 
 });

@@ -8,7 +8,7 @@
 
             { data: "Id" },
             { data: "IdCartao" },
-            {data: "IdCategoria"},
+            { data: "IdCategoria"},
             { data: "Valor" },
             { data: "Entrada" },
             { data: "Vencimento" },

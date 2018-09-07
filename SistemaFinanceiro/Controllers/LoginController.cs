@@ -27,17 +27,21 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-        public ActionResult Store(Login login)
+        public ActionResult Store(Login login, Pessoas novaPessoa)
         {
-            if (ModelState.IsValid)
+            int iddentificadorPessoa = new RepositorioPessoas().CadastrarPessoas(novaPessoa);
+
+            Login novoLogin = new Login()
             {
-                int identificador = new RepositorioLogin().CadastrarLogin(login);
+                IdPessoas = iddentificadorPessoa,
+                Email = login.Email,
+                Senha = login.Senha,
+                Usuario = login.Usuario
+            };
 
-                return RedirectToAction("Index", new { id = identificador });
-            }
-            ViewBag.Login = login;
+            Session["user"] = iddentificadorPessoa;
 
-            return View("Cadastro");
+            return View();
         }
 
         [HttpGet]
@@ -98,24 +102,5 @@ namespace SistemaFinanceiro.Controllers
         }
 
 
-        //public ActionResult LoginAceito()
-        //{
-        //    if (Session["user"].ToString() == null)
-        //    {
-        //        return RedirectToAction("MainPage", "Home", new { loginPessoa = Session["user"].ToString() });
-        //    }
-        //    return View();
-        //}
-
-
-
     }
 }
-//var loginUser = login.SingleOrDefault(x => x.Usuario == usuario && x.Senha == senha);
-
-//if (loginUser != null)
-//{
-//    Session["user"] = pessoa.Nome;
-
-//    return RedirectToAction("LoginAceito", "Login", new { userLogin = Session["user"].ToString() });
-//}

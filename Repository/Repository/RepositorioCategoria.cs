@@ -45,7 +45,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Categoria> categorias = new List<Categoria>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, nome FROM categorias";
+            comando.CommandText = "SELECT id AS 'id', nome AS 'nome' FROM categorias";
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -53,7 +53,6 @@ namespace SistemaFinanceiro.Repositório
                 Categoria categoria = new Categoria()
                 {
                     Id = Convert.ToInt32(linha["id"].ToString()),
-                    //Id_Categoria = Convert.ToInt32(linha[1].ToString()),
                     Nome = linha["nome"].ToString()
                 };
                 categorias.Add(categoria);
