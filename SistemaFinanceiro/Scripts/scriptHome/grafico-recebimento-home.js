@@ -9,9 +9,9 @@
             var resultado = JSON.parse(pesquisa);
 
             $.each(resultado.tabela, function (i) {
-               // console.log(resultado.tabela[i]);
-                labels.push(resultado.tabela[i].Column1);
-                data.push(parseFloat(resultado.tabela[i].valor));
+                console.log(resultado.tabela[i]);
+                labels.push(resultado.tabela[i].MES);
+                data.push(parseFloat(resultado.tabela[i].VALOR));
             });
 
         }

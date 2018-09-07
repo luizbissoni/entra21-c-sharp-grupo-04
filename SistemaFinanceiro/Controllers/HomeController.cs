@@ -40,8 +40,8 @@ namespace SistemaFinanceiro.Controllers
 
             //Recebimento recebimento = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"SET LANGUAGE português SELECT pessoas.nome, recebimentos.valor, DATENAME(MONTH, recebimentos.data)  FROM recebimentos INNER JOIN pessoas ON pessoas.Id = recebimentos.id_pessoas WHERE pessoas.Id = @ID AND MONTH(recebimentos.data)
-                BETWEEN '01' AND '12' AND YEAR(recebimentos.data) BETWEEN '2018' AND '2018' ORDER BY DAY(recebimentos.data)";
+            comando.CommandText = @"SET LANGUAGE português SELECT SUM(recebimentos.valor) AS 'VALOR', DATENAME(MONTH, recebimentos.data) 
+AS 'MES', MONTH(recebimentos.data) FROM recebimentos INNER JOIN pessoas ON pessoas.Id = recebimentos.id_pessoas WHERE pessoas.Id = @ID GROUP BY DATENAME(MONTH, recebimentos.data), MONTH(recebimentos.data) ORDER BY MONTH(recebimentos.data)";
 
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
