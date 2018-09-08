@@ -18,7 +18,6 @@ namespace SistemaFinanceiro.Models
         
         public DateTime Entrada { get; set; }
        
-        public DateTime Vencimento { get; set; }
 
     }
 }

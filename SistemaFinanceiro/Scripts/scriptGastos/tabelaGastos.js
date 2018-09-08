@@ -1,5 +1,4 @@
 ﻿$(document).ready(function () {
-
     $('#tabela-gastos-home').DataTable({
         serverSide: true,
         "bProcessing": true,
@@ -10,10 +9,7 @@
             { data: "IdCartao" },
             { data: "IdCategoria"},
             { data: "Valor" },
-            { data: "Entrada" },
-            { data: "Vencimento" },
-            { data: "Descricao" }
-
+            { data: "Entrada" }
         ]
     });
 });

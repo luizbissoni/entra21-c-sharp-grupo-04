@@ -16,13 +16,12 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO gastos (id_catao, id_categoria, valor, entrada, vencimento) OUTPUT INSERTED.ID VALUES 
-                    (@IDCARTAO, @IDCATEGORIA, @VALOR, @ENTRADA, @VENCIMENTO, @DESCRICAO)";
+            comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada) OUTPUT INSERTED.ID VALUES 
+                    (@IDCARTAO, @IDCATEGORIA, @VALOR, GETDATE())";
             comando.Parameters.AddWithValue("@IDCARTAO", gastos.IdCartao);
             comando.Parameters.AddWithValue("@IDCATEGORIA", gastos.IdCategoria);
             comando.Parameters.AddWithValue("@VALOR", gastos.Valor);
-            comando.Parameters.AddWithValue("@ENTRADA", gastos.Entrada);
-            comando.Parameters.AddWithValue("@VENCIMENTO", gastos.Vencimento);
+            //comando.Parameters.AddWithValue("@ENTRADA", gastos.Entrada);
 
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;
@@ -40,7 +39,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Gastos> gastos = new List<Gastos>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id,id_cartao, id_categoria, valor, entrada, vencimento FROM gastos";
+            comando.CommandText = "SELECT id, id_cartao, id_categoria, valor, entrada FROM gastos";
 
 
             DataTable tabela = new DataTable();
@@ -54,7 +53,6 @@ namespace SistemaFinanceiro.Repositório
                     IdCategoria = Convert.ToInt32(linha["id_categoria"].ToString()),
                     Valor = Convert.ToDouble(linha["valor"].ToString()),
                     Entrada = Convert.ToDateTime(linha["entrada"].ToString()),
-                    Vencimento = Convert.ToDateTime(linha["vencimento"].ToString()),
 
                 };
                 gastos.Add(gasto);
@@ -66,7 +64,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Gastos gastos = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id_categoria, valor, entrada, vencimento FROM gastos WHERE id = @ID";
+            comando.CommandText = "SELECT id_categoria, valor, entrada FROM gastos WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -78,7 +76,6 @@ namespace SistemaFinanceiro.Repositório
                 gastos.IdCartao = Convert.ToInt32(tabela.Rows[0]["id_cartao"].ToString());
                 gastos.Valor = Convert.ToDouble(tabela.Rows[0]["valor"].ToString());
                 gastos.Entrada = Convert.ToDateTime(tabela.Rows[0]["entrada"].ToString());
-                gastos.Vencimento = Convert.ToDateTime(tabela.Rows[0]["vencimento"].ToString());
 
             }
 
@@ -89,13 +86,12 @@ namespace SistemaFinanceiro.Repositório
         public bool AlterarGastos(Gastos gastos)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "UPDATE gastos SET id_cartao = @IDCARTAO, id_categoria = @IDCATEGORIA, valor = @VALOR, entrada = @ENTRADA, vencimento = @VENCIMENTO WHERE id = @ID";
+            comando.CommandText = "UPDATE gastos SET id_cartao = @IDCARTAO, id_categoria = @IDCATEGORIA, valor = @VALOR, entrada = @ENTRADA WHERE id = @ID";
             //comando.Parameters.AddWithValue("@ID_CATEGORIA", gastos.IdGastos);
             comando.Parameters.AddWithValue("@IDCATEGORIA", gastos.IdCategoria);
             comando.Parameters.AddWithValue("@IDCARTAO", gastos.IdCartao);
             comando.Parameters.AddWithValue("@VALOR", gastos.Valor);
             comando.Parameters.AddWithValue("@ENTRADA", gastos.Entrada);
-            comando.Parameters.AddWithValue("@VENCIMENTO", gastos.Vencimento);
             comando.Parameters.AddWithValue("@ID", gastos.Id); 
             return comando.ExecuteNonQuery() == 1;
         }

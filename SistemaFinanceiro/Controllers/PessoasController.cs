@@ -132,9 +132,8 @@ namespace SistemaFinanceiro.Controllers
             {
                 IdCartao = gasto.IdCartao,
                 IdCategoria = gasto.IdCategoria,
-                Valor = gasto.Valor,
-                Vencimento = gasto.Vencimento,
-                Entrada = gasto.Entrada
+                Valor = gasto.Valor
+               // Entrada = gasto.Entrada
             };
 
             int deuCerto = new RepositorioGastos().CadastrarGastos(addGastos);

@@ -48,11 +48,11 @@
             method: 'POST',
             data: {
 
-                "id_cartao": $("#select-cartao").val(),
-                "id_categoria": $('#valor-campo-descricao-gastos').val(),
-                "valor": $('#campo-valor').val(),
-                "entrada": $('#campo-data-entrada').val(),
-                "vencimento": $('#campo-vencimento').val()
+                idCartao: $(".lista-cartao-gastos").val(),
+                idCategoria: $(".descricao-gastos").val(),
+                valor: $('#campo-valor').val()
+                //entrada: $('#campo-data-entrada').val(),
+                //vencimento: $('#campo-vencimento').val()
             },
             success: function() {
                 $("#cadastrar-gastos-pessoa").modal('hide');

@@ -17,42 +17,34 @@
             </div>
             <div class="modal-body">
                 <input type="hidden" value="@pessoa" id="id-pessoa-gastos" />
-                    <div class="form-group">
-                        <label class="col-md-5 control-label" for="cartao-pessoa">Cartão<h11>*</h11></label>
-                        <div class="col-md-10">
-                            <select id="campo-numero-cartao" class="form-control" name="cartao-pessoa"></select>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="form-group">
+                            <label class="col-md-5 control-label" for="cartao-pessoa">Cartão<h11>*</h11></label>
+                            <select id="campo-numero-cartao" class="form-control lista-cartao-gastos" name="cartao-pessoa"></select>
                         </div>
                     </div>
-                <div class="form-group">
-                    <label class="col-10" for="campo-valor">Valor do Gasto <h11></h11></label>
                     <div class="col-md-10">
-                        <input id="campo-valor" name="campo-valor" placeholder="" class="form-control input-md col-sm-12" required="" type="text">
+                        <div class="form-group">
+                            <label class="col-10" for="campo-valor">Valor do Gasto <h11></h11></label>
+                            <input id="campo-valor" name="campo-valor" placeholder="" class="form-control input-md col-sm-12" required="" type="text">
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-10" for="campo-data-entrada">Data de Entrada <h11></h11></label>
-                    <div class="col-md-10">
-                        <input id="campo-data-entrada" name="campo-data-entrada" placeholder="DD/MM/AAAA" class="form-control input-md col-sm-12" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-10" for="campo-vencimento">Data de Vencimento <h11></h11></label>
-                    <div class="col-md-10">
-                        <input id="campo-vencimento" name="campo-vencimento" placeholder="DD/MM/AAAA" class="form-control input-md col-sm-12" required="" type="date" value="" maxlength="10" onkeypress="formatar('##/##/####', this)">
-                    </div>
-                </div>
-                    <div class="form-group">
-                        <label class="col-md-1 control-label" for="descricao-gastos">Categoria<h11>*</h11></label>
-                        <div class="col-md-8">
+
+                    <div class="col-md-8">
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="descricao-gastos">Categoria<h11>*</h11></label>
                             <select id="campo-descricao-gastos" class="form-control  descricao-gastos" name="descricao-gastos">
                                 <option selected="selected" disabled="disabled"></option>
                             </select>
                         </div>
                     </div>
+                </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelar-cadastro-pessoa">Cancelar</button>
                     <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-gastos-pessoa">
                 </div>
+
             </div>
         </div>
     </div>
