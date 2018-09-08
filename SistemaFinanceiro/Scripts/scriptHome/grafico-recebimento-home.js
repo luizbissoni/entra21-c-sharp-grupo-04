@@ -30,9 +30,12 @@
                 borderWidth: 6,
                 borderColor: 'rgba(77,166,253,0.85)',
                 background: 'transparent',
-                
-            }]
-
+            }],
+            options: {
+                animation: {
+                    animateScale: true
+                }
+            }
         }
     });
 

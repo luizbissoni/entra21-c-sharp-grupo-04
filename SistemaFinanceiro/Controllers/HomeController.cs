@@ -41,7 +41,8 @@ namespace SistemaFinanceiro.Controllers
             //Recebimento recebimento = null;
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = @"SET LANGUAGE português SELECT SUM(recebimentos.valor) AS 'VALOR', DATENAME(MONTH, recebimentos.data) 
-AS 'MES', MONTH(recebimentos.data) FROM recebimentos INNER JOIN pessoas ON pessoas.Id = recebimentos.id_pessoas WHERE pessoas.Id = @ID GROUP BY DATENAME(MONTH, recebimentos.data), MONTH(recebimentos.data) ORDER BY MONTH(recebimentos.data)";
+AS 'MES', MONTH(recebimentos.data) FROM recebimentos INNER JOIN pessoas ON pessoas.Id = recebimentos.id_pessoas WHERE pessoas.Id = @ID GROUP BY DATENAME(MONTH, recebimentos.data),
+MONTH(recebimentos.data) ORDER BY MONTH(recebimentos.data)";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -53,9 +54,17 @@ AS 'MES', MONTH(recebimentos.data) FROM recebimentos INNER JOIN pessoas ON pesso
         public ActionResult GastosCategoria()
         {
 
+            int id = Convert.ToInt32(Session["user"].ToString());
 
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SELECT categorias.nome AS 'categoria', SUM(gastos.valor) AS 'valor', cartoes.id_pessoas FROM categorias INNER JOIN gastos 
+ON gastos.id_categoria = categorias.Id INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao 
+WHERE MONTH(gastos.entrada) = MONTH(GETDATE()) AND cartoes.id_pessoas = @ID GROUP BY categorias.nome, cartoes.id_pessoas";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
 
-            return null;
+            return Content(JsonConvert.SerializeObject(new { tabela }));
         }
 
     }

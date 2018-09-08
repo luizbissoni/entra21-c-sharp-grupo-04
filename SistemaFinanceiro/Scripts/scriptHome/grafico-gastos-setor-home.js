@@ -1,27 +1,44 @@
 ﻿$(document).ready(function () {
 
+    var labels = [], data = [];
+
+    $.ajax({
+        url: '/Home/GastosCategoria',
+        method: 'GET',
+        success: function (gastosPesquisa) {
+            var resultado = JSON.parse(gastosPesquisa);
+            
+            
+            $.each(resultado.tabela, function (i) {
+               labels.push(resultado.tabela[i].categoria);
+                data.push(resultado.tabela[i].valor);
+
+                //console.log(resultado.tabela[i].categoria);
+                //console.log(resultado.tabela[i].valor);
+            });
+        }
+
+    });
+
     var ctx = document.getElementById('chartSetor');
 
 
     var myRadarChart = new Chart(ctx, {
         type: 'radar',
-
         data: {
-            labels:['haha','ontem','hoje','agora','antes de ontem'],
+            labels: ['vestuario', 'aluguel', 'automovel', ],
             datasets: [{
-                label: 'Gastos mês',
-                data: [10, 20, 30, 80, 15],
-                borderWidth: 6,
-                borderColor: 'rgba(77,166,253,0.85)',
-                background: 'transparent',
+                label: 'Gastos por Setor',
+                borderWidth: 2,
+                borderColor: '#00FF00',
+                backgroundColor: 'rgba(00,255,00,0.1)',
+                data: [10, 50, 100 ]
             }],
-            datasets: [{
-                label: 'Gastos onte',
-                data: [10, 20, 11, 15, 25],
-                borderWidth: 6,
-                borderColor: 'rgba(77,166,253,0.85)',
-                background: 'transparent',
-            }],
+            options: {
+                animation: {
+                    animateScale: true
+                }
+            }
         },
         //options: options
     });
