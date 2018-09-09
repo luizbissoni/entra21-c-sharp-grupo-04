@@ -67,5 +67,34 @@ WHERE MONTH(gastos.entrada) = MONTH(GETDATE()) AND cartoes.id_pessoas = @ID GROU
             return Content(JsonConvert.SerializeObject(new { tabela }));
         }
 
+        public ActionResult TotalRecebidoCategoria()
+        {
+
+            int id = Convert.ToInt32(Session["user"].ToString());
+
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"select sum(recebimentos.valor) AS 'valor', categorias.nome AS 'categoria', pessoas.nome  from recebimentos INNER JOIN categorias ON categorias.Id = recebimentos.id_categoria 
+INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @ID GROUP BY  categorias.nome, pessoas.nome";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            return Content(JsonConvert.SerializeObject(new { tabela }));
+        }
+
+        public ActionResult TotalRecebido()
+        {
+            int id = Convert.ToInt32(Session["user"].ToString());
+
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SELECT SUM(recebimentos.valor) AS 'total', pessoas.nome FROM recebimentos 
+INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @ID GROUP BY pessoas.nome ";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            return Content(JsonConvert.SerializeObject(new { tabela }));
+        }
+
     }
 }
