@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
 
     var valorRecebido, valorGasto, porcentagemGasto;
-
-    $('#porcento').attr("data-percent", porcentagemGasto);
+   
+   // $(".porcento").attr("data-percent", porcentagemGasto);
 
     $.ajax({
         url: '/Home/TotalRecebido',
@@ -26,7 +26,9 @@
             valorGasto = total.tabela[0].total
           
             porcentagemGasto = ((valorRecebido - valorGasto) / valorRecebido) * 100;
-         
+
+            $('#porcento').attr('data-percent', porcentagemGasto);
+            console.log(porcentagemGasto);
         }
     });
 
@@ -46,10 +48,11 @@
         method: 'GET',
         success: function (dara) {
             var data = JSON.parse(dara);
-            console.log(data);
+            //console.log(data);
 
         }
     });
+    
 
 });
 
