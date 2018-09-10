@@ -33,6 +33,7 @@ CREATE TABLE [dbo].[gastos] (
 	[id_categoria]	INT				NULL,
     [valor]			 DECIMAL (7, 2)  NULL,
     [entrada]		 DATE            NULL,
+	[descricao]		VARCHAR(100) NULL,
 	PRIMARY KEY CLUSTERED ([Id] ASC),
     FOREIGN KEY ([id_cartao]) REFERENCES [dbo].[cartoes] ([Id]),
 	FOREIGN KEY ([id_categoria]) REFERENCES [dbo].[categorias] ([Id])

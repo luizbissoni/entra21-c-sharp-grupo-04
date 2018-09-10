@@ -26,8 +26,8 @@
             valorGasto = total.tabela[0].total
           
             porcentagemGasto = ((valorRecebido - valorGasto) / valorRecebido) * 100;
-
-            $('#porcento').attr('data-percent', porcentagemGasto);
+            $('#meu-teste').data('percente')
+            $('#meu-teste').attr('data-percent', porcentagemGasto);
             console.log(porcentagemGasto);
         }
     });
