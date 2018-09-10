@@ -78,7 +78,7 @@
     });
 
 
-    $('body').on('click', '#salvar-editar-pessoas-modal', function () {
+    $('body').on('click', '#salvar-cadastro-modal', function () {
 
         $.ajax({
             url: '/Pessoas/Update',
@@ -89,7 +89,9 @@
                 sexo: $('input[name="sexo-masculino"]:checked').val(),
                 cpf: $('#editar-pessoa-modal-campo-cpf').val(),
                 telefone: $('#editar-pessoa-modal-campo-telefone').val(),
-                cep: $('#editar-pessoa-modal-campo-cep').val()
+                cep: $('#editar-pessoa-modal-campo-cep').val(),
+                
+                
             },
             success: function (data) {
                 $('#editar-pessoa-modal').modal('hide');
