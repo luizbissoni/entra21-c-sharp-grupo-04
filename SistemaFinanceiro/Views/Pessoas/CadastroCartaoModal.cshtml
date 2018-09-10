@@ -13,32 +13,46 @@
             </div>
             <div class="modal-body">
                 <input type="hidden" value="@pessoa" id="idpessoa-cartao" />
+
+                <div class="row">                
+                <div class="col-sm-6">
                 <div class="form-group">
-                    <label class="col-md-2 control-label" for="numero-Cartao">Número cartão<h11>*</h11></label>
-                    <input id="campo-numero-Cartao" name="numero-cartao" class="form-control input-md col-sm-6 numero-Cartao" required="" type="text" value="">
+                    <label class="col-md-10" for="numero-Cartao">Número cartão</label>
+                    <input id="campo-numero-Cartao" name="numero-cartao" class="form-control input-md col-sm-12 numero-Cartao" required="" type="text" value="">
+                </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="numero-Conta">Número Conta<h11>*</h11></label>
-                    <input id="campo-numero-Conta" name="numero-conta" class="form-control input-md col-sm-6 numero-Conta" required="" type="text" value="">
+                   <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="col-sm-10" for="numero-Conta">Número Conta</label>
+                        <input id="campo-numero-Conta" name="numero-conta" class="form-control input-md col-sm-12 numero-Conta form-control-bold" required="" type="text" value="">
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="bandeira">Bandeira<h11>*</h11></label>
-                    <input id="campo-bandeira" name="bandeira" placeholder="" class="form-control input-md col-sm-6" required="" type="text">
-                </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-sm-10" for="bandeira">Bandeira</label>
+                            <input id="campo-bandeira" name="bandeira" class="form-control input-md col-sm-12 numero-Conta form-control-bold" required="" type="text" value="">
+                        </div>
+                    </div>
 
-                <div class="form-group">
-                    <label class="col-md-2 control-label" for="banco">Banco<h11>*</h11></label>
-                    <input id="campo-banco" name="banco" placeholder="" class="form-control input-md col-sm-6" required="" type="text" value="">
-                </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-sm-10" for="banco">Banco</label>
+                            <input id="campo-bandeira" name="banco" class="form-control input-md col-sm-12 numero-Conta form-control-bold" required="" type="text" value="">
+                        </div>
+                    </div>
 
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelar-cadastro-categoria">Cancelar</button>
-                    <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cartao">
+                    <div class="modal-footer">
+
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="cancelar-cadastro-cartao">Cancelar</button>
+                        <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cartao">
+
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
         </div>
     </div>
-</div>
