@@ -4,6 +4,15 @@
         return document.getElementById("id-pessoa-gastos").value;
     }
 
+    $.ajax({
+        url: '/Gasto/ObterTodosJson',
+        method: 'get',
+        success: function (pesquisa) {
+            var resultado = JSON.parse(pesquisa);
+            console.log(resultado);
+        }
+    });
+
     $(".fechar-gastos").on('click', function () {
         limparCampos();
     });
@@ -54,7 +63,7 @@
 
                 idCartao: $(".lista-cartao-gastos").val(),
                 idCategoria: $(".descricao-gastos").val(),
-                valor: $('.valor-gastos-pessoa').val(),
+                valor: $('#campo-valor-pessoa').val(),
                 descricao: $('#descricao-despesa').val()
                 //entrada: $('#campo-data-entrada').val(),
                 //vencimento: $('#campo-vencimento').val()
