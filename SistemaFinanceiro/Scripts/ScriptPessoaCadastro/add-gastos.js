@@ -4,15 +4,6 @@
         return document.getElementById("id-pessoa-gastos").value;
     }
 
-    $.ajax({
-        url: '/Gasto/ObterTodosJson',
-        method: 'get',
-        success: function (pesquisa) {
-            var resultado = JSON.parse(pesquisa);
-            console.log(resultado);
-        }
-    });
-
     $(".fechar-gastos").on('click', function () {
         limparCampos();
     });
@@ -56,15 +47,19 @@
     });
 
     $('#salvar-gastos-pessoa').on('click', function () {
+        $valor = $('#campo-valor-pessoa').val();
+        $valor = $valor.replace(/\,/g, "");
+        $valor = $valor.replace('.', ",");
+        console.log($valor);
         $.ajax({
             url: '/Pessoas/CadastroGastosModalPessoas',
             method: 'POST',
             data: {
 
-                idCartao: $(".lista-cartao-gastos").val(),
-                idCategoria: $(".descricao-gastos").val(),
-                valor: $('#campo-valor-pessoa').val(),
-                descricao: $('#descricao-despesa').val()
+                "idCartao": $(".lista-cartao-gastos").val(),
+                "idCategoria": $(".descricao-gastos").val(),
+                "Valor": $valor,
+                "descricao": $('#descricao-despesa').val()
                 //entrada: $('#campo-data-entrada').val(),
                 //vencimento: $('#campo-vencimento').val()
 
