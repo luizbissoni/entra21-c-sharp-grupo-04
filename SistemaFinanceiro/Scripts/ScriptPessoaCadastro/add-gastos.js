@@ -54,10 +54,11 @@
 
                 idCartao: $(".lista-cartao-gastos").val(),
                 idCategoria: $(".descricao-gastos").val(),
-                valor: $('#campo-valor').val(),
+                valor: $('.valor-gastos-pessoa').val(),
                 descricao: $('#descricao-despesa').val()
                 //entrada: $('#campo-data-entrada').val(),
                 //vencimento: $('#campo-vencimento').val()
+
             },
             success: function () {
                 limparCampos();
@@ -88,7 +89,7 @@
     function limparCampos() {
 
         //$('#campo-numero-cartao').val('');
-        $('#campo-valor').val('');
+        //$('#campo-valor').val('');
         $('#campo-descricao-gastos').val('');
         $('[name=campo-despesa]').val('');
     };
