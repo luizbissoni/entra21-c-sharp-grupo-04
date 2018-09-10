@@ -96,5 +96,49 @@ INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @I
             return Content(JsonConvert.SerializeObject(new { tabela }));
         }
 
+        public ActionResult TotalGastos()
+        {
+            int id = Convert.ToInt32(Session["user"].ToString());
+
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SELECT SUM(gastos.valor) AS 'total', pessoas.Id, cartoes.id_pessoas FROM gastos inner join pessoas 
+on pessoas.Id = @ID inner join cartoes on cartoes.id_pessoas = pessoas.Id group by pessoas.id, cartoes.id_pessoas";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            return Content(JsonConvert.SerializeObject(new { tabela }));
+        }
+
+        public ActionResult SetorMaiorGasto()
+        {
+            int id = Convert.ToInt32(Session["user"].ToString());
+
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"select  max(gastos.valor) as 'total', categorias.nome as 'categoria', cartoes.id_pessoas from gastos inner join categorias 
+on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas = @ID group by categorias.nome, cartoes.id_pessoas";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            return Content(JsonConvert.SerializeObject(new { tabela }));
+
+        }
+
+        public ActionResult TabelaGastos()
+        {
+            int id = Convert.ToInt32(Session["user"].ToString());
+
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SELECT gastos.Id,pessoas.nome, cartoes.conta AS 'conta',categorias.nome AS 'categoria', valor, entrada FROM gastos INNER JOIN categorias ON categorias.Id = gastos.id_categoria 
+INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao INNER JOIN pessoas ON pessoas.Id = cartoes.id_pessoas WHERE pessoas.Id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            return Content(JsonConvert.SerializeObject(new { tabela }));
+
+        }
+
     }
 }

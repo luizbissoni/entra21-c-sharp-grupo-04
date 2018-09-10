@@ -132,7 +132,9 @@ namespace SistemaFinanceiro.Controllers
             {
                 IdCartao = gasto.IdCartao,
                 IdCategoria = gasto.IdCategoria,
-                Valor = gasto.Valor
+                Valor = gasto.Valor,
+                Descricao = gasto.Descricao
+                
                // Entrada = gasto.Entrada
             };
 

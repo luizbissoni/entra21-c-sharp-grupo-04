@@ -295,40 +295,35 @@
                             <nav class="pcoded-navbar">
                                 <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                                 <div class="pcoded-inner-navbar main-menu">
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Navigation</div>
+                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation"></div>
                                     <ul class="pcoded-item pcoded-left-item">
                                         <li class="pcoded-hasmenu active pcoded-trigger">
                                             <a href="javascript:void(0)">
-                                                <span class="pcoded-micon"><i class="ti-home"></i><b>C</b></span>
+                                                <span class="pcoded-micon"><i class="ti-save"></i><b>C</b></span>
                                                 <span class="pcoded-mtext" data-i18n="nav.dash.main">Cadastros</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                             <ul class="pcoded-submenu">
                                                 <li class="active">
-                                                    <a href="#" class="recebimento-pessoa" data-target="#modal-recebimento-pessoa" data-toggle="modal">Recebimento CADASTRAR POR AQUI</a>
+                                                    <a href="#" class="cartao-pessoa" data-target="#cadastrar-cartoes-pessoa" data-toggle="modal">Cartão</a>
                                                 </li>
                                                 <li class="active">
-                                                    <a href="#" class="cartao-pessoa" data-target="#cadastrar-cartoes-pessoa" data-toggle="modal">Cartão CADASTRAR POR AQUI</a>
+                                                    <a href="#" class="gastos-pessoa" data-target="#cadastrar-gastos-pessoa" data-toggle="modal">Gastos</a>
                                                 </li>
                                                 <li class="active">
-                                                    <a href="#" class="gastos-pessoa" data-target="#cadastrar-gastos-pessoa" data-toggle="modal">Gastos TESTE</a>
+                                                    <a href="#" class="recebimento-pessoa" data-target="#modal-recebimento-pessoa" data-toggle="modal">Recebimento</a>
                                                 </li>
-                                                <li class="active">
-                                                    @Html.ActionLink("Categoria", "Cadastro", "Categoria")
-                                                </li>
-                                                <li class="active">
-                                                    @Html.ActionLink("Pessoas", "Cadastro", "Pessoas")
-                                                </li>
+                                               
                                             </ul>
                                         </li>
 
                                     </ul>
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.ui-element">Index</div>
+                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.ui-element"></div>
                                     <ul class="pcoded-item pcoded-left-item">
                                         <li class="pcoded-hasmenu active pcoded-trigger">
                                             <a href="javascript:void(0)">
                                                 <span class="pcoded-micon"><i class="ti-home"></i><b>I</b></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.dash.main">Index</span>
+                                                <span class="pcoded-mtext" data-i18n="nav.dash.main">Editar</span>
                                                 <span class="pcoded-mcaret"></span>
                                             </a>
                                             <ul class="pcoded-submenu">
@@ -367,30 +362,18 @@
                                         </li>
 
                                     </ul>
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.tables">Tables</div>
-                                    <ul class="pcoded-item pcoded-left-item"></ul>
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.chart-and-maps">Chart And Maps</div>
-                                    <ul class="pcoded-item pcoded-left-item"></ul>
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.pages">Pages</div>
-                                    <ul class="pcoded-item pcoded-left-item"></ul>
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.app">App</div>
-                                    <ul class="pcoded-item pcoded-left-item"></ul>
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.extension">Extension</div>
-                                    <ul class="pcoded-item pcoded-left-item"></ul>
-                                    <ul class="pcoded-item pcoded-left-item"></ul>
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.other">Other</div>
-                                    <ul class="pcoded-item pcoded-left-item"></ul>
-                                    <div class="pcoded-navigatio-lavel" data-i18n="nav.category.support">Support</div>
-                                    <ul class="pcoded-item pcoded-left-item"></ul>
                                 </div>
                             </nav>
                             <div class="pcoded-content">
                                 <div class="pcoded-inner-content">
                                     <div class="main-body">
                                         <div class="page-wrapper">
-
                                             <div class="page-body">
-                                                @RenderBody()
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        @RenderBody()
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
 

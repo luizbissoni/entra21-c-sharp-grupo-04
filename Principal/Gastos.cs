@@ -17,7 +17,8 @@ namespace SistemaFinanceiro.Models
         public double Valor { get; set; }
         
         public DateTime Entrada { get; set; }
-       
+
+        public string Descricao { get; set; }
 
     }
 }

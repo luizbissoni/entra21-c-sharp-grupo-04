@@ -7,36 +7,43 @@
 }
 
 <div class="modal fade" id="cadastrar-gastos-pessoa">
-    <div class="modal-dialog modal-sm">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span>X</span>
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
                 </button>
-                <h5>Cadastrar Gastos</h5>
             </div>
             <div class="modal-body">
                 <input type="hidden" value="@pessoa" id="id-pessoa-gastos" />
                 <div class="row">
-                    <div class="col-md-10">
+                    <div class="col">
                         <div class="form-group">
-                            <label class="col-md-5 control-label" for="cartao-pessoa">Cartão<h11>*</h11></label>
-                            <select id="campo-numero-cartao" class="form-control lista-cartao-gastos" name="cartao-pessoa"></select>
+                            <label class="col-md-1 control-label" for="cartao-pessoa">Cartão</label>
+                            <select id="campo-numero-cartao" class="form-control lista-cartao-gastos  form-control-bold" name="cartao-pessoa"></select>
                         </div>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-sm-4">
                         <div class="form-group">
-                            <label class="col-10" for="campo-valor">Valor do Gasto <h11></h11></label>
-                            <input id="campo-valor" name="campo-valor" placeholder="" class="form-control input-md col-sm-12" required="" type="text">
+                            <label class="col-sm-6" for="campo-valor">Valor</label>
+                            <input id="campo-valor" name="campo-valor" placeholder="" class="form-control input-md col-sm-12 autonumber  form-control-bold" required="" type="text">
                         </div>
                     </div>
-
-                    <div class="col-md-8">
+                    <div class="col">
                         <div class="form-group">
-                            <label class="col-md-1 control-label" for="descricao-gastos">Categoria<h11>*</h11></label>
-                            <select id="campo-descricao-gastos" class="form-control  descricao-gastos" name="descricao-gastos">
+                            <label class="col-md-1 control-label" for="descricao-gastos">Categoria</label>
+                            <select id="campo-descricao-gastos" class="form-control  descricao-gastos  form-control-bold" name="descricao-gastos">
                                 <option selected="selected" disabled="disabled"></option>
                             </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="campo-despesa">teste</label>
+                            <input class="form-control" name="campo-despesa" type="text" id="descricao-despesa"/>
                         </div>
                     </div>
                 </div>

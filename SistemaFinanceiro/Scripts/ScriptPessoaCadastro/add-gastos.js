@@ -50,7 +50,8 @@
 
                 idCartao: $(".lista-cartao-gastos").val(),
                 idCategoria: $(".descricao-gastos").val(),
-                valor: $('#campo-valor').val()
+                valor: $('#campo-valor').val(),
+                descricao: $('#descricao-despesa').val()
                 //entrada: $('#campo-data-entrada').val(),
                 //vencimento: $('#campo-vencimento').val()
             },

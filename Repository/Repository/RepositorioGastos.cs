@@ -16,11 +16,12 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada) OUTPUT INSERTED.ID VALUES 
-                    (@IDCARTAO, @IDCATEGORIA, @VALOR, GETDATE())";
+            comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada, descricao) OUTPUT INSERTED.ID VALUES 
+                    (@IDCARTAO, @IDCATEGORIA, @VALOR, GETDATE(), @DESCRICAO)";
             comando.Parameters.AddWithValue("@IDCARTAO", gastos.IdCartao);
             comando.Parameters.AddWithValue("@IDCATEGORIA", gastos.IdCategoria);
             comando.Parameters.AddWithValue("@VALOR", gastos.Valor);
+            comando.Parameters.AddWithValue("@DESCRICAO", gastos.Descricao);
             //comando.Parameters.AddWithValue("@ENTRADA", gastos.Entrada);
 
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
@@ -39,7 +40,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Gastos> gastos = new List<Gastos>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_cartao, id_categoria, valor, entrada FROM gastos";
+            comando.CommandText = "SELECT id, id_cartao, id_categoria, valor, entrada, descricao FROM gastos";
 
 
             DataTable tabela = new DataTable();
@@ -64,7 +65,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Gastos gastos = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id_categoria, valor, entrada FROM gastos WHERE id = @ID";
+            comando.CommandText = "SELECT id_categoria, valor, entrada, descricao FROM gastos WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());

@@ -8,8 +8,10 @@
         success: function (pesquisa) {
             var resultado = JSON.parse(pesquisa);
 
+          
+
             $.each(resultado.tabela, function (i) {
-                //console.log(resultado.tabela[i]);
+                //console.log(resultado.tabela[i].MES);
                 labels.push(resultado.tabela[i].MES);
                 data.push(parseFloat(resultado.tabela[i].VALOR));
             });

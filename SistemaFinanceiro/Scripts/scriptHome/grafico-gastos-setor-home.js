@@ -14,25 +14,24 @@
                 data.push(resultado.tabela[i].valor);
 
                 //console.log(resultado.tabela[i].categoria);
-                //console.log(resultado.tabela[i].valor);
+               // console.log(resultado.tabela[i].valor);
             });
         }
 
     });
-
     var ctx = document.getElementById('chartSetor');
 
 
     var myRadarChart = new Chart(ctx, {
-        type: 'radar',
+        type: 'pie',
         data: {
-            labels: ['vestuario', 'aluguel', 'automovel', ],
+            labels: labels,
             datasets: [{
-                label: 'Gastos por Setor',
-                borderWidth: 2,
-                borderColor: '#00FF00',
-                backgroundColor: 'rgba(00,255,00,0.1)',
-                data: [10, 50, 100 ]
+                //label: 'Gastos por Setor',
+                //borderWidth: 2,
+                //borderColor: '#00FF00',
+                backgroundColor: ['#f1c40f','#e67e22','#16a085','#298ob9'],
+                data: data
             }],
             options: {
                 animation: {

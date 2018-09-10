@@ -62,7 +62,7 @@
 
                 $('#editar-pessoa-modal').modal('show');
                 $('#editar-pessoa-modal-campo-nome').val(pessoa.Nome);
-                $('[name=nascimento]').val(pessoa.Nascimento);
+                $('input[name=nascimento]').val(pessoa.Nascimento);
                 if (pessoa.Sexo == 'M') {
                     $('#editar-pessoa-modal-campo-sexo-masculino').attr('checked', 'checked');
                 } else {

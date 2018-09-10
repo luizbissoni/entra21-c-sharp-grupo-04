@@ -15,25 +15,24 @@
             </div>
             <div class="modal-body">
                 <input type="hidden" value="@pessoa" id="id-pessoa" />
-
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col">
                         <div class="form-group">
-                            <label class="col-md-2 control-label valor" for="campo-valor-recebimento">Valor</label>
-                            <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control " type="text">
+                            <label class="col-md-1 control-label valor" for="campo-valor-recebimento">Valor</label>
+                            <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control autonumber  form-control-bold" type="text" data-a-sep="." data-a-dec=",">
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-sm-3">
+                        <label class="col-md-1 control-label" for="campo-data-recebimento">Data</label>
                         <div class="form-group">
-                            <label class="col-md-1 control-label" for="campo-data-recebimento">Data Recebimento<h11>*</h11></label>
-                            <input id="campo-recebimento-data" name="campo-data-recebimento" placeholder="DD/MM/AAAA" class="form-control" type="date" value="">
+                            <input id="campo-recebimento-data" name="campo-data-recebimento" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="date" value="">
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-6">
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="campo-descricao-recebimento">Descrição<h11>*</h11></label>
-                            <div class="col-md-5">
-                                <select id="campo-descricao" class="form-control  descricao-recebimento" name="descricao"></select>
+                            <div class="col-md-8">
+                                <select id="campo-descricao" class="form-control  descricao-recebimento  form-control-bold" name="descricao"></select>
                             </div>
                         </div>
                     </div>
