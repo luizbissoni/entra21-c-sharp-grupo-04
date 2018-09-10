@@ -4,6 +4,10 @@
         return document.getElementById("id-pessoa-gastos").value;
     }
 
+    $(".fechar-gastos").on('click', function () {
+        limparCampos();
+    });
+
     $('.gastos-pessoa').on('click', function () {
         $('#cadastrar-gastos-pessoa').modal('show');
         //carregarSelected('.descricao-gastos');
@@ -17,7 +21,7 @@
             success: function (dara) {
                 var data = JSON.parse(dara);
                 for (var i = 0; i < data.data.length; i++) {
-                     console.log(data.data[i].Id);
+                    // console.log(data.data[i].Id);
                     categoriaOptions += '<option id="valor-campo-descricao-gastos" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
                 }
                 $('#campo-descricao-gastos').html(categoriaOptions);
@@ -55,8 +59,10 @@
                 //entrada: $('#campo-data-entrada').val(),
                 //vencimento: $('#campo-vencimento').val()
             },
-            success: function() {
+            success: function () {
+                limparCampos();
                 $("#cadastrar-gastos-pessoa").modal('hide');
+
                 new PNotify({
                     //title: 'Salvo com sucesso!',
                     text: 'Gastos adicionado com sucesso.',
@@ -71,10 +77,20 @@
                     icon: 'icofont icofont-info-circle',
                     type: 'error'
                 });
+
+                
             }
 
+            
         });
     });
 
+    function limparCampos() {
+
+        //$('#campo-numero-cartao').val('');
+        $('#campo-valor').val('');
+        $('#campo-descricao-gastos').val('');
+        $('[name=campo-despesa]').val('');
+    };
 
 });
