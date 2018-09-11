@@ -1,5 +1,7 @@
 ﻿$(function () {
 
+    var table = $('#tabela-teste').DataTable();
+
     function getSessionValue() {
         return document.getElementById("id-pessoa-gastos").value;
     }
@@ -45,6 +47,7 @@
             }
         });
     });
+   
 
     $('#salvar-gastos-pessoa').on('click', function () {
         $valor = $('#campo-valor-pessoa').val();
@@ -67,7 +70,7 @@
             success: function () {
                 limparCampos();
                 $("#cadastrar-gastos-pessoa").modal('hide');
-
+                $('#tabela-teste').DataTable().ajax.reload();
                 new PNotify({
                     //title: 'Salvo com sucesso!',
                     text: 'Gastos adicionado com sucesso.',

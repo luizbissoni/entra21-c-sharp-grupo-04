@@ -86,12 +86,45 @@
                 Id: dataRow.Id
             },
             success: function (excluirId) {
+                $('.modal-excluir-gasto-pessoa').modal('hide');
                 var data = JSON.parse(excluirId)
-                console.log(data)
-                $('#linha-' + data.Id).remove();
-                $('#avisoModa').modal('hide');
+                table.row('.selected').remove().draw(false);
+                new PNotify({
+                    text: 'Gasto excluido com sucesso.',
+                    type: 'success'
+                });
+            },
+            error: function () {
+                new PNotify({
+                    //title: 'Salvo com sucesso!',
+                    text: 'Algo deu errado.',
+                    icon: 'icofont icofont-info-circle',
+                    type: 'error'
+                });
             }
         }); 
+    });
+
+    // Setup - add a text input to each footer cell
+    $('#tabela-teste tfoot th').each(function () {
+        var title = $(this).text();
+        $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+    });
+
+    // DataTable
+    var table = $('#tabela-teste').DataTable();
+
+    // Apply the search
+    table.columns().every(function () {
+        var that = this;
+
+        $('input', this.footer()).on('keyup change', function () {
+            if (that.search() !== this.value) {
+                that
+                    .search(this.value)
+                    .draw();
+            }
+        });
     });
 });
 

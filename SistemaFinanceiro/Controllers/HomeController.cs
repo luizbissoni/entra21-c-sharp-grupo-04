@@ -144,7 +144,8 @@ INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao INNER JOIN pessoas ON pessoa
         public ActionResult ExcluirGastos(int id)
         {
             bool apagado = new RepositorioGastos().ExcluirGastos(id);
-            return View();
+
+            return Content(JsonConvert.SerializeObject(new { apagado }));
         }
 
     }
