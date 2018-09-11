@@ -32,7 +32,7 @@ CREATE TABLE [dbo].[gastos] (
     [id_cartao]		 INT             NULL,
 	[id_categoria]	INT				NULL,
     [valor]			 DECIMAL (7, 2)  NULL,
-	[data_começo] DATE NULL,
+	[data_comeco] DATE NULL,
 	[data_termino] DATE NULL,
 	[descricao]		VARCHAR(100) NULL,
 	PRIMARY KEY CLUSTERED ([Id] ASC),
