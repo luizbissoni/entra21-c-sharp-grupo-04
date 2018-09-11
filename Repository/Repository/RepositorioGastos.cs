@@ -16,8 +16,8 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada, descricao) OUTPUT INSERTED.ID VALUES 
-                    (@IDCARTAO, @IDCATEGORIA, @VALOR, GETDATE(), @DESCRICAO)";
+            comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, data_comeco, data_termino, descricao) OUTPUT INSERTED.ID VALUES 
+                    (@IDCARTAO, @IDCATEGORIA, @VALOR, GETDATE(), GETDATE(), @DESCRICAO)";
             comando.Parameters.AddWithValue("@IDCARTAO", gastos.IdCartao);
             comando.Parameters.AddWithValue("@IDCATEGORIA", gastos.IdCategoria);
             comando.Parameters.AddWithValue("@VALOR", gastos.Valor);
@@ -40,7 +40,7 @@ namespace SistemaFinanceiro.Repositório
         {
             List<Gastos> gastos = new List<Gastos>();
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id, id_cartao, id_categoria, valor, entrada, descricao FROM gastos";
+            comando.CommandText = "SELECT id, id_cartao, id_categoria, valor, data_comeco, data_termino, descricao FROM gastos";
 
 
             DataTable tabela = new DataTable();
@@ -53,7 +53,8 @@ namespace SistemaFinanceiro.Repositório
                     IdCartao = Convert.ToInt32(linha["id_cartao"].ToString()),
                     IdCategoria = Convert.ToInt32(linha["id_categoria"].ToString()),
                     Valor = Convert.ToDouble(linha["valor"].ToString()),
-                    Entrada = Convert.ToDateTime(linha["entrada"].ToString()),
+                    DataComeco = Convert.ToDateTime(linha["data_comeco"].ToString()),
+                    DataTermino = Convert.ToDateTime(linha["data_termino"].ToString()),
 
                 };
                 gastos.Add(gasto);
@@ -65,7 +66,7 @@ namespace SistemaFinanceiro.Repositório
         {
             Gastos gastos = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id_categoria, valor, entrada, descricao FROM gastos WHERE id = @ID";
+            comando.CommandText = "SELECT id_categoria, valor, data_comeco, data_termino, descricao FROM gastos WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -76,7 +77,9 @@ namespace SistemaFinanceiro.Repositório
                 gastos.IdCategoria = Convert.ToInt32(tabela.Rows[0]["id_categoria"].ToString());
                 gastos.IdCartao = Convert.ToInt32(tabela.Rows[0]["id_cartao"].ToString());
                 gastos.Valor = Convert.ToDouble(tabela.Rows[0]["valor"].ToString());
-                gastos.Entrada = Convert.ToDateTime(tabela.Rows[0]["entrada"].ToString());
+                gastos.DataComeco = Convert.ToDateTime(tabela.Rows[0]["data_comeco"].ToString());
+                gastos.DataTermino = Convert.ToDateTime(tabela.Rows[0]["data_termino"].ToString());
+
 
             }
 
@@ -87,12 +90,13 @@ namespace SistemaFinanceiro.Repositório
         public bool AlterarGastos(Gastos gastos)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "UPDATE gastos SET id_cartao = @IDCARTAO, id_categoria = @IDCATEGORIA, valor = @VALOR, entrada = @ENTRADA WHERE id = @ID";
+            comando.CommandText = "UPDATE gastos SET id_cartao = @IDCARTAO, id_categoria = @IDCATEGORIA, valor = @VALOR, data_comeco = @DATA_COMECO, data_termino = @DATA_TERMINO WHERE id = @ID";
             //comando.Parameters.AddWithValue("@ID_CATEGORIA", gastos.IdGastos);
             comando.Parameters.AddWithValue("@IDCATEGORIA", gastos.IdCategoria);
             comando.Parameters.AddWithValue("@IDCARTAO", gastos.IdCartao);
             comando.Parameters.AddWithValue("@VALOR", gastos.Valor);
-            comando.Parameters.AddWithValue("@ENTRADA", gastos.Entrada);
+            comando.Parameters.AddWithValue("@DATA_COMECO", gastos.DataComeco);
+            comando.Parameters.AddWithValue("@DATA_TERMINO", gastos.DataTermino);
             comando.Parameters.AddWithValue("@ID", gastos.Id); 
             return comando.ExecuteNonQuery() == 1;
         }
