@@ -5498,6 +5498,7 @@
     <Content Include="Scripts\scriptGastos\editar-gasto.js" />
     <Content Include="Scripts\scriptGastos\tabelaGastos.js" />
     <Content Include="Scripts\scriptHome\calculosHome.js" />
+    <Content Include="Scripts\scriptHome\calendario.js" />
     <Content Include="Scripts\scriptHome\grafico-recebimento-home.js" />
     <Content Include="Scripts\scriptHome\grafico-gastos-setor-home.js" />
     <Content Include="Scripts\scriptHome\tempo.js" />

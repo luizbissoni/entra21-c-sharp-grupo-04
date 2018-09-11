@@ -16,9 +16,9 @@ namespace SistemaFinanceiro.Models
         
         public double Valor { get; set; }
         
-        public DateTime DataComeco { get; set; }
+        public DateTime Entrada { get; set; }
 
-        public DateTime DataTermino { get; set; }
+        public DateTime Vencimento { get; set; }
 
         public string Descricao { get; set; }
 

@@ -160,43 +160,27 @@
     </div>
 </div>
 <!--TABELA CARTAO FIM-->
-<!--TABELA GASTOS INICIO -->
-@*<div class="card">
-        <div class="card-header">
-            <h5>Zero Configuration</h5>
-            <span></span>
-            <div class="card-header-right">
-                <i class="icofont icofont-spinner-alt-5"></i>
+<div class="card">
+    <div class="card-header">
+        <h5>Full Calender</h5>
+        <div class="card-header-right">    
+        <ul class="list-unstyled card-option">       
+            <li><i class="icofont icofont-simple-left "></i></li>       
+            <li><i class="icofont icofont-maximize full-card"></i></li>       
+            <li><i class="icofont icofont-minus minimize-card"></i></li>       
+            <li><i class="icofont icofont-refresh reload-card"></i></li>        
+            <li><i class="icofont icofont-error close-card"></i></li>    
+            </ul>
+        </div>
+    </div>
+    <div class="card-block">
+        <div class="row">
+            <div class="col-xl-10 col-md-12">
+                <div id='calendario'></div>
             </div>
         </div>
-        <div class="card-block">
-            <div class="dt-responsive table-responsive">
-                <table id="tabela-gastos-home"
-                       class="table table-striped table-bordered nowrap">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>IdCartao</th>
-                            <th>IdCategoria</th>
-                            <th>valor</th>
-                            <th>Entrada</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Id</th>
-                            <th>IdCartao</th>
-                            <th>IdCategoria</th>
-                            <th>valor</th>
-                            <th>Entrada</th>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
-    </div>*@
-<!--TABELA GASTOS FIM-->
+    </div>
+</div>
 
 
 
@@ -219,6 +203,7 @@
 
 @section script{
 
+
     <!-- SELECT2 -->
     <script src="~/Content/bower_components/select2/js/select2.full.min.js"></script>
     <script src="~/Content/bower_components/select2/js/select2.js"></script>
@@ -237,6 +222,7 @@
     <script type="text/javascript" src="~/Content/assets/pages/pnotify/notify.js"></script>
 
 
+
     <!-- Masking js -->
     <script src="~/Content/assets/pages/form-masking/inputmask.js"></script>
     <script src="~/Content/assets/pages/form-masking/jquery.inputmask.js"></script>
@@ -250,16 +236,12 @@
     <!-- Morris Chart js -->
     <script src="~/Content/bower_components/raphael/js/raphael.min.js"></script>
     <script src="~/Content/bower_components/morris.js/js/morris.js"></script>
-    <!-- Float Chart js -->
-    <script src="~/Content/assets/pages/chart/float/jquery.flot.js"></script>
-    <script src="~/Content/assets/pages/chart/float/jquery.flot.categories.js "></script>
-    <script src="~/Content/assets/pages/chart/float/jquery.flot.pie.js "></script>
 
     <!-- Rickshow Chart js -->
     <script src="~/Content/bower_components/d3/js/d3.js"></script>
     <script src="~/Content/assets/pages/chart/rickshow/d3.layout.min.js"></script>
     <script src="~/Content/bower_components/rickshaw/js/rickshaw.js"></script>
-    <script type="text/javascript" src="~/Content/assets/pages/widget/jquery.sparkline.js"></script>
+
     <!-- gauge js -->
     <script src="~/Content/assets/pages/widget/gauge/gauge.min.js "></script>
     <script src="~/Content/assets/pages/widget/amchart/amcharts.js"></script>
@@ -267,10 +249,7 @@
     <script src="~/Content/assets/pages/widget/amchart/gauge.js"></script>
     <script src="~/Content/assets/pages/widget/amchart/pie.js"></script>
     <script src="~/Content/assets/pages/widget/amchart/light.js"></script>
-    <!-- peity Chart js -->
-    <script src="~/Content/bower_components/peity/js/jquery.peity.js "></script>
-    <!-- knob js -->
-    <script src="~/Content/assets/pages/chart/knob/jquery.knob.js"></script>
+
     <!-- i18next.min.js -->
     <script type="text/javascript" src="~/Content/bower_components/i18next/js/i18next.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
@@ -295,4 +274,6 @@
     <script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>
     <script src="~/Scripts/ScriptPessoaCadastro/add-gastos.js"></script>
     <script src="~/Scripts/Login/login-usuario.js"></script>
+    <script src="~/Scripts/scriptHome/calendario.js"></script>
+   
 }

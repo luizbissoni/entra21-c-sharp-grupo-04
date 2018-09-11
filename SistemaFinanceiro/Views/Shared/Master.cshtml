@@ -2,20 +2,11 @@
 @{
     int pessoa = Convert.ToInt32(Session["user"]);
 
-    // @Html.Encode(Session["user"])
-
-    //foreach (SistemaFinanceiro.Models.Pessoas item in ViewBag.Pessoa)
-    //{
-    //    if (item.Id == pessoa)
-    //    {
-    //        item.Nome.ToString();
-    //    }
-    //}
 }
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <title>My Finances</title>
@@ -44,6 +35,9 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/jquery.mCustomScrollbar.css">
+    <!-- Calender css -->
+    <link rel="stylesheet" type="text/css" href="~/Content/bower_components/fullcalendar/css/fullcalendar.css">
+    @*<link rel="stylesheet" type="text/css" href="~/Content/bower_components/fullcalendar/css/fullcalendar.print.css" media='print'>*@
     @RenderSection("css", false)
 </head>
 
@@ -313,55 +307,11 @@
                                                 <li class="active">
                                                     <a href="#" class="recebimento-pessoa" data-target="#modal-recebimento-pessoa" data-toggle="modal">Recebimento</a>
                                                 </li>
-                                               
+
                                             </ul>
                                         </li>
 
                                     </ul>
-                                    @*<div class="pcoded-navigatio-lavel" data-i18n="nav.category.ui-element"></div>*@
-                                    @*<ul class="pcoded-item pcoded-left-item">
-                                        <li class="pcoded-hasmenu active pcoded-trigger">
-                                            <a href="javascript:void(0)">
-                                                <span class="pcoded-micon"><i class="ti-home"></i><b>I</b></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.dash.main">Editar</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                            <ul class="pcoded-submenu">
-                                                <li class="active">
-                                                    @Html.ActionLink("Gastos", "Index", "Gasto")
-                                                </li>
-                                                <li class="active">
-                                                    @Html.ActionLink("Cartão", "Index", "Cartao")
-                                                </li>
-                                                <li class="active">
-                                                    @Html.ActionLink("Recebimento", "Index", "Recebimento")
-                                                </li>
-                                                <li class="active">
-                                                    @Html.ActionLink("Categoria", "Index", "Categoria")
-                                                </li>
-                                                <li class="active">
-                                                    @Html.ActionLink("Pessoas", "Index", "Pessoas")
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                    </ul>*@
-                                    @*<div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Home do Sistema</div>*@
-                                    @*<ul class="pcoded-item pcoded-left-item">
-                                        <li class="pcoded-hasmenu active pcoded-trigger">
-                                            <a href="javascript:void(0)">
-                                                <span class="pcoded-micon"><i class="ti-home"></i><b>I</b></span>
-                                                <span class="pcoded-mtext" data-i18n="nav.dash.main">Index</span>
-                                                <span class="pcoded-mcaret"></span>
-                                            </a>
-                                            <ul class="pcoded-submenu">
-                                                <li class="active">
-                                                    @Html.ActionLink("Home", "Index", "Home")
-                                                </li>
-                                            </ul>
-                                        </li>
-
-                                    </ul>*@
                                 </div>
                             </nav>
                             <div class="pcoded-content">
@@ -393,8 +343,20 @@
     </div>
 
     <!-- Required Jquery -->
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
     <script type="text/javascript" src="~/Content/bower_components/jquery/js/jquery.min.js"></script>
+    <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/pages/widget/jquery.sparkline.js"></script>
+    <!-- Float Chart js -->
+    <script src="~/Content/assets/pages/chart/float/jquery.flot.js"></script>
+    <script src="~/Content/assets/pages/chart/float/jquery.flot.categories.js "></script>
+    <script src="~/Content/assets/pages/chart/float/jquery.flot.pie.js "></script>
+
+    <!-- peity Chart js -->
+    <script src="~/Content/bower_components/peity/js/jquery.peity.js "></script>
+    <!-- knob js -->
+    <script src="~/Content/assets/pages/chart/knob/jquery.knob.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/popper.js/js/popper.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/bootstrap/js/bootstrap.min.js"></script>
 
@@ -403,9 +365,13 @@
 
     <!-- modernizr js -->
     <script type="text/javascript" src="~/Content/bower_components/modernizr/js/modernizr.js"></script>
+    <!-- calender js -->
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
+    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
+    @*<script src="~/Content/bower_components/fullcalendar/js/fullcalendar.min.js"></script>
+    <script src="~/Content/bower_components/moment/js/moment.min.js"></script>*@
 
     <!-- data-table js -->
-    <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="~/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
     <script src="~/Content/assets/pages/data-table/js/jszip.min.js"></script>
     <script src="~/Content/assets/pages/data-table/js/pdfmake.min.js"></script>
@@ -416,8 +382,7 @@
     <script src="~/Content/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
 
-    <script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
-    <script src="~/Scripts/scriptGastos/tabelaGastos.js"></script>
+
 
     <!-- am chart -->
     <script src="~/Content/assets/pages/widget/amchart/amcharts.min.js"></script>
@@ -431,6 +396,9 @@
     <!-- SELECT2 -->
     <script src="~/Content/bower_components/select2/js/select2.full.min.js"></script>
     <script src="~/Content/bower_components/select2/js/select2.js"></script>
+
+    <script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
+    <script src="~/Scripts/scriptGastos/tabelaGastos.js"></script>
 
     @*<script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
         <script src="~/Scripts/ScriptPessoaCadastro/delete-person-modal.js"></script>
