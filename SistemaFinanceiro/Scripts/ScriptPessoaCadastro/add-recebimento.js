@@ -21,22 +21,22 @@
                 $('#campo-descricao').html(categoriaOptions);
             }
         });
-
-
-
-
     });
 
     $('#cadastrar-recebimento').on('click', function () {
+        $valor = $('#campo-recebimento-valor').val();
+        $valor = $valor.replace(/\,/g, "");
+        $valor = $valor.replace('.', ",");
+       
         $.ajax({
             url: '/Pessoas/CadastroRecebimento',
             method: 'POST',
             data: {
 
-                "data": $('[name=campo-data-recebimento]').val(),
-                "valor": $('#campo-recebimento-valor').val(),
-                "idCategoria": $('.descricao-recebimento').val(),
-                "idPessoas": getSessionValue()
+                data: $('[name=campo-data-recebimento]').val(),
+                valor: $valor,
+                idCategoria: $('.descricao-recebimento').val(),
+                idPessoas: getSessionValue()
             },
             success: function (data) {
                 //console.log(data);
@@ -49,16 +49,7 @@
                 });
             }
         });
-    //var recebimento = SistemaFinanceiro.Models.Categoria;
-    //carregarSelected('.descricao-recebimento');
-
-    
-
-    //function carregarSelected(id) {
-
-       
-
-    //};
+   
 
    
 

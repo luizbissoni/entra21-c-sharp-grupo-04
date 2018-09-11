@@ -84,7 +84,7 @@ namespace SistemaFinanceiro.Controllers
         {
             int id = Convert.ToInt32(Session["user"].ToString());
 
-            Cartoes cartoes = new Cartoes()
+            Cartoes addcartoes = new Cartoes()
             {
                 IdPessoas = id,
                 Banco = cartao.Banco,
@@ -93,9 +93,9 @@ namespace SistemaFinanceiro.Controllers
                 Numero = cartao.Numero
             };
 
-            int deuCerto = new RepositorioCartoes().CadastrarCartao(cartoes);
+           int deuCerto = new RepositorioCartoes().CadastrarCartao(addcartoes);
 
-            return Content(JsonConvert.SerializeObject(new { data = deuCerto }));
+            return Content(JsonConvert.SerializeObject(new { addcartoes }));
         }
 
         [HttpGet]
@@ -111,14 +111,6 @@ namespace SistemaFinanceiro.Controllers
         {
             int id = Convert.ToInt32(Session["user"].ToString());
 
-            //Recebimento addRecebimento = new Recebimento()
-            //{
-            //    IdCategoria = recebimento.IdCategoria,
-            //    IdPessoas = Convert.ToInt32(Session["user"].ToString()),
-            //    Data = recebimento.Data,
-            //    Valor = recebimento.Valor
-            //};
-
             int deuCerto = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
 
             return Content(JsonConvert.SerializeObject(new { recebimento }));
@@ -128,21 +120,13 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult CadastroGastosModalPessoas(Gastos gasto)
         {
             int id = Convert.ToInt32(Session["user"].ToString());
-            Gastos addGastos = new Gastos()
-            {
-                IdCartao = gasto.IdCartao,
-                IdCategoria = gasto.IdCategoria,
-                Valor = gasto.Valor,
-                Descricao = gasto.Descricao
-                
-               // Entrada = gasto.Entrada
-            };
+        
+            int deuCerto = new RepositorioGastos().CadastrarGastos(gasto);
 
-            int deuCerto = new RepositorioGastos().CadastrarGastos(addGastos);
-
-            return Content(JsonConvert.SerializeObject(new { addGastos }));
+            return Content(JsonConvert.SerializeObject(new { gasto }));
         }
 
+       
 
 
 

@@ -71,7 +71,7 @@
                 new PNotify({
                     //title: 'Salvo com sucesso!',
                     text: 'Gastos adicionado com sucesso.',
-                    icon: 'icofont icofont-info-circle',
+                    //icon: 'icofont icofont-info-circle',
                     type: 'success'
                 });
             },
@@ -91,9 +91,8 @@
     });
 
     function limparCampos() {
-
-        //$('#campo-numero-cartao').val('');
-        //$('#campo-valor').val('');
+        $('#campo-numero-cartao').val('');
+        $('#campo-valor').val('');
         $('#campo-descricao-gastos').val('');
         $('[name=campo-despesa]').val('');
     };

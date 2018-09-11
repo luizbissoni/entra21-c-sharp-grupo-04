@@ -5571,6 +5571,7 @@
     <Content Include="Views\Login\CadastroModalConta.cshtml" />
     <Content Include="Views\Pessoas\CadastroCartaoModal.cshtml" />
     <Content Include="Views\Pessoas\CadastroGastosModal.cshtml" />
+    <Content Include="Views\Pessoas\AvisoModalExcluirGasto.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

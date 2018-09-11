@@ -1,36 +1,4 @@
 ﻿$(document).ready(function () {
-    $('#tabela-gastos-home').DataTable({
-        serverSide: true,
-        "bProcessing": true,
-        "ajax": "/Gasto/ObterTodosJson",
-        columns: [
-
-            { data: "Id" },
-            { data: "IdCartao" },
-            { data: "IdCategoria" },
-            { data: "Valor" },
-            { data: "Entrada" }
-        ]
-    });
-
-    var table = $('#exampletabela-cartao-home').DataTable();
-    var dataRow;
-
-    $('#tabela-teste tbody').on('click', 'tr', function () {
-        if ($(this).hasClass('selected')) {
-            $(this).removeClass('selected');
-            dataRow
-        }
-        else {
-            table.$('tr.selected').removeClass('selected');
-            $(this).addClass('selected');
-        }
-    });
-
-    $('#button').click(function () {
-        table.row('.selected').remove().draw(false);
-
-    });
 
     $('#tabela-teste').DataTable({
         serverSide: true,
@@ -48,12 +16,21 @@
         { data: "categoria" },
         { data: "valor" },
         ],
+
+        columnDefs: [{
+            "targets": 4,
+            "data": null,
+            "defaultContent": '<button id="editar-gasto-home" type="button" class="btn btn-outline-primary">Editar</button>     <button id="excluir-gasto-home" type="button" class= "btn btn-outline-danger" data-target="#avisoModal" data-toggle="modal">Excluir</button>'
+        }],
         "order": [[1, 'asc']]
     });
 
+    var table = $('#tabela-teste').DataTable();
+    var dataRow;
+
     $('#tabela-teste tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
-        var row = table.row(tr);
+         var row = table.row(tr);
 
         if (row.child.isShown()) {
             // This row is already open - close it
@@ -65,6 +42,19 @@
             row.child(format(row.data())).show();
             tr.addClass('shown');
         }
+        dataRow = table.row(this).data();
+
+       // console.log(dataRow);
+    });
+
+    $('#tabela-teste tbody').on('click', 'tr', function () {
+        if ($(this).hasClass('selected')) {
+            $(this).removeClass('selected');
+        } else {
+            table.$('tr.selected').removeClass('selected');
+            $(this).removeClass('selected');
+        }
+        dataRow = table.row(this).data();
     });
 
     function format(d) {
@@ -72,7 +62,7 @@
         return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
             '<tr>' +
             '<td>Descrição:</td>' +
-            '<td>' + d.conta + '</td>' +
+            '<td>' + d.descricao + '</td>' +
             '</tr>' +
             //'<tr>' +
             //'<td>Extension number:</td>' +
@@ -85,4 +75,23 @@
             '</table>';
     }
 
+   
+
+    $('.excluir-gasto-confirmar').click(function () {
+        //table.row('.selected').remove().draw(false);
+        $.ajax({
+            url: '/Home/ExcluirGastos',
+            method: 'GET',
+            data: {
+                Id: dataRow.Id
+            },
+            success: function (excluirId) {
+                var data = JSON.parse(excluirId)
+                console.log(data)
+                $('#linha-' + data.Id).remove();
+                $('#avisoModa').modal('hide');
+            }
+        }); 
+    });
 });
+
