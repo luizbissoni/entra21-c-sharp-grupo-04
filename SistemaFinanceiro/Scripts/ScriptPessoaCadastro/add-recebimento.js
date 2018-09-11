@@ -1,4 +1,6 @@
 ﻿$(function () {
+    $('#campo-descricao').select2();
+
 
     function getSessionValue() {
         return document.getElementById("id-pessoa").value;

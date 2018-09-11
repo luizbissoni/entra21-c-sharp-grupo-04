@@ -4,11 +4,12 @@
     int pessoa = Convert.ToInt32(Session["user"]);
 }
 
-<div class="modal" id="modal-recebimento-pessoa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal" id="modal-recebimento-pessoa" tabindex="-1" role="dialog" style="z-index: 1050; display: none;"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Recebimento</h5>
+                <h6 class="modal-title" id="exampleModalLabel">Cadastrar Recebimento</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -16,24 +17,29 @@
             <div class="modal-body">
                 <input type="hidden" value="@pessoa" id="id-pessoa" />
                 <div class="row">
-                    <div class="col-md-4">
-                       <div class="form-group">
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <label class="col-md-1 control-label valor" for="campo-valor-recebimento">Valor</label>
-                            <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control autonumber  form-control-bold" type="text" data-a-sep="." data-a-dec=",">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                        <label class="col-md-1 control-label" for="campo-data-recebimento">Data</label>
-                            <input id="campo-recebimento-data" name="campo-data-recebimento" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="date" value="">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="col-md-1 control-label" for="campo-descricao-recebimento">Descrição<h11>*</h11></label>
                             <div class="col-md-8">
-                                <select id="campo-descricao" class="form-control  descricao-recebimento  form-control-bold" name="descricao"></select>
+                                <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control autonumber  form-control-bold" type="text" data-a-sep="." data-a-dec=",">
                             </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="col-md-1 control-label" for="campo-data-recebimento">Data</label>
+                            <div class="col-md-8">
+                                <input id="campo-recebimento-data" name="campo-data-recebimento" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="date" value="">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                            <label>
+                                Descrição
+                            </label>
+                        <div class="form-group">
+                                <select class="form-control form-control-default" name="descricao" id="campo-descricao"></select>
                         </div>
                     </div>
 

@@ -13048,8 +13048,8 @@ body.menu-bottom #collapse-menu {
   height: auto;
 }
 .select2-container--default .select2-selection--single .select2-selection__rendered {
-  background-color: #4680ff;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   padding: 8px 30px 8px 20px;
 }
 .select2-container--default .select2-selection--single .select2-selection__arrow {
