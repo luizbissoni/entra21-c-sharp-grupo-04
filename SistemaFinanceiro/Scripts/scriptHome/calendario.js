@@ -18,7 +18,7 @@ $('#calendario').fullCalendar({
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listMonth'
     },
-    defaultDate: Date(),
+    defaultDate: moment(Date()).format("DD/MMMM/YYYY", "HH:mm:ss"),
     eventStartEditable: true,
     navLinks: true, // can click day/week names to navigate views
     businessHours: true, // display business hours
@@ -26,8 +26,9 @@ $('#calendario').fullCalendar({
     selectHelper: true,
     selectable: true,
     select: function (start, end) {
-        $('#modal-cadastro-gasto-calendario #start').val(moment(start).format('DD/MM/YYYY HH:mm:ss'));
-        $('#modal-cadastro-gasto-calendario #end').val(moment(end).format('DD/MM/YYYY HH:mm:ss'));
+
+        $('#start').val(moment(start).format("DD/MMMM/YYYY" ,"HH:mm:ss"));
+        $('#end').val(moment(end).format("DD/MMMM/YYYY", "HH:mm:ss"));
         
         $("#modal-cadastro-gasto-calendario").modal('show');
 
@@ -39,22 +40,21 @@ $('#calendario').fullCalendar({
     events: function (title, start, end, callback) {
         $.ajax({
             'url': '/Home/TabelaGastos', /*"dataSrc": 'tabela',*/
-            'method': 'POST',
+            'method': 'GET',
             success: function (pesquisa) {
                 var resultado = JSON.parse(pesquisa);
 
                 $.each(resultado.tabela, function (i) {
                     events.push({
-
                         title: resultado.tabela[i].descricao,
-                        start: (moment(resultado.tabela[i].entrada).format('DD/MM/YYYY HH:mm:ss')),
-                        end: (moment(resultado.tabela[i].vencimento).format('DD/MM/YYYY HH:mm:ss'))
+                        start: (moment(resultado.tabela[i].entrada)/*.format("DD/MM/YYYY", "HH:mm:ss")*/),
+                        end: (moment(resultado.tabela[i].vencimento)/*.format("DD/MM/YYYY", "HH:mm:ss")*/)
 
                     });
 
                 });
-                // console.log(events);
-                return callback(events);
+                //console.log(events);
+                return callback(events, title, start, end);
             }
         });
     },
@@ -71,7 +71,6 @@ $('#calendario').fullCalendar({
     },
     eventClick: function (event) {
         $('#modal-visualizar-evento').modal('show');
-        //$('#').text(envent.id);
         //$('#campo-title #title').text(envent.title);
         //$('#campo-entrada #start').text(envent.start);
         //$('#campo-vancimento #end').text(envent.end);
