@@ -9,10 +9,14 @@
         method: 'GET',
         success: function (resultado) {
             var total = JSON.parse(resultado);
-
-            $('.saldo-recebico').text('R$' + total.tabela[0].total);
-            //console.log(total.tabela[0].total);
-            valorRecebido = total.tabela[0].total;
+            if (total.tabela[0].total > 0) {
+                $('.saldo-recebico').text('R$' + total.tabela[0].total);
+                valorRecebido = total.tabela[0].total;
+            } else {
+                $('.saldo-recebico').text('R$' + 00,00);
+               // valorRecebido = total.tabela[0].total;
+            }
+           
         }
     });
 

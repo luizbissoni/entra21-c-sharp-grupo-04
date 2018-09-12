@@ -2,6 +2,13 @@
 
     var table = $('#tabela-teste').DataTable();
 
+    $('#campo-descricao-editar-gastos').select2();
+    $('#campo-descricao-gastos').select2();
+    $('.lista-cartao-gastos').select2();
+
+    //calendario
+   
+
     function getSessionValue() {
         return document.getElementById("id-pessoa-gastos").value;
     }
@@ -26,7 +33,9 @@
                     // console.log(data.data[i].Id);
                     categoriaOptions += '<option id="valor-campo-descricao-gastos" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
                 }
+                $('#campo-descricao-editar-gastos').html(categoriaOptions);
                 $('#campo-descricao-gastos').html(categoriaOptions);
+                //$('#campo-calendario-descricao').html(categoriaOptions);
             }
         });
 
@@ -38,22 +47,25 @@
                 for (var i = 0; i < allCard.data.length; i++) {
 
                     if (allCard.data[i].IdPessoas == getSessionValue()) {
-                    cartaoOptions += '<option id="select-cartao" value="' + allCard.data[i].Id + '">' + ' conta: ' + allCard.data[i].Conta + ' -- ' + ' Banco: ' + allCard.data[i].Banco + '</option>';
+                        cartaoOptions += '<option id="select-cartao" value="' + allCard.data[i].Id + '">' + ' conta: ' + allCard.data[i].Conta + ' -- ' + ' Banco: ' + allCard.data[i].Banco + '</option>';
                     }
                 }
-
                 $('#campo-numero-cartao').html(cartaoOptions);
+                $('.lista-cartao-gastos').html(cartaoOptions);
+                //$('.campo-calendario-numero-cartao').html(cartaoOptions)
                 //console.log(allCard.data);
             }
         });
     });
-   
+
 
     $('#salvar-gastos-pessoa').on('click', function () {
+
         $valor = $('#campo-valor-pessoa').val();
-        $valor = $valor.replace(/\,/g, "");
-        $valor = $valor.replace('.', ",");
-       // console.log($valor);
+        //$valor = $valor.replace(/\,/g, "");
+        //$valor = $valor.replace('.', ",");
+       // $valor = Number($valor.replace(/[^0-9.-]+/g, ""));
+        //console.log($valor);
         $.ajax({
             url: '/Pessoas/CadastroGastosModalPessoas',
             method: 'POST',
@@ -86,10 +98,10 @@
                     type: 'error'
                 });
 
-                
+
             }
 
-            
+
         });
     });
 
@@ -101,5 +113,5 @@
     };
 
 
-  
+
 });

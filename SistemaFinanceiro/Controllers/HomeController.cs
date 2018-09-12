@@ -130,7 +130,7 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
             int id = Convert.ToInt32(Session["user"].ToString());
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"SELECT gastos.Id,pessoas.nome, cartoes.conta AS 'conta',categorias.nome AS 'categoria', valor, entrada,vencimento, descricao FROM gastos INNER JOIN categorias ON categorias.Id = gastos.id_categoria 
+            comando.CommandText = @"SET LANGUAGE português SELECT gastos.Id,pessoas.nome, cartoes.conta AS 'conta',categorias.nome AS 'categoria', valor, entrada,vencimento, descricao FROM gastos INNER JOIN categorias ON categorias.Id = gastos.id_categoria 
 INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao INNER JOIN pessoas ON pessoas.Id = cartoes.id_pessoas WHERE pessoas.Id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();

@@ -16,8 +16,7 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada, vencimento, descricao) OUTPUT INSERTED.ID VALUES 
-                    (@IDCARTAO, @IDCATEGORIA, @VALOR, GETDATE(), GETDATE(), @DESCRICAO)";
+            comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada, vencimento, descricao) OUTPUT INSERTED.ID VALUES (@IDCARTAO, @IDCATEGORIA, @VALOR, @ENTRADA, @VENCIMENTO, @DESCRICAO)";
             comando.Parameters.AddWithValue("@IDCARTAO", gastos.IdCartao);
             comando.Parameters.AddWithValue("@IDCATEGORIA", gastos.IdCategoria);
             comando.Parameters.AddWithValue("@VALOR", gastos.Valor);

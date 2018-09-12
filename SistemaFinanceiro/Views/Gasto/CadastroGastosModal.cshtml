@@ -6,7 +6,7 @@
     List<SistemaFinanceiro.Models.Cartoes> allCard = new List<SistemaFinanceiro.Models.Cartoes>();
 }
 
-<div class="modal fade" id="cadastrar-gastos-pessoa">
+<div class="modal fade" id="cadastrar-gastos-pessoa" role="dialog" style="z-index: 1050; display: none;"  aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -27,14 +27,13 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label class="col-sm-6" for="campo-valor">Valor</label>
-                            <input id="campo-valor-pessoa" name="campo-valor" placeholder="" class="form-control input-md col-sm-12 autonumber  form-control-bold " required="" type="text">
+                            <input id="campo-valor-pessoa" name="campo-valor" placeholder=""  class="form-control input-md col-sm-12 form-control-bold" required="" type="text">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="descricao-gastos">Categoria</label>
                             <select id="campo-descricao-gastos" class="form-control  descricao-gastos  form-control-bold" name="descricao-gastos">
-                                <option selected="selected" disabled="disabled"></option>
                             </select>
                         </div>
                     </div>

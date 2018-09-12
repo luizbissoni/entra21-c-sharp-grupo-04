@@ -77,3 +77,8 @@ INSERT INTO categorias(nome) VALUES ('Condomínio'),('Salário'),('IPTU'),('Celu
 --update login set id_pessoas = 2 where login.id = 2
 --SELECT pessoas.Id, pessoas.nome, login.id_pessoas, login.usuario, login.email FROM login INNER JOIN pessoas ON login.id_pessoas = pessoas.Id
 --update login set login.id_pessoas = 1 where login.usuario = 'admin';
+
+--update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) from gastos)) where recebimentos.id_pessoas = (select cartoes.id_pessoas from cartoes where cartoes.Id = @ID)
+
+Exec sp_defaultlanguage 'sa', 'Português (Brasil)'
+Reconfigure -- "Atualiza" a modificação realizada
