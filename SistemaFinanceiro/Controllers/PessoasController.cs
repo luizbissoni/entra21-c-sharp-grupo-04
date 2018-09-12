@@ -120,7 +120,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult CadastroGastosModalPessoas(Gastos gasto)
         {
             int id = Convert.ToInt32(Session["user"].ToString());
-        
+
             int deuCerto = new RepositorioGastos().CadastrarGastos(gasto);
 
             return Content(JsonConvert.SerializeObject(new { gasto }));

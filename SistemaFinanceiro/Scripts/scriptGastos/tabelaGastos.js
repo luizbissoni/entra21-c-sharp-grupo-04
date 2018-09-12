@@ -61,17 +61,17 @@
         // `d` is the original data object for the row
         return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
             '<tr>' +
-            '<td>Descrição:</td>' +
+            '<th>Descrição:</th>' +
             '<td>' + d.descricao + '</td>' +
+            //'</tr>' +
+            //'<tr>' +
+            '<th>Dia Pagamento:</th>' +
+            '<td>' + d.entrada + '</td>' +
+            //'</tr>' +
+            //'<tr>' +
+            '<th>Término do pagamento:</th>' +
+            '<td>' + d.vencimento + '</td>' +
             '</tr>' +
-            //'<tr>' +
-            //'<td>Extension number:</td>' +
-            //'<td>' + d.extn + '</td>' +
-            //'</tr>' +
-            //'<tr>' +
-            //'<td>Extra info:</td>' +
-            //'<td>And any further details here (images etc)...</td>' +
-            //'</tr>' +
             '</table>';
     }
 

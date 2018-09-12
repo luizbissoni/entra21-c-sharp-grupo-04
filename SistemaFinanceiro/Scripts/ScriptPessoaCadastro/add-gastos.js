@@ -62,9 +62,9 @@
                 "idCartao": $(".lista-cartao-gastos").val(),
                 "idCategoria": $(".descricao-gastos").val(),
                 "Valor": $valor,
-                "descricao": $('#descricao-despesa').val()
-                //entrada: $('#campo-data-entrada').val(),
-                //vencimento: $('#campo-vencimento').val()
+                "descricao": $('#descricao-despesa').val(),
+                "entrada": $('#data-entrada').val(),
+                "vencimento": $('#data-termino').val()
 
             },
             success: function () {

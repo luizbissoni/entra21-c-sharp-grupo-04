@@ -5023,6 +5023,7 @@
     <Content Include="Content\bower_components\fullcalendar\css\fullcalendar.print.css" />
     <Content Include="Content\bower_components\fullcalendar\js\fullcalendar.js" />
     <Content Include="Content\bower_components\fullcalendar\js\fullcalendar.min.js" />
+    <Content Include="Content\bower_components\fullcalendar\js\pt-br.js" />
     <Content Include="Content\bower_components\handlebars\js\handlebars.min.js" />
     <Content Include="Content\bower_components\handsontable\css\handsontable.css" />
     <Content Include="Content\bower_components\handsontable\css\handsontable.full.min.css" />
@@ -5573,6 +5574,8 @@
     <Content Include="Views\Pessoas\CadastroCartaoModal.cshtml" />
     <Content Include="Views\Pessoas\CadastroGastosModal.cshtml" />
     <Content Include="Views\Pessoas\AvisoModalExcluirGasto.cshtml" />
+    <Content Include="Views\ModalCalendario\ModalView.cshtml" />
+    <Content Include="Views\ModalCalendario\ModalVisualizarEvento.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
