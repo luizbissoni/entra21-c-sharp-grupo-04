@@ -6,7 +6,7 @@
     List<SistemaFinanceiro.Models.Cartoes> allCard = new List<SistemaFinanceiro.Models.Cartoes>();
 }
 
-<div class="modal fade" id="modal-cadastro-gasto-calendario">
+<div class="modal fade" id="editar-gastos-pessoa">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -21,19 +21,19 @@
                     <div class="col-md-5">
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="cartao-pessoa">Cartão</label>
-                            <select id="campo-numero-cartao" class="form-control lista-cartao-gastos  form-control-bold" name="cartao-pessoa"></select>
+                            <select id="campo-numero-cartao-editar-gastos" class="form-control lista-cartao-gastos  form-control-bold" name="cartao-pessoa"></select>
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label class="col-sm-6" for="campo-valor">Valor</label>
-                            <input id="campo-calendario-valor" name="campo-valor" placeholder="" class="form-control input-md col-sm-12 autonumber  form-control-bold " required="" type="text">
+                            <input id="campo-valor-pessoa-editar-gastos" name="campo-valor" placeholder="" class="form-control input-md col-sm-12 autonumber  form-control-bold " required="" type="text">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label class="col-md-1 control-label" for="descricao-gastos">Categoria</label>
-                            <select id="campo-calendario-descricao" class="form-control  descricao-gastos  form-control-bold" name="descricao-gastos">
+                            <select id="campo-descricao-editar-gastos" class="form-control  descricao-gastos  form-control-bold" name="descricao-gastos">
                                 <option selected="selected" disabled="disabled"></option>
                             </select>
                         </div>
@@ -43,13 +43,13 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="col-md-10 control-label" for="campo-data-entrada">Data Pagamento</label>
-                            <input id="calendario-data-entrada" name="campo-data-entrada" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="date" value="">
+                            <input id="data-entrada-editar-gastos" name="campo-data-entrada" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="date" value="">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label class="col-md-6 control-label" for="campo-data-termino">Data término</label>
-                            <input id="calendario-data-termino" name="campo-data-termino" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="date" value="">
+                            <input id="data-termino-editar-gastos" name="campo-data-termino" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="date" value="">
                         </div>
                     </div>
                 </div>
@@ -57,13 +57,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label class="control-label" for="campo-despesa">Descrição</label>
-                            <input class="form-control" name="campo-despesa" type="text" id="calendario-descricao-despesa" />
+                            <input class="form-control" name="campo-despesa" type="text" id="descricao-despesa-editar-gastos" />
                         </div>
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="salvar-gastos-calendario">Salvar</button>
+                    <button type="button" class="btn btn-primary" id="editar-gastos-home">Salvar</button>
                 </div>
 
             </div>

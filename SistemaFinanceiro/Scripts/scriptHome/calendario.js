@@ -3,24 +3,22 @@
 
 
 $('#calendario').fullCalendar({
-    lang: 'pt-br',
     header: {
         left: 'prev,next today',
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listMonth'
     },
     defaultDate: Date(),
+    eventStartEditable: true,
     navLinks: true, // can click day/week names to navigate views
     businessHours: true, // display business hours
     editable: true,
     selectHelper: true,
     selectable: true,
     select: function (start, end) {
-        $('#modal-calendario-view').modal('show');
-        //$('#').text(envent.id);
-        //$('#campo-title #title').val(title);
-        $('#modal-calendario-view #start').val(moment(start).format('DD//MM/YYYY HH:mm:ss'));
-        $('#modal-calendario-view #end').val(moment(end).format('DD//MM/YYYY HH:mm:ss'));
+        $('#modal-cadastro-gasto-calendario #calendario-data-entrada').val(moment(start).format('DD//MM/YYYY HH:mm:ss'));
+        $('#modal-cadastro-gasto-calendario #calendario-data-termino').val(moment(end).format('DD//MM/YYYY HH:mm:ss'));
+        $("#modal-cadastro-gasto-calendario").modal('show');
 
     },
     droppable: true, // this allows things to be dropped onto the calendar
@@ -48,6 +46,17 @@ $('#calendario').fullCalendar({
                 return callback(events);
             }
         });
+    },
+    eventRender: function (event, element) {
+        if (element && event.description) {
+            element.qtip({
+                content: event.title,
+                hide: {
+                    fixed: true,
+                    delay: 500
+                }
+            });
+        }
     },
     eventClick: function (event) {
         $('#modal-visualizar-evento').modal('show');

@@ -5483,6 +5483,8 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.qtip.css" />
+    <Content Include="Scripts\jquery.qtip.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -5544,17 +5546,8 @@
     <Content Include="Views\Shared\Master.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="Views\Cartao\Cadastro.cshtml" />
-    <Content Include="Views\Cartao\Index.cshtml" />
-    <Content Include="Views\Cartao\Editar.cshtml" />
-    <Content Include="Views\Recebimento\Index.cshtml" />
-    <Content Include="Views\Recebimento\Cadastro.cshtml" />
-    <Content Include="Views\Recebimento\Editar.cshtml" />
-    <Content Include="Views\Gasto\Index.cshtml" />
-    <Content Include="Views\Gasto\Editar.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Categoria\Cadastro.cshtml" />
-    <Content Include="Views\Gasto\Cadastro.cshtml" />
     <Content Include="Views\Categoria\Editar.cshtml" />
     <Content Include="Views\Pessoas\Index.cshtml" />
     <Content Include="Views\Pessoas\Cadastro.cshtml" />
@@ -5562,20 +5555,17 @@
     <Content Include="Views\Pessoas\EditarModal.cshtml" />
     <Content Include="Views\Pessoas\CadastroModal.cshtml" />
     <Content Include="Views\PerfilUsuario\IndexPerfil.cshtml" />
-    <Content Include="Views\Gasto\CadastoGastoModel.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Gasto\EditarGastoModel.cshtml" />
-    <Content Include="Views\Cartao\CadastroModal.cshtml" />
-    <Content Include="Views\Cartao\EditarCartaoModal.cshtml" />
     <Content Include="Views\PerfilUsuario\cadastroCartaoModal.cshtml" />
-    <Content Include="Views\Pessoas\CadastroRecebimentoModal.cshtml" />
+    <Content Include="Views\Recebimento\CadastroRecebimentoModal.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Login\CadastroModalConta.cshtml" />
-    <Content Include="Views\Pessoas\CadastroCartaoModal.cshtml" />
-    <Content Include="Views\Pessoas\CadastroGastosModal.cshtml" />
-    <Content Include="Views\Pessoas\AvisoModalExcluirGasto.cshtml" />
+    <Content Include="Views\Cartao\CadastroCartaoModal.cshtml" />
+    <Content Include="Views\Gasto\CadastroGastosModal.cshtml" />
+    <Content Include="Views\Gasto\AvisoModalExcluirGasto.cshtml" />
     <Content Include="Views\ModalCalendario\ModalView.cshtml" />
     <Content Include="Views\ModalCalendario\ModalVisualizarEvento.cshtml" />
+    <Content Include="Views\Gasto\ModalEditarGastos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

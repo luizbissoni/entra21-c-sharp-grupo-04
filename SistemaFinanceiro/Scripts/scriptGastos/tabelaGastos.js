@@ -20,7 +20,7 @@
         columnDefs: [{
             "targets": 4,
             "data": null,
-            "defaultContent": '<button id="editar-gasto-home" type="button" class="btn btn-outline-primary">Editar</button>     <button id="excluir-gasto-home" type="button" class= "btn btn-outline-danger" data-target="#avisoModal" data-toggle="modal">Excluir</button>'
+            "defaultContent": '<button id="editar-gasto-home" type="button" class="btn btn-outline-primary" data-target="#editar-gastos-pessoa" data-toggle="modal">Editar</button>     <button id="excluir-gasto-home" type="button" class= "btn btn-outline-danger" data-target="#avisoModal" data-toggle="modal">Excluir</button>'
         }],
         "order": [[1, 'asc']]
     });
@@ -30,7 +30,7 @@
 
     $('#tabela-teste tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
-         var row = table.row(tr);
+        var row = table.row(tr);
 
         if (row.child.isShown()) {
             // This row is already open - close it
@@ -44,7 +44,7 @@
         }
         dataRow = table.row(this).data();
 
-       // console.log(dataRow);
+        // console.log(dataRow);
     });
 
     $('#tabela-teste tbody').on('click', 'tr', function () {
@@ -75,7 +75,7 @@
             '</table>';
     }
 
-   
+
 
     $('.excluir-gasto-confirmar').click(function () {
         //table.row('.selected').remove().draw(false);
@@ -102,29 +102,65 @@
                     type: 'error'
                 });
             }
-        }); 
-    });
-
-    // Setup - add a text input to each footer cell
-    $('#tabela-teste tfoot th').each(function () {
-        var title = $(this).text();
-        $(this).html('<input type="text" placeholder="Search ' + title + '" />');
-    });
-
-    // DataTable
-    var table = $('#tabela-teste').DataTable();
-
-    // Apply the search
-    table.columns().every(function () {
-        var that = this;
-
-        $('input', this.footer()).on('keyup change', function () {
-            if (that.search() !== this.value) {
-                that
-                    .search(this.value)
-                    .draw();
-            }
         });
+
+        $('#editar-gasto-home').click(function () {
+            $valor = $('#campo-valor-pessoa-editar-gastos').val();
+            $valor = $valor.replace(/\,/g, "");
+            $valor = $valor.replace('.', ",");
+            $.ajax({
+                url: '/Home/EditarGastos',
+                method: 'GET',
+                data: {
+                    Id: dataRow.Id
+                },
+                success: function (pesquisa) {
+                    var resultado = JSON.parse(pesquisa);
+                    console.log(resultado);
+                    $valor = $('#campo-valor-pessoa-editar-gastos').val();
+                    $valor = $valor.replace(/\,/g, "");
+                    $valor = $valor.replace('.', ",");
+                    idCartao: $('#campo-numero-cartao-editar-gastos option[value="' + pesquisa.idCartao + '"]').attr({ selected: "selected" });
+                    idCategoria: $('#campo-descricao-editar-gastos option[value="' + pesquisa.idCategoria + '"]').attr({ selected: "selected" });
+                    Valor: $valor;
+                    descricao: $('#descricao-despesa-editar-gastos').val();
+                    entrada: $('#data-entrada-editar-gastos').val();
+                    vencimento: $('#data-termino-editar-gastos').val();
+
+                    new PNotify({
+                        text: 'Gasto editado com sucesso.',
+                        type: 'success'
+                    });
+                },
+                error: function () {
+                    new PNotify({
+                        //title: 'Salvo com sucesso!',
+                        text: 'Algo deu errado.',
+                        icon: 'icofont icofont-info-circle',
+                        type: 'error'
+                    });
+                }
+            });
+        });
+
+        $('body').on('click', '#salvar-gastos-editar', function () {
+            $.ajax({
+                url: '/Home/UpdateGastos',
+                method: 'post',
+                data: {
+                    idCartao: $('#campo-numero-cartao-editar-gastos').val(),
+                    idCategoria: $('#campo-descricao-editar-gastos').val(),
+                    Valor: $('#campo-valor-pessoa-editar-gastos').val(),
+                    entrada: $('#data-entrada-editar-gastos').val(),
+                    vencimento: $('#data-termino-editar-gastos').val(),
+                    descricao: $('#descricao-despesa-editar-gastos').val()
+                },
+                success: function (data) {
+                    $('#editar-gasto').modal('hide');
+                }
+            });
+        });
+
     });
 });
 

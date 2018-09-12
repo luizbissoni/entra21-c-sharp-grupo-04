@@ -148,5 +148,20 @@ INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao INNER JOIN pessoas ON pessoa
             return Content(JsonConvert.SerializeObject(new { apagado }));
         }
 
+        [HttpGet]
+        public ActionResult EditarGastos(int id)
+        {
+            Gastos gastos = new RepositorioGastos().ObterPeloIdGastos(id);
+
+            return Content(JsonConvert.SerializeObject(new { gastos }));
+        }
+
+        [HttpPost]
+        public ActionResult UpdateGastos(Gastos gastos)
+        {
+            bool alterado = new RepositorioGastos().AlterarGastos(gastos);
+            return Content(JsonConvert.SerializeObject(new { alterado }));
+        }
+
     }
 }

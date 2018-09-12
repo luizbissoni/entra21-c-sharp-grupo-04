@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <title>My Finances</title>
@@ -37,6 +37,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/jquery.mCustomScrollbar.css">
     <!-- Calender css -->
     <link rel="stylesheet" type="text/css" href="~/Content/bower_components/fullcalendar/css/fullcalendar.css">
+    <link href="~/Scripts/jquery.qtip.css" rel="stylesheet" />
     @*<link rel="stylesheet" type="text/css" href="~/Content/bower_components/fullcalendar/css/fullcalendar.print.css" media='print'>*@
     @RenderSection("css", false)
 </head>
@@ -359,19 +360,14 @@
     <script src="~/Content/assets/pages/chart/knob/jquery.knob.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/popper.js/js/popper.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/bootstrap/js/bootstrap.min.js"></script>
-
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="~/Content/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-
     <!-- modernizr js -->
     <script type="text/javascript" src="~/Content/bower_components/modernizr/js/modernizr.js"></script>
     <!-- calender js -->
     <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
     <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
-
-    @*<script src="~/Content/bower_components/fullcalendar/js/fullcalendar.min.js"></script>
-    <script src="~/Content/bower_components/moment/js/moment.min.js"></script>*@
-
+    <script src="~/Scripts/jquery.qtip.js"></script>
     <!-- data-table js -->
     <script src="~/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
     <script src="~/Content/assets/pages/data-table/js/jszip.min.js"></script>
@@ -382,39 +378,25 @@
     <script src="~/Content/bower_components/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
     <script src="~/Content/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="~/Content/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-
-
-
     <!-- am chart -->
     <script src="~/Content/assets/pages/widget/amchart/amcharts.min.js"></script>
     <script src="~/Content/assets/pages/widget/amchart/serial.min.js"></script>
-
     <!-- Chart js -->
     <script type="text/javascript" src="~/Content/bower_components/chart.js/js/Chart.js"></script>
-
     <script src="~/Content/assets/js/pcoded.min.js"></script>
-
     <!-- SELECT2 -->
     <script src="~/Content/bower_components/select2/js/select2.full.min.js"></script>
     <script src="~/Content/bower_components/select2/js/select2.js"></script>
-
+    <!-- Custom js -->
     <script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
     <script src="~/Scripts/scriptGastos/tabelaGastos.js"></script>
-
-    @*<script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
-        <script src="~/Scripts/ScriptPessoaCadastro/delete-person-modal.js"></script>
-        <script src="~/Scripts/ScriptPessoaCadastro/cartao.js"></script>
-        <script src="~/Scripts/ScriptPessoaCadastro/add-recebimento.js"></script>
-        <script src="~/Scripts/ScriptPessoaCadastro/add-gastos.js"></script>*@
-
-    @*<script src="~/Scripts/ScriptPessoaCadastro/creat-person-modal.js"></script>
-        <script src="~/Scripts/scriptPerfilUsuario/usuario-perfil.js"></script>
-        <script src="~/Scripts/ScriptPessoaCadastro/pessoas-cadastro.js"></script>*@
-
-    @Html.Partial("~/Views/Pessoas/CadastroCartaoModal.cshtml")
     @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
-    @Html.Partial("~/Views/Pessoas/CadastroRecebimentoModal.cshtml")
-    @Html.Partial("~/Views/Pessoas/CadastroGastosModal.cshtml")
+    @Html.Partial("~/Views/Cartao/CadastroCartaoModal.cshtml")
+    @Html.Partial("~/Views/Recebimento/CadastroRecebimentoModal.cshtml")
+    @Html.Partial("~/Views/Gasto/CadastroGastosModal.cshtml")
+    @Html.Partial("~/Views/Gasto/ModalEditarGastos.cshtml")
+    @Html.Partial("~/Views/Gasto/AvisoModalExcluirGasto.cshtml")
+
 
     @RenderSection("script", false)
 </body>

@@ -53,7 +53,7 @@
         $valor = $('#campo-valor-pessoa').val();
         $valor = $valor.replace(/\,/g, "");
         $valor = $valor.replace('.', ",");
-        console.log($valor);
+       // console.log($valor);
         $.ajax({
             url: '/Pessoas/CadastroGastosModalPessoas',
             method: 'POST',
