@@ -16,13 +16,15 @@ namespace SistemaFinanceiro.Repositório
         {
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada, vencimento, descricao) OUTPUT INSERTED.ID VALUES (@IDCARTAO, @IDCATEGORIA, @VALOR, @ENTRADA, @VENCIMENTO, @DESCRICAO)";
+            comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada, vencimento, descricao) OUTPUT INSERTED.ID VALUES (@IDCARTAO, @IDCATEGORIA, @VALOR, @ENTRADA, @VENCIMENTO, @DESCRICAO)
+update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) from gastos)) where recebimentos.id_pessoas = (select cartoes.id_pessoas from cartoes where cartoes.Id = @ID)";
             comando.Parameters.AddWithValue("@IDCARTAO", gastos.IdCartao);
             comando.Parameters.AddWithValue("@IDCATEGORIA", gastos.IdCategoria);
             comando.Parameters.AddWithValue("@VALOR", gastos.Valor);
             comando.Parameters.AddWithValue("@DESCRICAO", gastos.Descricao);
             comando.Parameters.AddWithValue("@ENTRADA", gastos.Entrada);
             comando.Parameters.AddWithValue("@VENCIMENTO", gastos.Vencimento);
+            comando.Parameters.AddWithValue("@ID", gastos.IdCartao);
 
             int id = Convert.ToInt32(comando.ExecuteScalar().ToString());
             return id;

@@ -1,5 +1,6 @@
 ﻿$(function () {
-    $('#campo-descricao').select2();
+
+    $('[name=descricao]').select2();
 
 
     function getSessionValue() {
@@ -20,7 +21,7 @@
                     // console.log(data.data[i].Id);
                     categoriaOptions += '<option id="valor-campo-descricao" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
                 }
-                $('#campo-descricao').html(categoriaOptions);
+                $('[name=descricao]').html(categoriaOptions);
             }
         });
     });
@@ -37,7 +38,7 @@
 
                 data: $('[name=campo-data-recebimento]').val(),
                 valor: $valor,
-                idCategoria: $('.descricao-recebimento').val(),
+                idCategoria: $('#campo-descricao-recebimento').val(),
                 idPessoas: getSessionValue()
             },
             success: function (data) {
