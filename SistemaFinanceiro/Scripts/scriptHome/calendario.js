@@ -131,7 +131,7 @@ $('#salvar-gastos-calendario').on('click', function () {
 
         },
         success: function () {
-            limparCampos();
+            //limparCampos();
             $("#cadastrar-gastos-pessoa").modal('hide');
             $('#tabela-teste').DataTable().ajax.reload();
             new PNotify({
