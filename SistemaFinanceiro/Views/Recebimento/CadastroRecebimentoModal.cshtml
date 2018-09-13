@@ -5,49 +5,52 @@
 }
 
 
-<div class="modal" id="modal-recebimento-pessoa" tabindex="-1" role="dialog" style="z-index: 1050; display: none;"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal" id="modal-recebimento-pessoa" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h6 class="modal-title" id="exampleModalLabel">Cadastrar Recebimento</h6>
+                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Recebimento</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">X</span>
                 </button>
             </div>
             <div class="modal-body">
                 <input type="hidden" value="@pessoa" id="id-pessoa" />
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="col-md-1 control-label valor" for="campo-valor-recebimento">Valor</label>
-                            <div class="col-md-8">
-                                <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control autonumber  form-control-bold" type="text" data-a-sep="." data-a-dec=",">
-                            </div>
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <label class="input-group-addon" for="campo-valor-recebimento">Valor</label>
+                            <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control autonumber  form-control-bold" type="text" data-a-sep="." data-a-dec=",">
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label class="col-md-1 control-label" for="campo-data-recebimento">Data</label>
-                            <div class="col-md-8">
-                                <input id="campo-recebimento-data" name="campo-data-recebimento" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="date" value="">
-                            </div>
 
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <label class="input-group-addon" for="campo-data-recebimento">Data</label>
+
+                            <input id="campo-recebimento-data" name="campo-data-recebimento" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="date" value="">
                         </div>
+
                     </div>
-                    <div class="col-md-6">
-                            <label>
+                </div>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <label class="input-group-addon" for="campo-descricao-recebimento">
                                 Descrição
                             </label>
-                        <div class="form-group">
+                            <div class="input-group">
                                 <select class="form-control form-control-default" name="descricao" id="campo-descricao-recebimento"></select>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-            </div>
-            <div class="modal-footer">
-                @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>*@
-                <button type="button" class="btn btn-primary" id="cadastrar-recebimento">Salvar</button>
+
+
+                <div class="modal-footer">
+                    @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>*@
+                    <button type="button" class="btn btn-primary" id="cadastrar-recebimento">Salvar</button>
+                </div>
             </div>
         </div>
     </div>
