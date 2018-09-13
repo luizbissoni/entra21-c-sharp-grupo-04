@@ -66,9 +66,10 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult ObterTodosCategoriaJson()
         {
-            List<Categoria> categoria = new RepositorioCategoria().ObterTodosCategoria();
-            return Content(JsonConvert.SerializeObject(new {data = categoria }));
+            List<Object> categorias = new RepositorioCategoria().ObterTodosCategoriaParaSelect2();
+            return Content(JsonConvert.SerializeObject(new { results = categorias }, Formatting.Indented));
         }
+
 
         [HttpPost]
         public ActionResult CadastroModalCategoria(Categoria categoria)

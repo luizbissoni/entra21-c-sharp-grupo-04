@@ -11,7 +11,7 @@ namespace SistemaFinanceiro.Repositório
 {
     public class RepositorioCategoria
     {
-        
+
         public int CadastrarCategoria(Categoria categorias)
         {
 
@@ -60,6 +60,24 @@ namespace SistemaFinanceiro.Repositório
             return categorias;
         }
 
+        public List<Object> ObterTodosCategoriaParaSelect2()
+        {
+            List<Object> registros = new List<object>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT id AS 'id', nome AS 'nome' FROM categorias";
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                registros.Add(new
+                {
+                    id = Convert.ToInt32(linha["id"].ToString()),
+                    text = linha["nome"].ToString()
+                });
+            }
+            return registros;
+        }
+
         public Categoria ObterPeloIdCategoria(int id)
         {
             Categoria categoria = null;
@@ -73,7 +91,7 @@ namespace SistemaFinanceiro.Repositório
                 categoria = new Categoria();
                 categoria.Id = id;
                 categoria.Nome = tabela.Rows[0]["nome"].ToString();
-               
+
 
             }
 

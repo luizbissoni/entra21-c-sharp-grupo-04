@@ -13,7 +13,9 @@ namespace SistemaFinanceiro.Models
         public int IdCartao { get; set; }
 
         public int IdCategoria { get; set; }
-        
+
+        public Categoria Categoria;
+
         public double Valor { get; set; }
         
         public DateTime Entrada { get; set; }

@@ -57,7 +57,7 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
                     Valor = Convert.ToDouble(linha["valor"].ToString()),
                     Entrada = Convert.ToDateTime(linha["entrada"].ToString()),
                     Vencimento = Convert.ToDateTime(linha["vencimento"].ToString()),
-
+                    Descricao = linha["descricao"].ToString()
                 };
                 gastos.Add(gasto);
             }
@@ -68,7 +68,9 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
         {
             Gastos gastos = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id_cartao, id_categoria, valor, entrada, vencimento, descricao, entrada, vencimento FROM gastos WHERE id = @ID";
+            comando.CommandText = @"SELECT gt.id_cartao, gt.id_categoria, gt.valor, gt.entrada, gt.vencimento, gt.descricao, gt.entrada, gt.vencimento, cat.nome FROM gastos gt
+INNER JOIN categorias cat ON(cat.id = gt.id_categoria)
+WHERE gt.id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -81,6 +83,12 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
                 gastos.Valor = Convert.ToDouble(tabela.Rows[0]["valor"].ToString());
                 gastos.Entrada = Convert.ToDateTime(tabela.Rows[0]["entrada"].ToString());
                 gastos.Vencimento = Convert.ToDateTime(tabela.Rows[0]["vencimento"].ToString());
+                gastos.Descricao = tabela.Rows[0]["descricao"].ToString();
+                gastos.Categoria = new Categoria()
+                {
+                    Id = Convert.ToInt32(tabela.Rows[0]["id_categoria"].ToString()),
+                    Nome = tabela.Rows[0]["nome"].ToString()
+            };
 
 
             }

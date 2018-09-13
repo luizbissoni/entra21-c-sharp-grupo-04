@@ -51,14 +51,6 @@ namespace SistemaFinanceiro.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Editar(int id)
-        {
-            Gastos gastos = new RepositorioGastos().ObterPeloIdGastos(id);
-            ViewBag.Gastos = gastos;
-            return View();
-        }
-
         [HttpPost]
         public ActionResult Update(Gastos gastos)
         {

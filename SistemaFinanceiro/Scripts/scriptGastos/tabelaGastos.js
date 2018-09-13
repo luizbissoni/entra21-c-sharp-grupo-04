@@ -4,6 +4,8 @@
         return document.getElementById("id-pessoa-gastos").value;
     }
 
+    //$('#campo-numero-cartao-editar-gastos').select2();
+
     $('#tabela-teste').DataTable({
         serverSide: true,
         "bProcessing": true,
@@ -107,18 +109,7 @@
         });
 
     });
-    $.ajax({
-        url: '/Categoria/ObterTodosCategoriaJson',
-        method: 'GET',
-        success: function (dara) {
-            var data = JSON.parse(dara);
-            for (var i = 0; i < data.data.length; i++) {
-                // console.log(data.data[i].Id);
-                categoriaOptions += '<option id="campo-descricao-editar-gastos" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
-            }
-            $('.descricao-gastos-editar').html(categoriaOptions);
-        }
-    });
+
 
     $.ajax({
         url: '/Cartao/ObterTodosJson',
@@ -147,20 +138,14 @@
             },
             success: function (pesquisa) {
                 var resultado = JSON.parse(pesquisa);
+                //TODO: atualizar select2 para trazer preenchido
 
-                console.log(resultado);
-
-                //$valor = $('#campo-valor-pessoa-editar-gastos').val(resultado.valor);
-                //$valor = $valor.replace(/\,/g, "");
-                //$valor = $valor.replace('.', ",");
-                /*idCartao:*/ $('#campo-numero-cartao-editar-gastos option[value="' + resultado.idCartao + '"]').attr({ "selected": "selected" });
-                /*idCategoria*/ $('#campo-descricao-editar-gastos option[value="' + resultado.idCategoria + '"]').attr({ "selected": "selected" });
-                /*Valor:*/ $('#campo-valor-pessoa-editar-gastos').val(resultado.Valor);
-                /*descricao:*/ $('#descricao-despesa-editar-gastos').val(resultado.descricao);
-                /*entrada:*/ $('#data-entrada-editar-gastos').val(resultado.entrada);
-                /*vencimento:*/ $('#data-termino-editar-gastos').val(resultado.vencimento);
-
-               
+                //$('.cartao-gastos-editar option[value="' + resultado.gastos.IdCartao + '"]').val({ selected: "selected" });
+                $('.descricao-gastos-editar').append(new Option(resultado.gastos.Categoria.Nome, resultado.gastos.IdCategoria, false, false)).val(resultado.gastos.IdCategoria).trigger('change');
+                $('#campo-valor-pessoa-editar-gastos').val(resultado.gastos.Valor);
+                $('#descricao-despesa-editar-gastos').val(resultado.gastos.Descricao);
+                $('#data-entrada-editar-gastos').val(resultado.gastos.Entrada);
+                $('#data-termino-editar-gastos').val(resultado.gastos.Vencimento);
             },
             error: function () {
                 new PNotify({
@@ -174,11 +159,12 @@
     });
 
 
-    $('body').on('click', '#salvar-gastos-editar', function () {
+    $('body').on('click', '#editar-gastos-home', function () {
         $.ajax({
             url: '/Home/UpdateGastos',
-            method: 'post',
+            method: 'POST',
             data: {
+
                 idCartao: $('#campo-numero-cartao-editar-gastos').val(),
                 idCategoria: $('#campo-descricao-editar-gastos').val(),
                 Valor: $('#campo-valor-pessoa-editar-gastos').val(),
@@ -186,12 +172,19 @@
                 vencimento: $('#data-termino-editar-gastos').val(),
                 descricao: $('#descricao-despesa-editar-gastos').val()
             },
-            success: function (data) {
-                 new PNotify({
+            success: function () {
+                new PNotify({
                     text: 'Gasto editado com sucesso.',
                     type: 'success'
                 });
                 $('#editar-gasto').modal('hide');
+            },
+            error: function () {
+                new PNotify({
+                    text: 'Algo deu errado.',
+                    icon: 'icofont icofont-info-circle',
+                    type: 'error'
+                });
             }
         });
     });

@@ -2,7 +2,13 @@
 
     var table = $('#tabela-teste').DataTable();
 
-    $('#campo-descricao-editar-gastos').select2();
+    $('#campo-descricao-editar-gastos').select2({
+        ajax: {
+            url: '/Categoria/ObterTodosCategoriaJson',
+            dataType: 'json'
+        }
+    });
+    
     $('#campo-descricao-gastos').select2();
     $('.lista-cartao-gastos').select2();
 
