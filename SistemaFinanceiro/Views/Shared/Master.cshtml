@@ -23,7 +23,7 @@
     <!-- Favicon icon -->
     <link rel="icon" href="~/Content/assets/images/favicon.ico" type="image/x-icon">
     <!-- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    @*<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">*@
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="~/Content/bower_components/bootstrap/css/bootstrap.css">
     <!-- themify-icons line icon -->
@@ -396,12 +396,6 @@
     <script src="~/Scripts/scriptGastos/tabelaGastos.js"></script>
     <script src="~/Scripts/scriptHome/calendario.js"></script>
 
-    @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
-    @Html.Partial("~/Views/Cartao/CadastroCartaoModal.cshtml")
-    @Html.Partial("~/Views/Recebimento/CadastroRecebimentoModal.cshtml")
-    @Html.Partial("~/Views/Gasto/CadastroGastosModal.cshtml")
-    @Html.Partial("~/Views/Gasto/ModalEditarGastos.cshtml")
-    @Html.Partial("~/Views/Gasto/AvisoModalExcluirGasto.cshtml")
 
 
     @RenderSection("script", false)

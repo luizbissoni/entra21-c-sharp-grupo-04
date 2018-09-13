@@ -20,6 +20,7 @@ $('#calendario').fullCalendar({
     },
     defaultDate: moment(Date()).format("DD/MMMM/YYYY", "HH:mm:ss"),
     eventStartEditable: true,
+    eventDurationEditable: true,
     navLinks: true, // can click day/week names to navigate views
     businessHours: true, // display business hours
     editable: true,
@@ -70,10 +71,10 @@ $('#calendario').fullCalendar({
         }
     },
     eventClick: function (event) {
+        $('#modal-visualizar-evento #title').text(event.title);
+        $('#modal-visualizar-evento #start').text(moment(event.start).format("DD/MM/YYYY", "HH:mm:ss"));
+        $('#modal-visualizar-evento #end').text(moment(event.end).format("DD/MM/YYYY", "HH:mm:ss"));
         $('#modal-visualizar-evento').modal('show');
-        //$('#campo-title #title').text(envent.title);
-        //$('#campo-entrada #start').text(envent.start);
-        //$('#campo-vancimento #end').text(envent.end);
 
         return false;
     }
