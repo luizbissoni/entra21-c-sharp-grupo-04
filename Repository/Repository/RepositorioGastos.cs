@@ -68,7 +68,7 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
         {
             Gastos gastos = null;
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "SELECT id_categoria, valor, entrada, vencimento, descricao FROM gastos WHERE id = @ID";
+            comando.CommandText = "SELECT id_cartao, id_categoria, valor, entrada, vencimento, descricao, entrada, vencimento FROM gastos WHERE id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());

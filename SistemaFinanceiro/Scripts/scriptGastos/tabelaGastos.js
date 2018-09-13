@@ -137,7 +137,7 @@
         }
     });
 
-    $('.editar-gasto-home').on('click', function () {
+    $('#tabela-teste').on('click', '.editar-gasto-home', function () {
 
         $.ajax({
             url: '/Home/EditarGastos',
@@ -153,17 +153,14 @@
                 //$valor = $('#campo-valor-pessoa-editar-gastos').val(resultado.valor);
                 //$valor = $valor.replace(/\,/g, "");
                 //$valor = $valor.replace('.', ",");
-                idCartao: $('#campo-numero-cartao-editar-gastos option[value="' + resultado.idCartao + '"]').attr({ "selected": "selected" });
-                idCategoria: $('#campo-descricao-editar-gastos option[value="' + resultado.idCategoria + '"]').attr({ "selected": "selected" });
-                Valor: $('#campo-valor-pessoa-editar-gastos').val();
-                descricao: $('#descricao-despesa-editar-gastos').val(resultado.descricao);
-                entrada: $('#data-entrada-editar-gastos').val(resultado.entrada);
-                vencimento: $('#data-termino-editar-gastos').val(resultado.vencimento);
+                /*idCartao:*/ $('#campo-numero-cartao-editar-gastos option[value="' + resultado.idCartao + '"]').attr({ "selected": "selected" });
+                /*idCategoria*/ $('#campo-descricao-editar-gastos option[value="' + resultado.idCategoria + '"]').attr({ "selected": "selected" });
+                /*Valor:*/ $('#campo-valor-pessoa-editar-gastos').val(resultado.Valor);
+                /*descricao:*/ $('#descricao-despesa-editar-gastos').val(resultado.descricao);
+                /*entrada:*/ $('#data-entrada-editar-gastos').val(resultado.entrada);
+                /*vencimento:*/ $('#data-termino-editar-gastos').val(resultado.vencimento);
 
-                new PNotify({
-                    text: 'Gasto editado com sucesso.',
-                    type: 'success'
-                });
+               
             },
             error: function () {
                 new PNotify({
@@ -190,6 +187,10 @@
                 descricao: $('#descricao-despesa-editar-gastos').val()
             },
             success: function (data) {
+                 new PNotify({
+                    text: 'Gasto editado com sucesso.',
+                    type: 'success'
+                });
                 $('#editar-gasto').modal('hide');
             }
         });

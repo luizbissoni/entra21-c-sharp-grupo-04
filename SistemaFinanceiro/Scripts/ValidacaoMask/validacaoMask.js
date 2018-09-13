@@ -1,8 +1,8 @@
 ﻿$(document).ready(function () {
-
    
+   $('.saldo-recebico').mask("#.##0,00", { reverse: true });
 
-    $('#campo-valor-pessoa').mask("#.##0,00", { reverse: true });
+   $('#campo-valor-pessoa').mask("#.##0,00", { reverse: true });
    
 
 

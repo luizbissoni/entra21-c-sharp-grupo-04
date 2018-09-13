@@ -9,12 +9,15 @@
         method: 'GET',
         success: function (resultado) {
             var total = JSON.parse(resultado);
+            //console.log(total);
             if (total.tabela[0].total > 0) {
-                $('.saldo-recebico').text('R$' + total.tabela[0].total);
+
+                $('h2.saldo-recebido').number('R$' + total.tabela[0].total, 2, ',', '.')
+                //$('.saldo-recebido').text('R$' + total.tabela[0].total);
                 valorRecebido = total.tabela[0].total;
             } else {
-                $('.saldo-recebico').text('R$' + 00,00);
-               // valorRecebido = total.tabela[0].total;
+                $('.saldo-recebido').text('R$' + 00,00);
+                valorRecebido = total.tabela[0].total;
             }
            
         }
