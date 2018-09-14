@@ -5546,7 +5546,9 @@
     <Content Include="Content\bower_components\lightgallery\fonts\lg.ttf" />
     <Content Include="Content\bower_components\lightgallery\fonts\lg.woff" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-2.1.0-vsdoc.js" />
     <Content Include="Scripts\cadastro-usuario\cadastro-login.js" />
@@ -5594,7 +5596,6 @@
     <Content Include="Scripts\ValidacaoMask\numeral.js" />
     <Content Include="Scripts\ValidacaoMask\numeral.min.js" />
     <Content Include="Scripts\ValidacaoMask\validacaoMask.js" />
-    <Content Include="Scripts\ValidarLogin.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
