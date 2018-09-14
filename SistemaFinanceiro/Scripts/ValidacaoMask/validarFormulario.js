@@ -1,6 +1,6 @@
 ﻿$(function () {
-    $("#validarGasto").validate({
 
+    $("#validarGasto").validate({
         errorClass: "form-control-danger",
         validClass: "form-control-success",
         highlight: function (element) {
