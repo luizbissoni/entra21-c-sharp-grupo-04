@@ -4,7 +4,8 @@
 
    $('#campo-valor-pessoa').mask("#.##0,00", { reverse: true });
    
-
+    //mask do modal editar da tabela
+    $('#campo-valor-pessoa-editar-gastos').mask("#.##0,00", { reverse: true });
 
     //exemplos de mask
     //$('.phone_with_ddd').mask('(00) 0000-0000');
@@ -17,7 +18,8 @@
 
 
 
-
+    //Formatar datepicker
+   // $('#data-termino-editar-gastos').datepicker({ dateFormat: "DD/MM/YYYY HH:mm:ss"});
 
 
 });
