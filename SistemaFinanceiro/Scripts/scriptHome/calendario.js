@@ -80,36 +80,36 @@ $('#calendario').fullCalendar({
     }
 });
 
-$.ajax({
-    url: '/Categoria/ObterTodosCategoriaJson',
-    method: 'GET',
-    success: function (dara) {
-        var data = JSON.parse(dara);
-        for (var i = 0; i < data.data.length; i++) {
-            // console.log(data.data[i].Id);
-            categoriaOptions += '<option id="valor-campo-descricao-gastos" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
-        }
+//$.ajax({
+//    url: '/Categoria/ObterTodosCategoriaJson',
+//    method: 'GET',
+//    success: function (dara) {
+//        var data = JSON.parse(dara);
+//        for (var i = 0; i < data.data.length; i++) {
+//            // console.log(data.data[i].Id);
+//            categoriaOptions += '<option id="valor-campo-descricao-gastos" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
+//        }
 
-        $('#campo-calendario-descricao').html(categoriaOptions);
-    }
-});
+//        $('#campo-calendario-descricao').html(categoriaOptions);
+//    }
+//});
 
-$.ajax({
-    url: '/Cartao/ObterTodosJson',
-    method: "GET",
-    success: function (cartao) {
-        var allCard = JSON.parse(cartao);
-        for (var i = 0; i < allCard.data.length; i++) {
+//$.ajax({
+//    url: '/Cartao/ObterTodosJson',
+//    method: "GET",
+//    success: function (cartao) {
+//        var allCard = JSON.parse(cartao);
+//        for (var i = 0; i < allCard.data.length; i++) {
 
-            if (allCard.data[i].IdPessoas == getSessionValue()) {
-                cartaoOptions += '<option id="select-cartao" value="' + allCard.data[i].Id + '">' + ' conta: ' + allCard.data[i].Conta + ' -- ' + ' Banco: ' + allCard.data[i].Banco + '</option>';
-            }
-        }
+//            if (allCard.data[i].IdPessoas == getSessionValue()) {
+//                cartaoOptions += '<option id="select-cartao" value="' + allCard.data[i].Id + '">' + ' conta: ' + allCard.data[i].Conta + ' -- ' + ' Banco: ' + allCard.data[i].Banco + '</option>';
+//            }
+//        }
 
-        $('#campo-calendario-numero-cartao').html(cartaoOptions)
-        //console.log(allCard.data);
-    }
-});
+//        $('#campo-calendario-numero-cartao').html(cartaoOptions)
+//        //console.log(allCard.data);
+//    }
+//});
 
 $('#salvar-gastos-calendario').on('click', function () {
 
