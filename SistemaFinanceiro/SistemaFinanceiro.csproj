@@ -5594,7 +5594,6 @@
     <Content Include="Scripts\ValidacaoMask\numeral.js" />
     <Content Include="Scripts\ValidacaoMask\numeral.min.js" />
     <Content Include="Scripts\ValidacaoMask\validacaoMask.js" />
-    <Content Include="Scripts\ValidarLogin.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
