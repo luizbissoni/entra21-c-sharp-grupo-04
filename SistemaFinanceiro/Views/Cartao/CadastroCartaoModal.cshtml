@@ -2,6 +2,7 @@
     int pessoa = Convert.ToInt32(Session["user"]);
 }
 
+
 <div class="modal fade" id="cadastrar-cartoes-pessoa">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -12,48 +13,54 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="hidden" value="@pessoa" id="idpessoa-cartao" />
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="numero-Cartao">Número cartão</label>
-                            <input id="campo-numero-Cartao" name="numero-cartao" class="form-control input-md col-sm-12 numero-Cartao" required="" type="text" value="">
+<!---->               <form id="form_validacao" class="">
+                    <input type="hidden" value="@pessoa" id="idpessoa-cartao" />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="numero-Cartao">Número cartão</label>
+                                <input id="campo-numero-Cartao" name="numero-cartao" class="form-control input-md col-sm-12 numero-Cartao" required minlenght ="5">
+
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="numero-Conta">Número Conta</label>
+                                <input id="campo-numero-Conta" name="numero-conta" class="form-control input-md col-sm-12 numero-Conta form-control-bold" required="" type="text" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="bandeira">Bandeira</label>
+                                <input id="campo-bandeira" name="bandeira" class="form-control input-md col-sm-12 numero-Conta form-control-bold" required="" type="text" value="">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="banco">Banco</label>
+                                <input id="campo-banco" name="banco" class="form-control input-md col-sm-12 form-control-bold" required="" type="text" value="">
+                            </div>
                         </div>
                     </div>
 
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="numero-Conta">Número Conta</label>
-                            <input id="campo-numero-Conta" name="numero-conta" class="form-control input-md col-sm-12 numero-Conta form-control-bold" required="" type="text" value="">
-                        </div>
+
+                    <div class="modal-footer">
+
+                        <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cartao">
                     </div>
-
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="bandeira">Bandeira</label>
-                            <input id="campo-bandeira" name="bandeira" class="form-control input-md col-sm-12 numero-Conta form-control-bold" required="" type="text" value="">
-                        </div>
+                </form>
                     </div>
-
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="banco">Banco</label>
-                            <input id="campo-banco" name="banco" class="form-control input-md col-sm-12 form-control-bold" required="" type="text" value="">
-                        </div>
-                    </div>
-                </div>
-                 
-
-                        <div class="modal-footer">
-                          
-                            <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cartao">
-                        </div>
-
-                       
-                    </div>
-
                 </div>
 
             </div>
         </div>
+<script src="~/Content/bower_components/jquery-validation/js/jquery.validate.js"></script>
+<script>
 
+    $(function () {
+        $("#validarcartao").validate();
+    });
+</script>
