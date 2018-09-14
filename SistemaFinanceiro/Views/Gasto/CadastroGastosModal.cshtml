@@ -16,59 +16,60 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="hidden" value="@pessoa" id="id-pessoa-gastos" />
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="cartao-pessoa">Cartão</label>
-                            <select id="campo-numero-cartao" class="form-control lista-cartao-gastos  form-control-bold" name="cartao-pessoa"></select>
+                <form id="validarGasto">
+                    <input type="hidden" value="@pessoa" id="id-pessoa-gastos" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="cartao-pessoa">Cartão</label>
+                                <select id="campo-numero-cartao" class="form-control lista-cartao-gastos  form-control-bold" name="cartao-pessoa"></select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="campo-valor">Valor</label>
+                                <input id="campovalor" name="campo-valor" placeholder="" class="form-control input-md col-sm-12" required="" type="text">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="campo-valor">Valor</label>
-                            <input id="campo-valor-pessoa" name="campo-valor" placeholder="" class="form-control input-md col-sm-12 form-control-bold" required="" type="text">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="descricao-gastos">Categoria</label>
+                                <select id="campo-descricao-gastos" class="form-control  descricao-gastos  form-control-bold" name="descricao-gastos"></select>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="descricao-gastos">Categoria</label>
-                            <select id="campo-descricao-gastos" class="form-control  descricao-gastos  form-control-bold" name="descricao-gastos"></select>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="campo-data-entrada">Data Pagamento</label>
-                            <input id="data-entrada" name="campo-data-entrada" placeholder="DD/MM/AAAA" class="form-control " type="date" value="">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="campo-data-entrada">Data Pagamento</label>
+                                <input id="data-entrada" name="campo-data-entrada" placeholder="DD/MM/AAAA" class="form-control " type="date" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="campo-data-termino">Data término</label>
+                                <input id="data-termino" name="campo-data-termino" placeholder="DD/MM/AAAA" class="form-control " type="date" value="">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-5">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="campo-data-termino">Data término</label>
-                            <input id="data-termino" name="campo-data-termino" placeholder="DD/MM/AAAA" class="form-control " type="date" value="">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="campo-despesa">Descrição</label>
+                                <input class="form-control" name="campo-despesa" type="text" id="descricao-despesa" />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="input-group">
-                            <label class="input-group-addon" for="campo-despesa">Descrição</label>
-                            <input class="form-control" name="campo-despesa" type="text" id="descricao-despesa" />
-                        </div>
-                    </div>
-                </div>
-
+                </form>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="salvar-gastos-pessoa">Salvar</button>
                 </div>
-
+                <button type="button" class="btn btn-primary" id="salvar-gastos-pessoa">Salvar</button>
             </div>
         </div>
     </div>
 </div>
+
 

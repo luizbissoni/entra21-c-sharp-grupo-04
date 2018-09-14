@@ -8,12 +8,12 @@
             dataType: 'json'
         }
     });
-    
+
     $('#campo-descricao-gastos').select2();
     $('.lista-cartao-gastos').select2();
 
     //calendario
-   
+
 
     function getSessionValue() {
         return document.getElementById("id-pessoa-gastos").value;
@@ -66,49 +66,52 @@
 
 
     $('#salvar-gastos-pessoa').on('click', function () {
-
-        $valor = $('#campo-valor-pessoa').val();
-        //$valor = $valor.replace(/\,/g, "");
-        //$valor = $valor.replace('.', ",");
-       // $valor = Number($valor.replace(/[^0-9.-]+/g, ""));
-        //console.log($valor);
-        $.ajax({
-            url: '/Pessoas/CadastroGastosModalPessoas',
-            method: 'POST',
-            data: {
-
-                "idCartao": $(".lista-cartao-gastos").val(),
-                "idCategoria": $(".descricao-gastos").val(),
-                "Valor": $valor,
-                "descricao": $('#descricao-despesa').val(),
-                "entrada": $('#data-entrada').val(),
-                "vencimento": $('#data-termino').val()
-
-            },
-            success: function () {
-                limparCampos();
-                $("#cadastrar-gastos-pessoa").modal('hide');
-                $('#tabela-teste').DataTable().ajax.reload();
-                new PNotify({
-                    //title: 'Salvo com sucesso!',
-                    text: 'Gastos adicionado com sucesso.',
-                    //icon: 'icofont icofont-info-circle',
-                    type: 'success'
-                });
-            },
-            error: function () {
-                new PNotify({
-                    //title: 'Salvo com sucesso!',
-                    text: 'Algo deu errado.',
-                    icon: 'icofont icofont-info-circle',
-                    type: 'error'
-                });
+        if ($('#validarGasto').valid()) {
 
 
-            }
+            $valor = $('#campo-valor-pessoa').val();
+            //$valor = $valor.replace(/\,/g, "");
+            //$valor = $valor.replace('.', ",");
+            // $valor = Number($valor.replace(/[^0-9.-]+/g, ""));
+            //console.log($valor);
+            $.ajax({
+                url: '/Pessoas/CadastroGastosModalPessoas',
+                method: 'POST',
+                data: {
+
+                    "idCartao": $(".lista-cartao-gastos").val(),
+                    "idCategoria": $(".descricao-gastos").val(),
+                    "Valor": $valor,
+                    "descricao": $('#descricao-despesa').val(),
+                    "entrada": $('#data-entrada').val(),
+                    "vencimento": $('#data-termino').val()
+
+                },
+                success: function () {
+                    limparCampos();
+                    $("#cadastrar-gastos-pessoa").modal('hide');
+                    $('#tabela-teste').DataTable().ajax.reload();
+                    new PNotify({
+                        //title: 'Salvo com sucesso!',
+                        text: 'Gastos adicionado com sucesso.',
+                        //icon: 'icofont icofont-info-circle',
+                        type: 'success'
+                    });
+                },
+                error: function () {
+                    new PNotify({
+                        //title: 'Salvo com sucesso!',
+                        text: 'Algo deu errado.',
+                        icon: 'icofont icofont-info-circle',
+                        type: 'error'
+                    });
 
 
-        });
+                }
+
+
+            });
+        }
     });
 
     function limparCampos() {
