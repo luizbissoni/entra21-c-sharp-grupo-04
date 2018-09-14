@@ -34,7 +34,7 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
         {
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = "DELETE FROM gastos WHERE id = @ID";
-            comando.Parameters.AddWithValue("@ID",  id);
+            comando.Parameters.AddWithValue("@ID", id);
             return comando.ExecuteNonQuery() == 1;
         }
 
@@ -88,7 +88,7 @@ WHERE gt.id = @ID";
                 {
                     Id = Convert.ToInt32(tabela.Rows[0]["id_categoria"].ToString()),
                     Nome = tabela.Rows[0]["nome"].ToString()
-            };
+                };
 
 
             }
@@ -107,7 +107,7 @@ WHERE gt.id = @ID";
             comando.Parameters.AddWithValue("@VALOR", gastos.Valor);
             comando.Parameters.AddWithValue("@ENTRADA", gastos.Entrada);
             comando.Parameters.AddWithValue("@VENCIMENTO", gastos.Vencimento);
-            comando.Parameters.AddWithValue("@ID", gastos.Id); 
+            comando.Parameters.AddWithValue("@ID", gastos.Id);
             return comando.ExecuteNonQuery() == 1;
         }
 
