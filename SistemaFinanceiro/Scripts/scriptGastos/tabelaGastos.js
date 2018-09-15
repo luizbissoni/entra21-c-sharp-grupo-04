@@ -104,7 +104,7 @@
 
     });
 
-
+    //Preenche select de cartao
     $.ajax({
         url: '/Cartao/ObterTodosJson',
         method: "GET",

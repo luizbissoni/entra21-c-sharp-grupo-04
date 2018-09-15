@@ -1,7 +1,6 @@
 ﻿$(function () {
 
-    var table = $('#tabela-teste').DataTable();
-
+    //Preenche select2 editar gastos
     $('#campo-descricao-editar-gastos').select2({
         ajax: {
             url: '/Categoria/ObterTodosCategoriaJson',
@@ -9,15 +8,20 @@
         }
     });
 
-    $('#campo-descricao-gastos').select2();
+    //Preenche select2 cadastrar gastos
     $('.lista-cartao-gastos').select2();
-
-    //calendario
+    $('#campo-descricao-gastos').select2({
+        ajax: {
+            url: '/Categoria/ObterTodosCategoriaJson',
+            dataType: 'json'
+        }
+    });
 
 
     function getSessionValue() {
         return document.getElementById("id-pessoa-gastos").value;
     }
+    var cartaoOptions;
 
     $(".fechar-gastos").on('click', function () {
         limparCampos();
@@ -25,26 +29,6 @@
 
     $('.gastos-pessoa').on('click', function () {
         $('#cadastrar-gastos-pessoa').modal('show');
-        //carregarSelected('.descricao-gastos');
-
-        var categoriaOptions;
-        var cartaoOptions;
-
-        $.ajax({
-            url: '/Categoria/ObterTodosCategoriaJson',
-            method: 'GET',
-            success: function (dara) {
-                var data = JSON.parse(dara);
-                for (var i = 0; i < data.data.length; i++) {
-                    // console.log(data.data[i].Id);
-                    categoriaOptions += '<option id="valor-campo-descricao-gastos" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
-                }
-                $('#campo-descricao-editar-gastos').html(categoriaOptions);
-                $('#campo-descricao-gastos').html(categoriaOptions);
-                //$('#campo-calendario-descricao').html(categoriaOptions);
-            }
-        });
-
         $.ajax({
             url: '/Cartao/ObterTodosJson',
             method: "GET",
@@ -58,8 +42,7 @@
                 }
                 $('#campo-numero-cartao').html(cartaoOptions);
                 $('.lista-cartao-gastos').html(cartaoOptions);
-                //$('.campo-calendario-numero-cartao').html(cartaoOptions)
-                //console.log(allCard.data);
+              
             }
         });
     });
@@ -67,8 +50,6 @@
 
     $('#salvar-gastos-pessoa').on('click', function () {
         if ($('#validarGasto').valid()) {
-
-
             $valor = $('#campo-valor-pessoa').val();
             //$valor = $valor.replace(/\,/g, "");
             //$valor = $valor.replace('.', ",");
@@ -92,15 +73,12 @@
                     $("#cadastrar-gastos-pessoa").modal('hide');
                     $('#tabela-teste').DataTable().ajax.reload();
                     new PNotify({
-                        //title: 'Salvo com sucesso!',
                         text: 'Gastos adicionado com sucesso.',
-                        //icon: 'icofont icofont-info-circle',
                         type: 'success'
                     });
                 },
                 error: function () {
                     new PNotify({
-                        //title: 'Salvo com sucesso!',
                         text: 'Algo deu errado.',
                         icon: 'icofont icofont-info-circle',
                         type: 'error'

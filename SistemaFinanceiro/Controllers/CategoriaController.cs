@@ -58,10 +58,6 @@ namespace SistemaFinanceiro.Controllers
            
             return null;
         }
-        public ActionResult Login()
-        {
-            return View();
-        }
 
         [HttpGet]
         public ActionResult ObterTodosCategoriaJson()

@@ -17,6 +17,6 @@ namespace SistemaFinanceiro.Models
 
         public DateTime Data { get; set; }
 
-
+    
     }
 }
