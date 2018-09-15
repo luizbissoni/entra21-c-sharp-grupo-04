@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <title>My Finances</title>
@@ -36,7 +36,8 @@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/jquery.mCustomScrollbar.css">
     <!-- Calender css -->
-    <link rel="stylesheet" type="text/css" href="~/Content/bower_components/fullcalendar/css/fullcalendar.css">
+    @*<link rel="stylesheet" type="text/css" href="~/Content/bower_components/fullcalendar/css/fullcalendar.css">*@
+    <link href="~/Content/fullcalendar-3.9.0/fullcalendar.css" rel="stylesheet" />
 
     @RenderSection("css", false)
 </head>
@@ -343,8 +344,8 @@
     </div>
 
     <!-- Required Jquery -->
-    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>
-    @*    <script type="text/javascript" src="~/Content/bower_components/jquery/js/jquery.min.js"></script>*@
+    @*<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>*@
+    <script type="text/javascript" src="~/Content/bower_components/jquery/js/jquery.min.js"></script>
     <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/pages/widget/jquery.sparkline.js"></script>
@@ -366,11 +367,13 @@
     <script type="text/javascript" src="~/Content/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
     <!-- modernizr js -->
     <script type="text/javascript" src="~/Content/bower_components/modernizr/js/modernizr.js"></script>
+
     <!-- calender js -->
     @*<script src="~/Scripts/jquery.qtip.js"></script>*@
     <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
     <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
-    <script src="~/Scripts/ValidacaoMask/validacaoMask.js"></script>
+    @*<script src="~/Content/fullcalendar-3.9.0/fullcalendar.min.js"></script>*@
+    @*<script src="~/Content/fullcalendar-3.9.0/lib/moment.min.js"></script>*@
 
     <!-- data-table js -->
     <script src="~/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
@@ -396,12 +399,13 @@
     <script src="~/Scripts/scriptGastos/tabelaGastos.js"></script>
     <script src="~/Scripts/scriptHome/calendario.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.min.js"></script>
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/ValidacaoMask/jquery-validate.bootstrap-tooltip.min.js"></script>
     <script src="~/Content/assets/js/SmoothScroll.js"></script>
 
     <!--Validações-->
+    <script src="~/Scripts/ValidacaoMask/validacaoMask.js"></script>
     <script src="~/Scripts/ValidacaoMask/validacaoRecebimento.js"></script>
 
 

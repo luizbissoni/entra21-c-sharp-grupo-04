@@ -12,7 +12,7 @@ function getSessionValue() {
 }
 
 $('#calendario').fullCalendar({
-   
+    locale:"pt-br",
     header: {
         left: 'prev,next today',
         center: 'title',
@@ -30,7 +30,7 @@ $('#calendario').fullCalendar({
 
         $('#start').val(moment(start).format("DD/MMMM/YYYY" ,"HH:mm:ss"));
         $('#end').val(moment(end).format("DD/MMMM/YYYY", "HH:mm:ss"));
-        
+
         $("#modal-cadastro-gasto-calendario").modal('show');
 
     },
@@ -72,8 +72,8 @@ $('#calendario').fullCalendar({
     },
     eventClick: function (event) {
         $('#modal-visualizar-evento #title').text(event.title);
-        $('#modal-visualizar-evento #start').text(moment(event.start).format("DD/MM/YYYY", "HH:mm:ss"));
-        $('#modal-visualizar-evento #end').text(moment(event.end).format("DD/MM/YYYY", "HH:mm:ss"));
+        $('#modal-visualizar-evento #start').text(moment(event.start)/*.format("DD/MM/YYYY", "HH:mm:ss")*/);
+        $('#modal-visualizar-evento #end').text(moment(event.end)/*.format("DD/MM/YYYY", "HH:mm:ss")*/);
         $('#modal-visualizar-evento').modal('show');
 
         return false;
@@ -116,7 +116,7 @@ $('#salvar-gastos-calendario').on('click', function () {
     $valor = $('#campo-calendario-valor').val();
     //$valor = $valor.replace(/\,/g, "");
     //$valor = $valor.replace(',', ".");
-   
+
     $.ajax({
         url: '/Pessoas/CadastroGastosModalPessoas',
         method: 'POST',

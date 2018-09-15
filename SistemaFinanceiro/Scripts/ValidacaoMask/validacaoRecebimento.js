@@ -1,4 +1,6 @@
 ﻿$(function () {
+
+
     $('#validar-recebimento').validate({
 
         errorClass: "form-control-danger",
@@ -15,13 +17,15 @@
 
         rules: {
             'campo-recebimento-valor': {
+                number: true,
                 required: true,
                 rangelength: [2, 7]
             },
             'campo-recebimento-data': {
                 required: true,
-                //date: true
+                date: true
             },
+            'campo-descricao-recebimento': { required: true }
 
         },
         messages: {
@@ -30,11 +34,13 @@
 
             'campo-recebimento-data': { required: "Data deve ser preenchido." }
         },
+        tooltip_options: {
 
-
-        //tooltip_options: {
-        //    'campo-recebimento-data': { trigger: 'focus' },
-        //    'campo-recebimento-valor': { placement: 'right', html: true }
-        //},
+            //thefield: { placement: 'left' }
+            'campo-recebimento-data': { trigger: 'focus' },
+            'campo-recebimento-valor': { placement: 'right', html: true}
+        },
     });
+
+
 });
