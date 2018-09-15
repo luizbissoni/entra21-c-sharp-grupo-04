@@ -1,11 +1,26 @@
 ﻿$(function () {
+    function getSessionValue() {
+        return document.getElementById("id-pessoa-gastos").value;
+    }
+    var cartaoOptions;
+
+    var novoCategoria = $('.select2 - search__field').val();
+
+  
 
     //Preenche select2 editar gastos
     $('#campo-descricao-editar-gastos').select2({
+        tags: true,
         ajax: {
             url: '/Categoria/ObterTodosCategoriaJson',
-            dataType: 'json'
-        }
+            dataType: 'json',
+        },
+         createSearchChoice: function (term, data) {
+            if ($(data).filter(function () {
+                return this.text.localeCompare(term) === 0;
+             }).length === 0) { return { id: term, text: term }; }
+        },
+        multiple: false,
     });
 
     //Preenche select2 cadastrar gastos
@@ -17,16 +32,7 @@
         }
     });
 
-
-    function getSessionValue() {
-        return document.getElementById("id-pessoa-gastos").value;
-    }
-    var cartaoOptions;
-
-    $(".fechar-gastos").on('click', function () {
-        limparCampos();
-    });
-
+    //preenche select Cartao na modal
     $('.gastos-pessoa').on('click', function () {
         $('#cadastrar-gastos-pessoa').modal('show');
         $.ajax({
@@ -42,10 +48,17 @@
                 }
                 $('#campo-numero-cartao').html(cartaoOptions);
                 $('.lista-cartao-gastos').html(cartaoOptions);
-              
+
             }
         });
     });
+
+   
+
+    $(".fechar-gastos").on('click', function () {
+        limparCampos();
+    });
+
 
 
     $('#salvar-gastos-pessoa').on('click', function () {

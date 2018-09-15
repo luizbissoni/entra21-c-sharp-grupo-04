@@ -1,5 +1,4 @@
 ﻿$(function () {
-
   
     $('[name=descricao]').select2({
         ajax: {

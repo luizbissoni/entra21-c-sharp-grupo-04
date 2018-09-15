@@ -16,27 +16,19 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Index()
         {
             List<Categoria> categorias = new RepositorioCategoria().ObterTodosCategoria();
-            ViewBag.Categorias = categorias;
-            ViewBag.TituloPagina = "Categorias";
             return View();
         }
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Categorias - Cadastro";
-            ViewBag.Categoria = new Categoria();
-            ViewBag.Pessoas = new RepositorioPessoas().ObterTodosPessoas();
             return View();
         }
         [HttpPost]
         public ActionResult Store(Categoria categoria)
         {
-            if (ModelState.IsValid)
-            {
                 int identificador = new RepositorioCategoria().CadastrarCategoria(categoria);
-                return RedirectToAction("Index", new { id = identificador });
-            }
-            return View("Cadastro");
+               // return RedirectToAction("Index", new { id = identificador });
+            return View();
         }
         [HttpGet]
         public ActionResult Excluir(int id)

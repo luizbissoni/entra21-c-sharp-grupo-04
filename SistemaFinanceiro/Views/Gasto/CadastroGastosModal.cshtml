@@ -39,13 +39,19 @@
                                 <select id="campo-descricao-gastos" class="form-control  descricao-gastos  form-control-bold" name="descricao-gastos"></select>
                             </div>
                         </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="campo-despesa">Descrição</label>
+                                <input class="form-control" name="campo-despesa" type="text" id="descricao-despesa" />
+                            </div>
+                        </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-5">
                             <div class="input-group">
                                 <label class="input-group-addon" for="campo-data-entrada">Data Pagamento</label>
-                                <input id="data-entrada" name="campo-data-entrada" placeholder="DD/MM/AAAA" class="form-control " type="date" value="">
+                                <input id="data-entrada" name="campo-data-entrada" placeholder="DD/MM/AAAA" class="form-control " type="text" value="">
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -55,18 +61,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
+                    @*<div class="row">
                         <div class="col-sm-6">
                             <div class="input-group">
                                 <label class="input-group-addon" for="campo-despesa">Descrição</label>
                                 <input class="form-control" name="campo-despesa" type="text" id="descricao-despesa" />
                             </div>
                         </div>
-                    </div>
+                    </div>*@
                 </form>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="salvar-gastos-pessoa">Salvar</button>
                 </div>
-                <button type="button" class="btn btn-primary" id="salvar-gastos-pessoa">Salvar</button>
             </div>
         </div>
     </div>
