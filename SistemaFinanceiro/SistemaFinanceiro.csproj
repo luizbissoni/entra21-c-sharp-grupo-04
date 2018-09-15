@@ -5590,12 +5590,14 @@
     <Content Include="Scripts\ScriptPessoaCadastro\edit-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\pessoas-cadastro.js" />
     <Content Include="Scripts\scriptRecebimento\tabelarecebimento.js" />
+    <Content Include="Scripts\ValidacaoMask\jquery-validate.bootstrap-tooltip.min.js" />
     <Content Include="Scripts\ValidacaoMask\jquery.mask.js" />
     <Content Include="Scripts\ValidacaoMask\jquery.number.js" />
     <Content Include="Scripts\ValidacaoMask\locales.min.js" />
     <Content Include="Scripts\ValidacaoMask\numeral.js" />
     <Content Include="Scripts\ValidacaoMask\numeral.min.js" />
     <Content Include="Scripts\ValidacaoMask\validacaoMask.js" />
+    <Content Include="Scripts\ValidacaoMask\validacaoRecebimento.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

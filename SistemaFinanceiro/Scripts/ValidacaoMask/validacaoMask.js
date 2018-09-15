@@ -6,6 +6,8 @@
    
     //mask do modal editar da tabela
     $('#campo-valor-pessoa-editar-gastos').mask("#.##0,00", { reverse: true });
+    //mask modal cadastro recebimento
+    $('#campo-recebimento-valor').mask("#.##0,00", { reverse: true });
 
 
 
