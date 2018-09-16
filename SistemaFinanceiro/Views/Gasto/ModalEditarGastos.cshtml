@@ -6,7 +6,7 @@
     List<SistemaFinanceiro.Models.Cartoes> allCard = new List<SistemaFinanceiro.Models.Cartoes>();
 }
 
-<div class="modal fade" id="editar-gastos-pessoa" role="dialog" style="z-index: 1050; display: none;"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editar-gastos-pessoa" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -16,50 +16,51 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="hidden" value="@pessoa" id="id-pessoa-gastos" />
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="col-md-1 control-label" for="cartao-pessoa">Cartão</label>
-                            <select id="campo-numero-cartao-editar-gastos" class="form-control cartao-gastos-edita form-control-bold" name="cartao-pessoa"></select>
+                <form id="form-editar-gastos">
+                    <input type="hidden" value="@pessoa" id="id-pessoa-gastos" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="cartao-editar">Cartão</label>
+                                <select id="editar-numero-cartao" class="form-control" name="cartao-editar" required></select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="valor-editar">R$</label>
+                                <input id="editar-valor" name="valor-editar" class="form-control input-md col-sm-12" type="text" required maxlength="12">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="form-group">
-                            <label class="col-sm-6" for="campo-valor">Valor</label>
-                            <input id="campo-valor-pessoa-editar-gastos" name="campo-valor" placeholder="" class="form-control input-md col-sm-12 form-control-bold " required="" type="text">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="categoria-editar">Categoria</label>
+                                <select id="editar-categoria-gastos" class="form-control" name="categoria-editar" required></select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="editar-descricao">Descrição</label>
+                                <input class="form-control" name="editar-descricao" type="text" id="editar-descricao-gasto" required />
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label>Descrição</label>
-                            <select id="campo-descricao-editar-gastos" class="form-control descricao-gastos-editar form-control-bold" name="descricao-gastos"></select>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="editar-data-entrada">Data Pagamento</label>
+                                <input id="editar-entrada" name="editar-data-entrada" placeholder="DD/MM/AAAA" class="form-control " type="datetime" value="" required>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="editar-data-termino">Data término</label>
+                                <input id="editar-termino" name="editar-data-termino" placeholder="DD/MM/AAAA" class="form-control " type="datetime" value="" required>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="col-md-10 control-label" for="campo-data-entrada">Data Pagamento</label>
-                            <input id="data-entrada-editar-gastos" name="campo-data-entrada" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="datetime-local" value="">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="col-md-6 control-label" for="campo-data-termino">Data término</label>
-                            <input id="data-termino-editar-gastos" name="campo-data-termino" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="datetime-local" value="">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label class="control-label" for="campo-despesa">Descrição</label>
-                            <input class="form-control form-control-bold" name="campo-despesa" type="text" id="descricao-despesa-editar-gastos" />
-                        </div>
-                    </div>
-                </div>
-
+                </form>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="editar-gastos-home">Salvar</button>
                 </div>

@@ -4,21 +4,6 @@
         return document.getElementById("id-pessoa-gastos").value;
     }
 
-    //Preenche select2 editar gastos
-    $('#campo-descricao-editar-gastos').select2({
-        placeholder: "selecione a categoria",
-        tags: true,
-        ajax: {
-            url: '/Categoria/ObterTodosCategoriaJson',
-            dataType: 'json',
-        },
-         createSearchChoice: function (term, data) {
-            if ($(data).filter(function () {
-                return this.text.localeCompare(term) === 0;
-             }).length === 0) { return { id: term, text: term }; }
-        },
-        multiple: false,
-    });
 
     //preenche select Cartao na modal cadastro
     $('#campo-numero-cartao').select2({
@@ -26,9 +11,6 @@
         ajax: {
             url: '/Cartao/ObterTodosParaJson',
             dataType: 'json',
-            success: function (resultado) {
-                console.log(resultado);
-            }
         }
     });
 
@@ -65,7 +47,6 @@
                     "descricao": $('#descricao-despesa').val(),
                     "entrada": $('#data-entrada').val(),
                     "vencimento": $('#data-termino').val()
-
                 },
                 success: function () {
                     limparCampos();
@@ -82,20 +63,18 @@
                         icon: 'icofont icofont-info-circle',
                         type: 'error'
                     });
-
-
                 }
-
-
             });
         }
     });
 
     function limparCampos() {
-        $('#campo-numero-cartao').val('');
+        $('#campo-descricao-gastos').val(null).trigger('change');
+        $('#campo-numero-cartao').val(null).trigger('change');
         $('#campo-valor').val('');
-        $('#campo-descricao-gastos').val('');
-        $('[name=campo-despesa]').val('');
+        $('#descricao-despesa').val('');
+        $('#data-entrada').val(null);
+        $('#data-termino').val(null);
     };
 
 

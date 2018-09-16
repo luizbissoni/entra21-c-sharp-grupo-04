@@ -26,5 +26,7 @@ namespace SistemaFinanceiro.Models
 
         public string Descricao { get; set; }
 
+        public Cartoes cartao;
+
     }
 }

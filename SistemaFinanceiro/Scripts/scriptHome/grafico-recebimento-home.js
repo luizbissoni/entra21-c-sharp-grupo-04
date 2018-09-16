@@ -1,27 +1,21 @@
 ﻿$(document).ready(function () {
 
-    var labels = [], data = [];
-
+    var data = [], labels = [], label = [];
     $.ajax({
         url: '/Home/RecebimentoPessoaJsonGrafico',
         method: 'GET',
         success: function (pesquisa) {
-            //var resultado = JSON.parse(pesquisa);
-            console.log(pesquisa);
+            var resultado = JSON.parse(pesquisa);
+            //console.log(resultado.data[0].labels);
 
-            //$.each(resultado.tabela, function (i) {
-            //    console.log(resultado.tabela[i].MES);
-            //    if (resultado.tabela[i].VALOR < 0) {
-            //        data.push(00,00);
-            //        labels.push(resultado.tabela[i].MES);
-            //    } else {
-            //    labels.push(resultado.tabela[i].MES);
-            //    data.push(parseFloat(resultado.tabela[i].VALOR));
-            //    }
-            //});
+            $.each(resultado.data, function (i) {
 
+                label.push(resultado.data[i].datasets.label);
+                data.push(resultado.data[i].datasets.data);
+                labels.push(resultado.data[i].labels)
+                //console.log(resultado.data[i].datasets.label);
+            })
         }
-
     });
 
     var ctx = document.getElementById('myChart');
@@ -29,9 +23,9 @@
     var chartGraph = new Chart(ctx, {
         type: 'line',
         data: {
-        labels: labels,
+            labels: label,
             datasets: [{
-                label: 'Recebimento 2018',
+                label: '2018',
                 data: data,
                 borderWidth: 6,
                 borderColor: 'rgba(77,166,253,0.85)',

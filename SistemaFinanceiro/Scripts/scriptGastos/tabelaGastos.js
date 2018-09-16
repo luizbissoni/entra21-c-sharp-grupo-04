@@ -4,6 +4,25 @@
         return document.getElementById("id-pessoa-gastos").value;
     }
 
+     //Preenche select2 editar gastos
+    $('#editar-categoria-gastos').select2({
+        placeholder: "selecione a categoria",
+        tags: true,
+        ajax: {
+            url: '/Categoria/ObterTodosCategoriaJson',
+            dataType: 'json',
+        },
+    });
+
+    //Preenche select2 editar cartao
+    $('#editar-numero-cartao').select2({
+        placeholder: "selecione o cartão",
+        ajax: {
+            url: '/Cartao/ObterTodosParaJson',
+            dataType: 'json',
+        },
+    });
+
     $('#tabela-teste').DataTable({
         serverSide: true,
         "bProcessing": true,
@@ -67,12 +86,12 @@
             '<td>' + d.descricao + '</td>' +
             //'</tr>' +
             //'<tr>' +
-            '<th data-format="DD/MM/YYYY" data-type="date">Dia Pagamento:</th>' +
-            '<td>' + d.entrada + '</td>' +
+            '<th>Dia Pagamento:</th>' +
+            '<td>' + moment(d.entrada).format('DD/MM/YYYY HH:mm') + '</td>' +
             //'</tr>' +
             //'<tr>' +
             '<th>Término do pagamento:</th>' +
-            '<td data-format="DD/MM/YYYY" >' + d.vencimento + '</td>' +
+            '<td>' + moment(d.vencimento).format('DD/MM/YYYY HH:mm') + '</td>' +
             '</tr>' +
             '</table>';
     }
@@ -104,22 +123,6 @@
 
     });
 
-    //Preenche select de cartao
-    $.ajax({
-        url: '/Cartao/ObterTodosJson',
-        method: "GET",
-        success: function (cartao) {
-            var allCard = JSON.parse(cartao);
-            for (var i = 0; i < allCard.data.length; i++) {
-
-                if (allCard.data[i].IdPessoas == getSessionValue()) {
-                    cartaoOptions += '<option id="campo-numero-cartao-editar-gastos" value="' + allCard.data[i].Id + '">' + ' conta: ' + allCard.data[i].Conta + ' -- ' + ' Banco: ' + allCard.data[i].Banco + '</option>';
-                }
-            }
-            $('#campo-numero-cartao-editar-gastos').html(cartaoOptions);
-        }
-    });
-
     $('#tabela-teste').on('click', '.editar-gasto-home', function () {
         $.ajax({
             url: '/Home/EditarGastos',
@@ -129,13 +132,13 @@
             },
             success: function (pesquisa) {
                 var resultado = JSON.parse(pesquisa);
-                //console.log(resultado.gastos.Entrada);
-                //$('.cartao-gastos-editar option[value="' + resultado.gastos.IdCartao + '"]').val({ selected: "selected" });
-                $('.descricao-gastos-editar').append(new Option(resultado.gastos.Categoria.Nome, resultado.gastos.IdCategoria, false, false)).val(resultado.gastos.IdCategoria).trigger('change');
-                $('#campo-valor-pessoa-editar-gastos').val(resultado.gastos.Valor);
-                $('#descricao-despesa-editar-gastos').val(resultado.gastos.Descricao);
-                $('#data-entrada-editar-gastos').val(resultado.gastos.Entrada);
-                $('#data-termino-editar-gastos').val(resultado.gastos.Vencimento);
+                //console.log(resultado.gastos);
+                $('#editar-numero-cartao').append(new Option(resultado.gastos.cartao.Conta, resultado.gastos.IdCartao, false, false)).val(resultado.gastos.IdCartao).trigger('change');
+                $('#editar-categoria-gastos').append(new Option(resultado.gastos.Categoria.Nome, resultado.gastos.IdCategoria, false, false)).val(resultado.gastos.IdCategoria).trigger('change');
+                $('#editar-valor').val(resultado.gastos.Valor);
+                $('#editar-descricao-gasto').val(resultado.gastos.Descricao);
+                $('#editar-entrada').val(moment(resultado.gastos.Entrada).format('DD/MM/YYYY HH:mm'));
+                $('#editar-termino').val(moment(resultado.gastos.Vencimento).format('DD/MM/YYYY HH:mm'));
             },
             error: function () {
                 new PNotify({
@@ -152,15 +155,18 @@
             url: '/Home/UpdateGastos',
             method: 'POST',
             data: {
+                $valor = $('#editar-valor').val(),
+                $valor = $valor.replace(/\,/g, ""),
+                $valor = $valor.replace('.', ","),
                 Id: dataRow.Id,
-                idCartao: $('#campo-numero-cartao-editar-gastos').val(),
-                idCategoria: $('#campo-descricao-editar-gastos').val(),
-                Valor: $('#campo-valor-pessoa-editar-gastos').val(),
-                entrada: $('#data-entrada-editar-gastos').val(),
-                vencimento: $('#data-termino-editar-gastos').val(),
-                descricao: $('#descricao-despesa-editar-gastos').val()
+                idCartao: $('#editar-numero-cartao').val(),
+                idCategoria: $('#editar-categoria-gastos').val(),
+                Valor: $valor,
+                entrada: $('#editar-entrada').val(),
+                vencimento: $('#editar-termino').val(),
+                descricao: $('#editar-descricao-gasto').val()
             },
-            success: function (deuCerto) {
+            success: function () {
                 table.ajax.reload();
                 $('#editar-gastos-pessoa').modal('hide');
                 new PNotify({

@@ -12,7 +12,7 @@ function getSessionValue() {
 }
 
 $('#calendario').fullCalendar({
-    locale:"pt-br",
+    //locale:"pt-br",
     header: {
         left: 'prev,next today',
         center: 'title',
@@ -20,6 +20,7 @@ $('#calendario').fullCalendar({
     },
     defaultDate: moment(Date()).format("DD/MMMM/YYYY", "HH:mm:ss"),
     eventStartEditable: true,
+    eventLimit: true,
     eventDurationEditable: true,
     navLinks: true, // can click day/week names to navigate views
     businessHours: true, // display business hours

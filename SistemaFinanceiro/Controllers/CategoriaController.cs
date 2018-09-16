@@ -26,15 +26,14 @@ namespace SistemaFinanceiro.Controllers
         [HttpPost]
         public ActionResult Store(Categoria categoria)
         {
-                int identificador = new RepositorioCategoria().CadastrarCategoria(categoria);
-               // return RedirectToAction("Index", new { id = identificador });
+            int identificador = new RepositorioCategoria().CadastrarCategoria(categoria);
             return View();
         }
         [HttpGet]
         public ActionResult Excluir(int id)
         {
             bool apagado = new SistemaFinanceiro.Repositório.RepositorioCategoria().ExcluirCategoria(id);
-            
+
             return null;
         }
         [HttpGet]
@@ -47,7 +46,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult Update(Categoria categoria)
         {
             bool alterado = new RepositorioCategoria().AlterarCategorias(categoria);
-           
+
             return null;
         }
 

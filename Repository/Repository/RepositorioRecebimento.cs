@@ -130,17 +130,12 @@ MONTH(recebimentos.data), YEAR(recebimentos.data) ORDER BY MONTH(recebimentos.da
             {
                 resultado.Add(new
                 {
-                    data = new {
-
                         labels = linha["ano"].ToString(),
-
                         datasets = new
                         {
                             label = linha["MES"].ToString(),
                             data = Convert.ToDouble(linha["VALOR"].ToString())
                         }
-                    }
-
                 });
             }
             return resultado;

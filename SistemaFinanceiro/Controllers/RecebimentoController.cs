@@ -98,22 +98,5 @@ namespace SistemaFinanceiro.Controllers
             return Content(JsonConvert.SerializeObject(new { id = id }));
         }
 
-        //[HttpPost]
-        //public ActionResult CadastroModalPessoas(Pessoas pessoa, Cartoes cartao)
-        //{
-        //    int id = new RepositorioPessoas().CadastrarPessoas(pessoa);
-
-        //    Cartoes novoCartao = new Cartoes()
-        //    {
-        //        Conta = cartao.Conta.ToString(),
-        //        Numero = cartao.Numero.ToString(),
-        //        Banco = cartao.Banco.ToString(),
-        //        Bandeira = cartao.Bandeira.ToString(),
-        //        IdPessoas = id
-        //    };
-
-        //    int deuCerto = new RepositorioCartoes().CadastrarCartao(novoCartao);
-        //    return Content(JsonConvert.SerializeObject(new { id = id }));
-        //}
     }
 }
