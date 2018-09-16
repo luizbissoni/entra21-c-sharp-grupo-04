@@ -1,8 +1,7 @@
 ﻿$(document).ready(function () {
 
     $('#validar-recebimento').validate({
-        //lang: 'pt-br',
-
+        Locale: 'PT_BR',
         errorClass: "form-control-danger",
         validClass: "form-control-success",
         highlight: function (element) {
@@ -31,9 +30,13 @@
         },
         messages: {
 
-            'campo-recebimento-valor': "Algum valor deve ser informado",
+            'campo-recebimento-valor': {
+                required: "Algum valor deve ser informado"
+            },
 
-            'campo-recebimento-data': "Data deve ser preenchido."
+            'campo-recebimento-data': {
+                required: "Data deve ser preenchido."
+            }
         },
         tooltip_options: {
 

@@ -5129,6 +5129,7 @@
     <Content Include="Content\bower_components\jquery-sparkline\js\jquery.sparkline.js" />
     <Content Include="Content\bower_components\jquery-ui\js\jquery-ui.min.js" />
     <Content Include="Content\bower_components\jquery-validation\js\jquery.validate.js" />
+    <Content Include="Content\bower_components\jquery-validation\js\jquery.validate.pt-br.js" />
     <Content Include="Content\bower_components\jquery.cookie\js\jquery.cookie.js" />
     <Content Include="Content\bower_components\jquery.steps\css\jquery.steps.css" />
     <Content Include="Content\bower_components\jquery.steps\js\jquery.steps.js" />
