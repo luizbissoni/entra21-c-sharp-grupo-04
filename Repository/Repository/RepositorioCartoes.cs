@@ -78,8 +78,6 @@ namespace SistemaFinanceiro.Repositório
                 cartoes.Banco = tabela.Rows[0]["banco"].ToString();
 
             }
-
-
             return cartoes;
         }
 
@@ -117,9 +115,26 @@ namespace SistemaFinanceiro.Repositório
                 cartoes.Banco = tabela.Rows[0]["banco"].ToString();
 
             }
-
-
             return cartoes;
+        }
+
+        public List<Object> ObterTodosCartoesParaSelect2(int id)
+        {
+            List<Object> registros = new List<object>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = "SELECT  id, conta FROM cartoes WHERE id_pessoas = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                registros.Add(new
+                {
+                   id = Convert.ToInt32(linha["id"].ToString()),
+                   text = linha["conta"].ToString(),
+                });
+            }
+            return registros;
         }
     }
 

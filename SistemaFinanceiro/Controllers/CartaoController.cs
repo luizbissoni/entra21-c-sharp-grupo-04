@@ -83,5 +83,13 @@ namespace SistemaFinanceiro.Controllers
             int id = new RepositorioCartoes().CadastrarCartao(cartao);
             return Content(JsonConvert.SerializeObject(new { id = id }));
         }
+
+        [HttpGet]
+        public ActionResult ObterTodosParaJson()
+        {
+            int id = Convert.ToInt32(Session["user"].ToString());
+            List<Object> cartoes = new RepositorioCartoes().ObterTodosCartoesParaSelect2(id);
+            return Content(JsonConvert.SerializeObject(new { results = cartoes }, Formatting.Indented));
+        }
     }
 }

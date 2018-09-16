@@ -114,6 +114,38 @@ namespace SistemaFinanceiro.Repositório
             return recebimentos;
         }
 
+        //grafico recebimento
+        public List<Object> RecebimentoPessoaJsonFormat(int id)
+        {
+            List<Object> resultado = new List<Object>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SET LANGUAGE português SELECT SUM(recebimentos.valor) AS 'VALOR', DATENAME(MONTH, recebimentos.data) 
+AS 'MES', YEAR(recebimentos.data) as 'ano' FROM recebimentos INNER JOIN pessoas ON pessoas.Id = recebimentos.id_pessoas WHERE pessoas.Id = @ID GROUP BY DATENAME(MONTH, recebimentos.data),
+MONTH(recebimentos.data), YEAR(recebimentos.data) ORDER BY MONTH(recebimentos.data)";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            foreach (DataRow linha in tabela.Rows)
+            {
+                resultado.Add(new
+                {
+                    data = new {
+
+                        labels = linha["ano"].ToString(),
+
+                        datasets = new
+                        {
+                            label = linha["MES"].ToString(),
+                            data = Convert.ToDouble(linha["VALOR"].ToString())
+                        }
+                    }
+
+                });
+            }
+            return resultado;
+
+        }
 
 
 

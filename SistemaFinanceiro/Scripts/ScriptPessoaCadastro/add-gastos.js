@@ -1,11 +1,12 @@
 ﻿$(function () {
+
     function getSessionValue() {
         return document.getElementById("id-pessoa-gastos").value;
     }
-    var cartaoOptions;
 
     //Preenche select2 editar gastos
     $('#campo-descricao-editar-gastos').select2({
+        placeholder: "selecione a categoria",
         tags: true,
         ajax: {
             url: '/Categoria/ObterTodosCategoriaJson',
@@ -19,37 +20,31 @@
         multiple: false,
     });
 
-    //Preenche select2 cadastrar gastos
-    $('.lista-cartao-gastos').select2();
+    //preenche select Cartao na modal cadastro
+    $('#campo-numero-cartao').select2({
+        placeholder: "selecione o cartão",
+        ajax: {
+            url: '/Cartao/ObterTodosParaJson',
+            dataType: 'json',
+            success: function (resultado) {
+                console.log(resultado);
+            }
+        }
+    });
+
+    //Preenche select2 categoria na modal cadastro
     $('#campo-descricao-gastos').select2({
+        placeholder: "selecione a categoria",
         ajax: {
             url: '/Categoria/ObterTodosCategoriaJson',
             dataType: 'json'
         }
     });
 
-    //preenche select Cartao na modal
+    
     $('.gastos-pessoa').on('click', function () {
         $('#cadastrar-gastos-pessoa').modal('show');
-        $.ajax({
-            url: '/Cartao/ObterTodosJson',
-            method: "GET",
-            success: function (cartao) {
-                var allCard = JSON.parse(cartao);
-                for (var i = 0; i < allCard.data.length; i++) {
-
-                    if (allCard.data[i].IdPessoas == getSessionValue()) {
-                        cartaoOptions += '<option id="select-cartao" value="' + allCard.data[i].Id + '">' + ' conta: ' + allCard.data[i].Conta + ' -- ' + ' Banco: ' + allCard.data[i].Banco + '</option>';
-                    }
-                }
-                $('#campo-numero-cartao').html(cartaoOptions);
-                $('.lista-cartao-gastos').html(cartaoOptions);
-
-            }
-        });
     });
-
-   
 
     $(".fechar-gastos").on('click', function () {
         limparCampos();
@@ -57,17 +52,15 @@
 
     $('#salvar-gastos-pessoa').on('click', function () {
         if ($('#validarGasto').valid()) {
-            $valor = $('#campo-valor-pessoa').val();
+            $valor = $('#campo-valor').val();
             $valor = $valor.replace(/\,/g, "");
             $valor = $valor.replace('.', ",");
-            //console.log($valor);
             $.ajax({
                 url: '/Pessoas/CadastroGastosModalPessoas',
                 method: 'POST',
                 data: {
-
-                    "idCartao": $(".lista-cartao-gastos").val(),
-                    "idCategoria": $(".descricao-gastos").val(),
+                    "idCartao": $("#campo-numero-cartao").val(),
+                    "idCategoria": $("#campo-descricao-gastos").val(),
                     "Valor": $valor,
                     "descricao": $('#descricao-despesa').val(),
                     "entrada": $('#data-entrada').val(),

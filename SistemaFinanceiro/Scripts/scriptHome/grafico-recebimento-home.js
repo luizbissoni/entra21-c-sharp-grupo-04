@@ -3,20 +3,22 @@
     var labels = [], data = [];
 
     $.ajax({
-        url: '/Home/RecebimentoPessoa',
+        url: '/Home/RecebimentoPessoaJsonGrafico',
         method: 'GET',
         success: function (pesquisa) {
-            var resultado = JSON.parse(pesquisa);
-            $.each(resultado.tabela, function (i) {
-                //console.log(resultado.tabela[i].MES);
-                if (resultado.tabela[i].VALOR < 0) {
-                    data.push(00,00);
-                    labels.push(resultado.tabela[i].MES);
-                } else {
-                labels.push(resultado.tabela[i].MES);
-                data.push(parseFloat(resultado.tabela[i].VALOR));
-                }
-            });
+            //var resultado = JSON.parse(pesquisa);
+            console.log(pesquisa);
+
+            //$.each(resultado.tabela, function (i) {
+            //    console.log(resultado.tabela[i].MES);
+            //    if (resultado.tabela[i].VALOR < 0) {
+            //        data.push(00,00);
+            //        labels.push(resultado.tabela[i].MES);
+            //    } else {
+            //    labels.push(resultado.tabela[i].MES);
+            //    data.push(parseFloat(resultado.tabela[i].VALOR));
+            //    }
+            //});
 
         }
 

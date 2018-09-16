@@ -33,22 +33,32 @@ namespace SistemaFinanceiro.Controllers
             return View();
 
         }
+//        public ActionResult RecebimentoPessoa()
+//        {
+//            int id = Convert.ToInt32(Session["user"].ToString());
 
-        public ActionResult RecebimentoPessoa()
+//            //Recebimento recebimento = null;
+//            SqlCommand comando = new DBconnection().GetConnction();
+//            comando.CommandText = @"SET LANGUAGE português SELECT SUM(recebimentos.valor) AS 'VALOR', DATENAME(MONTH, recebimentos.data) 
+//AS 'MES', MONTH(recebimentos.data) FROM recebimentos INNER JOIN pessoas ON pessoas.Id = recebimentos.id_pessoas WHERE pessoas.Id = @ID GROUP BY DATENAME(MONTH, recebimentos.data),
+//MONTH(recebimentos.data) ORDER BY MONTH(recebimentos.data)";
+
+//            comando.Parameters.AddWithValue("@ID", id);
+//            DataTable tabela = new DataTable();
+//            tabela.Load(comando.ExecuteReader());
+
+//            return Content(JsonConvert.SerializeObject(new { tabela }));
+
+//        }
+
+        [HttpGet]
+        public ActionResult RecebimentoPessoaJsonGrafico()
         {
             int id = Convert.ToInt32(Session["user"].ToString());
 
-            //Recebimento recebimento = null;
-            SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"SET LANGUAGE português SELECT SUM(recebimentos.valor) AS 'VALOR', DATENAME(MONTH, recebimentos.data) 
-AS 'MES', MONTH(recebimentos.data) FROM recebimentos INNER JOIN pessoas ON pessoas.Id = recebimentos.id_pessoas WHERE pessoas.Id = @ID GROUP BY DATENAME(MONTH, recebimentos.data),
-MONTH(recebimentos.data) ORDER BY MONTH(recebimentos.data)";
-            comando.Parameters.AddWithValue("@ID", id);
-            DataTable tabela = new DataTable();
-            tabela.Load(comando.ExecuteReader());
+            List<Object> data = new RepositorioRecebimento().RecebimentoPessoaJsonFormat(id);
 
-            return Content(JsonConvert.SerializeObject(new { tabela }));
-
+            return Content(JsonConvert.SerializeObject(new {data}, Formatting.Indented));
         }
 
         public ActionResult GastosCategoria()
