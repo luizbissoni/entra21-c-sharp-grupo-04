@@ -1,12 +1,17 @@
 ﻿$(function () {
 
-    $('[name=descricao]').select2({
+    $('#campo-descricao-recebimento').select2({
         ajax: {
             url: '/Categoria/ObterTodosCategoriaJson',
             dataType: 'json',
         },
 
     });
+
+    Number.prototype.format = function (n, x) {
+        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+        return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
+    };
 
     function getSessionValue() {
         return document.getElementById("id-pessoa").value;
@@ -20,15 +25,15 @@
         if ($('#validar-recebimento').valid()) {
 
             $valor = $('#campo-recebimento-valor').val();
-            $valor = $valor.replace(/\,/g, "");
-            $valor = $valor.replace('.', ",");
-
+            console.log($valor.format(2,3));
+            //$valor = $valor.replace(/\,/g, "");
+            //$valor = $valor.replace('.', ",");
             $.ajax({
                 url: '/Pessoas/CadastroRecebimento',
                 method: 'POST',
                 data: {
                     data: $('[name=campo-data-recebimento]').val(),
-                    valor: $valor,
+                    //valor:, //$('#campo-recebimento-valor').val(),
                     idCategoria: $('#campo-descricao-recebimento').val(),
                     idPessoas: getSessionValue()
                 },

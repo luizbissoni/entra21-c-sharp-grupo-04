@@ -5675,6 +5675,7 @@
     <Content Include="Scripts\scriptRecebimento\tabelarecebimento.js" />
     <Content Include="Scripts\ValidacaoMask\jquery-validate.bootstrap-tooltip.min.js" />
     <Content Include="Scripts\ValidacaoMask\jquery.mask.js" />
+    <Content Include="Scripts\ValidacaoMask\jquery.maskMoney.min.js" />
     <Content Include="Scripts\ValidacaoMask\jquery.number.js" />
     <Content Include="Scripts\ValidacaoMask\locales.min.js" />
     <Content Include="Scripts\ValidacaoMask\numeral.js" />

@@ -20,7 +20,7 @@
                         <div class="col-md-5">
                             <div class="input-group">
                                 <label class="input-group-addon" for="campo-valor-recebimento">Valor</label>
-                                <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control" type="text" data-a-sep="." data-a-dec="," required>
+                                <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control" type="text" @*data-a-sep="." data-a-dec=","*@ required maxlength="9">
                             </div>
                         </div>
 
@@ -39,7 +39,7 @@
                                     Descrição
                                 </label>
                                 <div class="input-group">
-                                    <select class="form-control" name="descricao" id="campo-descricao-recebimento" required></select>
+                                    <select class="form-control" name="descricao-recebimento" id="campo-descricao-recebimento" required></select>
                                 </div>
                             </div>
                         </div>
