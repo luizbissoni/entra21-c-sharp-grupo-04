@@ -4,10 +4,6 @@
     }
     var cartaoOptions;
 
-    var novoCategoria = $('.select2 - search__field').val();
-
-  
-
     //Preenche select2 editar gastos
     $('#campo-descricao-editar-gastos').select2({
         tags: true,
@@ -59,14 +55,11 @@
         limparCampos();
     });
 
-
-
     $('#salvar-gastos-pessoa').on('click', function () {
         if ($('#validarGasto').valid()) {
             $valor = $('#campo-valor-pessoa').val();
-            //$valor = $valor.replace(/\,/g, "");
-            //$valor = $valor.replace('.', ",");
-            // $valor = Number($valor.replace(/[^0-9.-]+/g, ""));
+            $valor = $valor.replace(/\,/g, "");
+            $valor = $valor.replace('.', ",");
             //console.log($valor);
             $.ajax({
                 url: '/Pessoas/CadastroGastosModalPessoas',

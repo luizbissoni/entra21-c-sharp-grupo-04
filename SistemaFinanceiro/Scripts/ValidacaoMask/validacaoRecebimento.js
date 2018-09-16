@@ -15,16 +15,14 @@
         },
 
         rules: {
-
             'campo-valor-recebimento': {
-               // valorBR: true,
-                //number: true,
+                number: true,
                 required: true,
-                rangelength: [2, 9]
+                rangelength: [2, 12]
             },
             'campo-data-recebimento': {
                 required: true,
-                //dateBR: true
+               
             },
             'descricao-recebimento': {
                 required: true
@@ -33,12 +31,12 @@
         messages: {
 
             'campo-valor-recebimento': {
-                //number: "Por favor, forneça um número válido.",
+                number: "Por favor, forneça um número válido.",
                 required: "Este campo é requerido.",
                 rangelength: "Por favor, forneça um valor entre {0} e {1} caracteres de comprimento."
             },
             'campo-data-recebimento': {
-                //date:"Por favor, forneça uma data válida.",
+                date:"Por favor, forneça uma data válida.",
                 required: "Este campo é requerido."
 
             },
@@ -60,8 +58,5 @@
     //    if (value.length > 7 || value.length < 2 ) return false;
     //    return value.test(/^([^\d\s]{1,}\s ? [+-] ?)(\d{ 1, 3})(\, \d{ 3}) * (\.\d{ 1,}) ? $/);
     //}, "Por favor, forneça um valor válido.");
-    Number.prototype.format = function (n, x) {
-        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
-        return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
-    };
+   
 });

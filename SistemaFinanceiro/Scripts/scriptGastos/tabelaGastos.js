@@ -67,12 +67,12 @@
             '<td>' + d.descricao + '</td>' +
             //'</tr>' +
             //'<tr>' +
-            '<th>Dia Pagamento:</th>' +
+            '<th data-format="DD/MM/YYYY" data-type="date">Dia Pagamento:</th>' +
             '<td>' + d.entrada + '</td>' +
             //'</tr>' +
             //'<tr>' +
             '<th>Término do pagamento:</th>' +
-            '<td>' + d.vencimento + '</td>' +
+            '<td data-format="DD/MM/YYYY" >' + d.vencimento + '</td>' +
             '</tr>' +
             '</table>';
     }

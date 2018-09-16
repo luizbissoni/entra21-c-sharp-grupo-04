@@ -4,7 +4,7 @@
     int pessoa = Convert.ToInt32(Session["user"]);
 }
 
-<div class="modal fade" id="modal-recebimento-pessoa" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" >
+<div class="modal fade" id="modal-recebimento-pessoa" tabindex="-1" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,8 +19,8 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="input-group">
-                                <label class="input-group-addon" for="campo-valor-recebimento">Valor</label>
-                                <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control" type="text" @*data-a-sep="." data-a-dec=","*@ required maxlength="9">
+                                <label class="input-group-addon" for="campo-valor-recebimento">R$</label>
+                                <input id="campo-recebimento-valor" name="campo-valor-recebimento" class="form-control" type="text" @*data-thousand="." data-decimal=","*@ required maxlength="12">
                             </div>
                         </div>
 
@@ -35,12 +35,10 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="input-group">
-                                <label class="input-group-addon" for="campo-descricao-recebimento">
-                                    Descrição
-                                </label>
-                                <div class="input-group">
-                                    <select class="form-control" name="descricao-recebimento" id="campo-descricao-recebimento" required></select>
-                                </div>
+                                <span class="input-group-addon" for="campo-descricao-recebimento">
+                                    <i class="icofont-listing-box"></i>
+                                </span>
+                                <select class="form-control" name="descricao-recebimento" id="campo-descricao-recebimento" required></select>
                             </div>
                         </div>
                     </div>

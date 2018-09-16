@@ -1,17 +1,14 @@
 ﻿$(function () {
+    //preenche select2 categoria recebimento cadastro
 
     $('#campo-descricao-recebimento').select2({
+        placeholder: "selecione a categoria",
+        allowClear: true,
         ajax: {
             url: '/Categoria/ObterTodosCategoriaJson',
             dataType: 'json',
         },
-
     });
-
-    Number.prototype.format = function (n, x) {
-        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
-        return this.toFixed(Math.max(0, ~~n)).replace(new RegExp(re, 'g'), '$&,');
-    };
 
     function getSessionValue() {
         return document.getElementById("id-pessoa").value;
@@ -25,15 +22,14 @@
         if ($('#validar-recebimento').valid()) {
 
             $valor = $('#campo-recebimento-valor').val();
-            console.log($valor.format(2,3));
-            //$valor = $valor.replace(/\,/g, "");
-            //$valor = $valor.replace('.', ",");
+            $valor = $valor.replace(/\,/g, "");
+            $valor = $valor.replace('.', ",");
             $.ajax({
                 url: '/Pessoas/CadastroRecebimento',
                 method: 'POST',
                 data: {
                     data: $('[name=campo-data-recebimento]').val(),
-                    //valor:, //$('#campo-recebimento-valor').val(),
+                    valor: $valor,
                     idCategoria: $('#campo-descricao-recebimento').val(),
                     idPessoas: getSessionValue()
                 },
@@ -54,9 +50,6 @@
                     });
                 }
             });
-
-
-
         }
     });
 
