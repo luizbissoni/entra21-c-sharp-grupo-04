@@ -28,7 +28,7 @@
             },
             'campo-despesa': {
                 required: true,
-                rangelength:[4,20]
+                rangelength: [4, 20]
             },
             'campo-dara-entrada': {
                 required: true,
@@ -67,6 +67,15 @@
                 required: "Este campo é requerido.",
                 date: "Por favor, forneça uma data válida."
             }
+        },
+
+        tooltip_options: {
+            'cartao-pessoa': { placement: 'right', html: true },
+            'campo-valor': { placement: 'right', html: true },
+            'descricao-gastos': { placement: 'right', html: true },
+            'campo-despesa': { placement: 'right', html: true },
+            'campo-data-entrada': { placement: 'right', html: true },
+            'campo-data-termino': { placement: 'right', html: true }
         },
 
     });
