@@ -94,18 +94,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DataBase\Estrutura.sql" />
-    <Content Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Scripts\jquery-3.3.1.min.map" />
-    <None Include="Scripts\jquery-3.3.1.slim.min.map" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,7 +1,7 @@
-﻿$(function () {
-
+﻿$(document).ready(function () {
 
     $('#validar-recebimento').validate({
+        //lang: 'pt-br',
 
         errorClass: "form-control-danger",
         validClass: "form-control-success",
@@ -16,6 +16,7 @@
         },
 
         rules: {
+
             'campo-recebimento-valor': {
                 number: true,
                 required: true,
@@ -30,15 +31,15 @@
         },
         messages: {
 
-            'campo-recebimento-valor': { required: "Algum valor deve ser informado" },
+            'campo-recebimento-valor': "Algum valor deve ser informado",
 
-            'campo-recebimento-data': { required: "Data deve ser preenchido." }
+            'campo-recebimento-data': "Data deve ser preenchido."
         },
         tooltip_options: {
 
             //thefield: { placement: 'left' }
             'campo-recebimento-data': { trigger: 'focus' },
-            'campo-recebimento-valor': { placement: 'right', html: true}
+            'campo-recebimento-valor': { placement: 'right', html: true }
         },
     });
 
