@@ -4,7 +4,7 @@
         return document.getElementById("id-pessoa-gastos").value;
     }
 
-     //Preenche select2 editar gastos
+    //Preenche select2 editar gastos
     $('#editar-categoria-gastos').select2({
         placeholder: "selecione a categoria",
         tags: true,
@@ -96,6 +96,7 @@
             '</table>';
     }
 
+    //botao confirmar modalExcluir
     $('.excluir-gasto-confirmar').click(function () {
         $.ajax({
             url: '/Home/ExcluirGastos',
@@ -123,6 +124,7 @@
 
     });
 
+    //Botao Editar da tabela gastos
     $('#tabela-teste').on('click', '.editar-gasto-home', function () {
         $.ajax({
             url: '/Home/EditarGastos',
@@ -150,38 +152,39 @@
         });
     });
 
+    //Botao Salvar ModalEditar
     $('body').on('click', '#editar-gastos-home', function () {
-        $.ajax({
-            url: '/Home/UpdateGastos',
-            method: 'POST',
-            data: {
-                $valor = $('#editar-valor').val(),
-                $valor = $valor.replace(/\,/g, ""),
-                $valor = $valor.replace('.', ","),
-                Id: dataRow.Id,
-                idCartao: $('#editar-numero-cartao').val(),
-                idCategoria: $('#editar-categoria-gastos').val(),
-                Valor: $valor,
-                entrada: $('#editar-entrada').val(),
-                vencimento: $('#editar-termino').val(),
-                descricao: $('#editar-descricao-gasto').val()
-            },
-            success: function () {
-                table.ajax.reload();
-                $('#editar-gastos-pessoa').modal('hide');
-                new PNotify({
-                    text: 'Gasto editado com sucesso.',
-                    type: 'success'
-                });
-            },
-            error: function () {
-                new PNotify({
-                    text: 'Algo deu errado.',
-                    icon: 'icofont icofont-info-circle',
-                    type: 'error'
-                });
-            }
-        });
+        $valor = $('#editar-valor').val(),
+            $valor = $valor.replace(/\,/g, ""),
+            $valor = $valor.replace('.', ","),
+            $.ajax({
+                url: '/Home/UpdateGastos',
+                method: 'POST',
+                data: {
+                    Id: dataRow.Id,
+                    idCartao: $('#editar-numero-cartao').val(),
+                    idCategoria: $('#editar-categoria-gastos').val(),
+                    Valor: $valor,
+                    entrada: $('#editar-entrada').val(),
+                    vencimento: $('#editar-termino').val(),
+                    descricao: $('#editar-descricao-gasto').val()
+                },
+                success: function () {
+                    table.ajax.reload();
+                    $('#editar-gastos-pessoa').modal('hide');
+                    new PNotify({
+                        text: 'Gasto editado com sucesso.',
+                        type: 'success'
+                    });
+                },
+                error: function () {
+                    new PNotify({
+                        text: 'Algo deu errado.',
+                        icon: 'icofont icofont-info-circle',
+                        type: 'error'
+                    });
+                }
+            });
     });
 
 });
