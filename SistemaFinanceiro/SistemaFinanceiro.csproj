@@ -5326,7 +5326,9 @@
     <Content Include="Content\fullcalendar-3.9.0\locale\vi.js" />
     <Content Include="Content\fullcalendar-3.9.0\locale\zh-cn.js" />
     <Content Include="Content\fullcalendar-3.9.0\locale\zh-tw.js" />
+    <Content Include="Scripts\pt-br.js" />
     <Content Include="Content\fullcalendar-3.9.0\moment.min.js" />
+    <Content Include="Content\fullcalendar-3.9.0\moment.js" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -5645,9 +5647,15 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery.qtip.css" />
     <Content Include="Scripts\jquery.qtip.js" />
+    <Content Include="Scripts\jquery.qtip.min.css" />
+    <Content Include="Scripts\jquery.qtip.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\moment-with-locales.js" />
+    <Content Include="Scripts\moment-with-locales.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\scriptGastos\tabelaGastos.js" />
     <Content Include="Scripts\scriptHome\calculosHome.js" />
     <Content Include="Scripts\scriptHome\calendario.js" />

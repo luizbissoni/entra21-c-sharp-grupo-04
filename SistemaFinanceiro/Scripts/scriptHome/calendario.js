@@ -1,9 +1,7 @@
-﻿
+﻿moment.locale('pt-BR');
 var events = [];
-
-var categoriaOptions;
-var cartaoOptions;
-
+var dataAtual = moment(Date()).format("DD/MM/YYYY HH:mm:ss");
+//console.log(Date());
 $('#campo-calendario-numero-cartao').select2();
 $('#campo-calendario-descricao').select2();
 
@@ -11,14 +9,15 @@ function getSessionValue() {
     return document.getElementById("id-pessoa-gastos-calendario").value;
 }
 
+
 $('#calendario').fullCalendar({
-    //locale:"pt-br",
+    locale: "pt-br",
     header: {
         left: 'prev,next today',
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listMonth'
     },
-    defaultDate: moment(Date()).format("DD/MMMM/YYYY", "HH:mm:ss"),
+    defaultDate: Date(),
     eventStartEditable: true,
     eventLimit: true,
     eventDurationEditable: true,
@@ -29,8 +28,8 @@ $('#calendario').fullCalendar({
     selectable: true,
     select: function (start, end) {
 
-        $('#start').val(moment(start).format("DD/MMMM/YYYY" ,"HH:mm:ss"));
-        $('#end').val(moment(end).format("DD/MMMM/YYYY", "HH:mm:ss"));
+        $('#start').val(start);
+        $('#end').val(end);
 
         $("#modal-cadastro-gasto-calendario").modal('show');
 
@@ -45,23 +44,21 @@ $('#calendario').fullCalendar({
             'method': 'GET',
             success: function (pesquisa) {
                 var resultado = JSON.parse(pesquisa);
-
                 $.each(resultado.tabela, function (i) {
                     events.push({
-                        title: resultado.tabela[i].descricao,
-                        start: (moment(resultado.tabela[i].entrada)/*.format("DD/MM/YYYY", "HH:mm:ss")*/),
-                        end: (moment(resultado.tabela[i].vencimento)/*.format("DD/MM/YYYY", "HH:mm:ss")*/)
-
+                        title: resultado.tabela[i].categoria,
+                        start: resultado.tabela[i].entrada,
+                        end: moment(resultado.tabela[i].vencimento).format("DD/MM/YYYY HH:mm:ss"),
+                        description: 'Gasto'
                     });
 
                 });
-                //console.log(events);
                 return callback(events, title, start, end);
             }
         });
     },
     eventRender: function (event, element) {
-        if (element && event.description) {
+        if (element && event.title) {
             element.qtip({
                 content: event.title,
                 hide: {
@@ -72,51 +69,33 @@ $('#calendario').fullCalendar({
         }
     },
     eventClick: function (event) {
-        $('#modal-visualizar-evento #title').text(event.title);
-        $('#modal-visualizar-evento #start').text(moment(event.start)/*.format("DD/MM/YYYY", "HH:mm:ss")*/);
-        $('#modal-visualizar-evento #end').text(moment(event.end)/*.format("DD/MM/YYYY", "HH:mm:ss")*/);
+        $('#modal-visualizar-evento #title').text(moment(event.title).format("DD/MM/YYYY HH:mm:ss"));
+        $('#modal-visualizar-evento #start').text(moment(event.start).format("DD/MM/YYYY HH:mm:ss"));
+        $('#modal-visualizar-evento #end').text(moment(event.end).format("DD/MM/YYYY HH:mm:ss"));
         $('#modal-visualizar-evento').modal('show');
 
         return false;
+    },
+    eventAfterRender: function (event, element, view) {
+        var dataComparar = moment(event.start).format("DD/MM/YYYY HH:mm:ss");
+        //birthday = new Date('<somedate>');
+        year = new Date(event.start).getFullYear();
+        month = new Date(event.start).getMonth();
+        day = new Date(event.start).getDate();
+
+         //console.log(dataComparar);
+        if (dataComparar == dataAtual) {
+            alert('Chegou o dia! >>> ' + event.title);
+            console.log(moment(event.start).format("DD/MM/YYYY HH:mm:ss"));
+        }
     }
 });
-
-//$.ajax({
-//    url: '/Categoria/ObterTodosCategoriaJson',
-//    method: 'GET',
-//    success: function (dara) {
-//        var data = JSON.parse(dara);
-//        for (var i = 0; i < data.data.length; i++) {
-//            // console.log(data.data[i].Id);
-//            categoriaOptions += '<option id="valor-campo-descricao-gastos" value="' + data.data[i].Id + '">' + data.data[i].Nome + '</option>';
-//        }
-
-//        $('#campo-calendario-descricao').html(categoriaOptions);
-//    }
-//});
-
-//$.ajax({
-//    url: '/Cartao/ObterTodosJson',
-//    method: "GET",
-//    success: function (cartao) {
-//        var allCard = JSON.parse(cartao);
-//        for (var i = 0; i < allCard.data.length; i++) {
-
-//            if (allCard.data[i].IdPessoas == getSessionValue()) {
-//                cartaoOptions += '<option id="select-cartao" value="' + allCard.data[i].Id + '">' + ' conta: ' + allCard.data[i].Conta + ' -- ' + ' Banco: ' + allCard.data[i].Banco + '</option>';
-//            }
-//        }
-
-//        $('#campo-calendario-numero-cartao').html(cartaoOptions)
-//        //console.log(allCard.data);
-//    }
-//});
 
 $('#salvar-gastos-calendario').on('click', function () {
 
     $valor = $('#campo-calendario-valor').val();
-    //$valor = $valor.replace(/\,/g, "");
-    //$valor = $valor.replace(',', ".");
+    $valor = $valor.replace(/\,/g, "");
+    $valor = $valor.replace(',', ".");
 
     $.ajax({
         url: '/Pessoas/CadastroGastosModalPessoas',
@@ -136,23 +115,16 @@ $('#salvar-gastos-calendario').on('click', function () {
             $("#cadastrar-gastos-pessoa").modal('hide');
             $('#tabela-teste').DataTable().ajax.reload();
             new PNotify({
-                //title: 'Salvo com sucesso!',
                 text: 'Gastos adicionado com sucesso.',
-                //icon: 'icofont icofont-info-circle',
                 type: 'success'
             });
         },
         error: function () {
             new PNotify({
-                //title: 'Salvo com sucesso!',
                 text: 'Algo deu errado.',
                 icon: 'icofont icofont-info-circle',
                 type: 'error'
             });
-
-
         }
-
-
     });
 });

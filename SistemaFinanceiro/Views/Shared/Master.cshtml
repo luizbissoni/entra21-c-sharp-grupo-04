@@ -38,6 +38,8 @@
     <!-- Calender css -->
     @*<link rel="stylesheet" type="text/css" href="~/Content/bower_components/fullcalendar/css/fullcalendar.css">*@
     <link href="~/Content/fullcalendar-3.9.0/fullcalendar.css" rel="stylesheet" />
+    <link href="~/Content/fullcalendar-3.9.0/fullcalendar.print.min.css" rel="stylesheet" media="print" />
+    <link href="~/Scripts/jquery.qtip.css" rel="stylesheet" />
 
     @RenderSection("css", false)
 </head>
@@ -344,7 +346,6 @@
     </div>
 
     <!-- Required Jquery -->
-    @*<script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery.min.js'></script>*@
     <script type="text/javascript" src="~/Content/bower_components/jquery/js/jquery.min.js"></script>
     <script src="~/Content/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/jquery-ui/js/jquery-ui.min.js"></script>
@@ -369,11 +370,10 @@
     <script type="text/javascript" src="~/Content/bower_components/modernizr/js/modernizr.js"></script>
 
     <!-- calender js -->
-    @*<script src="~/Scripts/jquery.qtip.js"></script>*@
-    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/lib/moment.min.js'></script>
-    <script src='http://fullcalendar.io/js/fullcalendar-2.1.1/fullcalendar.min.js'></script>
-    @*<script src="~/Content/fullcalendar-3.9.0/fullcalendar.min.js"></script>*@
-    @*<script src="~/Content/fullcalendar-3.9.0/lib/moment.min.js"></script>*@
+    <script src="~/Content/fullcalendar-3.9.0/moment.min.js"></script>
+    <script src="~/Content/fullcalendar-3.9.0/fullcalendar.min.js"></script>
+    <script src="~/Content/fullcalendar-3.9.0/locale/pt-br.js"></script>
+    <script src="~/Scripts/jquery.qtip.js"></script>
 
     <!-- data-table js -->
     <script src="~/Content/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
@@ -395,7 +395,6 @@
     <script src="~/Content/bower_components/select2/js/select2.full.min.js"></script>
     <script src="~/Content/bower_components/select2/js/select2.js"></script>
     <!-- Custom js -->
-    <script src="~/Scripts/scriptCartao/cartaotabela.js"></script>
     <script src="~/Scripts/scriptGastos/tabelaGastos.js"></script>
     <script src="~/Scripts/scriptHome/calendario.js"></script>
 
@@ -408,7 +407,6 @@
     <script src="~/Scripts/ValidacaoMask/validarGastos.js"></script>
     <script src="~/Scripts/ValidacaoMask/validacaoRecebimento.js"></script>
     <script src="~/Scripts/ValidacaoMask/jquery.maskMoney.min.js"></script>
-    @*<script src="~/Content/bower_components/jquery-validation/js/jquery.validate.pt-br.js"></script>*@
 
 
     @RenderSection("script", false)
