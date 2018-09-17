@@ -15,8 +15,8 @@ namespace SistemaFinanceiro.Repositório
         public int CadastrarLogin(Login login)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "INSERT INTO login (id_login, usuario, senha, email) OUTPUT INSERTED.ID VALUES (@ID_LOGIN, @USUARIO, @SENHA, @EMAIL)";
-            comando.Parameters.AddWithValue("@ID_LOGIN", login.IdPessoas);
+            comando.CommandText = "INSERT INTO login (id_pessoas, usuario, senha, email) OUTPUT INSERTED.ID VALUES (@ID_PESSOAS, @USUARIO, @SENHA, @EMAIL)";
+            comando.Parameters.AddWithValue("@ID_PESSOAS", login.IdPessoas);
             comando.Parameters.AddWithValue("@USUARIO", login.Usuario);
             comando.Parameters.AddWithValue("@SENHA", login.Senha);
             comando.Parameters.AddWithValue("@EMAIL", login.Email);
@@ -76,15 +76,14 @@ namespace SistemaFinanceiro.Repositório
                 login.Email = tabela.Rows[0]["email"].ToString();
 
             }
-
-
             return login;
         }
 
         public bool AlterarLogin(Login login)
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = "UPDATE login SET usuario = @USUARIO, senha = @SENHA, email = @EMAIL";
+            comando.CommandText = "UPDATE login SET usuario = @USUARIO, senha = @SENHA, email = @EMAIL WHERE id = @ID";
+            comando.Parameters.AddWithValue("@ID", login.Id);
             comando.Parameters.AddWithValue("@USUARIO", login.Usuario);
             comando.Parameters.AddWithValue("@SENHA", login.Senha);
             comando.Parameters.AddWithValue("@EMAIL", login.Email);

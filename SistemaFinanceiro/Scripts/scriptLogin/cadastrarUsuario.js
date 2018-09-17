@@ -26,18 +26,20 @@
             success: function (data) {
                 limpaCampos();
                 $('#cadastro-pessoa').modal('hide');
-                new PNotify({
-                    text: 'Salvo com sucesso!',
-                    icon: 'icofont icofont-info-circle',
-                    type: 'success'
-                });
+                alert('Deu Certo!');
+                //new PNotify({
+                //    text: 'Salvo com sucesso!',
+                //    icon: 'icofont icofont-info-circle',
+                //    type: 'success'
+                //});
             },
             error: function () {
-                new PNotify({
-                    text: 'Algo deu errado.',
-                    icon: 'icofont icofont-info-circle',
-                    type: 'error'
-                });
+                alert('Erro!');
+                //new PNotify({
+                //    text: 'Algo deu errado.',
+                //    icon: 'icofont icofont-info-circle',
+                //    type: 'error'
+                //});
             }
         });
     });
@@ -72,7 +74,7 @@
     }
 
     //Quando o campo cep perde o foco.
-    $("#cep").blur(function () {
+    $("#cadastro-cep").blur(function () {
 
         //Nova variável "cep" somente com dígitos.
         var cep = $(this).val().replace(/\D/g, '');

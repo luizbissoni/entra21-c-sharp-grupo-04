@@ -102,15 +102,8 @@ namespace SistemaFinanceiro.Controllers
         [HttpPost]
         public ActionResult CreateNewUsers(Pessoas pessoas, Login logins)
         {
-            Pessoas pessoa = new Pessoas()
-            {
-                Cep = pessoas.Cep,
-                Nascimento = pessoas.Nascimento,
-                Nome = pessoas.Nome,
-                Sexo = pessoas.Sexo,
-                Telefone = pessoas.Telefone
-            };
-            int identificador = new RepositorioPessoas().CadastrarPessoas(pessoa);
+          
+            int identificador = new RepositorioPessoas().CadastrarPessoas(pessoas);
 
             Login novoLogin = new Login()
             {
@@ -119,7 +112,9 @@ namespace SistemaFinanceiro.Controllers
                 Senha = logins.Senha,
                 Usuario = logins.Usuario
             };
-            return null;
+            int deucerto = new RepositorioLogin().CadastrarLogin(novoLogin);
+
+            return Content(JsonConvert.SerializeObject(novoLogin));
         }
     }
 }
