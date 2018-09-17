@@ -64,7 +64,7 @@
                     <div class="login-card card-block auth-body mr-auto ml-auto">
                         <form class="md-float-material">
                             <div class="text-center">
-                                <img src="~/Content/assets/images/auth/logo-dark.png" alt="logo.png">
+                                @* <img src="~/Content/assets/images/auth/logo-dark.png" alt="logo.png">*@
                             </div>
                             <div class="auth-box">
                                 <div class="row m-b-20">
@@ -103,14 +103,9 @@
                                 <hr />
                                 <div class="row">
                                     <div class="col-md-10">
-                                        <a href="#" class="editar-pessoa" data-target="#modal-cadastro-usuario" data-toggle="modal"><p class="text-inverse text-left m-b-0">Cadastro</p></a>
-                                        @*//<a href=""><p class="text-inverse text-left m-b-0">Cadastro</p></a>*@
+                                        <a href="#" data-target="#cadastro-pessoa" data-toggle="modal"><p class="text-inverse text-left m-b-0">Cadastro</p></a>
                                     </div>
-                                    @*<div class="col-md-2">
-                                            <img src="~/Content/assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">
-                                        </div>*@
                                 </div>
-
                             </div>
                         </form>
                         <!-- end of form -->
@@ -140,8 +135,11 @@
     <script type="text/javascript" src="~/Content/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
     <script type="text/javascript" src="~/Content/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/common-pages.js"></script>
+
     <script src="~/Scripts/scriptLogin/login.js"></script>
     <script src="~/Scripts/cadastro-usuario/cadastro-login.js"></script>
+    <script src="~/Scripts/scriptLogin/cadastrarUsuario.js"></script>
+
     @Html.Partial("~/Views/Login/CadastroModalConta.cshtml")
 </body>
 

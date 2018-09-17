@@ -1,52 +1,65 @@
 ﻿$(function () {
-   
-    $('body').on('click', '#salvar-cadastro-modal', function () {
+    var sexos;
+
+    if ($('input[name="Sexo-feminino"]:checked').val()) {
+        sexos = 'F';
+    } else {
+        sexos = 'M';
+    }
+
+    $('body').on('click', '#salvar-cadastro-conta', function () {
         $.ajax({
-            url: '/Pessoas/CadastroModalPessoas',
+            url: '/Login/CreateNewUsers',
             method: 'POST',
             data: {
-               
-                nome: $('#campo-nome').val(),
-                nascimento: $('#campo-nascimento').val(),
-                sexo: sexo,
-                cpf: $('#campo-cpf').val(),
-                telefone: $('#campo-telefone').val(),
-                cep: $('#cep').val(),
+                nome: $('#cadastro-nome').val(),
+                nascimento: $('#cadastro-nascimento').val(),
+                sexo: sexos,
+                cpf: $('#cadastro-cpf').val(),
+                telefone: $('#cadastro-telefone').val(),
+                cep: $('#cadastro-cep').val(),
 
-                Conta: $('.conta').val(),
-                Numero: $('.numero').val(),
-                Banco: $('#banco').val(),
-                Bandeira: $('#bandeira').val()
+                usuario: $('#inputUser').val(),
+                senha: $('#inputPassword').val(),
+                email: $('#inputEmail').val()
             },
             success: function (data) {
                 limpaCampos();
-                $('#cadastrar-pessoa-modal').modal('hide');
-                $('#tabela-pessoas').DataTable().ajax.reload();
+                $('#cadastro-pessoa').modal('hide');
                 new PNotify({
-                    //title: 'Salvo com sucesso!',
                     text: 'Salvo com sucesso!',
                     icon: 'icofont icofont-info-circle',
                     type: 'success'
+                });
+            },
+            error: function () {
+                new PNotify({
+                    text: 'Algo deu errado.',
+                    icon: 'icofont icofont-info-circle',
+                    type: 'error'
                 });
             }
         });
     });
 
-    $('#cancelar-cadastro-pessoa').on('click', function () {
+    $('#close-cadastro').on('click', function () {
         limpaCampos();
     });
 
-     function limpaCampos() {
-        $('#campo-sexo-feminino').prop('checked', false);
-        $('#campo-sexo-masculino').prop('checked', false);
-        $('#campo-nome').val('');
-        $('#campo-nascimento').val('');
-        $('#campo-cpf').val('');
-        $('#campo-telefone').val('');
-        $('#cep').val('');
+    function limpaCampos() {
+        $('#cadastro-sexo-feminino').prop('checked', false);
+        $('#cadastro-sexo-masculino').prop('checked', false);
+        $('#cadastro-nome').val();
+        $('#cadastro-nascimento').val();
+        $('#cadastro-cpf').val();
+        $('#cadastro-telefone').val();
+        $('#cadastro-cep').val();
+        $('#inputUser').val();
+        $('#inputPassword').val();
+        $('#inputEmail').val();
     };
 
-   
+
 
     //busca cep ao sair do campo cep
     function limpa_formulário_cep() {
@@ -112,3 +125,5 @@
     //fim buscador cep
 
 });
+
+

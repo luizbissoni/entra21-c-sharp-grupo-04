@@ -16,17 +16,12 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            List<Pessoas> pessoas = new RepositorioPessoas().ObterTodosPessoas();
-            ViewBag.Pessoas = pessoas;
-            ViewBag.TituloPagina = "Pessoas";
             return View();
         }
 
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Pessoas - Cadastro";
-            ViewBag.Pessoas = new Pessoas();
             return View();
         }
 
@@ -125,10 +120,5 @@ namespace SistemaFinanceiro.Controllers
 
             return Content(JsonConvert.SerializeObject(new { gasto }));
         }
-
-       
-
-
-
     }
 }

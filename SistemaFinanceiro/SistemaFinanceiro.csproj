@@ -5662,6 +5662,7 @@
     <Content Include="Scripts\scriptHome\grafico-recebimento-home.js" />
     <Content Include="Scripts\scriptHome\grafico-gastos-setor-home.js" />
     <Content Include="Scripts\scriptHome\tempo.js" />
+    <Content Include="Scripts\scriptLogin\cadastrarUsuario.js" />
     <Content Include="Scripts\scriptLogin\login.js" />
     <Content Include="Scripts\scriptPerfilUsuario\usuario-perfil.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\add-gastos.js" />

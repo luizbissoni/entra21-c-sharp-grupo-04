@@ -1,4 +1,6 @@
 ﻿@{
+    /**/
+
     int pessoa = Convert.ToInt32(Session["user"]);
 }
 
@@ -13,47 +15,44 @@
                 </button>
             </div>
             <div class="modal-body">
-<!---->               <form id="validar-cartao">
-    <input type="hidden" value="@pessoa" id="idpessoa-cartao" />
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="input-group">
-                <label class="input-group-addon" for="numero-Cartao">Número cartão</label>
-                <input id="campo-numero-Cartao" name="numero-cartao" class="form-control" type="text" value="" required>
+                <form id="validar-cartao">
+                    <input type="hidden" value="@pessoa" id="idpessoa-cartao" />
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="numero-Cartao">Número cartão</label>
+                                <input id="campo-numero-Cartao" name="numero-cartao" class="form-control" type="text" value="" required>
 
-            </div>
-        </div>
+                            </div>
+                        </div>
 
-        <div class="col-sm-6">
-            <div class="input-group">
-                <label class="input-group-addon" for="numero-Conta">Número Conta</label>
-                <input id="campo-numero-Conta" name="numero-conta" class="form-control " required="" type="text" value="">
-            </div>
-        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="numero-Conta">Número Conta</label>
+                                <input id="campo-numero-Conta" name="numero-conta" class="form-control " required="" type="text" value="">
+                            </div>
+                        </div>
 
-        <div class="col-sm-6">
-            <div class="input-group">
-                <label class="input-group-addon" for="bandeira">Bandeira</label>
-                <input id="campo-bandeira" name="bandeira" class="form-control" required="" type="text" value="">
-            </div>
-        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="bandeira">Bandeira</label>
+                                <input id="campo-bandeira" name="bandeira" class="form-control" required="" type="text" value="">
+                            </div>
+                        </div>
 
-        <div class="col-sm-6">
-            <div class="input-group">
-                <label class="input-group-addon" for="banco">Banco</label>
-                <input id="campo-banco" name="banco" class="form-control " required="" type="text" value="">
-            </div>
-        </div>
-    </div>
-
-
-    <div class="modal-footer">
-
-        <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cartao">
-    </div>
-</form>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="banco">Banco</label>
+                                <input id="campo-banco" name="banco" class="form-control " required="" type="text" value="">
+                            </div>
+                        </div>
                     </div>
-                </div>
-
+                    <div class="modal-footer">
+                        <input type="submit" class="btn btn-primary" value="Salvar" id="salvar-cartao">
+                    </div>
+                </form>
             </div>
         </div>
+
+    </div>
+</div>

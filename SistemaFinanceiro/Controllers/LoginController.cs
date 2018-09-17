@@ -21,8 +21,6 @@ namespace SistemaFinanceiro.Controllers
         [HttpGet]
         public ActionResult Cadastro()
         {
-            ViewBag.TituloPagina = "Login - Cadastro";
-            ViewBag.Login = new Login();
             return View();
         }
 
@@ -101,6 +99,27 @@ namespace SistemaFinanceiro.Controllers
             return Content(JsonConvert.SerializeObject(pessoa));
         }
 
+        [HttpPost]
+        public ActionResult CreateNewUsers(Pessoas pessoas, Login logins)
+        {
+            Pessoas pessoa = new Pessoas()
+            {
+                Cep = pessoas.Cep,
+                Nascimento = pessoas.Nascimento,
+                Nome = pessoas.Nome,
+                Sexo = pessoas.Sexo,
+                Telefone = pessoas.Telefone
+            };
+            int identificador = new RepositorioPessoas().CadastrarPessoas(pessoa);
 
+            Login novoLogin = new Login()
+            {
+                IdPessoas = identificador,
+                Email = logins.Email,
+                Senha = logins.Senha,
+                Usuario = logins.Usuario
+            };
+            return null;
+        }
     }
 }
