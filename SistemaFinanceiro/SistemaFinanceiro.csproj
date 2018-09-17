@@ -5639,7 +5639,6 @@
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-2.1.0-vsdoc.js" />
-    <Content Include="Scripts\cadastro-usuario\cadastro-login.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
@@ -5649,13 +5648,6 @@
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\scriptCartao\cartaotabela.js" />
-    <Content Include="Scripts\scriptCartao\create-cartao-modal.js" />
-    <Content Include="Scripts\scriptCartao\deletar-cartao-modal.js" />
-    <Content Include="Scripts\scriptCartao\editar-cartao-modal.js" />
-    <Content Include="Scripts\scriptGastos\create-gasto.js" />
-    <Content Include="Scripts\scriptGastos\delete-gastos-modal.js" />
-    <Content Include="Scripts\scriptGastos\editar-gasto.js" />
     <Content Include="Scripts\scriptGastos\tabelaGastos.js" />
     <Content Include="Scripts\scriptHome\calculosHome.js" />
     <Content Include="Scripts\scriptHome\calendario.js" />
@@ -5664,16 +5656,13 @@
     <Content Include="Scripts\scriptHome\tempo.js" />
     <Content Include="Scripts\scriptLogin\cadastrarUsuario.js" />
     <Content Include="Scripts\scriptLogin\login.js" />
-    <Content Include="Scripts\scriptPerfilUsuario\usuario-perfil.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\add-gastos.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\add-recebimento.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\cartao.js" />
-    <Content Include="Scripts\ScriptPessoaCadastro\creat-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\datatable-index.js" />
-    <Content Include="Scripts\ScriptPessoaCadastro\delete-person-modal.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\edit-person-modal.js" />
-    <Content Include="Scripts\ScriptPessoaCadastro\pessoas-cadastro.js" />
     <Content Include="Scripts\scriptRecebimento\tabelarecebimento.js" />
+    <Content Include="Scripts\sha512.min.js" />
     <Content Include="Scripts\ValidacaoMask\jquery-validate.bootstrap-tooltip.min.js" />
     <Content Include="Scripts\ValidacaoMask\jquery.mask.js" />
     <Content Include="Scripts\ValidacaoMask\jquery.maskMoney.min.js" />
@@ -5697,6 +5686,8 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PessoasController.cs" />
     <Compile Include="Controllers\RecebimentoController.cs" />
+    <Compile Include="CustomPasswordHash.cs" />
+    <Compile Include="Encrypt.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
