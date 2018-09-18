@@ -35,12 +35,10 @@ $(document).ready(function () {
             });
             //}
         }
-
     })
 
     $("#botao-login").on('click', function () {
         $('#campo-senha').keydown();
-
     });
 
 

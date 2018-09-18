@@ -12,6 +12,8 @@
             url: '/Categoria/ObterTodosCategoriaJson',
             dataType: 'json',
         },
+    }).on('change', function () {
+        $('#validarGasto').valid();
     });
 
     //Preenche select2 editar cartao
