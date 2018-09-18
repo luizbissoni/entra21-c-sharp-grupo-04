@@ -13,6 +13,8 @@
             </div>
             <div class="modal-body">
                 <form id="form-cadastro-pessoa">
+                    <h4>Informações pessoais</h4>
+                    <hr>
                     <div class="row">
                         <div class="col-md-5">
                             <div class="input-group">
@@ -20,7 +22,32 @@
                                 <input id="cadastro-nome" name="nome" placeholder="Digite seu nome completo" class="form-control input-md col-sm-10" required="" type="text">
                             </div>
                         </div>
+
+
+                        <div class="input-md col-md-7">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="cadastro-nascimento">Nascimento<h11>*</h11></label>
+                                <input id="cadastro-nascimento" name="nascimento" placeholder="DD/MM/AAAA" class="form-control input-md col-sm-5" required="" type="date" value="" maxlength="10">
+                            </div>
+                        </div>
                     </div>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="cadastro-telefone">Telefone</label>
+                                <input id="cadastro-telefone" name="telefone" class="form-control input-md col-sm-8" placeholder="XX XXXXX-XXXX" type="text" maxlength="13">
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <label class="input-group-addon" for="cadastro-cpf">CPF</label>
+                                <input id="cadastro-cpf" name="new-CPF" placeholder="Apenas números" class="form-control input-md col-sm-8" required="" type="text" maxlength="11">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <label class="col-md-1 control-label" for="radio">Sexo</label>
                         <div class="col-md-4">
@@ -33,27 +60,6 @@
                                     <input name="cadastro-sexo-masculino" id="cadastro-sexo-masculino" value="M" type="radio">
                                     Masculino
                                 </label>
-                            </div>
-                        </div>
-                        <div class="input-md col-md-7">
-                            <div class="input-group">
-                                <label class="input-group-addon" for="cadastro-nascimento">Nascimento<h11>*</h11></label>
-                                <input id="cadastro-nascimento" name="nascimento" placeholder="DD/MM/AAAA" class="form-control input-md col-sm-5" required="" type="date" value="" maxlength="10">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-5">
-                            <div class="input-group">
-                                <label class="input-group-addon" for="cadastro-cpf">CPF</label>
-                                <input id="cadastro-cpf" name="new-CPF" placeholder="Apenas números" class="form-control input-md col-sm-8" required="" type="text" maxlength="11">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <label class="input-group-addon" for="cadastro-telefone">Telefone</label>
-                                <input id="cadastro-telefone" name="telefone" class="form-control input-md col-sm-8" placeholder="XX XXXXX-XXXX" type="text" maxlength="13">
                             </div>
                         </div>
                     </div>
@@ -109,25 +115,39 @@
                     </div>
                     <h4>Cadastrar Login</h4>
                     <hr>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <label class="input-group-addon">E-mail</label>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputUser">Usuario</label>
-                            <input type="text" class="form-control" id="inputUser" placeholder="Usuário">
+                        
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <label class="input-group-addon">Senha</label>
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                            </div>
                         </div>
+                        
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword">Password</label>
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+                    <div class="row">
+
+                        <div class="col-md-5">
+                            <div class="input-group">
+                                <label class="input-group-addon">Usuario</label>
+                                <input type="text" class="form-control" id="inputUser" placeholder="Usuário">
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputRepeatPassword">Password</label>
+
+                        
+                        <div class="col-md-6">
+                        <div class="input-group">
+                            <label class="input-group-addon">Confirmar senha</label>
                             <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Confirmar senha">
                         </div>
+                    </div>
+                        
                     </div>
                 </form>
             </div>

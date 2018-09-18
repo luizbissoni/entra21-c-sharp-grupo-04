@@ -6,7 +6,7 @@
     List<SistemaFinanceiro.Models.Cartoes> allCard = new List<SistemaFinanceiro.Models.Cartoes>();
 }
 
-<div class="modal fade" id="modal-cadastro-gasto-calendario" role="dialog" style="z-index: 1050; display: none;"  aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-cadastro-gasto-calendario" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,47 +19,50 @@
                 <input type="hidden" value="@pessoa" id="id-pessoa-gastos-calendario" />
                 <div class="row">
                     <div class="col-md-5">
-                        <div class="form-group">
-                            <label class="col-md-1 control-label" for="cartao-pessoa-calendario">Cartão</label>
+                        <div class="input-group">
+                            <label class="input-group-addon" for="cartao-pessoa-calendario">Cartão</label>
                             <select id="campo-calendario-numero-cartao" class="form-control form-control-bold" name="cartao-pessoa-calendario"></select>
                         </div>
                     </div>
                     <div class="col-sm-4">
-                        <div class="form-group">
-                            <label class="col-sm-6" for="start">Valor</label>
+                        <div class="input-group">
+                            <label class="input-group-addon" for="start">Valor</label>
                             <input id="campo-calendario-valor" name="start" placeholder="" class="form-control input-md col-sm-12 autonumber  form-control-bold " required="" type="text">
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="form-group">
-                            <label class="col-md-1 control-label" for="descricao-gastos-calendario">Categoria</label>
-                            <select id="campo-calendario-descricao" class="form-control form-control-bold" name="descricao-gastos-calendario">
-                            </select>
-                        </div>
-                    </div>
                 </div>
+               
+
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="col-md-10 control-label" for="campo-data-entrada">Data Pagamento</label>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <label class="input-group-addon" for="campo-data-entrada">Data Pagamento</label>
                             <input id="start" name="campo-data-entrada" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="datetime" value="">
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label class="col-md-6 control-label" for="end">Data término</label>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <label class="input-group-addon" for="end">Data término</label>
                             <input id="end" name="end" placeholder="DD/MM/AAAA" class="form-control form-control-bold" type="datetime" value="">
                         </div>
                     </div>
                 </div>
+
                 <div class="row">
+                    <div class="col-md-5">
+                        <div class="input-group">
+                            <label class="input-group-addon" for="descricao-gastos-calendario">Categoria</label>
+                            <select id="campo-calendario-descricao" class="form-control form-control-bold" name="descricao-gastos-calendario"></select>
+                        </div>
+                    </div>
                     <div class="col-sm-6">
-                        <div class="form-group">
-                            <label class="control-label" for="campo-despesa">Descrição</label>
+                        <div class="input-group">
+                            <label class="input-group-addon" for="campo-despesa">Descrição</label>
                             <input class="form-control" name="campo-despesa" type="text" id="calendario-descricao-despesa" />
                         </div>
                     </div>
                 </div>
+                
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" id="salvar-gastos-calendario">Salvar</button>
