@@ -2,44 +2,51 @@
 $(document).ready(function () {
     var home = '/Home';
 
-    $('#campo-senha').on('keydown', function (e) {
-        if (e.which == 13) {
-            e.preventDefault();
-            //if ($('#validarLogin').valid()) {
-            $.ajax({
-                url: "/Login/GetLoginJson",
-                type: "POST",
-                data: {
-                    "usuario": $("#campo-usuario").val(),
-                    "senha": $("#campo-senha").val()
-                },
-                success: function (result) {
-                    var data = JSON.parse(result);
-                    if (result != null) {
-                        $.ajax({
-                            url: '/Login/GetIdPessoas',
-                            method: 'GET',
-                            data: {
-                                id: data.data.Id
-                            },
-                            success: function (usuario) {
-                                var data = JSON.parse(usuario);
-                                $(window.document.location).attr('href', home);
-                            }
-                        });
-                    }
-                },
-                error: function () {
-                    alert("Error!")
+    $("#botao-login").on('click', function () {
+        //if ($('#validarLogin').valid()) {
+        $.ajax({
+            url: "/Login/GetLoginJson",
+            type: "POST",
+            data: {
+                "usuario": $("#campo-usuario").val(),
+                "senha": $("#campo-senha").val()
+            },
+            success: function (result) {
+                var data = JSON.parse(result);
+                if (data.data != false) {
+                    $.ajax({
+                        url: '/Login/GetIdPessoas',
+                        method: 'GET',
+                        data: {
+                            id: data.data.Id
+                        },
+                        success: function () {
+                            $(window.document.location).attr('href', home);
+                        },
+                        error: function () {
+                            alert("Error!");
+                        }
+                    });
                 }
-            });
-            //}
+                alert("Login inválido!");
+            },
+            error: function () {
+                alert("Error!");
+            }
+        });
+        //}
+    });
+
+    $('#campo-senha').on('keypress', function (e) {
+        if (e.which == 13) {
+            $('#botao-login').click();
+            e.preventDefault();
         }
     })
 
-    $("#botao-login").on('click', function () {
-        $('#campo-senha').keydown();
-    });
+    
+
+
 
 
 

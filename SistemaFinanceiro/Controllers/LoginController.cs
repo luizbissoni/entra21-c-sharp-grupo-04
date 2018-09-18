@@ -67,21 +67,27 @@ namespace SistemaFinanceiro.Controllers
         [HttpPost]
         public ActionResult GetLoginJson(string usuario, string senha)
         {
-            var senhaCryp = Encrypt.SHA512(senha);
-
-            List<Login> login = new RepositorioLogin().ObterTodosLogin();
-
-            foreach (Login logins in login)
+            try
             {
-                if (logins.Usuario == usuario && logins.Senha == senhaCryp)
-                {
-                    Session["user"] = logins.IdPessoas;
+                var senhaCryp = Encrypt.SHA512(senha);
 
-                   return Content(JsonConvert.SerializeObject(new { user = usuario, pass = senha, data = logins }));
+                List<Login> login = new RepositorioLogin().ObterTodosLogin();
+
+                foreach (Login logins in login)
+                {
+                    if (logins.Usuario == usuario && logins.Senha == senhaCryp)
+                    {
+                        Session["user"] = logins.IdPessoas;
+
+                        return Content(JsonConvert.SerializeObject(new { user = usuario, pass = senha, data = logins }));
+                    }
                 }
             }
-
-            return View();
+            catch (Exception)
+            {
+                return Content(JsonConvert.SerializeObject(new { data = false }));
+            }
+            return null;
         }
 
         [HttpGet]
@@ -104,7 +110,7 @@ namespace SistemaFinanceiro.Controllers
         [HttpPost]
         public ActionResult CreateNewUsers(Pessoas pessoas, Login logins)
         {
-          
+
             int identificador = new RepositorioPessoas().CadastrarPessoas(pessoas);
 
             Login novoLogin = new Login()
