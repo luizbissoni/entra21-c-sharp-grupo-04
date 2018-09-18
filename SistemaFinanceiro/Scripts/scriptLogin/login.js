@@ -5,6 +5,7 @@ $(document).ready(function () {
     $('#campo-senha').on('keydown', function (e) {
         if (e.which == 13) {
             e.preventDefault();
+            //if ($('#validarLogin').valid()) {
             $.ajax({
                 url: "/Login/GetLoginJson",
                 type: "POST",
@@ -32,14 +33,14 @@ $(document).ready(function () {
                     alert("Error!")
                 }
             });
-
+            //}
         }
-       
+
     })
 
     $("#botao-login").on('click', function () {
         $('#campo-senha').keydown();
-       
+
     });
 
 

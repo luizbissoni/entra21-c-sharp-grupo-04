@@ -67,11 +67,13 @@ namespace SistemaFinanceiro.Controllers
         [HttpPost]
         public ActionResult GetLoginJson(string usuario, string senha)
         {
+            var senhaCryp = Encrypt.SHA512(senha);
+
             List<Login> login = new RepositorioLogin().ObterTodosLogin();
 
             foreach (Login logins in login)
             {
-                if (logins.Usuario == usuario && logins.Senha == senha)
+                if (logins.Usuario == usuario && logins.Senha == senhaCryp)
                 {
                     Session["user"] = logins.IdPessoas;
 
@@ -109,7 +111,7 @@ namespace SistemaFinanceiro.Controllers
             {
                 IdPessoas = identificador,
                 Email = logins.Email,
-                Senha = logins.Senha,
+                Senha = Encrypt.SHA512(logins.Senha),
                 Usuario = logins.Usuario
             };
             int deucerto = new RepositorioLogin().CadastrarLogin(novoLogin);
