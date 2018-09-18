@@ -13,12 +13,8 @@
             porcentoTotalCarteira = (valorGasto * 100) / valorRecebido;
 
             $("#porcentoCarteira").append('<div class="chart" data-percent="' + porcentoTotalCarteira + '" data-barcolor="#4680FE" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span >%</div ></div > ');
-            if (total.tabela[0].total > 0) {
-                $('.saldo-recebido').text('R$' + total.tabela[0].total);
-            } else {
-               // $("#porcentoCarteira").append('<div class="chart" data-percent="0" data-barcolor="#4680FE" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span>%</div></div>');
-                //$('.saldo-recebido').text('R$' + 00,00);
-            }
+            $('.saldo-recebido').text('R$' + total.tabela[0].total);
+
             //$('h2.saldo-recebido').number('R$' + total.tabela[0].total, 2, ',', '.')
             //valorRecebido = total.tabela[0].total;
 
@@ -56,7 +52,6 @@
         success: function (dara) {
             var data = JSON.parse(dara);
             //console.log(data);
-
         }
     });
 
