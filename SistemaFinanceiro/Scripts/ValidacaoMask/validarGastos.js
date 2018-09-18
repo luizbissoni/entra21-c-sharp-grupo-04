@@ -40,6 +40,7 @@
 
             }
         },
+
         messages: {
 
             'cartao-pessoa': {

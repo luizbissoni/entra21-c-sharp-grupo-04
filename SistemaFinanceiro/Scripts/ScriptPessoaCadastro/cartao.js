@@ -14,6 +14,8 @@
     });
 
     $('#salvar-cartao').on('click', function () {
+        if ($('#validarCartao').valid()) {
+
         $.ajax({
             url: '/Pessoas/CadastroCartaoModalPessoas',
             method: 'POST',
@@ -35,10 +37,10 @@
                     type: 'success'
                 });
             }
-
         });
-
+      }
     });
+
     function limparCampos() {
             $('#campo-numero-Cartao').val(),
             $('input[name=numero-conta]').val(),
