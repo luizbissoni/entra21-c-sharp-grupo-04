@@ -26,18 +26,19 @@
             success: function (data) {
                 limpaCampos();
                 $('#cadastro-pessoa').modal('hide');
-                new PNotify({
-                    text: 'Salvo com sucesso!',
-                    icon: 'icofont icofont-info-circle',
-                    type: 'success'
-                });
+                //new PNotify({
+                //    text: 'Salvo com sucesso!',
+                //    icon: 'icofont icofont-info-circle',
+                //    type: 'success'
+                //});
             },
             error: function () {
-                new PNotify({
-                    text: 'Algo deu errado.',
-                    icon: 'icofont icofont-info-circle',
-                    type: 'error'
-                });
+                //new PNotify({
+                //    text: 'Algo deu errado.',
+                //    icon: 'icofont icofont-info-circle',
+                //    type: 'error'
+                //});
+                alert('Erro!');
             }
         });
     });
