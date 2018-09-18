@@ -24,15 +24,12 @@ $(document).ready(function () {
                         },
                         success: function (usuario) {
                             var data = JSON.parse(usuario);
-
                             $(window.document.location).attr('href', home);
-
                         }
                     });
                 }
             },
             error: function () {
-                console.log(result);
                 alert("Error!")
             }
         });
@@ -40,7 +37,6 @@ $(document).ready(function () {
 
     $("#botao-login").on('click', function () {
         $('#campo-senha').keydown();
-
     });
 
 

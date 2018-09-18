@@ -3,7 +3,7 @@
     function getSessionValue() {
         return document.getElementById("id-pessoa-gastos").value;
     }
-
+   
 
     //preenche select Cartao na modal cadastro
     $('#campo-numero-cartao').select2({
@@ -23,16 +23,10 @@
         }
     });
 
-    
-    $('.gastos-pessoa').on('click', function () {
-        $('#cadastrar-gastos-pessoa').modal('show');
-    });
-
-    $(".fechar-gastos").on('click', function () {
-        limparCampos();
-    });
-
-    $('#salvar-gastos-pessoa').on('click', function () {
+    $('#data-termino').on('keydown', function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+        }
         if ($('#validarGasto').valid()) {
             $valor = $('#campo-valor').val();
             $valor = $valor.replace(/\,/g, "");
@@ -66,6 +60,19 @@
                 }
             });
         }
+
+    });
+    
+    $('.gastos-pessoa').on('click', function () {
+        $('#cadastrar-gastos-pessoa').modal('show');
+    });
+
+    $(".fechar-gastos").on('click', function () {
+        limparCampos();
+    });
+
+    $('#salvar-gastos-pessoa').on('click', function () {
+        $('#data-termino').keydown();
     });
 
     function limparCampos() {
