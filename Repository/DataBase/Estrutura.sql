@@ -44,7 +44,7 @@ CREATE TABLE [dbo].[login] (
     [Id]			INT          IDENTITY (1, 1) NOT NULL,
     [id_pessoas]		INT           NULL,
     [usuario]		 VARCHAR (50)  NULL,
-    [senha]		 VARCHAR (50)  NULL,
+    [senha]		 VARCHAR (130)  NULL,
     [email]		 VARCHAR (50)  NULL,
 	PRIMARY KEY CLUSTERED ([Id] ASC),
     FOREIGN KEY ([id_pessoas]) REFERENCES [dbo].[pessoas] ([Id])
