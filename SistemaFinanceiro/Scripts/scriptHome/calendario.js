@@ -1,8 +1,7 @@
-﻿var events = [];
-//var dataAtual = moment(Date()).format("DD/MM/YYYY HH:mm:ss");
+﻿
+var events = [];
+//var dataAtual = moment(Date()).format("L LT");
 
-
-//console.log(Date());
 $('#campo-calendario-numero-cartao').select2({
     placeholder: "selecione o cartão",
     ajax: {
@@ -23,7 +22,6 @@ function getSessionValue() {
     return document.getElementById("id-pessoa-gastos-calendario").value;
 }
 
-
 $('#calendario').fullCalendar({
     locale: "pt-BR",
     header: {
@@ -31,7 +29,7 @@ $('#calendario').fullCalendar({
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listMonth'
     },
-   // defaultDate: moment(Date()).format("DD/MM/YYYY HH:mm:ss"),
+   
     eventStartEditable: true,
     eventLimit: true,
     eventDurationEditable: true,
@@ -42,8 +40,8 @@ $('#calendario').fullCalendar({
     selectable: true,
     select: function (start, end) {
 
-        $('#start').val(start);
-        $('#end').val(end);
+        $('#start').val(moment(start).format("L LT"));
+        $('#end').val(moment(end).format("L LT"));
 
         $("#modal-cadastro-gasto-calendario").modal('show');
 
@@ -53,14 +51,13 @@ $('#calendario').fullCalendar({
 
     },
     events: function (title, start, end, callback) {
+        $('.fc-event').remove();
         $.ajax({
             'url': '/Home/PreencherFullCalendar', /*"dataSrc": 'tabela',*/
             'method': 'GET',
+            cache: false,
             success: function (pesquisa) {
                 var resultado = JSON.parse(pesquisa);
-
-                console.log(resultado.events);
-
                 $.each(resultado.events, function (i) {
                     events.push({
                         title: resultado.events[i].title,
@@ -87,14 +84,14 @@ $('#calendario').fullCalendar({
     },
     eventClick: function (event) {
         $('#modal-visualizar-evento #title').text(event.title);
-        $('#modal-visualizar-evento #start').text(moment(event.start).format("DD/MM/YYYY HH:mm:ss"));
-        $('#modal-visualizar-evento #end').text(moment(event.end).format("DD/MM/YYYY HH:mm:ss"));
+        $('#modal-visualizar-evento #start').text(moment(event.start).format("L LT"));
+        $('#modal-visualizar-evento #end').text(moment(event.end).format("L LT"));
         $('#modal-visualizar-evento').modal('show');
 
         return false;
     },
     //eventAfterRender: function (event, element, view) {
-    //    var dataComparar = moment(event.start).format("DD/MM/YYYY HH:mm:ss");
+    //    var dataComparar = moment(event.start).format("L LT");
     //    //birthday = new Date('<somedate>');
     //    year = new Date(event.start).getFullYear();
     //    month = new Date(event.start).getMonth();
@@ -103,7 +100,7 @@ $('#calendario').fullCalendar({
     //     //console.log(dataComparar);
     //    if (dataComparar == dataAtual) {
     //        alert('Chegou o dia! >>> ' + event.title);
-    //        console.log(moment(event.start).format("DD/MM/YYYY HH:mm:ss"));
+    //        console.log(moment(event.start).format("L LT"));
     //    }
     //}
 });

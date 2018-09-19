@@ -5637,8 +5637,10 @@
     <Content Include="Content\bower_components\lightgallery\fonts\lg.woff" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP1.pubxml" />
+    <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP2.pubxml" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy1.pubxml" />
+    <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy2.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-2.1.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -5668,9 +5670,7 @@
     <Content Include="Scripts\ScriptPessoaCadastro\add-gastos.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\add-recebimento.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\cartao.js" />
-    <Content Include="Scripts\ScriptPessoaCadastro\datatable-index.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\edit-person-modal.js" />
-    <Content Include="Scripts\scriptRecebimento\tabelarecebimento.js" />
     <Content Include="Scripts\sha512.min.js" />
     <Content Include="Scripts\ValidacaoMask\jquery-validate.bootstrap-tooltip.min.js" />
     <Content Include="Scripts\ValidacaoMask\jquery.mask.js" />
@@ -5714,12 +5714,6 @@
     <Content Include="Views\Shared\Master.cshtml" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
-    <Content Include="Views\Categoria\Index.cshtml" />
-    <Content Include="Views\Categoria\Cadastro.cshtml" />
-    <Content Include="Views\Categoria\Editar.cshtml" />
-    <Content Include="Views\Pessoas\Index.cshtml" />
-    <Content Include="Views\Pessoas\Cadastro.cshtml" />
-    <Content Include="Views\Pessoas\Editar.cshtml" />
     <Content Include="Views\Pessoas\EditarModal.cshtml" />
     <Content Include="Views\Pessoas\CadastroModal.cshtml" />
     <Content Include="Views\PerfilUsuario\IndexPerfil.cshtml" />
@@ -5745,6 +5739,7 @@
     <Folder Include="Content\assets\pages\ckeditor\plugins\embedsemantic\icons\hidpi\" />
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
+    <Folder Include="Views\Categoria\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Principal\Model.csproj">
