@@ -7,6 +7,7 @@
         },
         unhighlight: function (element) {
             jQuery(element).closest('.form-group').removeClass('has-error');
+            $('[data-toggle="tooltip"], .tooltip').tooltip("hide");
         },
         errorPlacement: function (error, element) {
             $(element).parent().append(error[0])
@@ -30,7 +31,6 @@
 
             }
         }
-
-
     });
+   
 });

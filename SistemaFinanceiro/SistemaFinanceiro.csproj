@@ -5681,6 +5681,7 @@
     <Content Include="Scripts\ValidacaoMask\numeral.min.js" />
     <Content Include="Scripts\ValidacaoMask\validacaoMask.js" />
     <Content Include="Scripts\ValidacaoMask\validacaoRecebimento.js" />
+    <Content Include="Scripts\ValidacaoMask\validarCadastroUsuario.js" />
     <Content Include="Scripts\ValidacaoMask\validarGastos.js" />
     <Content Include="Scripts\ValidacaoMask\validarLogin.js" />
     <Content Include="Web.config">

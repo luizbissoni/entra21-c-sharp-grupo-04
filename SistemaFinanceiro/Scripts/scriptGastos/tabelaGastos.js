@@ -29,18 +29,19 @@
         serverSide: true,
         "bProcessing": true,
         "ajax": {
-            "url": "/Home/TabelaGastos", "dataSrc": "tabela"
+            "url": "/Home/TabelaGastos", /*"dataSrc": "data"*/
         },
         "order": [[1, 'asc']],
         columns: [{
             "class": "details-control",
             "orderable": false,
             "data": null,
-            "defaultContent": ""
+            "defaultContent": "",
+             "bSortable": false,
         },
-            { data: "conta", "bSortable": false, "width": "10%" },
-            { data: "categoria", "bSortable": true, "width": "40%", "target": 0},
-            { data: "valor", "bSortable": true, "width": "30%", "target": 1 },
+            { 'data': "cartao.Conta", "bSortable": true, "width": "10%", "target": 1},
+            { 'data': "Categoria.Nome", "bSortable": true, "width": "40%", "target": 2},
+            { 'data': "Valor", "bSortable": true, "width": "30%", "target": 3 },
         ],
 
         columnDefs: [{
@@ -91,7 +92,7 @@
         return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
             '<tr>' +
             '<th>Descrição:</th>' +
-            '<td>' + d.descricao + '</td>' +
+            '<td>' + d.Descricao + '</td>' +
             //'</tr>' +
             //'<tr>' +
             '<th>Dia Pagamento:</th>' +

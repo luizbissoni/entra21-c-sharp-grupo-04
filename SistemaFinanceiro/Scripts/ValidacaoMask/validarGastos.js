@@ -9,6 +9,7 @@
         },
         unhighlight: function (element) {
             jQuery(element).closest('.form-group').removeClass('has-error');
+            $('[data-toggle="tooltip"], .tooltip').tooltip("hide");
         },
         errorPlacement: function (error, element) {
             $(element).parent().append(error[0])
@@ -79,5 +80,8 @@
             'campo-data-termino': { placement: 'right', html: true }
         },
 
+    });
+    $('.fechar-gastos').on('click', function () {
+        $('[data-toggle="tooltip"], .tooltip').tooltip("hide");
     });
 });

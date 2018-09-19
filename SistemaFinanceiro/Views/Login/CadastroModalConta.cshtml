@@ -2,7 +2,7 @@
     Layout = null;
 }
 
-<div class="modal fade" id="cadastro-pessoa">
+<div class="modal fade" id="cadastro-pessoa" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -19,45 +19,40 @@
                         <div class="col-md-5">
                             <div class="input-group">
                                 <label class="input-group-addon" for="editar-pessoa-modal-campo-nome">Nome<h11>*</h11></label>
-                                <input id="cadastro-nome" name="nome" placeholder="Digite seu nome completo" class="form-control input-md col-sm-10" required="" type="text">
+                                <input id="cadastro-nome" name="nome" placeholder="Digite seu nome completo" class="form-control input-md col-sm-10" required type="text">
                             </div>
                         </div>
-
-
                         <div class="input-md col-md-7">
                             <div class="input-group">
                                 <label class="input-group-addon" for="cadastro-nascimento">Nascimento<h11>*</h11></label>
-                                <input id="cadastro-nascimento" name="nascimento" placeholder="DD/MM/AAAA" class="form-control input-md col-sm-5" required="" type="date" value="" maxlength="10">
+                                <input id="cadastro-nascimento" name="nascimento" placeholder="DD/MM/AAAA" class="form-control input-md col-sm-5" required type="date" value="" maxlength="10">
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
-
                         <div class="col-md-6">
                             <div class="input-group">
                                 <label class="input-group-addon" for="cadastro-telefone">Telefone</label>
-                                <input id="cadastro-telefone" name="telefone" class="form-control input-md col-sm-8" placeholder="XX XXXXX-XXXX" type="text" maxlength="13">
+                                <input id="cadastro-telefone" name="telefone" class="form-control input-md col-sm-8" placeholder="XX XXXXX-XXXX" type="text" maxlength="13" required>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="input-group">
                                 <label class="input-group-addon" for="cadastro-cpf">CPF</label>
-                                <input id="cadastro-cpf" name="new-CPF" placeholder="Apenas números" class="form-control input-md col-sm-8" required="" type="text" maxlength="11">
+                                <input id="cadastro-cpf" name="new-CPF" placeholder="Apenas números" class="form-control input-md col-sm-8" required type="text" maxlength="11">
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <label class="col-md-1 control-label" for="radio">Sexo</label>
                         <div class="col-md-4">
                             <div class="input-group">
                                 <label class="radio-inline" for="cadastro-sexo-feminino">
-                                    <input name="cadastro-Sexo-feminino" id="cadastro-sexo-feminino" value="F" type="radio">
+                                    <input name="cadastro-Sexo-feminino" id="cadastro-sexo-feminino" value="F" type="radio" required>
                                     Feminino
                                 </label>
                                 <label class="radio-inline" for="cadastro-sexo-masculino">
-                                    <input name="cadastro-sexo-masculino" id="cadastro-sexo-masculino" value="M" type="radio">
+                                    <input name="cadastro-sexo-masculino" id="cadastro-sexo-masculino" value="M" type="radio" required>
                                     Masculino
                                 </label>
                             </div>
@@ -69,7 +64,7 @@
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon">CEP</span>
-                                <input id="cadastro-cep" name="Cep" placeholder="Apenas números" class="form-control col-sm-5" required="" type="search" maxlength="8" pattern="[0-9]+$">
+                                <input id="cadastro-cep" name="Cep" placeholder="Apenas números" class="form-control col-sm-5" required type="search" maxlength="8" pattern="[0-9]+$">
                             </div>
                         </div>
                     </div>
@@ -77,13 +72,13 @@
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon">Rua</span>
-                                <input id="rua-editar" name="rua-editar" class="form-control " placeholder="" required="" readonly="readonly" type="text">
+                                <input id="rua-editar" name="rua-editar" class="form-control " placeholder=""  readonly="readonly" type="text">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="input-group">
                                 <span class="input-group-addon">Nº <h11>*</h11></span>
-                                <input id="numero-editar" name="numero-editar" class="form-control col-sm-3" placeholder="" maxlength="4" required="" type="text">
+                                <input id="numero-editar" name="numero-editar" class="form-control col-sm-3" placeholder="" maxlength="4"  type="text">
                             </div>
                         </div>
                     </div>
@@ -91,27 +86,27 @@
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon">Bairro</span>
-                                <input id="bairro-editar" name="bairro-editar" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                                <input id="bairro-editar" name="bairro-editar" class="form-control" placeholder=""  readonly="readonly" type="text">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="input-group">
                                 <span class="input-group-addon">Cidade</span>
-                                <input id="cidade-editar" name="cidade-editar" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                                <input id="cidade-editar" name="cidade-editar" class="form-control" placeholder=""  readonly="readonly" type="text">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="input-group">
                                 <span class="input-group-addon">Estado</span>
-                                <input id="estado-editar" name="estado-editar" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                                <input id="estado-editar" name="estado-editar" class="form-control" placeholder=""  readonly="readonly" type="text">
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        @*<div class="col-md-3">
                             <div class="input-group">
                                 <span class="input-group-addon">Data</span>
-                                <input id="data-editar" name="data-editar" class="form-control" placeholder="" required="" readonly="readonly" type="text">
+                                <input id="data-editar" name="data-editar" class="form-control" placeholder="" required readonly="readonly" type="text">
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                     <h4>Cadastrar Login</h4>
                     <hr>
@@ -119,35 +114,29 @@
                         <div class="col-md-5">
                             <div class="input-group">
                                 <label class="input-group-addon">E-mail</label>
-                                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                <input type="email" name="emailInput" class="form-control" id="inputEmail" placeholder="Email" required>
                             </div>
                         </div>
-                        
-                        <div class="col-md-6">
-                            <div class="input-group">
-                                <label class="input-group-addon">Senha</label>
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
-                            </div>
-                        </div>
-                        
-                    </div>
-                    <div class="row">
-
                         <div class="col-md-5">
                             <div class="input-group">
                                 <label class="input-group-addon">Usuario</label>
-                                <input type="text" class="form-control" id="inputUser" placeholder="Usuário">
+                                <input type="text" class="form-control" name="userInput" id="inputUser" placeholder="Usuário" required>
                             </div>
                         </div>
-
-                        
-                        <div class="col-md-6">
-                        <div class="input-group">
-                            <label class="input-group-addon">Confirmar senha</label>
-                            <input type="password" class="form-control" id="inputRepeatPassword" placeholder="Confirmar senha">
-                        </div>
                     </div>
-                        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <label class="input-group-addon">Senha</label>
+                                <input type="password" class="form-control" name="passwordInput" id="inputPassword" placeholder="Senha" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <label class="input-group-addon">Confirmar senha</label>
+                                <input type="password" class="form-control" name="repeatPasswordInput" id="inputRepeatPassword" placeholder="Confirmar senha" required>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

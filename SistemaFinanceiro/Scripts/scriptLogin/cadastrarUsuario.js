@@ -8,40 +8,48 @@
     }
 
     $('body').on('click', '#salvar-cadastro-conta', function () {
-        $.ajax({
-            url: '/Login/CreateNewUsers',
-            method: 'POST',
-            data: {
-                nome: $('#cadastro-nome').val(),
-                nascimento: $('#cadastro-nascimento').val(),
-                sexo: sexos,
-                cpf: $('#cadastro-cpf').val(),
-                telefone: $('#cadastro-telefone').val(),
-                cep: $('#cadastro-cep').val(),
+        if ($('#form-cadastro-pessoa').valid()) {
+            $.ajax({
+                url: '/Login/CreateNewUsers',
+                method: 'POST',
+                data: {
+                    nome: $('#cadastro-nome').val(),
+                    nascimento: $('#cadastro-nascimento').val(),
+                    sexo: sexos,
+                    cpf: $('#cadastro-cpf').val(),
+                    telefone: $('#cadastro-telefone').val(),
+                    cep: $('#cadastro-cep').val(),
 
-                usuario: $('#inputUser').val(),
-                senha: $('#inputPassword').val(),
-                email: $('#inputEmail').val()
-            },
-            success: function (data) {
-                limpaCampos();
-                $('#cadastro-pessoa').modal('hide');
-                //new PNotify({
-                //    text: 'Salvo com sucesso!',
-                //    icon: 'icofont icofont-info-circle',
-                //    type: 'success'
-                //});
-            },
-            error: function () {
-                //new PNotify({
-                //    text: 'Algo deu errado.',
-                //    icon: 'icofont icofont-info-circle',
-                //    type: 'error'
-                //});
-                alert('Erro!');
-            }
-        });
+                    usuario: $('#inputUser').val(),
+                    senha: $('#inputPassword').val(),
+                    email: $('#inputEmail').val()
+                },
+                success: function (result) {
+                    limpaCampos();
+                    $('#cadastro-pessoa').modal('hide');
+                    var data = JSON.parse(result);
+                    $.ajax({
+                        url: '/Login/GetIdPessoas',
+                        method: 'GET',
+                        data: {
+                            id: data.data.Id
+                        },
+                        success: function () {
+                            $(window.document.location).attr('href', home);
+                        },
+                        error: function () {
+                            alert("Error!");
+                        }
+                    });
+                },
+                error: function () {
+
+                    alert('Erro!');
+                }
+            });
+        }
     });
+
 
     $('#close-cadastro').on('click', function () {
         limpaCampos();
@@ -59,8 +67,6 @@
         $('#inputPassword').val();
         $('#inputEmail').val();
     };
-
-
 
     //busca cep ao sair do campo cep
     function limpa_formulário_cep() {

@@ -122,10 +122,10 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
             List<Gastos> gastos = new List<Gastos>();
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"SELECT gas.Id, pes.nome, car.conta, cat.nome, gas.valor, gas.entrada, gas.vencimento, gas.descricao, gas.id_categoria  FROM gastos gas
-                                        INNER JOIN categorias cat ON categorias.Id = gastos.id_categoria 
-                                        INNER JOIN cartoes car ON cartoes.Id = gastos.id_cartao
-                                        INNER JOIN pessoas pes ON pessoas.Id = cartoes.id_pessoas WHERE pessoas.Id = @ID
+            comando.CommandText = @"SELECT gas.Id, pes.nome AS 'pessoa', car.conta, cat.nome AS 'categoria', gas.valor, gas.entrada, gas.vencimento, gas.descricao, gas.id_categoria  FROM gastos gas
+                                        INNER JOIN categorias cat ON cat.Id = gas.id_categoria 
+                                        INNER JOIN cartoes car ON car.Id = gas.id_cartao
+                                        INNER JOIN pessoas pes ON pes.Id = car.id_pessoas WHERE pes.Id = @ID
                                         AND (car.conta LIKE @SEARCH OR cat.nome LIKE @SEARCH OR gas.descricao LIKE @SEARCH)
                                         ORDER BY " + orderColumn + " " + orderDir + " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
 
@@ -151,7 +151,7 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
                     Categoria = new Categoria()
                     {
                         Id = Convert.ToInt32(line["id_categoria"].ToString()),
-                        Nome = line["nome"].ToString(),
+                        Nome = line["categoria"].ToString(),
                     }
                 };
 
@@ -165,8 +165,8 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = @"SELECT COUNT(gas.Id) FROM gastos gas 
                                     JOIN cartoes car ON (car.Id = gas.id_cartao)
-                                    JOIN categoria cat on (cat.Id = gas.id_categoria)
-                                    WHERE (cat.nome LIKE @SEARCH OR gas.descricao LIKE @SEARCH OR cat.conta LIKE @SEARCH)";
+                                    JOIN categorias cat on (cat.Id = gas.id_categoria)
+                                    WHERE (cat.nome LIKE @SEARCH OR gas.descricao LIKE @SEARCH)";
             comando.Parameters.AddWithValue("@SEARCH", search);
             return Convert.ToInt32(comando.ExecuteScalar().ToString());
         }

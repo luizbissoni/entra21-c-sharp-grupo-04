@@ -33,6 +33,9 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
 
+    <link href="~/Scripts/jquery.qtip.css" rel="stylesheet" />
+
+
 
 </head>
 <body>
@@ -74,7 +77,7 @@
                                 </div>
                                 <hr />
                                 <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Seu usuario" id="campo-usuario">
+                                    <input type="text" class="form-control" placeholder="Usuário" id="campo-usuario">
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="input-group">
@@ -140,6 +143,11 @@
 
     <script src="~/Scripts/scriptLogin/login.js"></script>
     <script src="~/Scripts/scriptLogin/cadastrarUsuario.js"></script>
+    <!--ValidarLogin-->
+    <script src="~/Scripts/ValidacaoMask/validarLogin.js"></script>
+
+    <script src="~/Content/bower_components/jquery-validation/js/jquery.validate.js"></script>
+    <script src="~/Scripts/ValidacaoMask/jquery-validate.bootstrap-tooltip.min.js"></script>
 
     @Html.Partial("~/Views/Login/CadastroModalConta.cshtml")
 </body>

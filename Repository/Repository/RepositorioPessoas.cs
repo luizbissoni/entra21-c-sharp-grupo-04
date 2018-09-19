@@ -36,7 +36,6 @@ namespace SistemaFinanceiro.Repositório
             return comando.ExecuteNonQuery() == 1;
         }
 
-
         public List<Pessoas> ObterTodosPessoas()
         {
             List<Pessoas> pessoas = new List<Pessoas>();
@@ -89,6 +88,7 @@ namespace SistemaFinanceiro.Repositório
 
             return pessoas;
         }
+
         public bool AlterarPessoas(Pessoas pessoas)
         {
             SqlCommand comando = new DBconnection().GetConnction();
