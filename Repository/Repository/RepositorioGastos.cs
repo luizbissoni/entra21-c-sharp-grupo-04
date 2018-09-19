@@ -69,8 +69,9 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
             Gastos gastos = null;
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = @"SELECT gt.id_cartao, gt.id_categoria, gt.valor, gt.entrada, gt.vencimento, gt.descricao, gt.entrada, gt.vencimento, cat.nome, car.conta FROM gastos gt
-INNER JOIN categorias cat ON(cat.id = gt.id_categoria) INNER JOIN cartoes car ON(car.Id = gt.id_cartao)
-WHERE gt.id = @ID";
+                                    INNER JOIN categorias cat ON(cat.id = gt.id_categoria)
+                                        INNER JOIN cartoes car ON(car.Id = gt.id_cartao)
+                                               WHERE gt.id = @ID";
             comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -116,7 +117,72 @@ WHERE gt.id = @ID";
             return comando.ExecuteNonQuery() == 1;
         }
 
+        public List<Gastos> ObterTodosParaJson(string start, string length, string search, string orderColumn, string orderDir, int id)
+        {
+            List<Gastos> gastos = new List<Gastos>();
 
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SELECT gas.Id, pes.nome, car.conta, cat.nome, gas.valor, gas.entrada, gas.vencimento, gas.descricao, gas.id_categoria  FROM gastos gas
+                                        INNER JOIN categorias cat ON categorias.Id = gastos.id_categoria 
+                                        INNER JOIN cartoes car ON cartoes.Id = gastos.id_cartao
+                                        INNER JOIN pessoas pes ON pessoas.Id = cartoes.id_pessoas WHERE pessoas.Id = @ID
+                                        AND (car.conta LIKE @SEARCH OR cat.nome LIKE @SEARCH OR gas.descricao LIKE @SEARCH)
+                                        ORDER BY " + orderColumn + " " + orderDir + " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY ";
+
+            comando.Parameters.AddWithValue("@SEARCH", search);
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            foreach (DataRow line in tabela.Rows)
+            {
+                Gastos gasto = new Gastos() {
+                    Id = Convert.ToInt32(line["Id"].ToString()),
+                    IdCategoria = Convert.ToInt32(line["id_categoria"].ToString()),
+                    Descricao = line["descricao"].ToString(),
+                    Entrada = Convert.ToDateTime(line["entrada"].ToString()),
+                    Vencimento =  Convert.ToDateTime(line["vencimento"].ToString()),
+                    Valor = Convert.ToDouble(line["valor"].ToString()),
+                    cartao = new Cartoes()
+                    {
+                        Id = Convert.ToInt32(line["id_categoria"].ToString()),
+                        Conta = line["conta"].ToString()
+                    },
+                    Categoria = new Categoria()
+                    {
+                        Id = Convert.ToInt32(line["id_categoria"].ToString()),
+                        Nome = line["nome"].ToString(),
+                    }
+                };
+
+                gastos.Add(gasto);
+            }
+            return gastos;
+        }
+
+        public int ContabilizarGastosFiltrados(string search)
+        {
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SELECT COUNT(gas.Id) FROM gastos gas 
+                                    JOIN cartoes car ON (car.Id = gas.id_cartao)
+                                    JOIN categoria cat on (cat.Id = gas.id_categoria)
+                                    WHERE (cat.nome LIKE @SEARCH OR gas.descricao LIKE @SEARCH OR cat.conta LIKE @SEARCH)";
+            comando.Parameters.AddWithValue("@SEARCH", search);
+            return Convert.ToInt32(comando.ExecuteScalar().ToString());
+        }
+
+        public int ContabilizarGastos()
+        {
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SELECT COUNT(id) FROM gastos";
+            return Convert.ToInt32(comando.ExecuteScalar().ToString());
+        }
 
     }
 }
+
+
+
+//// comando.CommandText = @"SET LANGUAGE português SELECT gastos.Id,pessoas.nome, cartoes.conta AS 'conta',categorias.nome AS 'categoria', valor, entrada,vencimento, descricao FROM gastos INNER JOIN categorias ON categorias.Id = gastos.id_categoria 
+//INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao INNER JOIN pessoas ON pessoas.Id = cartoes.id_pessoas WHERE pessoas.Id = @ID";
+//            comando.Parameters.AddWithValue("@ID", id);

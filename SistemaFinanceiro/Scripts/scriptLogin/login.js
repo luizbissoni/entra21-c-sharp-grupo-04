@@ -28,7 +28,6 @@ $(document).ready(function () {
                         }
                     });
                 }
-                alert("Login inválido!");
             },
             error: function () {
                 alert("Error!");

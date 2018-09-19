@@ -62,7 +62,7 @@ namespace SistemaFinanceiro.Controllers
         public ActionResult CadastroModalCategoria(Categoria categoria)
         {
             int id = new RepositorioCategoria().CadastrarCategoria(categoria);
-            return Content(JsonConvert.SerializeObject(new { id = id }));
+            return Content(JsonConvert.SerializeObject(new { id }));
         }
     }
 }

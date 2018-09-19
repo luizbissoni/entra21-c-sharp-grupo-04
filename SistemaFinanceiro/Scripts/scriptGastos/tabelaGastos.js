@@ -31,28 +31,32 @@
         "ajax": {
             "url": "/Home/TabelaGastos", "dataSrc": "tabela"
         },
+        "order": [[1, 'asc']],
         columns: [{
             "class": "details-control",
             "orderable": false,
             "data": null,
             "defaultContent": ""
         },
-        { data: "conta" },
-        { data: "categoria" },
-        { data: "valor" },
+            { data: "conta", "bSortable": false, "width": "10%" },
+            { data: "categoria", "bSortable": true, "width": "40%", "target": 0},
+            { data: "valor", "bSortable": true, "width": "30%", "target": 1 },
         ],
 
         columnDefs: [{
             "targets": 4,
             "data": null,
-            "defaultContent": '<button id="" type="button" class="btn btn-outline-primary editar-gasto-home" data-target="#editar-gastos-pessoa" data-toggle="modal">Editar</button>     <button id="excluir-gasto-home" type="button" class= "btn btn-outline-danger" data-target="#avisoModal" data-toggle="modal">Excluir</button>'
+            "bSortable": false, "width": "20%",
+            "defaultContent": '<button id="" type="button" class="btn btn-outline-primary editar-gasto-home" data-target="#editar-gastos-pessoa" data-toggle="modal">Editar</button>' +
+                '<button id="excluir-gasto-home" type="button" class= "btn btn-outline-danger" data-target="#avisoModal" data-toggle="modal">Excluir</button>'
         }],
-        "order": [[1, 'asc']]
+       
     });
 
     var table = $('#tabela-teste').DataTable();
     var dataRow;
 
+    //botao detalhes da tabela
     $('#tabela-teste tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
         var row = table.row(tr);
@@ -70,6 +74,7 @@
         dataRow = table.row(this).data();
     });
 
+    //pega id da tabela quanto clica
     $('#tabela-teste tbody').on('click', 'tr', function () {
         if ($(this).hasClass('selected')) {
             $(this).removeClass('selected');
@@ -80,6 +85,7 @@
         dataRow = table.row(this).data();
     });
 
+    //detalhes da tabela
     function format(d) {
         // `d` is the original data object for the row
         return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +

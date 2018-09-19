@@ -120,16 +120,29 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
 
         public ActionResult TabelaGastos()
         {
+            string start = Request.QueryString["start"];
+            string length = Request.QueryString["length"];
+            string draw = Request.QueryString["draw"];
+            string search = '%' + Request.QueryString["search[value]"] + '%';
+            string orderColumn = Request.QueryString["order[0][column]"];
+            string orderDir = Request.QueryString["order[0][dir]"];
+            orderColumn = orderColumn == "1" ? "car.conta" : "cat.nome"; 
+
             int id = Convert.ToInt32(Session["user"].ToString());
 
-            SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"SET LANGUAGE português SELECT gastos.Id,pessoas.nome, cartoes.conta AS 'conta',categorias.nome AS 'categoria', valor, entrada,vencimento, descricao FROM gastos INNER JOIN categorias ON categorias.Id = gastos.id_categoria 
-INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao INNER JOIN pessoas ON pessoas.Id = cartoes.id_pessoas WHERE pessoas.Id = @ID";
-            comando.Parameters.AddWithValue("@ID", id);
-            DataTable tabela = new DataTable();
-            tabela.Load(comando.ExecuteReader());
+            RepositorioGastos repositorio = new RepositorioGastos();
+            List<Gastos> gastos = repositorio.ObterTodosParaJson(start, length, search, orderColumn, orderDir, id);
 
-            return Content(JsonConvert.SerializeObject(new { tabela }));
+            int countGastos = repositorio.ContabilizarGastos();
+            int countFilter = repositorio.ContabilizarGastosFiltrados(search);
+
+            return Content(JsonConvert.SerializeObject(new
+            {
+                data = gastos,
+                draw = draw,
+                recordsTotal = countGastos,
+                recordsFiltered = countFilter
+            }));
 
         }
 

@@ -8,7 +8,6 @@
         method: 'GET',
         success: function (resultado) {
             var total = JSON.parse(resultado);
-            console.log(total.tabela);
             if (total.tabela.length > 0) {
                 valorRecebido = total.tabela[0].total;
 

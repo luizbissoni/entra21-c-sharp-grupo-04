@@ -3,7 +3,7 @@
     function getSessionValue() {
         return document.getElementById("id-pessoa-gastos").value;
     }
-   
+
 
     //preenche select Cartao na modal cadastro
     $('#campo-numero-cartao').select2({
@@ -20,13 +20,33 @@
         ajax: {
             url: '/Categoria/ObterTodosCategoriaJson',
             dataType: 'json'
-        }
+        },
+        tags: true,
+        createTag: function (params) {
+            var term = $.trim(params.term);
+            if (term === '') {
+                return null;
+            }
+            return {
+                id: term,
+                text: term,
+                newTag: true
+            }
+        },
+
     });
 
-    $('#data-termino').on('keydown', function (e) {
-        if (e.which == 13) {
-            e.preventDefault();
-        }
+
+    $('.gastos-pessoa').on('click', function () {
+
+        $('#cadastrar-gastos-pessoa').modal('show');
+    });
+
+    $(".fechar-gastos").on('click', function () {
+        limparCampos();
+    });
+
+    $('#salvar-gastos-pessoa').on('click', function () {
         if ($('#validarGasto').valid()) {
             $valor = $('#campo-valor').val();
             $valor = $valor.replace(/\,/g, "");
@@ -62,17 +82,12 @@
         }
 
     });
-    
-    $('.gastos-pessoa').on('click', function () {
-        $('#cadastrar-gastos-pessoa').modal('show');
-    });
 
-    $(".fechar-gastos").on('click', function () {
-        limparCampos();
-    });
-
-    $('#salvar-gastos-pessoa').on('click', function () {
-        $('#data-termino').keydown();
+    $('#data-termino').on('keypress', function (e) {
+        if (e.which == 13) {
+            $('#data-termino').click();
+            e.preventDefault();
+        }
     });
 
     function limparCampos() {
