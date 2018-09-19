@@ -22,6 +22,7 @@ namespace SistemaFinanceiro.Repositório
             return id;
 
         }
+
         public bool AlterarCategorias(Categoria categorias)
         {
 

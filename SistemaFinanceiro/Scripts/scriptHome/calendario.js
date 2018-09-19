@@ -1,9 +1,23 @@
-﻿moment.locale('pt-BR');
-var events = [];
-var dataAtual = moment(Date()).format("DD/MM/YYYY HH:mm:ss");
+﻿var events = [];
+//var dataAtual = moment(Date()).format("DD/MM/YYYY HH:mm:ss");
+
+
 //console.log(Date());
-$('#campo-calendario-numero-cartao').select2();
-$('#campo-calendario-descricao').select2();
+$('#campo-calendario-numero-cartao').select2({
+    placeholder: "selecione o cartão",
+    ajax: {
+        url: '/Cartao/ObterTodosParaJson',
+        dataType: 'json',
+    }
+    });
+$('#campo-calendario-descricao').select2({
+    placeholder: "selecione a categoria",
+    ajax: {
+        url: '/Categoria/ObterTodosCategoriaJson',
+        dataType: 'json'
+    },
+
+});
 
 function getSessionValue() {
     return document.getElementById("id-pessoa-gastos-calendario").value;
@@ -11,13 +25,13 @@ function getSessionValue() {
 
 
 $('#calendario').fullCalendar({
-    locale: "pt-br",
+    locale: "pt-BR",
     header: {
         left: 'prev,next today',
         center: 'title',
         right: 'month,agendaWeek,agendaDay,listMonth'
     },
-    defaultDate: Date(),
+   // defaultDate: moment(Date()).format("DD/MM/YYYY HH:mm:ss"),
     eventStartEditable: true,
     eventLimit: true,
     eventDurationEditable: true,
@@ -40,15 +54,18 @@ $('#calendario').fullCalendar({
     },
     events: function (title, start, end, callback) {
         $.ajax({
-            'url': '/Home/TabelaGastos', /*"dataSrc": 'tabela',*/
+            'url': '/Home/PreencherFullCalendar', /*"dataSrc": 'tabela',*/
             'method': 'GET',
             success: function (pesquisa) {
                 var resultado = JSON.parse(pesquisa);
-                $.each(resultado.tabela, function (i) {
+
+                console.log(resultado.events);
+
+                $.each(resultado.events, function (i) {
                     events.push({
-                        title: resultado.tabela[i].categoria,
-                        start: resultado.tabela[i].entrada,
-                        end: moment(resultado.tabela[i].vencimento).format("DD/MM/YYYY HH:mm:ss"),
+                        title: resultado.events[i].title,
+                        start: resultado.events[i].start,
+                        end: resultado.events[i].end,
                         description: 'Gasto'
                     });
 
@@ -69,26 +86,26 @@ $('#calendario').fullCalendar({
         }
     },
     eventClick: function (event) {
-        $('#modal-visualizar-evento #title').text(moment(event.title).format("DD/MM/YYYY HH:mm:ss"));
+        $('#modal-visualizar-evento #title').text(event.title);
         $('#modal-visualizar-evento #start').text(moment(event.start).format("DD/MM/YYYY HH:mm:ss"));
         $('#modal-visualizar-evento #end').text(moment(event.end).format("DD/MM/YYYY HH:mm:ss"));
         $('#modal-visualizar-evento').modal('show');
 
         return false;
     },
-    eventAfterRender: function (event, element, view) {
-        var dataComparar = moment(event.start).format("DD/MM/YYYY HH:mm:ss");
-        //birthday = new Date('<somedate>');
-        year = new Date(event.start).getFullYear();
-        month = new Date(event.start).getMonth();
-        day = new Date(event.start).getDate();
+    //eventAfterRender: function (event, element, view) {
+    //    var dataComparar = moment(event.start).format("DD/MM/YYYY HH:mm:ss");
+    //    //birthday = new Date('<somedate>');
+    //    year = new Date(event.start).getFullYear();
+    //    month = new Date(event.start).getMonth();
+    //    day = new Date(event.start).getDate();
 
-         //console.log(dataComparar);
-        if (dataComparar == dataAtual) {
-            alert('Chegou o dia! >>> ' + event.title);
-            console.log(moment(event.start).format("DD/MM/YYYY HH:mm:ss"));
-        }
-    }
+    //     //console.log(dataComparar);
+    //    if (dataComparar == dataAtual) {
+    //        alert('Chegou o dia! >>> ' + event.title);
+    //        console.log(moment(event.start).format("DD/MM/YYYY HH:mm:ss"));
+    //    }
+    //}
 });
 
 $('#salvar-gastos-calendario').on('click', function () {
@@ -106,8 +123,8 @@ $('#salvar-gastos-calendario').on('click', function () {
             "idCategoria": $("#campo-calendario-descricao").val(),
             "Valor": $valor,
             "descricao": $('#calendario-descricao-despesa').val(),
-            "entrada": $('#start').val(),
-            "vencimento": $('#end').val()
+            "entrada": moment($('#start').val()).format("DD/MM/YYYY HH:mm:ss"),
+            "vencimento": moment($('#end').val()).format("DD/MM/YYYY HH:mm:ss")
 
         },
         success: function () {

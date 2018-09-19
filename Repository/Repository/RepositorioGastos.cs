@@ -17,7 +17,8 @@ namespace SistemaFinanceiro.Repositório
 
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada, vencimento, descricao) OUTPUT INSERTED.ID VALUES (@IDCARTAO, @IDCATEGORIA, @VALOR, @ENTRADA, @VENCIMENTO, @DESCRICAO)
-update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) from gastos)) where recebimentos.id_pessoas = (select cartoes.id_pessoas from cartoes where cartoes.Id = @ID)";
+                                update recebimentos set valor = (case when (recebimentos.valor - (select sum(gastos.valor) from gastos)) <= 0 then 0 
+                                else recebimentos.valor - (select sum(gastos.valor) from gastos) end) where recebimentos.id_pessoas = (select cartoes.id_pessoas from cartoes where cartoes.Id = @ID)";
             comando.Parameters.AddWithValue("@IDCARTAO", gastos.IdCartao);
             comando.Parameters.AddWithValue("@IDCATEGORIA", gastos.IdCategoria);
             comando.Parameters.AddWithValue("@VALOR", gastos.Valor);
@@ -178,6 +179,31 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
             return Convert.ToInt32(comando.ExecuteScalar().ToString());
         }
 
+        public List<Object> FullCalendarGastos(int id)
+        {
+            List<Object> registros = new List<object>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SET LANGUAGE português SELECT gastos.Id,pessoas.nome, cartoes.conta AS 'conta',categorias.nome AS 'categoria', valor, entrada, vencimento, descricao FROM gastos 
+                                        INNER JOIN categorias ON categorias.Id = gastos.id_categoria 
+                                        INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao 
+                                        INNER JOIN pessoas ON pessoas.Id = cartoes.id_pessoas WHERE pessoas.Id = @ID";
+          comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                registros.Add(new
+                {
+
+                    id = Convert.ToInt32(linha["id"].ToString()),
+                    title = linha["descricao"].ToString(),
+                    start = Convert.ToDateTime(linha["entrada"].ToString()),
+                    end = Convert.ToDateTime(linha["vencimento"].ToString()),
+
+                    });
+            }
+                return registros;
+        }
     }
 }
 
@@ -185,4 +211,17 @@ update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) 
 
 //// comando.CommandText = @"SET LANGUAGE português SELECT gastos.Id,pessoas.nome, cartoes.conta AS 'conta',categorias.nome AS 'categoria', valor, entrada,vencimento, descricao FROM gastos INNER JOIN categorias ON categorias.Id = gastos.id_categoria 
 //INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao INNER JOIN pessoas ON pessoas.Id = cartoes.id_pessoas WHERE pessoas.Id = @ID";
-//            comando.Parameters.AddWithValue("@ID", id);
+//            comando.Parameters.AddWithValue("@ID", id);  
+
+
+//Gastos gasto = new Gastos()
+//                {
+//                    Id = Convert.ToInt32(linha["id"].ToString()),
+//                    IdCartao = Convert.ToInt32(linha["id_cartao"].ToString()),
+//                    IdCategoria = Convert.ToInt32(linha["id_categoria"].ToString()),
+//                    Valor = Convert.ToDouble(linha["valor"].ToString()),
+//                    Entrada = Convert.ToDateTime(linha["entrada"].ToString()),
+//                    Vencimento = Convert.ToDateTime(linha["vencimento"].ToString()),
+//                    Descricao = linha["descricao"].ToString()
+//                };
+//                gastos.Add(gasto);

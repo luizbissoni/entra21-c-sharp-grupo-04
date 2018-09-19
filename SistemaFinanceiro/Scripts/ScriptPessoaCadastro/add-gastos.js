@@ -21,6 +21,7 @@
             url: '/Categoria/ObterTodosCategoriaJson',
             dataType: 'json'
         },
+
         tags: true,
         createTag: function (params) {
             var term = $.trim(params.term);

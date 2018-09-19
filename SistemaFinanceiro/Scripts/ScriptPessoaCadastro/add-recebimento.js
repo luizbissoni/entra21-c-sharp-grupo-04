@@ -34,7 +34,7 @@
                     idPessoas: getSessionValue()
                 },
                 success: function () {
-                    limparCampos()
+                    limparCampos();
                     $('#modal-recebimento-pessoa').modal('hide');
                     new PNotify({
                         text: 'Cadastrado com sucesso.',
