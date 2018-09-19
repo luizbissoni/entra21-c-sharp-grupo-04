@@ -12,56 +12,9 @@ namespace SistemaFinanceiro.Controllers
     public class LoginController : Controller
     {
         // GET: Login
-
         public ActionResult Index()
         {
             return View();
-        }
-
-        [HttpGet]
-        public ActionResult Cadastro()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Store(Login login, Pessoas novaPessoa)
-        {
-            int iddentificadorPessoa = new RepositorioPessoas().CadastrarPessoas(novaPessoa);
-
-            Login novoLogin = new Login()
-            {
-                IdPessoas = iddentificadorPessoa,
-                Email = login.Email,
-                Senha = login.Senha,
-                Usuario = login.Usuario
-            };
-
-            Session["user"] = iddentificadorPessoa;
-
-            return View();
-        }
-
-        [HttpGet]
-        public ActionResult Excluir(int id)
-        {
-            bool apagado = new RepositorioLogin().ExcluirLogin(id);
-            return null;
-        }
-
-        [HttpGet]
-        public ActionResult Editar(int id)
-        {
-            Login login = new RepositorioLogin().ObterPeloIdLogin(id);
-            ViewBag.Login = login;
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Update(Login login)
-        {
-            bool alterado = new RepositorioLogin().AlterarLogin(login);
-            return null;
         }
 
         [HttpPost]
@@ -98,6 +51,7 @@ namespace SistemaFinanceiro.Controllers
             return Content(JsonConvert.SerializeObject(pessoa));
         }
 
+        [HttpGet]
         public ActionResult GetIdSession()
         {
             var idPessoa = Convert.ToInt32(Session["user"].ToString());
