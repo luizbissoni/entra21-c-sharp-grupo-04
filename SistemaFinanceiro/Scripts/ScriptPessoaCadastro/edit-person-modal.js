@@ -47,7 +47,6 @@
             url: '/Login/GetIdSession',
             method: 'GET',
             success: function (data) {
-                console.log(data);
                 //$.ajax({
                 //    url: '/Pessoas/Editar',
                 //    method: 'GET',
