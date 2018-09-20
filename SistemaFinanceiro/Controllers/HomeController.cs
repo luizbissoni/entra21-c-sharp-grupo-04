@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PusherServer;
 using SistemaFinanceiro.DataBase;
 using SistemaFinanceiro.Models;
 using SistemaFinanceiro.Repositório;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -99,7 +101,7 @@ INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @I
             }
             if(tabelaGasto.Rows.Count == 1) { 
                  porcentagemGasto = ((valorRecebido - valorGasto) / valorRecebido) * 100;
-                 porcentagemCarteira = ((valorGasto / valorRecebido) * 100) - 100;
+                 porcentagemCarteira = ((valorRecebido - valorGasto) / valorRecebido) * 100;
             }
           
 
@@ -187,10 +189,28 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
             return Content(JsonConvert.SerializeObject(new { alterado }));
         }
 
-        public ActionResult PreencherFullCalendar()
+        public async Task<ActionResult> PreencherFullCalendar()
         {
             int id = Convert.ToInt32(Session["user"].ToString());
             List<Object> gastos = new RepositorioGastos().FullCalendarGastos(id);
+
+            var options = new PusherOptions
+            {
+                Cluster = "us2",
+                Encrypted = true
+            };
+
+            var pusher = new Pusher(
+              "604342",
+              "3d2e47e4a257a668b2cc",
+              "65922eb9b246a4faa9a5",
+              options);
+
+            var result = await pusher.TriggerAsync(
+              "my-channel",
+              "my-event",
+              new { message = "hello world" });
+
             return Content(JsonConvert.SerializeObject(new { events = gastos }, Formatting.Indented));
         }
     }

@@ -104,11 +104,28 @@ namespace SistemaFinanceiro.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastroRecebimento(Recebimento recebimento)
+        public async Task<ActionResult> CadastroRecebimento(Recebimento recebimento)
         {
             int id = Convert.ToInt32(Session["user"].ToString());
 
             int deuCerto = new RepositorioRecebimento().CadastrarRecebimento(recebimento);
+
+            var options = new PusherOptions
+            {
+                Cluster = "us2",
+                Encrypted = true
+            };
+
+            var pusher = new Pusher(
+              "604342",
+              "3d2e47e4a257a668b2cc",
+              "65922eb9b246a4faa9a5",
+              options);
+
+            var result = await pusher.TriggerAsync(
+              "my-channel",
+              "my-event",
+              new { message = "hello world" });
 
             return Content(JsonConvert.SerializeObject(new { recebimento }));
         }
