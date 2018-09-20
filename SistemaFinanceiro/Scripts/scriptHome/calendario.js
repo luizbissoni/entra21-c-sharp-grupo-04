@@ -1,6 +1,5 @@
 ﻿$(document).ready(function () {
     var events = [];
-    //var dataAtual = moment(Date()).format("L LT");
 
     Pusher.logToConsole = true;
 
@@ -16,7 +15,7 @@
 
     });
 
-    calendario
+    calendario();
 
     $('#campo-calendario-numero-cartao').select2({
         placeholder: "selecione o cartão",
