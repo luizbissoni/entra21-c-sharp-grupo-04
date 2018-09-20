@@ -3,72 +3,36 @@
     var valorRecebido, valorGasto, porcentagemGasto, porcentoTotalCarteira;
 
 
-   
-        $.ajax({
-            url: '/Home/TotalGastos',
-            method: 'GET',
-            success: function (resultado) {
-                var total = JSON.parse(resultado);
-                if (total.tabela.length > 0) {
-                    var totalGasto = total.tabela[0].total;
-                    valorGasto = total.tabela[0].total
 
-                    $('#total-gastos').text('R$' + totalGasto);
-                    porcentagemGasto = ((valorRecebido - valorGasto) / valorRecebido) * 100;
 
-                    $("#teste").append('<div class="chart dial" data-percent="' + porcentagemGasto + '" data-barcolor="#FC6180" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span>%</div></div>');
-                } else {
-                    $('#total-gastos').text('R$' + 00, 00);
-                    $("#teste").append('<div class="chart dial" data-percent="' + 0 + '" data-barcolor="#FC6180" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span>%</div></div>');
+    $.ajax({
+        url: '/Home/TotalGastoERecebido',
+        method: 'GET',
+        async: true,
+        success: function (resultado) {
+            var result = JSON.parse(resultado);
+  
 
-                }
+            var gastos = result.gastos;
 
-                $.ajax({
-                    url: '/Home/TotalRecebido',
-                    method: 'GET',
-                    success: function (resultado) {
-                        var total = JSON.parse(resultado);
-                        if (total.tabela.length > 0) {
-                            valorRecebido = total.tabela[0].total;
+            var recebidos = result.recebidos;
+            console.log(resultado.recebidos);
+            $('.saldo-recebido').text('R$' + recebidos.valor);
+           // $("#porcentoCarteira").append('<div class="chart" data-percent="' + recebidos.percentual + '" data-barcolor="#4680FE" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span >%</div ></div > ');
 
-                            $('.saldo-recebido').text('R$' + total.tabela[0].total);
-                            porcentoTotalCarteira = ((valorGasto / valorRecebido) * 100) - 100;
-                            //porcentoTotalCarteira = (valorGasto * 100) / valorRecebido;
-                            console.log(parseFloat(porcentoTotalCarteira));
-                            $("#porcentoCarteira").append('<div class="chart" data-percent="' + porcentoTotalCarteira + '" data-barcolor="#4680FE" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span >%</div ></div > ');
-                        } else {
-                            $('.saldo-recebido').text('R$' + 00, 00);
-                            $("#porcentoCarteira").append('<div class="chart" data-percent="' + 0 + '" data-barcolor="#4680FE" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span >%</div ></div > ');
-                        }
-                    }
-                });
-            }
-        });
-   
-    //$.ajax({
-    //    url: '/Home/TotalRecebido',
-    //    method: 'GET',
-    //    success: function (resultado) {
-    //        var total = JSON.parse(resultado);
-    //        if (total.tabela.length > 0) {
-    //            valorRecebido = total.tabela[0].total;
+            $('.porcentoCarteira').data('easyPieChart').update(recebidos.percentual);
 
-    //            $('.saldo-recebido').text('R$' + total.tabela[0].total);
-    //            porcentoTotalCarteira = ((valorGasto / valorRecebido) * 100) - 100;
-    //            //porcentoTotalCarteira = (valorGasto * 100) / valorRecebido;
-    //            console.log(parseFloat(porcentoTotalCarteira));
-    //            $("#porcentoCarteira").append('<div class="chart" data-percent="' + porcentoTotalCarteira + '" data-barcolor="#4680FE" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span >%</div ></div > ');
-    //        } else {
-    //            $('.saldo-recebido').text('R$' + 00, 00);
-    //            $("#porcentoCarteira").append('<div class="chart" data-percent="' + 0 + '" data-barcolor="#4680FE" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span >%</div ></div > ');
-    //        }
-    //        //gasto();
-    //    }
-    //});
+
+            $('#total-gastos').text('R$' + gastos.valor);
+            $("#teste").append('<div class="chart dial" data-percent="' + gastos.percentual + '" data-barcolor="#FC6180" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span>%</div></div>');
+
+        }
+    });
 
     $.ajax({
         url: '/Home/SetorMaiorGasto',
         method: 'GET',
+        async: true,
         success: function (resultado) {
             var total = JSON.parse(resultado);
             // $('.setor-maior-gasto').text('R$' + total.tabela[0].total);
@@ -85,7 +49,7 @@
         }
     });
 
-   
+
 
 });
 

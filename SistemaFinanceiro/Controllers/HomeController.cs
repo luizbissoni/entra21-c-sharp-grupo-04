@@ -41,7 +41,7 @@ namespace SistemaFinanceiro.Controllers
 
             List<Object> data = new RepositorioRecebimento().RecebimentoPessoaJsonFormat(id);
 
-            return Content(JsonConvert.SerializeObject(new {data}, Formatting.Indented));
+            return Content(JsonConvert.SerializeObject(new { data }, Formatting.Indented));
         }
 
         public ActionResult GastosCategoria()
@@ -75,32 +75,43 @@ INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @I
             return Content(JsonConvert.SerializeObject(new { tabela }));
         }
 
-        public ActionResult TotalRecebido()
+        public ActionResult TotalGastoERecebido()
         {
             int id = Convert.ToInt32(Session["user"].ToString());
 
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"SELECT SUM(recebimentos.valor) AS 'total', pessoas.nome FROM recebimentos 
-INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @ID GROUP BY pessoas.nome ";
-            comando.Parameters.AddWithValue("@ID", id);
-            DataTable tabela = new DataTable();
-            tabela.Load(comando.ExecuteReader());
-
-            return Content(JsonConvert.SerializeObject(new { tabela }));
-        }
-
-        public ActionResult TotalGastos()
-        {
-            int id = Convert.ToInt32(Session["user"].ToString());
-
-            SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"SELECT SUM(gastos.valor) AS 'total', pessoas.Id, cartoes.id_pessoas FROM gastos inner join pessoas 
+            comando.CommandText = @"SELECT SUM(gastos.valor) AS 'totalGasto', pessoas.Id, cartoes.id_pessoas FROM gastos inner join pessoas 
 on pessoas.Id = @ID inner join cartoes on cartoes.id_pessoas = pessoas.Id group by pessoas.id, cartoes.id_pessoas";
             comando.Parameters.AddWithValue("@ID", id);
-            DataTable tabela = new DataTable();
-            tabela.Load(comando.ExecuteReader());
+            DataTable tabelaGasto = new DataTable();
+            tabelaGasto.Load(comando.ExecuteReader());
 
-            return Content(JsonConvert.SerializeObject(new { tabela }));
+            comando.CommandText = @"SELECT SUM(recebimentos.valor) AS 'totalRecebido', pessoas.nome FROM recebimentos 
+INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @ID GROUP BY pessoas.nome ";
+            DataTable tabelaRecebido = new DataTable();
+            tabelaRecebido.Load(comando.ExecuteReader());
+
+            var valorRecebido = Convert.ToDouble(tabelaRecebido.Rows[0]["totalRecebido"].ToString());
+            var valorGasto = Convert.ToDouble(tabelaGasto.Rows[0]["totalGasto"].ToString());
+
+            var porcentagemGasto = ((valorRecebido - valorGasto) / valorRecebido) * 100;
+
+
+
+            return Content(JsonConvert.SerializeObject(new
+            {
+                gastos = new
+                {
+                    valor = 1,
+                    percentual = 10
+                },
+                recebidos = new
+                {
+                    valor = 1,
+                    percentual = 90
+                }
+            }));
+
         }
 
         public ActionResult SetorMaiorGasto()
@@ -126,7 +137,7 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
             string search = '%' + Request.QueryString["search[value]"] + '%';
             string orderColumn = Request.QueryString["order[0][column]"];
             string orderDir = Request.QueryString["order[0][dir]"];
-            orderColumn = orderColumn == "1" ? "car.conta" : "cat.nome"; 
+            orderColumn = orderColumn == "1" ? "car.conta" : "cat.nome";
 
             int id = Convert.ToInt32(Session["user"].ToString());
 
