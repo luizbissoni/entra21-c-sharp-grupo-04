@@ -1,5 +1,5 @@
 ﻿$(function () {
-    $('#cadastro-telefone').mask('(00) 0000-0000');
+    $('#cadastro-telefone').mask('(00) 00000-0000');
     $('#cadastro-cpf').mask('000.000.000-00', { reverse: true });
 
     $('#form-cadastro-pessoa').validate({
@@ -23,14 +23,17 @@
             },
             'nascimento': {
                 required: true,
+                
             },
             'telefone': {
                 required: true,
+                rengelenght:[10,11]
             },
-            'new-cpf': {
+            'new-CPF': {
                 required: true,
+              //  rangelength: [  ]
             },
-            'cep': {
+            'Cep': {
                 required: true,
             },
             'email': {
@@ -40,7 +43,7 @@
             'usuario': {
                 required: true,
             },
-            'senha': {
+            'passwordInput': {
                 password: true,
             },
             'repeatinputPassword': {
@@ -53,25 +56,27 @@
                 required: "Este campo é requerido.",
             },
             'nascimento': {
+
                 required: "Este campo é requerido.",
+
             },
             'telefone': {
                 required: "Este campo é requerido.",
             },
-            'cpf': {
+            'new-CPF ': {
                 required: "Este campo é requerido.",
             },
-            'cep': {
+            'Cep': {
                 required: "Este campo é requerido.",
             },
-            'email': {
+            'emailInput': {
                 email: true,
                 required: "Este campo é requerido."
             },
-            'usuario': {
+            'userInput': {
                 required: "Este campo é requerido.",
             },
-            'senha': {
+            'passwordInput': {
                 required: "Este campo é requerido.",
                 password: true,
             },
