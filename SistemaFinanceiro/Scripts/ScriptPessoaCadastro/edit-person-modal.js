@@ -61,7 +61,7 @@
 
                 $('#editar-pessoa-modal').modal('show');
                 $('#editar-pessoa-modal-campo-nome').val(pessoa.Nome);
-                $('input[name=nascimento]').val(pessoa.Nascimento);
+                $('input[name=nascimento]').datepicker( "option", "dateFormat", "dd/mm/yy" ).val(pessoa.Nascimento);
                 if (pessoa.Sexo == 'M') {
                     $('#editar-pessoa-modal-campo-sexo-masculino').attr('checked', 'checked');
                 } else {
