@@ -19,6 +19,7 @@
         rules: {
             'nome': {
                 required: true,
+                rengelenght: [8,100]
             },
             'nascimento': {
                 required: true,
@@ -26,7 +27,7 @@
             'telefone': {
                 required: true,
             },
-            'cpf': {
+            'new-cpf': {
                 required: true,
             },
             'cep': {
