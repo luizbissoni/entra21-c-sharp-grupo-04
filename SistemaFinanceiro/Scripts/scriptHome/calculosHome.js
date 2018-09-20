@@ -1,33 +1,39 @@
 ﻿$(function () {
 
-    var valorRecebido, valorGasto, porcentagemGasto, porcentoTotalCarteira;
+    Pusher.logToConsole = true;
 
-
-
-
-    $.ajax({
-        url: '/Home/TotalGastoERecebido',
-        method: 'GET',
-        async: true,
-        success: function (resultado) {
-            var result = JSON.parse(resultado);
-  
-
-            var gastos = result.gastos;
-
-            var recebidos = result.recebidos;
-            console.log(resultado.recebidos);
-            $('.saldo-recebido').text('R$' + recebidos.valor);
-           // $("#porcentoCarteira").append('<div class="chart" data-percent="' + recebidos.percentual + '" data-barcolor="#4680FE" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span >%</div ></div > ');
-
-            $('.porcentoCarteira').data('easyPieChart').update(recebidos.percentual);
-
-
-            $('#total-gastos').text('R$' + gastos.valor);
-            $("#teste").append('<div class="chart dial" data-percent="' + gastos.percentual + '" data-barcolor="#FC6180" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110"><div class="chart-percent"><span></span>%</div></div>');
-
-        }
+    var pusher = new Pusher('3d2e47e4a257a668b2cc', {
+        cluster: 'us2',
+        forceTLS: true
     });
+
+    var channel = pusher.subscribe('my-channel');
+    channel.bind('my-event', function (data) {
+        var resultado = JSON.stringify(data);
+        graficosGastos();
+
+    });
+    graficosGastos();
+
+    function graficosGastos() {
+        $.ajax({
+            url: '/Home/TotalGastoERecebido',
+            method: 'GET',
+            async: true,
+            success: function (resultado) {
+                var result = JSON.parse(resultado);
+                console.log(result)
+                var gastos = result.gastos;
+                var recebidos = result.recebidos;
+
+                $('#total-gastos').text('R$' + gastos.valor);
+                $('.saldo-recebido').text('R$' + recebidos.valor);
+
+                $('.porcentoCarteira').data('easyPieChart').update(recebidos.percentual);
+                $('.porcentoGasto').data('easyPieChart').update(gastos.percentual);
+            }
+        });
+    }
 
     $.ajax({
         url: '/Home/SetorMaiorGasto',
