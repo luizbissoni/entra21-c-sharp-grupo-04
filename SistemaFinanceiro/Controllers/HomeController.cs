@@ -87,28 +87,33 @@ on pessoas.Id = @ID inner join cartoes on cartoes.id_pessoas = pessoas.Id group 
             tabelaGasto.Load(comando.ExecuteReader());
 
             comando.CommandText = @"SELECT SUM(recebimentos.valor) AS 'totalRecebido', pessoas.nome FROM recebimentos 
-INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @ID GROUP BY pessoas.nome ";
+INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @ID GROUP BY pessoas.nome";
             DataTable tabelaRecebido = new DataTable();
             tabelaRecebido.Load(comando.ExecuteReader());
 
-            var valorRecebido = Convert.ToDouble(tabelaRecebido.Rows[0]["totalRecebido"].ToString());
-            var valorGasto = Convert.ToDouble(tabelaGasto.Rows[0]["totalGasto"].ToString());
-
-            var porcentagemGasto = ((valorRecebido - valorGasto) / valorRecebido) * 100;
-
-
+            double valorRecebido = 0, valorGasto = 0, porcentagemGasto = 0, porcentagemCarteira = 0;
+            if (tabelaRecebido.Rows.Count == 1)
+            {
+                valorRecebido = Convert.ToDouble(tabelaRecebido.Rows[0]["totalRecebido"].ToString());
+                valorGasto = Convert.ToDouble(tabelaGasto.Rows[0]["totalGasto"].ToString());
+            }
+            if(tabelaGasto.Rows.Count == 1) { 
+                 porcentagemGasto = ((valorRecebido - valorGasto) / valorRecebido) * 100;
+                 porcentagemCarteira = ((valorGasto / valorRecebido) * 100) - 100;
+            }
+          
 
             return Content(JsonConvert.SerializeObject(new
             {
                 gastos = new
                 {
-                    valor = 1,
-                    percentual = 10
+                    valor = valorGasto,
+                    percentual = porcentagemGasto
                 },
                 recebidos = new
                 {
-                    valor = 1,
-                    percentual = 90
+                    valor = valorRecebido,
+                    percentual = porcentagemCarteira
                 }
             }));
 
@@ -131,6 +136,8 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
 
         public ActionResult TabelaGastos()
         {
+            //fazer um vetor para pesquisa por coluna
+
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
             string draw = Request.QueryString["draw"];
