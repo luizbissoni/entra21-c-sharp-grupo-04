@@ -26,23 +26,23 @@
             'telefone': {
                 required: true,
             },
-            'new-CPF': {
+            'cpf': {
                 required: true,
             },
-            'Cep': {
+            'cep': {
                 required: true,
             },
-            'emailInput': {
+            'email': {
                 email: true,
                 required: true
             },
-            'userInput': {
+            'usuario': {
                 required: true,
             },
-            'passwordInput': {
+            'senha': {
                 password: true,
             },
-            'repeatPasswordInput': {
+            'repeatinputPassword': {
                 required: true,
                 equalTo:'#inputPassword'
             }
@@ -57,20 +57,20 @@
             'telefone': {
                 required: "Este campo é requerido.",
             },
-            'new-CPF': {
+            'cpf': {
                 required: "Este campo é requerido.",
             },
-            'Cep': {
+            'cep': {
                 required: "Este campo é requerido.",
             },
-            'emailInput': {
+            'email': {
                 email: true,
                 required: "Este campo é requerido."
             },
-            'userInput': {
+            'usuario': {
                 required: "Este campo é requerido.",
             },
-            'passwordInput': {
+            'senha': {
                 required: "Este campo é requerido.",
                 password: true,
             },
