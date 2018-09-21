@@ -105,6 +105,10 @@
     <Content Include="App_Data\Database666_log.ldf">
       <DependentUpon>Database666.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\DatabaseTaQuente.mdf" />
+    <Content Include="App_Data\DatabaseTaQuente_log.ldf">
+      <DependentUpon>DatabaseTaQuente.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\ionicons.css" />
