@@ -95,3 +95,52 @@
         $('[data-toggle="tooltip"], .tooltip').tooltip("hide");
     });
 });
+
+
+/*function valCpf($cpf) {
+    $cpf = preg_replace('/[^0-9]/', '', $cpf);
+    $digitoA = 0;
+    $digitoB = 0;
+    for ($i = 0, $x = 10; $i <= 8; $i++ , $x--) {
+        $digitoA += $cpf[$i] * $x;
+    }
+    for ($i = 0, $x = 11; $i <= 9; $i++ , $x--) {
+        if (str_repeat($i, 11) == $cpf) {
+            return false;
+        }
+        $digitoB += $cpf[$i] * $x;
+    }
+    $somaA = (($digitoA % 11) < 2) ? 0 : 11 - ($digitoA % 11);
+    $somaB = (($digitoB % 11) < 2) ? 0 : 11 - ($digitoB % 11);
+    if ($somaA != $cpf[9] || $somaB != $cpf[10]) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function validaDat(campo, valor) {
+    var date = valor;
+    var ardt = new Array;
+    var ExpReg = new RegExp("(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/[12][0-9]{3}");
+    ardt = date.split("/");
+    erro = false;
+    if (date.search(ExpReg) == -1) {
+        erro = true;
+    }
+    else if (((ardt[1] == 4) || (ardt[1] == 6) || (ardt[1] == 9) || (ardt[1] == 11)) && (ardt[0] > 30))
+        erro = true;
+    else if (ardt[1] == 2) {
+        if ((ardt[0] > 28) && ((ardt[2] % 4) != 0))
+            erro = true;
+        if ((ardt[0] > 29) && ((ardt[2] % 4) == 0))
+            erro = true;
+    }
+    if (erro) {
+        alert(" valor "+" não é uma data válida!!!");
+        campo.focus();
+        campo.value = "";
+        return false;
+    }
+    return true; 
+} */
