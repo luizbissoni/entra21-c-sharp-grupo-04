@@ -13,7 +13,9 @@
         graficosGastos();
 
     });
-    channel.bind('cadastroGastos', function (data) {
+
+    var channel2 = pusher.subscribe('my-channel');
+    channel2.bind('cadastroGastos', function (data) {
         var resultado = JSON.stringify(data);
         graficosGastos();
 

@@ -1,6 +1,12 @@
 ﻿$(document).ready(function () {
-
     var data = [], labels = [], label = [];
+
+    //var channel3 = pusher.subscribe('my-channel');
+    //channel3.bind('cadastroRecebimento', function (data) {
+    //    var resultado = JSON.stringify(data);
+    //});
+
+
     $.ajax({
         url: '/Home/RecebimentoPessoaJsonGrafico',
         method: 'GET',
@@ -18,25 +24,25 @@
         }
     });
 
-    var ctx = document.getElementById('myChart');
 
-    var chartGraph = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: label,
-            datasets: [{
-                label: '2018',
-                data: data,
-                borderWidth: 6,
-                borderColor: 'rgba(77,166,253,0.85)',
-                background: 'transparent',
-            }],
-            options: {
-                animation: {
-                    animateScale: true
+        var ctx = document.getElementById('myChart');
+        var chartGraph = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: label,
+                datasets: [{
+                    label: '2018',
+                    data: data,
+                    borderWidth: 6,
+                    borderColor: 'rgba(77,166,253,0.85)',
+                    background: 'transparent',
+                }],
+                options: {
+                    animation: {
+                        animateScale: true
+                    }
                 }
             }
-        }
-    });
+        });
 
 });
