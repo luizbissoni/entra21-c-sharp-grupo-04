@@ -19,7 +19,7 @@
         rules: {
             'nome': {
                 required: true,
-                rengelenght: [8,100]
+               // rangelenght: [8,100]
             },
             'nascimento': {
                 required: true,
@@ -27,7 +27,7 @@
             },
             'telefone': {
                 required: true,
-                rengelenght:[10,11]
+               // rangelenght:[10,11]
             },
             'new-CPF': {
                 required: true,
@@ -44,19 +44,20 @@
                 required: true,
             },
             'passwordInput': {
-                password: true,
+                // password: true,
+                required: true,
             },
             'repeatinputPassword': {
                 required: true,
-                equalTo:'#inputPassword'
+                //equalTo:'passwordInput'
             }
         },
         messages: {
             'nome': {
                 required: "Este campo é requerido.",
+
             },
             'nascimento': {
-
                 required: "Este campo é requerido.",
 
             },
@@ -78,11 +79,11 @@
             },
             'passwordInput': {
                 required: "Este campo é requerido.",
-                password: true,
+                //password: true,
             },
             'repeatPasswordInput': {
                 required: "Este campo é requerido.",
-                equalTo: 'Senhas não conferem'
+               // equalTo: 'Senhas não conferem'
             }
         }
        

@@ -8,7 +8,12 @@
     });
 
     var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function (data) {
+    channel.bind('cadastroRecebimento', function (data) {
+        var resultado = JSON.stringify(data);
+        graficosGastos();
+
+    });
+    channel.bind('cadastroGastos', function (data) {
         var resultado = JSON.stringify(data);
         graficosGastos();
 

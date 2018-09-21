@@ -124,7 +124,7 @@ namespace SistemaFinanceiro.Controllers
 
             var result = await pusher.TriggerAsync(
               "my-channel",
-              "my-event",
+              "cadastroRecebimento",
               new { message = "hello world" });
 
             return Content(JsonConvert.SerializeObject(new { recebimento }));
@@ -152,7 +152,7 @@ namespace SistemaFinanceiro.Controllers
 
             var result = await pusher.TriggerAsync(
               "my-channel",
-              "my-event",
+              "cadastroGastos",
               new { message = "hello world" });
 
             return Content(JsonConvert.SerializeObject(new { gasto}));
