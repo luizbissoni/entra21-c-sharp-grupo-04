@@ -25,8 +25,8 @@
                         <div class="col-lg-6 ">
                             <div class="progressbar-v-1" id="porcentoCarteira">
                                 <div class="chart porcentoCarteira" data-barcolor="#4680FE" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110">
-                                        <div class="chart-percent"><span></span>%</div>
-                                    </div>
+                                    <div class="chart-percent"><span></span>%</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 ">
@@ -39,9 +39,9 @@
                     <div class="row stats-block">
                         <div class="col-lg-6 ">
                             <div class="progressbar-v-1" id="teste">
-                                <div class="chart dial porcentoGasto"  data-barcolor="#FC6180" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110" id="meu-teste">
-                                        <div class="chart-percent"><span></span>%</div>
-                                    </div>
+                                <div class="chart dial porcentoGasto" data-barcolor="#FC6180" data-trackcolor="#dbdada" data-linewidth="6" data-barsize="110" id="meu-teste">
+                                    <div class="chart-percent"><span></span>%</div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 ">
@@ -146,7 +146,7 @@
                         </tfoot>
                     </table>
                 </div>
-                    @* @</div> *@
+                @* @</div> *@
                 @*</div>*@
             </div>
         </div>
@@ -168,9 +168,9 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    
-                        <div id='calendario'></div>
-                   
+
+                    <div id='calendario'></div>
+
                 </div>
             </div>
         </div>
@@ -178,92 +178,94 @@
 </div>
 
 
-        @Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
-        @Html.Partial("~/Views/Cartao/CadastroCartaoModal.cshtml")
-        @Html.Partial("~/Views/Recebimento/CadastroRecebimentoModal.cshtml")
-        @Html.Partial("~/Views/Gasto/CadastroGastosModal.cshtml")
-        @Html.Partial("~/Views/Gasto/ModalEditarGastos.cshtml")
-        @Html.Partial("~/Views/Gasto/AvisoModalExcluirGasto.cshtml")
+@Html.Partial("~/Views/Pessoas/EditarModal.cshtml")
+@Html.Partial("~/Views/Cartao/CadastroCartaoModal.cshtml")
+@Html.Partial("~/Views/Recebimento/CadastroRecebimentoModal.cshtml")
+@Html.Partial("~/Views/Gasto/CadastroGastosModal.cshtml")
+@Html.Partial("~/Views/Gasto/ModalEditarGastos.cshtml")
+@Html.Partial("~/Views/Gasto/AvisoModalExcluirGasto.cshtml")
 
-        <!--Modal Calendario-->
-        @Html.Partial("~/Views/ModalCalendario/ModalView.cshtml")
-        @Html.Partial("~/Views/ModalCalendario/ModalVisualizarEvento.cshtml")
-
-
-        @section css{
-
-            <!-- SELECT2 -->
-            <link href="~/Content/bower_components/select2/css/select2.min.css" rel="stylesheet" />
-
-            <!-- pnotify js -->
-            <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.css">
-            <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.brighttheme.css">
-            <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.buttons.css">
-            <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.history.css">
-            <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.mobile.css">
-            <link rel="stylesheet" type="text/css" href="~/Content/assets/pages/pnotify/notify.css">
-        }
-
-        @section script{
+<!--Modal Calendario-->
+@Html.Partial("~/Views/ModalCalendario/ModalView.cshtml")
+@Html.Partial("~/Views/ModalCalendario/ModalVisualizarEvento.cshtml")
+@Html.Partial("~/Views/ModalCalendario/ModalEditarEvento.cshtml")
 
 
-            <!-- pnotify js -->
-            <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.desktop.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.buttons.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.confirm.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.callbacks.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.animate.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.history.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.mobile.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.nonblock.js"></script>
-            <script type="text/javascript" src="~/Content/assets/pages/pnotify/notify.js"></script>
+
+@section css{
+
+    <!-- SELECT2 -->
+    <link href="~/Content/bower_components/select2/css/select2.min.css" rel="stylesheet" />
+
+    <!-- pnotify js -->
+    <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.brighttheme.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.buttons.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.history.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/bower_components/pnotify/css/pnotify.mobile.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/pages/pnotify/notify.css">
+}
+
+@section script{
 
 
-            <!-- counter js -->
-            <script src="~/Content/assets/js/jquery.easypiechart.min.js"></script>
-            <script src="~/Content/assets/js/counter.js"></script>
-            <!-- Morris Chart js -->
-            <script src="~/Content/bower_components/raphael/js/raphael.min.js"></script>
-            <script src="~/Content/bower_components/morris.js/js/morris.js"></script>
+    <!-- pnotify js -->
+    <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.desktop.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.buttons.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.confirm.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.callbacks.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.animate.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.history.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.mobile.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/pnotify/js/pnotify.nonblock.js"></script>
+    <script type="text/javascript" src="~/Content/assets/pages/pnotify/notify.js"></script>
 
-            <!-- Rickshow Chart js -->
-            <script src="~/Content/bower_components/d3/js/d3.js"></script>
-            <script src="~/Content/assets/pages/chart/rickshow/d3.layout.min.js"></script>
-            <script src="~/Content/bower_components/rickshaw/js/rickshaw.js"></script>
 
-            <!-- gauge js -->
-            <script src="~/Content/assets/pages/widget/gauge/gauge.min.js "></script>
-            <script src="~/Content/assets/pages/widget/amchart/amcharts.js"></script>
-            <script src="~/Content/assets/pages/widget/amchart/serial.js"></script>
-            <script src="~/Content/assets/pages/widget/amchart/gauge.js"></script>
-            <script src="~/Content/assets/pages/widget/amchart/pie.js"></script>
-            <script src="~/Content/assets/pages/widget/amchart/light.js"></script>
+    <!-- counter js -->
+    <script src="~/Content/assets/js/jquery.easypiechart.min.js"></script>
+    <script src="~/Content/assets/js/counter.js"></script>
+    <!-- Morris Chart js -->
+    <script src="~/Content/bower_components/raphael/js/raphael.min.js"></script>
+    <script src="~/Content/bower_components/morris.js/js/morris.js"></script>
 
-            <!-- i18next.min.js -->
-            <script type="text/javascript" src="~/Content/bower_components/i18next/js/i18next.min.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
-            <script type="text/javascript" src="~/Content/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
-            <script type="text/javascript" src="~/Content/assets/js/SmoothScroll.js"></script>
+    <!-- Rickshow Chart js -->
+    <script src="~/Content/bower_components/d3/js/d3.js"></script>
+    <script src="~/Content/assets/pages/chart/rickshow/d3.layout.min.js"></script>
+    <script src="~/Content/bower_components/rickshaw/js/rickshaw.js"></script>
 
-            <!-- Custom js -->
-            <script src="~/Content/assets/js/pcoded.min.js"></script>
-            <script src="~/Content/assets/js/demo-12.js"></script>
-            <script src="~/Content/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-            <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
-            <script src="~/Content/bower_components/chart.js/js/Chart.js"></script>
+    <!-- gauge js -->
+    <script src="~/Content/assets/pages/widget/gauge/gauge.min.js "></script>
+    <script src="~/Content/assets/pages/widget/amchart/amcharts.js"></script>
+    <script src="~/Content/assets/pages/widget/amchart/serial.js"></script>
+    <script src="~/Content/assets/pages/widget/amchart/gauge.js"></script>
+    <script src="~/Content/assets/pages/widget/amchart/pie.js"></script>
+    <script src="~/Content/assets/pages/widget/amchart/light.js"></script>
 
-            <script src="~/Scripts/scriptHome/grafico-recebimento-home.js"></script>
-            <script src="~/Scripts/scriptHome/grafico-gastos-setor-home.js"></script>
-            <script src="~/Scripts/scriptHome/calculosHome.js"></script>
-            <script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
-            <script src="~/Scripts/ScriptPessoaCadastro/cartao.js"></script>
-            <script src="~/Scripts/ScriptPessoaCadastro/add-recebimento.js"></script>
+    <!-- i18next.min.js -->
+    <script type="text/javascript" src="~/Content/bower_components/i18next/js/i18next.min.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
+    <script type="text/javascript" src="~/Content/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/SmoothScroll.js"></script>
 
-            <script src="~/Scripts/ScriptPessoaCadastro/add-gastos.js"></script>
-            <script src="~/Scripts/Login/login-usuario.js"></script>
+    <!-- Custom js -->
+    <script src="~/Content/assets/js/pcoded.min.js"></script>
+    <script src="~/Content/assets/js/demo-12.js"></script>
+    <script src="~/Content/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/script.js"></script>
+    <script src="~/Content/bower_components/chart.js/js/Chart.js"></script>
 
-            <script src="~/Scripts/ValidacaoMask/validarFormulario.js"></script>
-            <script src="~/Scripts/ValidacaoMask/validacaoCartao.js"></script>
+    <script src="~/Scripts/scriptHome/grafico-recebimento-home.js"></script>
+    <script src="~/Scripts/scriptHome/grafico-gastos-setor-home.js"></script>
+    <script src="~/Scripts/scriptHome/calculosHome.js"></script>
+    <script src="~/Scripts/ScriptPessoaCadastro/edit-person-modal.js"></script>
+    <script src="~/Scripts/ScriptPessoaCadastro/cartao.js"></script>
+    <script src="~/Scripts/ScriptPessoaCadastro/add-recebimento.js"></script>
 
-        }
+    <script src="~/Scripts/ScriptPessoaCadastro/add-gastos.js"></script>
+    <script src="~/Scripts/Login/login-usuario.js"></script>
+
+    <script src="~/Scripts/ValidacaoMask/validarFormulario.js"></script>
+    <script src="~/Scripts/ValidacaoMask/validacaoCartao.js"></script>
+
+}

@@ -5,17 +5,17 @@
 
 }
 
-<div class="modal fade" id="modal-cadastro-gasto-calendario" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-editar-gasto-calendario" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Gastos</h5>
-                <button type="button" class="close fechar-cadastro-gasto-calendario" data-dismiss="modal" aria-label="Close">
+                <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                <button type="button" class="close fechar-modal-editar-gasto-calendario" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">X</span>
                 </button>
             </div>
             <div class="modal-body">
-                <input type="hidden" value="@pessoa" id="id-pessoa-gastos-calendario" />
+                <input type="hidden" value="@pessoa" id="id-gastos-calendario" />
                 <div class="row">
                     <div class="col-md-5">
                         <div class="input-group">
@@ -34,13 +34,13 @@
                     <div class="col-md-6">
                         <div class="input-group">
                             <label class="input-group-addon" for="editar-startcampo">Data Pagamento</label>
-                            <input id="start-editar" name="editar-startcampo" placeholder="DD/MM/AAAA" class="form-control" type="datetime" value="">
+                            <input id="start-editar" name="editar-startcampo" placeholder="DD/MM/AAAA" class="form-control" type="date">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="input-group">
                             <label class="input-group-addon" for="editar-endcampo">Data término</label>
-                            <input id="end-editar" name="editar-endcampo" placeholder="DD/MM/AAAA" class="form-control" type="datetime" value="">
+                            <input id="end-editar" name="editar-endcampo" placeholder="DD/MM/AAAA" class="form-control" type="date">
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="botao-modal-editar">Editar</button>
+                    <button type="button" class="btn btn-primary" id="botao-modal-editar-gasto-calendario">Editar</button>
                 </div>
 
             </div>

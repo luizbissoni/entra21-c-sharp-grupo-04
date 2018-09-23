@@ -5676,6 +5676,7 @@
     <Content Include="Scripts\ScriptPessoaCadastro\cartao.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\edit-person-modal.js" />
     <Content Include="Scripts\sha512.min.js" />
+    <Content Include="Scripts\ValidacaoMask\configuracaoDatePicker.js" />
     <Content Include="Scripts\ValidacaoMask\jquery-validate.bootstrap-tooltip.min.js" />
     <Content Include="Scripts\ValidacaoMask\jquery.mask.js" />
     <Content Include="Scripts\ValidacaoMask\jquery.maskMoney.min.js" />
