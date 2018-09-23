@@ -1,5 +1,6 @@
 ﻿$(document).ready(function () {
     var events = [];
+    var selectedEvent = null;
 
     Pusher.logToConsole = false;
 
@@ -10,10 +11,9 @@
 
     var channel = pusher.subscribe('my-channel');
     channel.bind('cadastroGastos', function (data) {
-        calendario();
+        var resultado = JSON.stringify(data);
+        $('#calendario').fullCalendar('refetchEvents');
     });
-
-    calendario();
 
     $('#campo-calendario-numero-cartao').select2({
         placeholder: "selecione o cartão",
@@ -34,90 +34,124 @@
     function getSessionValue() {
         return document.getElementById("id-pessoa-gastos-calendario").value;
     }
-    function calendario() {
-        $('#calendario').fullCalendar({
-            locale: "pt-BR",
-            height: 550,
-            header: {
-                left: 'prev,next today',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay,listMonth'
-            },
 
-            eventStartEditable: true,
-            eventLimit: true,
-            eventDurationEditable: true,
-            navLinks: true, // can click day/week names to navigate views
-            businessHours: true, // display business hours
-            editable: true,
-            selectHelper: true,
-            selectable: true,
-            select: function (start, end) {
+    $('#calendario').fullCalendar('refetchEvents');
 
-                $('#start').val(moment(start).format("L LT"));
-                $('#end').val(moment(end).format("L LT"));
 
-                $("#modal-cadastro-gasto-calendario").modal('show');
 
-            },
-            droppable: true, // this allows things to be dropped onto the calendar
-            drop: function () {
+    $('#calendario').fullCalendar({
+        locale: "pt-BR",
+        height: 550,
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay,listMonth'
+        },
 
-            },
-            events: function (title, start, end, callback) {
-                $.ajax({
-                    'url': '/Home/PreencherFullCalendar', /*"dataSrc": 'tabela',*/
-                    'method': 'GET',
-                    cache: false,
-                    success: function (pesquisa) {
-                        var resultado = JSON.parse(pesquisa);
-                        $.each(resultado.events, function (i) {
-                            events.push({
-                                title: resultado.events[i].title,
-                                start: resultado.events[i].start,
-                                end: resultado.events[i].end,
-                                description: 'Gasto'
-                            });
+        eventStartEditable: true,
+        eventLimit: true,
+        eventDurationEditable: true,
+        navLinks: true, // can click day/week names to navigate views
+        businessHours: true, // display business hours
+        editable: true,
+        selectHelper: true,
+        selectable: true,
+        select: function (start, end) {
 
+            $('#start').val(moment(start).format("L LT"));
+            $('#end').val(moment(end).format("L LT"));
+
+            $("#modal-cadastro-gasto-calendario").modal('show');
+
+        },
+        droppable: true, // this allows things to be dropped onto the calendar
+        drop: function (date) {
+            alert(date);
+        },
+        events: function (title, start, end, callback) {
+            $.ajax({
+                'url': '/Home/PreencherFullCalendar', /*"dataSrc": 'tabela',*/
+                'method': 'GET',
+                cache: false,
+                success: function (pesquisa) {
+
+                    var resultado = JSON.parse(pesquisa);
+                    $.each(resultado.events, function (i) {
+                        events.push({
+                            id: resultado.events[i].id,
+                            title: resultado.events[i].title,
+                            start: resultado.events[i].start,
+                            end: resultado.events[i].end,
+                            color: resultado.events[i].color,
                         });
-                        return callback(events, title, start, end);
+                    });
+                    //$('#calendar').fullCalendar('', JSON.parse(holidays));
+                }
+            });
+            return callback(events, title, start, end);
+        },
+        eventRender: function (event, element) {
+            if (element && event.title) {
+                element.qtip({
+                    content: event.title,
+                    hide: {
+                        fixed: true,
+                        delay: 500
                     }
                 });
-            },
-            eventRender: function (event, element) {
-                if (element && event.title) {
-                    element.qtip({
-                        content: event.title,
-                        hide: {
-                            fixed: true,
-                            delay: 500
-                        }
+            }
+        },
+        eventClick: function (event) {
+            selectedEvent = event;
+            $('#modal-visualizar-evento #title').text(event.title);
+            $('#modal-visualizar-evento #start').text(moment(event.start).format("L LT"));
+            $('#modal-visualizar-evento #end').text(moment(event.end).format("L LT"));
+            $('#modal-visualizar-evento').modal('show');
+
+            return false;
+        },
+        eventAfterRender: function (event, element, view) {
+            var dataComparar = moment(event.start).format("L");
+            //birthday = new Date('<somedate>');
+            year = new Date(event.start).getFullYear();
+            month = new Date(event.start).getMonth();
+            day = new Date(event.start).getDate();
+            moment(event.end).format("L");
+        },
+
+    });
+
+    var table = $('#tabela-teste').DataTable();
+    //Exclui evento do calendario
+    $('#excluirEvento').on('click', function () {
+        if (selectedEvent != null && confirm('Tem certeza que deseja excluir esse evento ?')) {
+            $.ajax({
+                url: '/Home/ExcluirGastos',
+                method: 'GET',
+                data: {
+                    Id: selectedEvent.id
+                },
+                success: function (excluirId) {
+                    $('.modal-excluir-gasto-pessoa').modal('hide');
+                    var data = JSON.parse(excluirId)
+                    new PNotify({
+                        text: 'Evento excluido com sucesso.',
+                        type: 'success'
+                    });
+                    table.ajax.reload();
+                    $('#modal-visualizar-evento').modal('hide');
+
+                },
+                error: function () {
+                    new PNotify({
+                        text: 'Algo deu errado.',
+                        icon: 'icofont icofont-info-circle',
+                        type: 'error'
                     });
                 }
-            },
-            eventClick: function (event) {
-                $('#modal-visualizar-evento #title').text(event.title);
-                $('#modal-visualizar-evento #start').text(moment(event.start).format("L LT"));
-                $('#modal-visualizar-evento #end').text(moment(event.end).format("L LT"));
-                $('#modal-visualizar-evento').modal('show');
-
-                return false;
-            },
-            eventAfterRender: function (event, element, view) {
-                var dataComparar = moment(event.start).format("L");
-                //birthday = new Date('<somedate>');
-                year = new Date(event.start).getFullYear();
-                month = new Date(event.start).getMonth();
-                day = new Date(event.start).getDate();
-
-                //console.log(dataComparar);
-                if (dataComparar == Date()) {
-                    alert('Chegou o dia! >>> ' + event.title);
-                    console.log(moment(event.start).format("L"));
-                }
-            }
-        });
-    }
+            });
+        }
+    });
 
     $('#salvar-gastos-calendario').on('click', function () {
 
@@ -134,13 +168,13 @@
                 "idCategoria": $("#campo-calendario-descricao").val(),
                 "Valor": $valor,
                 "descricao": $('#calendario-descricao-despesa').val(),
-                "entrada": moment($('#start').val()).format("DD/MM/YYYY HH:mm:ss"),
-                "vencimento": moment($('#end').val()).format("DD/MM/YYYY HH:mm:ss")
+                "entrada": $('#start').val(),
+                "vencimento": $('#end').val()
 
             },
             success: function () {
-                //limparCampos();
-                $("#cadastrar-gastos-pessoa").modal('hide');
+                limparCampos();
+                $("#modal-cadastro-gasto-calendario").modal('hide');
                 $('#tabela-teste').DataTable().ajax.reload();
                 new PNotify({
                     text: 'Gastos adicionado com sucesso.',
@@ -156,4 +190,17 @@
             }
         });
     });
+
+    $('.fechar-cadastro-gasto-calendario').on('click', function () {
+        limparCampos();
+    });
+
+    function limparCampos() {
+
+        $('#campo-calendario-descricao').val(null).trigger('change');
+        $('#campo-calendario-numero-cartao').val(null).trigger('change');
+
+        $('#campo-calendario-valor').val('');
+        $('#calendario-descricao-despesa').val('');
+    }
 });

@@ -142,7 +142,30 @@ MONTH(recebimentos.data), YEAR(recebimentos.data) ORDER BY MONTH(recebimentos.da
 
         }
 
+        public List<Object> FullcalendarRecebimento(int id)
+        {
+            List<Object> recebimentos = new List<object>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SET LANGUAGE português SELECT rec.id AS 'idRecebimento', rec.valor AS 'valor', rec.data AS 'data', rec.id_categoria, rec.id_pessoas, cat.nome AS 'categoria', pes.Id FROM recebimentos  rec 
+                                    INNER JOIN categorias cat ON cat.Id = rec.id_categoria
+                                    INNER JOIN pessoas pes ON pes.Id = rec.id_pessoas WHERE pes.Id = @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            foreach (DataRow linha in tabela.Rows)
+            {
+                recebimentos.Add(new
+                {
 
+                    id = Convert.ToInt32(linha["idRecebimento"].ToString()),
+                    title = linha["categoria"].ToString(),
+                    start = Convert.ToDateTime(linha["data"].ToString()),
+                    color = "#00FF00"
+
+                });
+            }
+            return recebimentos;
+        }
 
     }
 }

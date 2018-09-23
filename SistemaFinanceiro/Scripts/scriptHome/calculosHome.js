@@ -29,7 +29,7 @@
             async: true,
             success: function (resultado) {
                 var result = JSON.parse(resultado);
-                console.log(result)
+                //console.log(result)
                 var gastos = result.gastos;
                 var recebidos = result.recebidos;
 

@@ -181,7 +181,7 @@ namespace SistemaFinanceiro.Repositório
 
         public List<Object> FullCalendarGastos(int id)
         {
-            List<Object> registros = new List<object>();
+            List<Object> gastos = new List<object>();
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = @"SET LANGUAGE português SELECT gastos.Id,pessoas.nome, cartoes.conta AS 'conta',categorias.nome AS 'categoria', valor, entrada, vencimento, descricao FROM gastos 
                                         INNER JOIN categorias ON categorias.Id = gastos.id_categoria 
@@ -192,17 +192,18 @@ namespace SistemaFinanceiro.Repositório
             tabela.Load(comando.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
             {
-                registros.Add(new
+                gastos.Add(new
                 {
 
                     id = Convert.ToInt32(linha["id"].ToString()),
                     title = linha["descricao"].ToString(),
                     start = Convert.ToDateTime(linha["entrada"].ToString()),
                     end = Convert.ToDateTime(linha["vencimento"].ToString()),
+                    color = "#FFA500"
 
-                    });
+                });
             }
-                return registros;
+                return gastos;
         }
     }
 }
