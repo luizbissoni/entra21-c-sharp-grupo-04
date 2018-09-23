@@ -5733,6 +5733,7 @@
     <Content Include="Views\ModalCalendario\ModalVisualizarEvento.cshtml" />
     <Content Include="Views\Gasto\ModalEditarGastos.cshtml" />
     <Content Include="Views\Login\ModalErroLogin.cshtml" />
+    <Content Include="Views\ModalCalendario\ModalEditarEvento.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

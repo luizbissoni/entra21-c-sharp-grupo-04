@@ -1,4 +1,5 @@
 ﻿$(document).ready(function () {
+
     var events = [];
     var selectedEvent = null;
 
@@ -15,30 +16,37 @@
         $('#calendario').fullCalendar('refetchEvents');
     });
 
-    $('#campo-calendario-numero-cartao').select2({
-        placeholder: "selecione o cartão",
-        ajax: {
-            url: '/Cartao/ObterTodosParaJson',
-            dataType: 'json',
-        }
-    });
-    $('#campo-calendario-descricao').select2({
-        placeholder: "selecione a categoria",
-        ajax: {
-            url: '/Categoria/ObterTodosCategoriaJson',
-            dataType: 'json'
-        },
+    preencherFullCalendar();
 
-    });
+    function preencherFullCalendar() {
+        events = [];
+        $.ajax({
+            'url': '/Home/PreencherFullCalendar', /*"dataSrc": 'tabela',*/
+            'method': 'GET',
+            cache: false,
+            success: function (pesquisa) {
+                var resultado = JSON.parse(pesquisa);
 
-    function getSessionValue() {
-        return document.getElementById("id-pessoa-gastos-calendario").value;
+                $.each(resultado.events, function (i) {
+                    events.push({
+                        id: resultado.events[i].id,
+                        title: resultado.events[i].title,
+                        start: resultado.events[i].start,
+                        end: resultado.events[i].end,
+                        color: resultado.events[i].color,
+                    });
+                });
+                generationCalendar(events);
+            },
+            error: function () {
+                alert("Erro ao preencher eventos no calendario.");
+            }
+        });
     }
 
-    $('#calendario').fullCalendar('refetchEvents');
 
-
-
+    function generationCalendar(events) {
+        $('#calendario').fullCalendar('destroy');
     $('#calendario').fullCalendar({
         locale: "pt-BR",
         height: 550,
@@ -68,28 +76,7 @@
         drop: function (date) {
             alert(date);
         },
-        events: function (title, start, end, callback) {
-            $.ajax({
-                'url': '/Home/PreencherFullCalendar', /*"dataSrc": 'tabela',*/
-                'method': 'GET',
-                cache: false,
-                success: function (pesquisa) {
-
-                    var resultado = JSON.parse(pesquisa);
-                    $.each(resultado.events, function (i) {
-                        events.push({
-                            id: resultado.events[i].id,
-                            title: resultado.events[i].title,
-                            start: resultado.events[i].start,
-                            end: resultado.events[i].end,
-                            color: resultado.events[i].color,
-                        });
-                    });
-                    //$('#calendar').fullCalendar('', JSON.parse(holidays));
-                }
-            });
-            return callback(events, title, start, end);
-        },
+        events: events,
         eventRender: function (event, element) {
             if (element && event.title) {
                 element.qtip({
@@ -119,9 +106,10 @@
             moment(event.end).format("L");
         },
 
-    });
+        });
+    }
 
-    var table = $('#tabela-teste').DataTable();
+    var table = $('#tabela-teste').DataTable(); 
     //Exclui evento do calendario
     $('#excluirEvento').on('click', function () {
         if (selectedEvent != null && confirm('Tem certeza que deseja excluir esse evento ?')) {
@@ -139,6 +127,7 @@
                         type: 'success'
                     });
                     table.ajax.reload();
+                    preencherFullCalendar();
                     $('#modal-visualizar-evento').modal('hide');
 
                 },
@@ -152,6 +141,8 @@
             });
         }
     });
+
+  
 
     $('#salvar-gastos-calendario').on('click', function () {
 
@@ -191,9 +182,31 @@
         });
     });
 
+    $('#editarEvento').on('click', function () {
+        $('#modal-visualizar-evento').modal('hide');
+        $('#modal-cadastro-gasto-calendario').modal('show');
+    });
+
     $('.fechar-cadastro-gasto-calendario').on('click', function () {
         limparCampos();
     });
+
+    $('#campo-calendario-numero-cartao').select2({
+        placeholder: "selecione o cartão",
+        ajax: {
+            url: '/Cartao/ObterTodosParaJson',
+            dataType: 'json',
+        }
+    }); //preenche select2 cartao calendario
+
+    $('#campo-calendario-descricao').select2({
+        placeholder: "selecione a categoria",
+        ajax: {
+            url: '/Categoria/ObterTodosCategoriaJson',
+            dataType: 'json'
+        },
+
+    }); //preenche select2 categoria calendario
 
     function limparCampos() {
 
