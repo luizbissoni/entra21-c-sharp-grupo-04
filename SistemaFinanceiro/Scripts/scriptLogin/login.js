@@ -2,6 +2,8 @@
 $(document).ready(function () {
     var home = '/Home';
 
+
+
     $("#botao-login").on('click', function () {
         if ($('#validarLogin').valid()) {
             $.ajax({
@@ -23,11 +25,35 @@ $(document).ready(function () {
                             success: function () {
                                 $(window.document.location).attr('href', home);
                             },
-                            //error: function () {
-                            //    alert("Error!");
-                            //}
                         });
+                    } else {
+                        //$('#modalErro').modal('show');
+                        alert("Usuário ou senha Invalido.");
+
+                        $("#campo-usuario").change(function () {
+                            elem = $(this);
+                            elem.css("border", "1px solid red");
+                            setTimeout(function () {
+                                elem.css('border', '');
+                            },
+                                1000);
+                        }).trigger("change");
+
+                        $("#campo-senha").change(function () {
+                            elem = $(this);
+                            elem.css("border", "1px solid red");
+                            setTimeout(function () {
+                                elem.css('border', '');
+                            },
+                                1000);
+
+                        }).trigger("change");
+
+
+
+
                     }
+
                 },
                 error: function () {
                     alert("Error!");

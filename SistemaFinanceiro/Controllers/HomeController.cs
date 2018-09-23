@@ -192,6 +192,7 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
         public async Task<ActionResult> PreencherFullCalendar()
         {
             int id = Convert.ToInt32(Session["user"].ToString());
+
             List<Object> gastos = new RepositorioGastos().FullCalendarGastos(id);
 
             var options = new PusherOptions

@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     var events = [];
 
-    Pusher.logToConsole = true;
+    Pusher.logToConsole = false;
 
     var pusher = new Pusher('3d2e47e4a257a668b2cc', {
         cluster: 'us2',
@@ -9,10 +9,8 @@
     });
 
     var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function (data) {
-        var resultado = JSON.stringify(data);
+    channel.bind('cadastroGastos', function (data) {
         calendario();
-
     });
 
     calendario();
@@ -39,6 +37,7 @@
     function calendario() {
         $('#calendario').fullCalendar({
             locale: "pt-BR",
+            height: 550,
             header: {
                 left: 'prev,next today',
                 center: 'title',
@@ -66,7 +65,6 @@
 
             },
             events: function (title, start, end, callback) {
-                $('.fc-event').remove();
                 $.ajax({
                     'url': '/Home/PreencherFullCalendar', /*"dataSrc": 'tabela',*/
                     'method': 'GET',
@@ -105,19 +103,19 @@
 
                 return false;
             },
-            //eventAfterRender: function (event, element, view) {
-            //    var dataComparar = moment(event.start).format("L LT");
-            //    //birthday = new Date('<somedate>');
-            //    year = new Date(event.start).getFullYear();
-            //    month = new Date(event.start).getMonth();
-            //    day = new Date(event.start).getDate();
+            eventAfterRender: function (event, element, view) {
+                var dataComparar = moment(event.start).format("L");
+                //birthday = new Date('<somedate>');
+                year = new Date(event.start).getFullYear();
+                month = new Date(event.start).getMonth();
+                day = new Date(event.start).getDate();
 
-            //     //console.log(dataComparar);
-            //    if (dataComparar == dataAtual) {
-            //        alert('Chegou o dia! >>> ' + event.title);
-            //        console.log(moment(event.start).format("L LT"));
-            //    }
-            //}
+                //console.log(dataComparar);
+                if (dataComparar == Date()) {
+                    alert('Chegou o dia! >>> ' + event.title);
+                    console.log(moment(event.start).format("L"));
+                }
+            }
         });
     }
 

@@ -105,10 +105,6 @@
     <Content Include="App_Data\Database666_log.ldf">
       <DependentUpon>Database666.mdf</DependentUpon>
     </Content>
-    <Content Include="App_Data\DatabaseTaQuente.mdf" />
-    <Content Include="App_Data\DatabaseTaQuente_log.ldf">
-      <DependentUpon>DatabaseTaQuente.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\assets\css\component.css" />
     <Content Include="Content\assets\css\font-awesome.min.css" />
     <Content Include="Content\assets\css\ionicons.css" />
@@ -5673,6 +5669,7 @@
     <Content Include="Scripts\scriptHome\grafico-gastos-setor-home.js" />
     <Content Include="Scripts\scriptHome\tempo.js" />
     <Content Include="Scripts\scriptLogin\cadastrarUsuario.js" />
+    <Content Include="Scripts\scriptLogin\centerModalError.css" />
     <Content Include="Scripts\scriptLogin\login.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\add-gastos.js" />
     <Content Include="Scripts\ScriptPessoaCadastro\add-recebimento.js" />
@@ -5735,6 +5732,7 @@
     <Content Include="Views\ModalCalendario\ModalView.cshtml" />
     <Content Include="Views\ModalCalendario\ModalVisualizarEvento.cshtml" />
     <Content Include="Views\Gasto\ModalEditarGastos.cshtml" />
+    <Content Include="Views\Login\ModalErroLogin.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

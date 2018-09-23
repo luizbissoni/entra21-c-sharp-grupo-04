@@ -1,6 +1,6 @@
 ﻿$(function () {
 
-    Pusher.logToConsole = true;
+    Pusher.logToConsole = false;
 
     var pusher = new Pusher('3d2e47e4a257a668b2cc', {
         cluster: 'us2',

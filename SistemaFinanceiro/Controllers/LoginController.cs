@@ -40,7 +40,7 @@ namespace SistemaFinanceiro.Controllers
             {
                 return Content(JsonConvert.SerializeObject(new { data = false }));
             }
-            return null;
+            return Content(JsonConvert.SerializeObject(new { data = false })); 
         }
 
         [HttpGet]
