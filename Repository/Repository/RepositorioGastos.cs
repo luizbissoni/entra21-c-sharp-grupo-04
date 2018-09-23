@@ -199,6 +199,7 @@ namespace SistemaFinanceiro.Repositório
                     title = linha["descricao"].ToString(),
                     start = Convert.ToDateTime(linha["entrada"].ToString()),
                     end = Convert.ToDateTime(linha["vencimento"].ToString()),
+                    description = "gastos",
                     color = "#FFA500"
 
                 });

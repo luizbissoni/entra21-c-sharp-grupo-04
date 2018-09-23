@@ -199,5 +199,15 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
 
             return Content(JsonConvert.SerializeObject(new { events = gastos }, Formatting.Indented));
         }
+
+        public ActionResult PreencherFullCalendarRecebimento()
+        {
+
+            int id = Convert.ToInt32(Session["user"].ToString());
+
+            List<Object> recebimentos = new RepositorioRecebimento().FullcalendarRecebimento(id);
+
+            return Content(JsonConvert.SerializeObject(new { events = recebimentos }, Formatting.Indented));
+        }
     }
 }

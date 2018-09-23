@@ -160,6 +160,7 @@ MONTH(recebimentos.data), YEAR(recebimentos.data) ORDER BY MONTH(recebimentos.da
                     id = Convert.ToInt32(linha["idRecebimento"].ToString()),
                     title = linha["categoria"].ToString(),
                     start = Convert.ToDateTime(linha["data"].ToString()),
+                    description = "recebimento",
                     color = "#00FF00"
 
                 });

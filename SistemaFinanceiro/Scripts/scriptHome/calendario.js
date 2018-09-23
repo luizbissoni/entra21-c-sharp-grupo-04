@@ -35,6 +35,35 @@
 
 
     preencherFullCalendar();
+    preencherFullCalendarRecebimento();
+
+    function preencherFullCalendarRecebimento() {
+        events = [];
+        $.ajax({
+            'url': '/Home/PreencherFullCalendarRecebimento', /*"dataSrc": 'tabela',*/
+            'method': 'GET',
+            cache: false,
+            success: function (pesquisa) {
+                var resultado = JSON.parse(pesquisa);
+                console.log(resultado);
+                $.each(resultado.events, function (i) {
+                    events.push({
+                        id: resultado.events[i].id,
+                        title: resultado.events[i].title,
+                        start: resultado.events[i].start,
+                        end: resultado.events[i].end,
+                        color: resultado.events[i].color,
+
+
+                    });
+                });
+                generationCalendar(events);
+            },
+            error: function () {
+                alert("Erro ao preencher eventos no calendario.");
+            }
+        }); 
+    }
 
     function preencherFullCalendar() {
         events = [];
@@ -107,6 +136,7 @@
             },
             eventClick: function (event) {
                 selectedEvent = event;
+                console.log(event);
                 $('#modal-visualizar-evento #title').text(event.title);
                 $('#modal-visualizar-evento #start').text(moment(event.start).format("L LT"));
                 $('#modal-visualizar-evento #end').text(moment(event.end).format("L LT"));
