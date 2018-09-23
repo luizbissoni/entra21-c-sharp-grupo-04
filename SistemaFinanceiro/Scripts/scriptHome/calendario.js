@@ -165,7 +165,7 @@
 
     //BOTAO SALVAR EDIÇÃO GASTOS NO CALENDARIO
     $('#botao-modal-editar-gasto-calendario').on('click', function () {
-        $valor = $('#modal-editar-gasto-calendario #campo-calendario-valor-editar').val(),
+        $valor = $('#campo-calendario-valor-editar').val(),
             $valor = $valor.replace(/\,/g, ""),
             $valor = $valor.replace('.', ","),
             $.ajax({
@@ -173,12 +173,12 @@
                 method: 'POST',
                 data: {
                     Id: selectedEvent.id,
-                    idCartao: $('#modal-editar-gasto-calendario #calendario-numero-cartao-edita').val(),
-                    idCategoria:  $('#modal-editar-gasto-calendario #campo-calendario-descricao-editar').val(),
+                    idCartao: $('#calendario-numero-cartao-editar').val(),
+                    idCategoria:  $('#campo-calendario-descricao-editar').val(),
                     Valor: $valor,
-                    entrada: $('#modal-editar-gasto-calendario #calendario-descricao-despesa-editar').val(),
-                    vencimento: $('#modal-editar-gasto-calendario #start-editar').val(),
-                    descricao:  $('#modal - editar - gasto - calendario #end - editar').val()
+                    entrada: $('#start-editar').val(),
+                    vencimento: $('#end-editar').val(),
+                    descricao: $('#calendario-descricao-despesa-editar').val()
                 },
                 success: function () {
                     table.ajax.reload();
