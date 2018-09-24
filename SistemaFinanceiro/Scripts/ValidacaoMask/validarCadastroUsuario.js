@@ -23,7 +23,7 @@
             },
             'nascimento': {
                 required: true,
-                
+
             },
             'telefone': {
                 required: true,
@@ -31,7 +31,7 @@
             },
             'new-CPF': {
                 required: true,
-               // verificarCPF: true   -> Ativar para validacao do CPF
+                 verificarCPF: true   -> Ativar para validacao do CPF
                 //  rangelength: [  ]
             },
             'Cep': {
@@ -87,8 +87,8 @@
                 // equalTo: 'Senhas não conferem'
             }
         }
-       
-       
+
+
 
     });
 
@@ -96,8 +96,7 @@
     $('.close-cadastro').on('click', function () {
         $('[data-toggle="tooltip"], .tooltip').tooltip("hide");
     });
-      //$.validator.addMethod("verificaCPF", function (value, element)   > Testei com os dois, ambos dá o mesmo resultado, ou aceita tudo, ou nao aceita nada xD :(
-   /* jQuery.validator.addMethod("verificaCPF", function (value, element) {
+    $.validator.addMethod("verificarCPF", function (value, element) {
 
         value = value.replace('.', '');
         value = value.replace('.', '');
@@ -134,8 +133,8 @@
 
         return true;
     }, "Informe um CPF Válido.");
- Validar cpf =>   */   
-  });
+
+});
 
    /* jQuery.validator.addMethod("dateBR", function(value, element) {            
      //contando chars 
@@ -155,4 +154,3 @@
 }, "Informe uma data válida");  // Mensagem padrão */
 
 // http://flaviosilveira.com/2010/jquery-jquery-validation-sincrono-e-assincrono-cpf-unico-no-banco-de-dados-ajax-sincrono-com-jquery/
-   
