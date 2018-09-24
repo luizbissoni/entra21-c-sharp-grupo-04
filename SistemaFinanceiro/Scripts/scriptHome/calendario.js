@@ -110,12 +110,9 @@
             selectHelper: true,
             selectable: true,
             select: function (start, end) {
-
                 $('#start').val(moment(start).format("L LT"));
                 $('#end').val(moment(end).format("L LT"));
-
                 $("#modal-cadastro-gasto-calendario").modal('show');
-
             },
             droppable: true, // this allows things to be dropped onto the calendar
             drop: function (date) {
