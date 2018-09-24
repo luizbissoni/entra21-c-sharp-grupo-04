@@ -31,7 +31,7 @@
             },
             'new-CPF': {
                 required: true,
-                 verificarCPF: true   -> Ativar para validacao do CPF
+                 verificarCPF: true   
                 //  rangelength: [  ]
             },
             'Cep': {
