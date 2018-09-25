@@ -7,6 +7,14 @@
         }
     }); //preenche select2 cartao calendario
 
+    $('#campo-calendario-numero-cartao').select2({
+        placeholder: "selecione o cartão",
+        ajax: {
+            url: '/Cartao/ObterTodosParaJson',
+            dataType: 'json',
+        }
+    }); //preenche cartao select2 cadastro de gastos no calendario
+
     $('#campo-calendario-descricao-editar').select2({
         placeholder: "selecione a categoria",
         ajax: {
@@ -15,6 +23,38 @@
         },
 
     }); //preenche select2 categoria calendario
+
+    $('#campo-calendario-descricao').select2({
+
+        placeholder: "selecione a categoria",
+        ajax: {
+            url: '/Categoria/ObterTodosCategoriaJson',
+            dataType: 'json'
+        },
+        createTag: function (params) {
+            var term = $.trim(params.term);
+
+            if (term === '') {
+                return null;
+            }
+
+            return {
+                id: term,
+                text: term,
+                newTag: true, // add additional parameters
+            }
+            console.log(term);
+        }
+        //createSearchChoice: function (term, data) {
+        //    if ($(data).filter(function () {
+        //        return this.text.localeCompare(term) === 0;
+        //    }).length === 0) {
+        //        return { id: term, text: term };
+        //        console.log(term);
+        //    }
+        //},
+
+    });//preenche categoria select2 cadastro de gastos no calendario
 
     var events = [];
     var selectedEvent = null;
@@ -115,9 +155,7 @@
                 $("#modal-cadastro-gasto-calendario").modal('show');
             },
             droppable: true, // this allows things to be dropped onto the calendar
-            drop: function (date) {
-                alert(date);
-            },
+
             events: events,
             eventRender: function (event, element) {
                 if (element && event.title) {
@@ -132,6 +170,9 @@
             },
             eventClick: function (event) {
                 selectedEvent = event;
+
+                console.log(event);
+
                 $('#modal-visualizar-evento #title').text(event.title);
                 $('#modal-visualizar-evento #start').text(moment(event.start).format("L LT"));
                 $('#modal-visualizar-evento #end').text(moment(event.end).format("L LT"));
@@ -374,3 +415,5 @@
     }
 
 });
+
+

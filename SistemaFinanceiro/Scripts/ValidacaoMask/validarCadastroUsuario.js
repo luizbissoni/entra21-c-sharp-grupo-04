@@ -97,7 +97,7 @@
         $('[data-toggle="tooltip"], .tooltip').tooltip("hide");
     });
 
-    $validator.addMethod("verificarCPF", function (value, element) {
+    $.validator.addMethod("verificarCPF", function (value, element) {
         value = value.replace('.', '');
         value = value.replace('.', '');
         cpf = value.replace('-', '');
