@@ -41,9 +41,9 @@ namespace SistemaFinanceiro.Controllers
         {
             int id = Convert.ToInt32(Session["user"].ToString());
 
-            List<Object> data = new RepositorioRecebimento().RecebimentoPessoaJsonFormat(id);
+            List<Object> datas = new RepositorioRecebimento().RecebimentoPessoaJsonFormat(id);
 
-            return Content(JsonConvert.SerializeObject(new { data }, Formatting.Indented));
+            return Content(JsonConvert.SerializeObject(new { data = datas }, Formatting.Indented));
         }
 
         public ActionResult GastosCategoria()

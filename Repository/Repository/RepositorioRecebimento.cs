@@ -130,7 +130,7 @@ MONTH(recebimentos.data), YEAR(recebimentos.data) ORDER BY MONTH(recebimentos.da
             {
                 resultado.Add(new
                 {
-                        labels = linha["ano"].ToString(),
+                    labels = linha["ano"].ToString(),
                         datasets = new
                         {
                             label = linha["MES"].ToString(),
