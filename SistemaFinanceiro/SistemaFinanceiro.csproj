@@ -5329,6 +5329,7 @@
     <Content Include="Content\fullcalendar-3.9.0\locale\vi.js" />
     <Content Include="Content\fullcalendar-3.9.0\locale\zh-cn.js" />
     <Content Include="Content\fullcalendar-3.9.0\locale\zh-tw.js" />
+    <Content Include="Scripts\easypiechart.js" />
     <Content Include="Scripts\pt-br.js" />
     <Content Include="Content\fullcalendar-3.9.0\moment.min.js" />
     <Content Include="Content\fullcalendar-3.9.0\moment.js" />

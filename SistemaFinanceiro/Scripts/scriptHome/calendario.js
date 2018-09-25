@@ -45,7 +45,8 @@
     var channel = pusher.subscribe('my-channel');
     channel.bind('cadastroGastos', function (data) {
         var resultado = JSON.stringify(data);
-        $('#calendario').fullCalendar('refetchEvents');
+        preencherFullCalendarGastos();
+        preencherFullCalendarRecebimento();
     });
     //pusher fim
 
@@ -81,6 +82,7 @@
             }
         });
     }
+
     function preencherFullCalendarGastos() {
         events = [];
         $.ajax({

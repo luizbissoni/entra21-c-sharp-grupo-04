@@ -31,7 +31,7 @@
         "ajax": {
             "url": "/Home/TabelaGastos", /*"dataSrc": "data"*/
         },
-        "order": [[1, 'asc']],
+        "order": [[1, "asc"]],
         columns: [{
             "class": "details-control",
             "orderable": false,
@@ -40,8 +40,8 @@
              "bSortable": false,
         },
             { 'data': "cartao.Conta", "bSortable": true, "width": "10%", "target": 1},
-            { 'data': "Categoria.Nome", "bSortable": true, "width": "40%", "target": 2},
-            { 'data': "Valor", "bSortable": true, "width": "30%", "target": 3 },
+            { 'data': "Categoria.Nome", "bSortable": true, "width": "40%", "target": 2 },
+            { 'data': "Valor", "bSortable": false, "width": "30%", "target": 3 },
         ],
 
         columnDefs: [{

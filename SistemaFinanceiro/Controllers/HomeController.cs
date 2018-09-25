@@ -141,9 +141,9 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
         {
             //fazer um vetor para pesquisa por coluna
             string[] colunasNomes = new string[3];
-            colunasNomes[0] = "car.conta";
-            colunasNomes[1] = "categoria";
-            colunasNomes[2] = "gas.descricao";
+            colunasNomes[0] = "car.conta ";
+            colunasNomes[1] = "cat.nome ";
+            colunasNomes[2] = "gas.valor ";
 
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];

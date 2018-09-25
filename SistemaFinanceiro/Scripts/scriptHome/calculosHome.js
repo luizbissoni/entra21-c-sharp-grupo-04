@@ -14,8 +14,8 @@
 
     });
 
-    var channel2 = pusher.subscribe('my-channel');
-    channel2.bind('cadastroGastos', function (data) {
+    var channel6 = pusher.subscribe('my-channel');
+    channel6.bind('cadastroGastos', function (data) {
         var resultado = JSON.stringify(data);
         graficosGastos();
 
@@ -29,15 +29,14 @@
             async: true,
             success: function (resultado) {
                 var result = JSON.parse(resultado);
-                //console.log(result)
                 var gastos = result.gastos;
                 var recebidos = result.recebidos;
 
                 $('#total-gastos').text('R$' + gastos.valor);
                 $('.saldo-recebido').text('R$' + recebidos.valor);
 
-                $('.porcentoCarteira').data('easyPieChart').update(recebidos.percentual);
-                $('.porcentoGasto').data('easyPieChart').update(gastos.percentual);
+                $('.porcentoCarteira').data('easyPieChart').update(parseFloat(recebidos.percentual));
+                $('.porcentoGasto').data('easyPieChart').update(parseFloat(gastos.percentual));
             }
         });
     }
