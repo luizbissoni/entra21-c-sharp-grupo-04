@@ -18,17 +18,20 @@ namespace SistemaFinanceiro.Controllers
             List<Categoria> categorias = new RepositorioCategoria().ObterTodosCategoria();
             return View();
         }
+
         [HttpGet]
         public ActionResult Cadastro()
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Store(Categoria categoria)
         {
             int identificador = new RepositorioCategoria().CadastrarCategoria(categoria);
             return View();
         }
+
         [HttpGet]
         public ActionResult Excluir(int id)
         {
@@ -36,12 +39,14 @@ namespace SistemaFinanceiro.Controllers
 
             return null;
         }
+
         [HttpGet]
         public ActionResult Editar(int id)
         {
             Categoria categoria = new RepositorioCategoria().ObterPeloIdCategoria(id);
             return Content(JsonConvert.SerializeObject(categoria));
         }
+
         [HttpPost]
         public ActionResult Update(Categoria categoria)
         {
@@ -57,9 +62,8 @@ namespace SistemaFinanceiro.Controllers
             return Content(JsonConvert.SerializeObject(new { results = categorias }, Formatting.Indented));
         }
 
-
         [HttpPost]
-        public ActionResult CadastroModalCategoria(Categoria categoria)
+        public ActionResult CadastroCategoria(Categoria categoria)
         {
             int id = new RepositorioCategoria().CadastrarCategoria(categoria);
             return Content(JsonConvert.SerializeObject(new { id }));

@@ -31,29 +31,6 @@
             url: '/Categoria/ObterTodosCategoriaJson',
             dataType: 'json'
         },
-        createTag: function (params) {
-            var term = $.trim(params.term);
-
-            if (term === '') {
-                return null;
-            }
-
-            return {
-                id: term,
-                text: term,
-                newTag: true, // add additional parameters
-            }
-            console.log(term);
-        }
-        //createSearchChoice: function (term, data) {
-        //    if ($(data).filter(function () {
-        //        return this.text.localeCompare(term) === 0;
-        //    }).length === 0) {
-        //        return { id: term, text: term };
-        //        console.log(term);
-        //    }
-        //},
-
     });//preenche categoria select2 cadastro de gastos no calendario
 
     var events = [];
@@ -403,6 +380,34 @@
         limparCampos();
     });
 
+
+
+    document.querySelector('.alert-prompt').onclick = function () {
+        swal({
+            title: "Adicionar nova categoria",
+            type: "input",
+            showCancelButton: true,
+            closeOnConfirm: false,
+            inputPlaceholder: "Nova categoria"
+        }, function (inputValue) {
+            if (inputValue === false) return false;
+            if (inputValue === "") {
+                swal.showInputError("Adicione alguma categoria!");
+                return false
+            }
+            swal("Pronto!", "A categoria: " + inputValue + " foi adicionada com sucesso", "success");
+            $.ajax({
+                url: '/Categoria/CadastroCategoria',
+                method: 'POST',
+                data: {
+                    nome: inputValue
+                },
+                error: function () {
+                    alert("Erro!");
+                }
+            });
+        });
+    };
 
 
     function limparCampos() {

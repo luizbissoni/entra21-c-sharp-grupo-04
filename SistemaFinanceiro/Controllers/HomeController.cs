@@ -140,6 +140,10 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
         public ActionResult TabelaGastos()
         {
             //fazer um vetor para pesquisa por coluna
+            string[] colunasNomes = new string[3];
+            colunasNomes[0] = "car.conta";
+            colunasNomes[1] = "categoria";
+            colunasNomes[2] = "gas.descricao";
 
             string start = Request.QueryString["start"];
             string length = Request.QueryString["length"];
@@ -147,7 +151,7 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
             string search = '%' + Request.QueryString["search[value]"] + '%';
             string orderColumn = Request.QueryString["order[0][column]"];
             string orderDir = Request.QueryString["order[0][dir]"];
-            orderColumn = orderColumn == "1" ? "car.conta" : "cat.nome";
+            orderColumn = colunasNomes[Convert.ToInt32(orderColumn)];
 
             int id = Convert.ToInt32(Session["user"].ToString());
 

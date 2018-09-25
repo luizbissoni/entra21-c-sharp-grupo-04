@@ -6,7 +6,7 @@
     List<SistemaFinanceiro.Models.Cartoes> allCard = new List<SistemaFinanceiro.Models.Cartoes>();
 }
 
-<div class="modal fade" id="modal-cadastro-gasto-calendario" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade show" id="modal-cadastro-gasto-calendario" role="dialog" style="z-index: 1050; display: none;" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -65,6 +65,7 @@
                 
 
                 <div class="modal-footer">
+                    <a href="#" type="button" class="btn btn-success alert-prompt" onclick="_gaq.push(['_trackEvent', 'example', 'try', 'alert-prompt']);" >Nova categoria</a>
                     <button type="button" class="btn btn-primary" id="salvar-gastos-calendario">Salvar</button>
                 </div>
 

@@ -59,4 +59,30 @@
         $('#campo-descricao-recebimento').val('');
     };
 
+    //document.querySelector('.categoria-recebimento').onclick = function () {
+    //    swal({
+    //        title: "Adicionar nova categoria",
+    //        type: "input",
+    //        showCancelButton: true,
+    //        closeOnConfirm: false,
+    //        inputPlaceholder: "Nova categoria"
+    //    }, function (inputValue) {
+    //        if (inputValue === false) return false;
+    //        if (inputValue === "") {
+    //            swal.showInputError("Adicione alguma categoria!");
+    //            return false
+    //        }
+    //        swal("Pronto!", "A categoria: " + inputValue + " foi adicionada com sucesso", "success");
+    //        $.ajax({
+    //            url: '/Categoria/CadastroCategoria',
+    //            method: 'POST',
+    //            data: {
+    //                nome: inputValue
+    //            },
+    //            error: function () {
+    //                alert("Erro!");
+    //            }
+    //        });
+    //    });
+    //};
 });
