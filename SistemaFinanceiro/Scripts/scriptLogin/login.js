@@ -5,7 +5,7 @@ $(document).ready(function () {
 
 
     $("#botao-login").on('click', function () {
-        if ($('#validarLogin').valid()) {
+        //if ($('#validarLogin').valid()) {
             $.ajax({
                 url: "/Login/GetLoginJson",
                 type: "POST",
@@ -27,9 +27,9 @@ $(document).ready(function () {
                             },
                         });
                     } else {
-                        //$('#modalErro').modal('show');
-                        alert("Usuário ou senha Invalido.");
 
+                        swal("", "Usuário ou senha Invalido.", "error");
+                      
                         $("#campo-usuario").change(function () {
                             elem = $(this);
                             elem.css("border", "1px solid red");
@@ -48,10 +48,6 @@ $(document).ready(function () {
                                 1000);
 
                         }).trigger("change");
-
-
-
-
                     }
 
                 },
@@ -59,7 +55,7 @@ $(document).ready(function () {
                     alert("Error!");
                 }
             });
-        }
+        //}
     });
 
     $('#campo-senha').on('keypress', function (e) {

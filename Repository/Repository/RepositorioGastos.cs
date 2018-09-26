@@ -12,8 +12,9 @@ namespace SistemaFinanceiro.Repositório
     public class RepositorioGastos
     {
 
-        public int CadastrarGastos(Gastos gastos)
+        public int CadastrarGastos(Gastos gastos, int idPessoa)
         {
+            //(select cartoes.id_pessoas from cartoes where cartoes.Id = @ID)
             //(select gastos.valor from gastos) end)
             SqlCommand comando = new DBconnection().GetConnction();
             comando.CommandText = @"INSERT INTO gastos (id_cartao, id_categoria, valor, entrada, vencimento, descricao) OUTPUT INSERTED.ID VALUES (@IDCARTAO, @IDCATEGORIA, @VALOR, @ENTRADA, @VENCIMENTO, @DESCRICAO)
@@ -137,12 +138,13 @@ namespace SistemaFinanceiro.Repositório
 
             foreach (DataRow line in tabela.Rows)
             {
-                Gastos gasto = new Gastos() {
+                Gastos gasto = new Gastos()
+                {
                     Id = Convert.ToInt32(line["Id"].ToString()),
                     IdCategoria = Convert.ToInt32(line["id_categoria"].ToString()),
                     Descricao = line["descricao"].ToString(),
                     Entrada = Convert.ToDateTime(line["entrada"].ToString()),
-                    Vencimento =  Convert.ToDateTime(line["vencimento"].ToString()),
+                    Vencimento = Convert.ToDateTime(line["vencimento"].ToString()),
                     Valor = Convert.ToDouble(line["valor"].ToString()),
                     cartao = new Cartoes()
                     {
@@ -175,7 +177,7 @@ namespace SistemaFinanceiro.Repositório
         public int ContabilizarGastos()
         {
             SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"SELECT COUNT(id) FROM gastos";
+            comando.CommandText = @"SELECT COUNT(id) FROM gastos ";
             return Convert.ToInt32(comando.ExecuteScalar().ToString());
         }
 
@@ -187,7 +189,7 @@ namespace SistemaFinanceiro.Repositório
                                         INNER JOIN categorias ON categorias.Id = gastos.id_categoria 
                                         INNER JOIN cartoes ON cartoes.Id = gastos.id_cartao 
                                         INNER JOIN pessoas ON pessoas.Id = cartoes.id_pessoas WHERE pessoas.Id = @ID";
-          comando.Parameters.AddWithValue("@ID", id);
+            comando.Parameters.AddWithValue("@ID", id);
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             foreach (DataRow linha in tabela.Rows)
@@ -204,10 +206,37 @@ namespace SistemaFinanceiro.Repositório
 
                 });
             }
-                return gastos;
+            return gastos;
+        }
+
+        public List<Object> GraficoGastosMensais(int id)
+        {
+            List<Object> resultado = new List<Object>();
+            SqlCommand comando = new DBconnection().GetConnction();
+            comando.CommandText = @"SET LANGUAGE português SELECT SUM(gt.valor) AS 'VALOR', DATENAME(MONTH, gt.entrada) AS 'MES', YEAR(gt.entrada) as 'ano' FROM gastos gt
+                                INNER JOIN pessoas pes ON pes.Id = @ID 
+                                GROUP BY DATENAME(MONTH, gt.entrada),MONTH(gt.entrada), YEAR(gt.entrada) ORDER BY MONTH(gt.entrada)";
+            comando.Parameters.AddWithValue("@ID", id);
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+
+            foreach (DataRow linha in tabela.Rows)
+            {
+                resultado.Add(new
+                {
+                    labels = linha["ano"].ToString(),
+                    datasets = new
+                    {
+                        label = linha["MES"].ToString(),
+                        data = Convert.ToDouble(linha["VALOR"].ToString())
+                    }
+                });
+            }
+            return resultado;
         }
     }
 }
+
 
 
 

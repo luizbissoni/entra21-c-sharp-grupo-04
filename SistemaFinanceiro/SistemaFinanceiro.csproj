@@ -2907,6 +2907,8 @@
     <Content Include="Content\assets\pages\ckeditor\plugins\embedbase\lang\zh-cn.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\embedbase\lang\zh.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\embedbase\plugin.js" />
+    <Content Include="Content\assets\pages\ckeditor\plugins\embedsemantic\icons\embedsemantic.png" />
+    <Content Include="Content\assets\pages\ckeditor\plugins\embedsemantic\icons\hidpi\embedsemantic.png" />
     <Content Include="Content\assets\pages\ckeditor\plugins\embedsemantic\plugin.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\filetools\dev\uploaddebugger.js" />
     <Content Include="Content\assets\pages\ckeditor\plugins\filetools\lang\ca.js" />
@@ -5243,6 +5245,39 @@
     <Content Include="Content\bower_components\typeahead.js\js\typeahead.bundle.min.js" />
     <Content Include="Content\bower_components\underscore\js\underscore-min.js" />
     <Content Include="Content\bower_components\underscore\js\underscore.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.bootstrap.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.bootstrap.min.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.bootstrap4.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.bootstrap4.min.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.foundation.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.foundation.min.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.jqueryui.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.jqueryui.min.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.semanticui.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\dataTables.semanticui.min.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\jquery.dataTables.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\css\jquery.dataTables.min.css" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\images\sort_asc.png" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\images\sort_asc_disabled.png" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\images\sort_both.png" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\images\sort_desc.png" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\images\sort_desc_disabled.png" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.bootstrap.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.bootstrap.min.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.bootstrap4.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.bootstrap4.min.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.foundation.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.foundation.min.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.jqueryui.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.jqueryui.min.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.semanticui.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\dataTables.semanticui.min.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\jquery.dataTables.js" />
+    <Content Include="Content\DataTable.Net\DataTables-1.10.18\js\jquery.dataTables.min.js" />
+    <Content Include="Content\DataTable.Net\datatables.css" />
+    <Content Include="Content\DataTable.Net\datatables.js" />
+    <Content Include="Content\DataTable.Net\datatables.min.css" />
+    <Content Include="Content\DataTable.Net\datatables.min.js" />
     <Content Include="Content\fullcalendar-3.9.0\CHANGELOG.txt" />
     <Content Include="Content\fullcalendar-3.9.0\CONTRIBUTING.txt" />
     <Content Include="Content\fullcalendar-3.9.0\fullcalendar.css" />
@@ -5329,6 +5364,7 @@
     <Content Include="Content\fullcalendar-3.9.0\locale\vi.js" />
     <Content Include="Content\fullcalendar-3.9.0\locale\zh-cn.js" />
     <Content Include="Content\fullcalendar-3.9.0\locale\zh-tw.js" />
+    <Content Include="Content\pusher.min.js" />
     <Content Include="Scripts\easypiechart.js" />
     <Content Include="Scripts\pt-br.js" />
     <Content Include="Content\fullcalendar-3.9.0\moment.min.js" />
@@ -5642,9 +5678,11 @@
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP1.pubxml" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP2.pubxml" />
+    <None Include="Properties\PublishProfiles\MySistemaFinanceiro - FTP3.pubxml" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy1.pubxml" />
     <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy2.pubxml" />
+    <None Include="Properties\PublishProfiles\MySistemaFinanceiro - Web Deploy3.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery-2.1.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -5744,7 +5782,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\assets\pages\ckeditor\plugins\embedsemantic\icons\hidpi\" />
     <Folder Include="Content\assets\pages\ckeditor\samples\toolbarconfigurator\lib\" />
     <Folder Include="Content\assets\pages\j-pro\form_files\" />
     <Folder Include="Views\Categoria\" />

@@ -45,6 +45,14 @@ namespace SistemaFinanceiro.Controllers
 
             return Content(JsonConvert.SerializeObject(new { data = datas }, Formatting.Indented));
         }
+        [HttpGet]
+        public ActionResult GastosPessoaGrafico()
+        {
+            int id = Convert.ToInt32(Session["user"].ToString());
+            List<Object> datas = new RepositorioGastos().GraficoGastosMensais(id);
+
+            return Content(JsonConvert.SerializeObject(new { data = datas }, Formatting.Indented));
+        }
 
         public ActionResult GastosCategoria()
         {
@@ -79,47 +87,57 @@ INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @I
 
         public ActionResult TotalGastoERecebido()
         {
-            int id = Convert.ToInt32(Session["user"].ToString());
+            try
+            {
+                int id = Convert.ToInt32(Session["user"].ToString());
 
-            SqlCommand comando = new DBconnection().GetConnction();
-            comando.CommandText = @"SELECT SUM(gastos.valor) AS 'totalGasto', pessoas.Id, cartoes.id_pessoas FROM gastos inner join pessoas 
+                SqlCommand comando = new DBconnection().GetConnction();
+                comando.CommandText = @"SELECT SUM(gastos.valor) AS 'totalGasto', pessoas.Id, cartoes.id_pessoas FROM gastos inner join pessoas 
 on pessoas.Id = @ID inner join cartoes on cartoes.id_pessoas = pessoas.Id group by pessoas.id, cartoes.id_pessoas";
-            comando.Parameters.AddWithValue("@ID", id);
-            DataTable tabelaGasto = new DataTable();
-            tabelaGasto.Load(comando.ExecuteReader());
+                comando.Parameters.AddWithValue("@ID", id);
+                DataTable tabelaGasto = new DataTable();
+                tabelaGasto.Load(comando.ExecuteReader());
 
-            comando.CommandText = @"SELECT SUM(recebimentos.valor) AS 'totalRecebido', pessoas.nome FROM recebimentos 
+                comando.CommandText = @"SELECT SUM(recebimentos.valor) AS 'totalRecebido', pessoas.nome FROM recebimentos 
 INNER JOIN pessoas ON recebimentos.id_pessoas = pessoas.Id WHERE pessoas.Id = @ID GROUP BY pessoas.nome";
-            DataTable tabelaRecebido = new DataTable();
-            tabelaRecebido.Load(comando.ExecuteReader());
+                DataTable tabelaRecebido = new DataTable();
+                tabelaRecebido.Load(comando.ExecuteReader());
 
-            double valorRecebido = 0, valorGasto = 0, porcentagemGasto = 0, porcentagemCarteira = 0;
-            if (tabelaRecebido.Rows.Count == 1)
-            {
-                valorRecebido = Convert.ToDouble(tabelaRecebido.Rows[0]["totalRecebido"].ToString());
-                valorGasto = Convert.ToDouble(tabelaGasto.Rows[0]["totalGasto"].ToString());
-            }
-            if (tabelaGasto.Rows.Count == 1)
-            {
-                porcentagemGasto = ((valorRecebido - valorGasto) / valorRecebido) * 100;
-                porcentagemCarteira = ((valorRecebido - valorGasto) / valorRecebido) * 100;
-            }
-
-
-            return Content(JsonConvert.SerializeObject(new
-            {
-                gastos = new
+                double valorRecebido = 0, valorGasto = 0, porcentagemGasto = 0, porcentagemCarteira = 0;
+                if (tabelaRecebido.Rows.Count == 1)
                 {
-                    valor = valorGasto,
-                    percentual = porcentagemGasto
-                },
-                recebidos = new
-                {
-                    valor = valorRecebido,
-                    percentual = porcentagemCarteira
+                    valorRecebido = Convert.ToDouble(tabelaRecebido.Rows[0]["totalRecebido"].ToString());
+                    valorGasto = Convert.ToDouble(tabelaGasto.Rows[0]["totalGasto"].ToString());
                 }
-            }));
+                if (tabelaGasto.Rows.Count == 1)
+                {
+                    porcentagemGasto = (valorRecebido - (valorRecebido - valorGasto)) * 100 / valorRecebido; 
 
+                    porcentagemCarteira = (valorRecebido - valorGasto) / valorRecebido * 100;
+
+
+                }
+
+
+                return Content(JsonConvert.SerializeObject(new
+                {
+                    gastos = new
+                    {
+                        valor = valorGasto,
+                        percentual = porcentagemGasto
+                    },
+                    recebidos = new
+                    {
+                        valor = valorRecebido,
+                        percentual = porcentagemCarteira
+                    }
+                }));
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public ActionResult SetorMaiorGasto()

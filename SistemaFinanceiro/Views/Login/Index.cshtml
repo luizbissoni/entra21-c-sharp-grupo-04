@@ -6,12 +6,7 @@
 
 <head>
     <title>My Finances </title>
-    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 10]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
+
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
@@ -20,22 +15,18 @@
     <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
     <meta name="author" content="#">
     <!-- Favicon icon -->
-
     <link rel="icon" href="~/Content/assets/images/favicon.ico" type="image/x-icon">
-    <!-- Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
     <link rel="stylesheet" type="text/css" href="~/Content/bower_components/bootstrap/css/bootstrap.min.css">
     <!-- themify-icons line icon -->
-
     <link rel="stylesheet" type="text/css" href="~/Content/assets/icon/themify-icons/themify-icons.css">
-    <!-- ico font -->
-    <link rel="stylesheet" type="text/css" href="~/Content/assets/icon/icofont/css/icofont.css">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style.css">
 
     <link href="~/Scripts/jquery.qtip.css" rel="stylesheet" />
     <link href="~/Scripts/scriptLogin/centerModalError.css" rel="stylesheet" />
+
+    <link href="~/Content/bower_components/sweetalert/css/sweetalert.css" rel="stylesheet" />
 
 
 
@@ -79,11 +70,11 @@
                                 </div>
                                 <hr />
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Usuário" id="campo-usuario" autofocus="autofocus" value="senhanova">
+                                    <input type="text" class="form-control" placeholder="Usuário" id="campo-usuario" autofocus="autofocus">
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="input-group">
-                                    <input type="password" class="form-control" placeholder="Senha" id="campo-senha" value="123">
+                                    <input type="password" class="form-control" placeholder="Senha" id="campo-senha">
                                     <span class="md-line"></span>
                                 </div>
                                 <div class="row m-t-25 text-left">
@@ -131,15 +122,10 @@
     <script type="text/javascript" src="~/Content/bower_components/bootstrap/js/bootstrap.min.js"></script>
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="~/Content/bower_components/jquery-slimscroll/js/jquery.slimscroll.js"></script>
-    <!-- modernizr js -->
-    <script type="text/javascript" src="~/Content/bower_components/modernizr/js/modernizr.js"></script>
-    <script type="text/javascript" src="~/Content/bower_components/modernizr/js/css-scrollbars.js"></script>
+   
     <!-- i18next.min.js -->
-    <script type="text/javascript" src="~/Content/bower_components/i18next/js/i18next.min.js"></script>
-    <script type="text/javascript" src="~/Content/bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
-    <script type="text/javascript" src="~/Content/bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
-    <script type="text/javascript" src="~/Content/bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/common-pages.js"></script>
+
     <!--Criptografia-->
     <script src="~/Scripts/sha512.min.js"></script>
 
@@ -152,6 +138,8 @@
 
     <script src="~/Content/bower_components/jquery-validation/js/jquery.validate.js"></script>
     <script src="~/Scripts/ValidacaoMask/jquery-validate.bootstrap-tooltip.min.js"></script>
+
+    <script src="~/Content/bower_components/sweetalert/js/sweetalert.min.js"></script>
 
     @Html.Partial("~/Views/Login/CadastroModalConta.cshtml")
     @Html.Partial("~/Views/Login/ModalErroLogin.cshtml")

@@ -1,12 +1,10 @@
 ﻿$(document).ready(function () {
-    var data = [], labels = [], label = [];
+
     var arrayLabels = [];
-    var arrayDataSets = [];
     var arrayData = [];
     var arrayLabel = [];
-    var backgroundColor = [];
 
-    var chartGraph;
+ 
     Pusher.logToConsole = false;
 
     var pusher = new Pusher('3d2e47e4a257a668b2cc', {
@@ -26,14 +24,12 @@
 
     preencherGraficosRecebimento();
 
+   
+
     function preencherGraficosRecebimento() {
-        data = [];
         arrayLabels = [];
-        arrayDataSets = [];
         arrayData = [];
         arrayLabel = [];
-        arraybackgroundColor = [];
-        borderColor = [];
 
         $.ajax({
             url: '/Home/RecebimentoPessoaJsonGrafico',
@@ -56,34 +52,21 @@
     var ctx = document.getElementById('myChart');
 
     function generationChartRecebimentos(arrayLabels, arrayData, arrayLabel) {
-        console.log(arrayData);
-        chartGraph = new Chart(ctx, {
+        var chartGraph = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: arrayLabel,
                 datasets: [{
-                    label: arrayLabels,
+                    label: "Recebimento mensal",
                     data: arrayData,
                     borderWidth: 4,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
                     background: 'transparent',
                 }],
+               
             },
+
             options: {
                 animation: {
                     animateScale: true
@@ -92,19 +75,7 @@
         });
     }
 
-    //chartGraph.destroy();
-
-    //chartGraph = new Chart(ctx, {
-    //    type: 'line',
-    //    data: data,
-    //    options: {
-    //        animation: {
-    //            animateScale: true
-    //        }
-    //    }
-    //});
-
-
+   
 
 });
 

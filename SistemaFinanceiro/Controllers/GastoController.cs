@@ -32,17 +32,17 @@ namespace SistemaFinanceiro.Controllers
             return View();
         }
 
-        [HttpPost]
-          public ActionResult Store(Gastos gastos)
-        {
-            if (ModelState.IsValid)
-            {
-            int identificador = new RepositorioGastos().CadastrarGastos(gastos);
+        //[HttpPost]
+        //  public ActionResult Store(Gastos gastos)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //    int identificador = new RepositorioGastos().CadastrarGastos(gastos);
 
-            return RedirectToAction("Editar", new { id = identificador });
-            }
-            return View("Cadastro");
-        }
+        //    return RedirectToAction("Editar", new { id = identificador });
+        //    }
+        //    return View("Cadastro");
+        //}
 
         [HttpGet]
         public ActionResult ExcluirGastos(int id)
@@ -68,8 +68,10 @@ namespace SistemaFinanceiro.Controllers
         [HttpPost]
         public ActionResult CadastroModalGastos(Gastos gastos)
         {
-            int id = new RepositorioGastos().CadastrarGastos(gastos);
-            return Content(JsonConvert.SerializeObject(new { id = id }));
+            int id = Convert.ToInt32(Session["user"].ToString());
+
+            int ids = new RepositorioGastos().CadastrarGastos(gastos, id);
+            return Content(JsonConvert.SerializeObject(new { id = ids }));
         }
     
     }

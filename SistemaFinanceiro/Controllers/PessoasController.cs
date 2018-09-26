@@ -135,7 +135,7 @@ namespace SistemaFinanceiro.Controllers
         {
             int id = Convert.ToInt32(Session["user"].ToString());
 
-            int deuCerto = new RepositorioGastos().CadastrarGastos(gasto);
+            int deuCerto = new RepositorioGastos().CadastrarGastos(gasto, id);
 
 
             var options = new PusherOptions
