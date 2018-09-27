@@ -38,7 +38,8 @@
                 },
                 'Cep': {
                     validacep: true,
-                    required: true
+                    required: true,
+                    number: true
                 },
                 'email': {
                     email: true,
@@ -53,7 +54,7 @@
                 },
                 'repeatinputPassword': {
                     required: true,
-                    equalTo:"#inputPassword"
+                    equalTo:"passwordInput"
                 }
             },
             messages: {
@@ -73,6 +74,7 @@
                 },
                 'Cep': {
                     required: "Este campo é requerido.",
+                    number: "Somente números"
                 },
                 'emailInput': {
                     email: true,
