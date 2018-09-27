@@ -18,8 +18,6 @@ namespace SistemaFinanceiro.Models
 
         public double Valor { get; set; }
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
         public DateTime Entrada { get; set; }
 
         public DateTime Vencimento { get; set; }

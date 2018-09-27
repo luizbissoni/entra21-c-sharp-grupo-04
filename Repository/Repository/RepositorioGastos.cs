@@ -97,8 +97,6 @@ namespace SistemaFinanceiro.Repositório
                     Id = Convert.ToInt32(tabela.Rows[0]["id_categoria"].ToString()),
                     Nome = tabela.Rows[0]["nome"].ToString()
                 };
-
-
             }
 
 
