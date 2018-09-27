@@ -1,7 +1,6 @@
 ﻿$(document).ready(function () {
     var labels = [], data = [];
     var myRadarChart;
-    var mychartClear;
 
     Pusher.logToConsole = false;
 
@@ -16,6 +15,11 @@
     });
     var channel2 = pusher.subscribe('my-channel');
     channel2.bind('cadastroGastos', function (data) {
+        var resultado = JSON.stringify(data);
+        preencherGraficosGastos();
+    });
+    var channel3 = pusher.subscribe('my-channel');
+    channel3.bind('ExcluiGastos', function (data) {
         var resultado = JSON.stringify(data);
         preencherGraficosGastos();
     });

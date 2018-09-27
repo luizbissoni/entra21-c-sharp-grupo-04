@@ -127,7 +127,7 @@ namespace SistemaFinanceiro.Repositório
                                         INNER JOIN cartoes car ON car.Id = gas.id_cartao
                                         INNER JOIN pessoas pes ON pes.Id = car.id_pessoas WHERE pes.Id = @ID
                                         AND ((car.conta LIKE @SEARCH) OR (cat.nome LIKE @SEARCH) OR (gas.valor LIKE @SEARCH))
-                                        ORDER BY " + orderColumn + " " + orderDir + " OFFSET " + start + " ROWS FETCH NEXT " + length + " ROWS ONLY";
+                                        ORDER BY " + orderColumn + "";
 
             comando.Parameters.AddWithValue("@SEARCH", search);
             comando.Parameters.AddWithValue("@ID", id);

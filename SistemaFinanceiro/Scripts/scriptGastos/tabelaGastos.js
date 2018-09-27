@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-
+ 
     function getSessionValue() {
         return document.getElementById("id-pessoa-gastos").value;
     }

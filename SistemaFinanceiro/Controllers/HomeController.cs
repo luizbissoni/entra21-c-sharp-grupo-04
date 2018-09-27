@@ -190,9 +190,26 @@ on categorias.Id = gastos.id_categoria inner join cartoes on cartoes.id_pessoas 
         }
 
         [HttpGet]
-        public ActionResult ExcluirGastos(int id)
+        public async Task<ActionResult> ExcluirGastos(int id)
         {
             bool apagado = new RepositorioGastos().ExcluirGastos(id);
+
+            var options = new PusherOptions
+            {
+                Cluster = "us2",
+                Encrypted = true
+            };
+
+            var pusher = new Pusher(
+              "604342",
+              "3d2e47e4a257a668b2cc",
+              "65922eb9b246a4faa9a5",
+              options);
+
+            var result = await pusher.TriggerAsync(
+              "my-channel",
+              "ExcluiGastos",
+              new { message = "hello world" });
 
             return Content(JsonConvert.SerializeObject(new { apagado }));
         }

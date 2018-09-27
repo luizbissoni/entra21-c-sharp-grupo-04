@@ -3,14 +3,19 @@
    
     //mask do modal editar da tabela
     $('#editar-valor').maskMoney();
+
     //mask modal cadastro recebimento
     $('#campo-recebimento-valor').maskMoney();
+
+   //mask modal cadastro gastos calendario
+    $('#campo-calendario-valor').maskMoney();
 
     //mask valor gasto cadastro
     $('#campo-valor').maskMoney();
 
     //mask valor total gasto grafico topo
     $('#total-gastos').maskMoney();
+    $('.saldo-recebido').maskMoney();
 
     //mask cpf
     $('.cpf').mask('000.000.000-00', { reverse: true });

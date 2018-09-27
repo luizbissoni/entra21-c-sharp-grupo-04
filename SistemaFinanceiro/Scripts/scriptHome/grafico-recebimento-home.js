@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-
+    var chartGraph;
     var arrayLabels = [];
     var arrayData = [];
     var arrayLabel = [];
@@ -52,7 +52,7 @@
     var ctx = document.getElementById('myChart');
 
     function generationChartRecebimentos(arrayLabels, arrayData, arrayLabel) {
-        var chartGraph = new Chart(ctx, {
+         chartGraph = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: arrayLabel,
@@ -66,13 +66,36 @@
                 }],
                
             },
-
             options: {
                 animation: {
                     animateScale: true
                 }
             }
         });
+
+        chartGraph.destroy();
+
+        chartGraph = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: arrayLabel,
+                datasets: [{
+                    label: "Recebimento mensal",
+                    data: arrayData,
+                    borderWidth: 4,
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255,99,132,1)',
+                    background: 'transparent',
+                }],
+
+            },
+            options: {
+                animation: {
+                    animateScale: true
+                }
+            }
+        });
+
     }
 
    

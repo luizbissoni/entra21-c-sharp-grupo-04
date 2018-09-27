@@ -11,15 +11,18 @@
     channel.bind('cadastroRecebimento', function (data) {
         var resultado = JSON.stringify(data);
         graficosGastos();
-
     });
-
     var channel6 = pusher.subscribe('my-channel');
     channel6.bind('cadastroGastos', function (data) {
         var resultado = JSON.stringify(data);
         graficosGastos();
-
     });
+    var channel5 = pusher.subscribe('my-channel');
+    channel5.bind('ExcluiGastos', function (data) {
+        var resultado = JSON.stringify(data);
+        graficosGastos();
+    });
+
     graficosGastos();
 
     function graficosGastos() {
@@ -32,8 +35,8 @@
                 var gastos = result.gastos;
                 var recebidos = result.recebidos;
 
-                $('#total-gastos').text('R$' + gastos.valor);
-                $('.saldo-recebido').text('R$' + recebidos.valor);
+                $('#total-gastos').text('R$' + gastos.valor).maskMoney();
+                $('.saldo-recebido').text('R$' + recebidos.valor).maskMoney();
 
                 $('.porcentoCarteira').data('easyPieChart').update(parseFloat(recebidos.percentual));
                 $('.porcentoGasto').data('easyPieChart').update(parseFloat(gastos.percentual));
