@@ -61,12 +61,7 @@ namespace SistemaFinanceiro.Controllers
         {
             bool alterado = new RepositorioPessoas().AlterarPessoas(pessoa);
 
-            if (alterado)
-            {
-                return RedirectToAction("Index");
-            }
-
-            return null;
+            return Content(JsonConvert.SerializeObject(new { alterado })); 
         }
 
         [HttpGet]

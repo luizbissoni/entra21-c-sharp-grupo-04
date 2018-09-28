@@ -1,12 +1,12 @@
 ﻿$(function () {
-    var sexos;
+    //var sexos;
 
-    if ($('input[name="Sexo-feminino"]:checked').val()) {
-        sexos = 'F';
-    } else {
-        sexos = 'M';
-    }
-
+    //if ($('input[name="Sexo-feminino"]:checked').val()) {
+    //    sexos = 'F';
+    //} else {
+    //    sexos = 'M';
+    //}
+    
     $('body').on('click', '#salvar-cadastro-conta', function () {
         if ($('#form-cadastro-pessoa').valid()) {
             $.ajax({
@@ -15,7 +15,7 @@
                 data: {
                     nome: $('#cadastro-nome').val(),
                     nascimento: $('#cadastro-nascimento').val(),
-                    sexo: sexos,
+                    sexo: ($('#cadastro-sexo-masculino').is(':checked')) ? $('#cadastro-sexo-masculino').val() : 'F',
                     cpf: $('#cadastro-cpf').val(),
                     telefone: $('#cadastro-telefone').val(),
                     cep: $('#cadastro-cep').val(),

@@ -1,5 +1,9 @@
 ﻿$(document).ready(function () {
 
+    function getSessionValue() {
+        return document.getElementById("id-editar-pessoa").value;
+    }
+
 
     //editar do index pessoa
     $('.editar-pessoa').on('click', function () {
@@ -29,21 +33,33 @@
 
     $('body').on('click', '#salvar-cadastro-modal', function () {
 
+        var sexos = ($('#editar-pessoa-modal-campo-sexo-masculino').is(':checked')) ? $('#editar-pessoa-modal-campo-sexo-masculino').val() : 'F';
         $.ajax({
             url: '/Pessoas/Update',
             method: 'POST',
             data: {
+                Id: getSessionValue(),
                 nome: $('#editar-pessoa-modal-campo-nome').val(),
                 nascimento: $('#editar-pessoa-modal-campo-nascimento').val(),
-                sexo: $('input[name="sexo-masculino"]:checked').val(),
+                sexo: sexos,
                 cpf: $('#editar-pessoa-modal-campo-cpf').val(),
                 telefone: $('#editar-pessoa-modal-campo-telefone').val(),
                 cep: $('#editar-pessoa-modal-campo-cep').val(),
-                
-                
             },
             success: function (data) {
+                console.log(data);
                 $('#editar-pessoa-modal').modal('hide');
+                new PNotify({
+                    text: 'Alterado com sucesso.',
+                    type: 'success'
+                });
+            },
+             error: function () {
+                new PNotify({
+                    text: 'Algo deu errado.',
+                    icon: 'icofont icofont-info-circle',
+                    type: 'error'
+                });
             }
         });
     });

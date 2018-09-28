@@ -1,5 +1,8 @@
-﻿@{
-    Layout = null;
+﻿@model SistemaFinanceiro.Models.Cartoes
+
+@{
+    int pessoa = Convert.ToInt32(Session["user"]);
+
 }
 
 
@@ -13,6 +16,7 @@
                 </button>
             </div>
             <div class="modal-body">
+                <input type="hidden" value="@pessoa" id="id-editar-pessoa" />
                 <div class="form-group">
                     <h4>Informações pessoais</h4>
                     <hr>
@@ -30,7 +34,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
 
                     <div class="row">
                         <div class="col-md-5">
@@ -49,16 +53,16 @@
                     </div>
 
                     <div class="row">
-                        <label class="col-md-1 control-label" for="radios">Sexo</label>
+                        <label class="col-md-1 control-label" for="sexo">Sexo</label>
                         <div class="col-md-4">
                             <div class="input-group">
                                 <label required="" class="radio-inline" for="editar-pessoa-modal-campo-sexo-feminino">
-                                    <input name="Sexo-feminino" id="editar-pessoa-modal-campo-sexo-feminino" value="F" type="radio">
+                                    <input name="sexo" id="editar-pessoa-modal-campo-sexo-feminino" value="F" type="radio">
                                     Feminino
                                 </label>
 
                                 <label class="radio-inline" for="editar-pessoa-modal-campo-sexo-masculino">
-                                    <input name="sexo-masculino" id="editar-pessoa-modal-campo-sexo-masculino" value="M" type="radio">
+                                    <input name="sexo" id="editar-pessoa-modal-campo-sexo-masculino" value="M" type="radio">
                                     Masculino
                                 </label>
                             </div>
@@ -76,9 +80,9 @@
                         </div>
 
                         @*<div class="col-md-2">
-                                <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
+                    <button type="button" class="btn btn-primary" onclick="pesquisacep(cep.value)">Pesquisar</button>
 
-                            </div>*@
+                </div>*@
                     </div>
 
 
