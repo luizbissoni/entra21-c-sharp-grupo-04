@@ -150,8 +150,6 @@
             eventClick: function (event) {
                 selectedEvent = event;
 
-                console.log(event);
-
                 $('#modal-visualizar-evento #title').text(event.title);
                 $('#modal-visualizar-evento #start').text(moment(event.start).format("L LT"));
                 $('#modal-visualizar-evento #end').text(moment(event.end).format("L LT"));

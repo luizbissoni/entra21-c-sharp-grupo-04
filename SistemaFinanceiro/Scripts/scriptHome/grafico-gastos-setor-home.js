@@ -66,5 +66,28 @@
                 }
             }
         });
+
+        myRadarChart.destroy();
+
+        myRadarChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    backgroundColor: ['#f1c40f', '#e67e22', '#16a085', '#298ob9', '#1E90FF', '#4682B4', '#F4A460', '#FFDAB9', '#00FFFF'],
+                    data: data
+                }],
+                options: {
+                    animation: {
+                        animateScale: true
+                    }
+                }
+            },
+            options: {
+                animation: {
+                    animateScale: true
+                }
+            }
+        });
     }
 });

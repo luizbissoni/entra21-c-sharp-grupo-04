@@ -1,4 +1,11 @@
-﻿
+﻿DROP TABLE [dbo].[recebimentos];
+DROP TABLE [dbo].[login] ;
+DROP TABLE [dbo].[gastos];
+DROP TABLE [dbo].[categorias]
+DROP TABLE [dbo].[cartoes];
+DROP TABLE [dbo].[pessoas];
+
+
 CREATE TABLE [dbo].[pessoas] (
     [Id]              INT          IDENTITY (1, 1) NOT NULL,
     [nome]            VARCHAR (100)   NOT NULL,
@@ -62,14 +69,14 @@ CREATE TABLE [dbo].[recebimentos] (
 );
 
 
---INSERT INTO pessoas (nome, sexo, cpf, nascimento) VALUES 
---('João da Silva', 'M', '123.456.789-98', '1998-06-05'),
---('Rute da Silva', 'F', '987.654.321-98', '1945-12-01');
-
---INSERT INTO cartoes (id_pessoas, numero, conta, bandeira, banco) values((SELECT Id FROM pessoas WHERE pessoas.nome = 'João da Silva'), '123456', '123456', 'VISA', 'BRADESCO');
+INSERT INTO pessoas (nome, sexo, cpf, nascimento) VALUES 
+('João da Silva', 'M', '123.456.789-98', '1998-06-05'),
+('Rute da Silva', 'F', '987.654.321-98', '1945-12-01');
 
 
---INSERT INTO [login] (id_pessoas, usuario, senha, email) VALUES (1, 'admin', '123', 'admin@admin.com'),(2, 'nene','123','neneNanight@lele.com.br');
+INSERT INTO [login] (id_pessoas, usuario, senha, email) 
+VALUES (1, 'admin', '3C9909AFEC25354D551DAE21590BB26E38D53F2173B8D3DC3EEE4C047E7AB1C1EB8B85103E3BE7BA613B31BB5C9C36214DC9F14A42FD7A2FDB84856BCA5C44C2', 'admin@admin.com'),
+(2, 'nene','3C9909AFEC25354D551DAE21590BB26E38D53F2173B8D3DC3EEE4C047E7AB1C1EB8B85103E3BE7BA613B31BB5C9C36214DC9F14A42FD7A2FDB84856BCA5C44C2','neneNanight@lele.com.br');
 
 SELECT * FROM pessoas;
 INSERT INTO categorias(nome) VALUES ('Condomínio'),('Salário'),('IPTU'),('Celular'),('TV Cabo'),('Cartão de Crédito'),('Luz'),('Gás'),('IPVA'),('Seguro carro'),('Energia'),('Aluguel'),('Vestuário'),('Alimento')
@@ -81,4 +88,4 @@ INSERT INTO categorias(nome) VALUES ('Condomínio'),('Salário'),('IPTU'),('Celu
 --update recebimentos set valor = (recebimentos.valor - (select sum(gastos.valor) from gastos)) where recebimentos.id_pessoas = (select cartoes.id_pessoas from cartoes where cartoes.Id = @ID)
 
 Exec sp_defaultlanguage 'sa', 'Português (Brasil)'
-Reconfigure -- "Atualiza" a modificação realizada
+--Reconfigure -- "Atualiza" a modificação realizada

@@ -35,8 +35,8 @@
                 var gastos = result.gastos;
                 var recebidos = result.recebidos;
 
-                $('#total-gastos').text('R$' + gastos.valor).maskMoney();
-                $('.saldo-recebido').text('R$' + recebidos.valor).maskMoney();
+                $('#total-gastos').text('R$' + gastos.valor);
+                $('.saldo-recebido').text('R$' + recebidos.valor);
 
                 $('.porcentoCarteira').data('easyPieChart').update(parseFloat(recebidos.percentual));
                 $('.porcentoGasto').data('easyPieChart').update(parseFloat(gastos.percentual));
